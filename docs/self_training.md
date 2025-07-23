@@ -44,6 +44,59 @@ The goal is a system that:
 
 ---
 
+<details>
+<summary>🔎 Expand to see How it Works 🔍</summary>
+
+```mermaid
+flowchart TD
+
+    A[Watcher: watcher.py] -->|Monitors| B[Diff Engine: diff_engine.py]
+    B --> C[Vector Embedder: embedder.py]
+    C --> D[Feedback Loop: feedback_loop.py]
+    D -->|Set Flag| E[Retrain Trigger File: retrain_trigger.json]
+
+    E --> F[Trainer: trainer.py]
+    F --> G[NLP Model — MiniLM]
+    F --> H[Checkpoint Update]
+    H --> I[Updated Logic + Metadata]
+    I --> M[Memory Store: vector_store/]
+
+    G --> J[Reward Model: reward_model.py]
+    J --> K[Task Rank / Score]
+
+    subgraph Dataset Generator
+        L1[generate_dataset.py]
+        L2[Logs, Diffs, Failures]
+        L3[JSONL Output]
+        L1 --> L2 --> L3 --> F
+    end
+
+    F -->|Success| N[Planner Agent: planner_agent.py]
+    N --> O[Next Task Strategy]
+    O --> P[Tool Executor: tool_executor.py]
+    P --> Q[Execute Self-Train Tasks]
+
+    Q --> R[Mutation Daemon: mutation_daemon.py]
+    R --> S[Apply Code Mutations]
+    S --> A
+
+    subgraph Logging
+        L4[bootstrap.log]
+        L5[bootstrap.json]
+        L6[Vector Dashboard]
+        D --> L4
+        F --> L5
+        M --> L6
+    end
+
+    style A fill:#f5f5f5,stroke:#000,stroke-width:1px
+    style F fill:#dfe6fd,stroke:#003,stroke-width:1px
+    style Q fill:#ffe6cc,stroke:#994d00,stroke-width:1px
+    style L6 fill:#e3ffd5,stroke:#005500,stroke-width:1px
+```
+
+</details>
+
 ## Core Modules
 
 | File                           | Purpose                                            |
