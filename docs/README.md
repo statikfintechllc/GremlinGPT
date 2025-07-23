@@ -204,7 +204,7 @@ href="https://github.com/statikfintechllc/AscendAI/blob/master/GremlinGPT/docs/G
 > Not at a venture-backed startup.  
 > Not on fiber internet with a dev team holding my hand...
 
-Read the [FOUNDER_LOG.md](https://github.com/statikfintechllc/AscendAI/blob/master/About%20Us/FOUNDER_LOG.md) and the [FOUNDER_STATEMENT.md](https://github.com/statikfintechllc/AscendAI/blob/master/About%20Us/FOUNDER_STATEMENT.md) for the full journey and philosophy.
+Read the [FOUNDER_LOG.md](https://github.com/statikfintechllc/Ascend%20Institute/blob/master/About%20Us/FOUNDER_LOG.md) and the [FOUNDER_STATEMENT.md](https://github.com/statikfintechllc/Ascend%20Institute/blob/master/About%20Us/FOUNDER_STATEMENT.md) for the full journey and philosophy.
 
 ---
 
@@ -224,7 +224,7 @@ Read the [FOUNDER_LOG.md](https://github.com/statikfintechllc/AscendAI/blob/mast
 ### Sequence Diagram for CLI Interaction
 
 - *(Represetation is for the Cli.py for chat, not the App icon interaction.)*
-- See more in the [Documentation](https://github.com/statikfintechllc/AscendAI/master/GremlinGPT/docs)
+- See more in the [Documentation](https://github.com/statikfintechllc/GremlinGPT/master/docs)
   
 > [!TIP]
 > 
@@ -471,7 +471,7 @@ curl -X POST http://localhost:5000/api/vector/backend \
 ## System Infrastructure
 
 **Docs:**
-*See [docs](https://github.com/statikfintechllc/AscendAI/blob/master/GremlinGPT/docs) for:*
+*See [docs](https://github.com/statikfintechllc/GremlinGPT/blob/master/docs) for:*
 
 - System architecture (system_overview.md)
 - Module tree (full_structure_tree.txt)
