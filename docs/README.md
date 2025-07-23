@@ -166,8 +166,6 @@ href="https://github.com/statikfintechllc/AscendAI/blob/master/GremlinGPT/docs/G
 - [Founder's Log & Manifesto](#founders-log--manifesto)
 - [Overview](#overview)
 - [Reviewer's Guide](#reviewers-guide)
-- [Features](#features)
-- [Architecture](#architecture)
 - [System Components](#system-components)
 - [Installation](#installation)
 - [API Endpoints](#api-endpoints)
@@ -251,36 +249,6 @@ sequenceDiagram
 ```
 
 </details>
-
----
-
-
-## Features
-
-🗣️ *NEW LINUX APP ICON*
-- **Zero cloud dependence**: runs 100% offline and local  `✅ OPERATIONAL`
-- **Persistent, auto-recovering agent core**  `✅ OPERATIONAL`
-- **State-of-the-art PWA dashboard**: mobile + desktop, instant install, works offline  `✅ OPERATIONAL`
-- **Floating chat (always-on), tabbed navigation** (Tasks / Memory / Trading)  `✅ OPERATIONAL`
-- **Self-training and auto-mutation**: logs errors, auto-patches, and retrains  `✅ OPERATIONAL`
-- **Signal/ticker scanner**: EMA, VWAP, breakout, penny stock focus  `✅ OPERATIONAL`
-- **Vector memory with FAISS/ChromaDB, metadata, tagging**  `✅ OPERATIONAL`
-- **Dynamic backend switching**: FAISS ↔ ChromaDB via dashboard  `✅ NEW FEATURE`
-- **Remote access with ngrok for secure AI on the go**  `🔧 READY TO CONFIGURE`
-- **Auto-saving, crash recovery, and live snapshotting**  `✅ OPERATIONAL`
-
----
-
-## Architecture
-
-- **Linux Application** After install.sh is ran, linux users can check thier local app menu for AscendAI app icon.  `✅ OPERATIONAL`
-- **Backend:** Python (Flask/FastAPI), persistent vector DBs, FSM agent loop  `✅ FULLY OPERATIONAL`
-- **Frontend:** Modern PWA (Bootstrap, vanilla JS), custom dark theme, tabbed UI, floating chat  `✅ OPERATIONAL`
-- **Memory:** ChromaDB/FAISS, SentenceTransformer, full vector store, auto-index  `✅ DUAL BACKEND SUPPORT`
-- **Scraper:** Playwright, BeautifulSoup, async router, DOM/stock/ticker feeds  `✅ OPERATIONAL`
-- **Trading Core:** Real-time signal inference, estimator, audit/history  `✅ OPERATIONAL`
-- **Self-training:** Log watcher, mutation engine, agent self-healing  `✅ OPERATIONAL`
-- **All panels and actions call live REST endpoints—no stubs, no nulls**  `✅ VALIDATED`
 
 ---
 
