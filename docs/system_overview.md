@@ -38,6 +38,70 @@ href="https://github.com/statikfintechllc/AscendAI/blob/master/About Us/WHY_GREM
 
 ---
 
+<details>
+<summary> 🔎 Open to understand the Architecture 🔍 </summary>
+
+```mermaid
+%%{ init : { "theme" : "dark", "themeVariables": { "fontFamily": "monospace", "primaryColor": "#1e1e1e", "primaryTextColor": "#ffffff", "primaryBorderColor": "#555", "nodeTextColor": "#eee", "lineColor": "#999", "tertiaryColor": "#333" } } }%%
+
+graph TD
+    A1[Start System: start_all.sh] --> B1[API Server: backend/]
+    B1 --> B2[Frontend PWA: frontend/]
+    B1 --> B3[SocketIO API Routes]
+
+    B3 --> C1[Planner Agent]
+    B3 --> C2[FSM Core: fsm.py]
+    B3 --> C3[Tool Executor]
+
+    C1 --> C2
+    C1 --> M1[Task Queue: task_queue.py]
+
+    C2 -->|Executes| C3
+    C3 -->|Tool Dispatch| D1[NLP Engine]
+    C3 -->|Tool Dispatch| D2[Scraper Engine]
+    C3 -->|Tool Dispatch| D3[Signal Generator]
+    C3 -->|Tool Dispatch| D4[Shell Executor]
+
+    D1 --> E1[Trainer: trainer.py]
+    D1 --> E2[Embedder.py]
+    D1 --> E3[Vector Store: FAISS / Chroma]
+    E2 --> E3
+
+    D2 --> E3
+    D3 --> E3
+    D4 --> E3
+
+    subgraph Self Training Loop
+        F1[Watcher: watcher.py]
+        F2[Diff Engine: diff_engine.py]
+        F3[Feedback Loop]
+        F4[Generate Dataset]
+        F5[Trainer.py]
+        F6[Memory Snapshot: snapshot.py]
+
+        F1 --> F2 --> F3 --> F4 --> F5 --> D1
+        F2 --> E2
+        F5 --> F6
+    end
+
+    G1[Reward Model] --> C1
+    E3 --> G1
+
+    subgraph Scraper Subsystem
+        D2 --> H1[page_simulator.py]
+        D2 --> H2[dom_navigator.py]
+    end
+
+    subgraph Recovery & Resilience
+        I1[Rollback Engine: kernel.py]
+        I2[Reboot Script: reboot_recover.sh]
+        F6 --> I1
+        I1 --> I2
+    end
+```
+
+</details>
+
 ## Core Mission
 
 GremlinGPT is a locally hosted recursive intelligence system that:
