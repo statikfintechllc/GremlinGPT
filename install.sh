@@ -280,9 +280,28 @@ sudo apt install -y xdotool util-linux python3-tk python3-dev tesseract-ocr
 
 set -u  # Reset to default shell behavior, ensuring undefined variables cause an error
 
-# 9. Final message, indicating successful installation
+# 9. Frontend build and Electron packaging
+banner "Building frontend and Electron application..."
+cd frontend || { echo "${RED}[ERROR] Frontend directory not found!${NC}"; exit 1; }
+
+# Install frontend dependencies
+echo "[*] Installing frontend dependencies..."
+npm install >> "$LOGFILE" 2>&1 || { echo "${RED}[ERROR] Failed to install frontend dependencies${NC}"; exit 1; }
+
+# Build Astro application
+echo "[*] Building Astro application..."
+npm run build >> "$LOGFILE" 2>&1 || { echo "${RED}[ERROR] Failed to build Astro application${NC}"; exit 1; }
+
+# Package Electron application
+echo "[*] Packaging Electron application..."
+npm run pack >> "$LOGFILE" 2>&1 || { echo "${RED}[ERROR] Failed to package Electron application${NC}"; exit 1; }
+
+cd .. || exit 1
+
+# 10. Final message, indicating successful installation
 banner "GremlinGPT installation completed successfully!"
 echo "${GREEN}[✓] GremlinGPT installation completed successfully!${NC}"
-banner "You can now run GremlinGPT using the command: $APP"
+echo "${GREEN}[✓] Electron application packaged and ready to use!${NC}"
+banner "Launch the application with: cd frontend && npm run electron"
 echo "${GREEN}[INSTALL] GremlinGPT installation completed successfully.${NC}"
-banner "Installation log saved to $LOGFILE('$HOME/data/logs/install.log')"
+banner "Installation log saved to $LOGFILE"

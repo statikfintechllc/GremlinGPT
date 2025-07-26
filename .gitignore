@@ -1,0 +1,118 @@
+# Build artifacts and large files
+dist/
+dist-electron/
+build/
+*.app
+*.exe
+*.dmg
+*.deb
+*.rpm
+*.AppImage
+*.tar.gz
+*.zip
+
+# Node.js dependencies
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.npm
+.yarn-integrity
+
+# Python cache and environments
+__pycache__/
+**/__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+.venv/
+
+# Conda environments
+conda_envs/*/
+miniconda3/
+anaconda3/
+
+# Logs
+*.log
+logs/
+data/logs/
+nohup.out
+
+# Temporary files
+tmp/
+temp/
+.tmp/
+*.tmp
+*.swp
+*.swo
+*~
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# IDE files
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Data directories that can get large
+data/embeddings/
+data/raw_scrapes/
+data/nlp_training_sets/
+memory/vector_store/faiss/
+memory/vector_store/chroma/
+scraper/persistence/
+
+# NLTK data
+data/nltk_data/
+
+# Electron build artifacts
+frontend/dist/
+frontend/dist-electron/
+frontend/build/
+frontend/.astro/
+
+# Large model files
+*.bin
+*.safetensors
+*.onnx
+*.h5
+*.pkl
+*.joblib
+
+# Hugging Face cache
+.cache/
+transformers_cache/
+torch/hub/
+
+# Database files
+*.db
+*.sqlite
+*.sqlite3
+
+# Compiled assets
+*.css.map
+*.js.map
+
+# Backup files
+*.bak
+*.backup
+*.orig
+
+# Test coverage
+.coverage
+.nyc_output
+coverage/
