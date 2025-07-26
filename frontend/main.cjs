@@ -26,7 +26,7 @@ function createWindow() {
       nodeIntegration: false,
       contextIsolation: true,
       enableRemoteModule: false,
-      preload: path.join(__dirname, 'preload.js')
+      preload: path.join(__dirname, 'preload.cjs')
     },
     show: false,
     titleBarStyle: process.platform === 'darwin' ? 'hiddenInset' : 'default',

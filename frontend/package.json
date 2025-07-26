@@ -4,7 +4,7 @@
   "version": "1.0.3",
   "description": "GremlinGPT - Autonomous AI System with Monaco Editor",
   "author": "StatikFintechLLC",
-  "main": "main.js",
+  "main": "main.cjs",
   "homepage": "./",
   "scripts": {
     "dev": "astro dev",
