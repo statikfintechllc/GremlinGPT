@@ -27,3 +27,18 @@ Traceback (most recent call last):
     from flask_socketio import SocketIO
 ModuleNotFoundError: No module named 'flask_socketio'
 [Backend Server] Process exited with code 0
+[Backend Server] ENV: gremlin-dashboard
+[Backend Server] CWD: /home/runner/work/GremlinGPT/GremlinGPT
+[Backend Server] PYTHONPATH: /home/runner/work/GremlinGPT/GremlinGPT:/home/runner/work/GremlinGPT/GremlinGPT
+[Backend Server] Running: python -m backend.server --port 8000
+[Backend Server] Port: 8000
+[Backend Server] Started with PID: 3180
+Traceback (most recent call last):
+  File "/usr/share/miniconda/envs/gremlin-dashboard/lib/python3.9/runpy.py", line 197, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "/usr/share/miniconda/envs/gremlin-dashboard/lib/python3.9/runpy.py", line 87, in _run_code
+    exec(code, run_globals)
+  File "/home/runner/work/GremlinGPT/GremlinGPT/backend/server.py", line 23, in <module>
+    from flask_socketio import SocketIO
+ModuleNotFoundError: No module named 'flask_socketio'
+[Backend Server] Process exited with code 0

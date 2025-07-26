@@ -41,3 +41,18 @@ Traceback (most recent call last):
     import schedule
 ModuleNotFoundError: No module named 'schedule'
 [FSM Agent] Process exited with code 0
+[FSM Agent] ENV: gremlin-nlp
+[FSM Agent] CWD: /home/runner/work/GremlinGPT/GremlinGPT
+[FSM Agent] PYTHONPATH: /home/runner/work/GremlinGPT/GremlinGPT:/home/runner/work/GremlinGPT/GremlinGPT
+[FSM Agent] Running: python -m agent_core.fsm
+[FSM Agent] Port: 8003
+[FSM Agent] Started with PID: 3094
+Traceback (most recent call last):
+  File "/usr/share/miniconda/envs/gremlin-nlp/lib/python3.9/runpy.py", line 197, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "/usr/share/miniconda/envs/gremlin-nlp/lib/python3.9/runpy.py", line 87, in _run_code
+    exec(code, run_globals)
+  File "/home/runner/work/GremlinGPT/GremlinGPT/agent_core/fsm.py", line 13, in <module>
+    import schedule
+ModuleNotFoundError: No module named 'schedule'
+[FSM Agent] Process exited with code 0

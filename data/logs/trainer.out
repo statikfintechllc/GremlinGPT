@@ -43,3 +43,27 @@ NameError: name 'chromadb' is not defined
 [NLTK] Found punkt in /home/runner/work/GremlinGPT/GremlinGPT/data/nltk_data
 [NLTK] Found punkt_tab in /home/runner/work/GremlinGPT/GremlinGPT/data/nltk_data
 [Self-Trainer] Process exited with code 0
+[Self-Trainer] ENV: gremlin-orchestrator
+[Self-Trainer] CWD: /home/runner/work/GremlinGPT/GremlinGPT
+[Self-Trainer] PYTHONPATH: /home/runner/work/GremlinGPT/GremlinGPT:/home/runner/work/GremlinGPT/GremlinGPT
+[Self-Trainer] Running: python -m self_training.trainer
+[Self-Trainer] Port: 8005
+[Self-Trainer] Started with PID: 3151
+ERROR:backend.globals:[TRANSFORMER] Failed to load model 'bert-base-uncased': 'Logger' object has no attribute 'success'
+WARNING:backend.globals:[TOKENIZER] Failed to load bert-base-uncased. Falling back to nltk: 'Logger' object has no attribute 'success'
+INFO:backend.globals:[GLOBALS] Centralized import management loaded successfully. 196 items exported.
+Traceback (most recent call last):
+  File "/usr/share/miniconda/envs/gremlin-orchestrator/lib/python3.9/runpy.py", line 197, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "/usr/share/miniconda/envs/gremlin-orchestrator/lib/python3.9/runpy.py", line 87, in _run_code
+    exec(code, run_globals)
+  File "/home/runner/work/GremlinGPT/GremlinGPT/self_training/trainer.py", line 14, in <module>
+    from nlp_engine.mini_attention import MiniMultiHeadAttention
+  File "/home/runner/work/GremlinGPT/GremlinGPT/nlp_engine/mini_attention.py", line 14, in <module>
+    from memory.vector_store.embedder import package_embedding, embed_text
+  File "/home/runner/work/GremlinGPT/GremlinGPT/memory/vector_store/embedder.py", line 71, in <module>
+    if chromadb:
+NameError: name 'chromadb' is not defined
+[NLTK] Found punkt in /home/runner/work/GremlinGPT/GremlinGPT/data/nltk_data
+[NLTK] Found punkt_tab in /home/runner/work/GremlinGPT/GremlinGPT/data/nltk_data
+[Self-Trainer] Process exited with code 0

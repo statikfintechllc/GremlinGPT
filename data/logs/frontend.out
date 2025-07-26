@@ -31,3 +31,12 @@ OSError: [Errno 98] Address already in use
 usage: server.py [-h] [--cgi] [--bind ADDRESS] [--directory DIRECTORY] [port]
 server.py: error: unrecognized arguments: --port 8080
 [Frontend] Process exited with code 0
+[Frontend] ENV: gremlin-dashboard
+[Frontend] CWD: /home/runner/work/GremlinGPT/GremlinGPT
+[Frontend] PYTHONPATH: /home/runner/work/GremlinGPT/GremlinGPT:/home/runner/work/GremlinGPT/GremlinGPT
+[Frontend] Running: python3 -m http.server 8080 --directory frontend --port 8080
+[Frontend] Port: 8080
+[Frontend] Started with PID: 3209
+usage: server.py [-h] [--cgi] [--bind ADDRESS] [--directory DIRECTORY] [port]
+server.py: error: unrecognized arguments: --port 8080
+[Frontend] Process exited with code 0
