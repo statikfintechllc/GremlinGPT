@@ -270,8 +270,8 @@ sequenceDiagram
 **1. Clone the repo**
 
 ```bash
-git clone https://github.com/statikfintechllc/AscendAI.git
-cd AscendAI/GremlinGPT
+git clone https://github.com/statikfintechllc/GremlinGPT.git
+cd GremlinGPT
 chmod +x install.sh && ./install.sh
 ```
 
