@@ -1,0 +1,137 @@
+---
+// File tree component for browsing GremlinGPT source files
+---
+
+<div id="file-tree" class="p-4">
+  <div class="space-y-1">
+    <!-- Root folders -->
+    <div class="file-node folder" data-path="/">
+      <div class="flex items-center space-x-2 p-1 hover:bg-gray-700 rounded cursor-pointer">
+        <svg class="w-4 h-4 text-blue-400" fill="currentColor" viewBox="0 0 20 20">
+          <path d="M2 6a2 2 0 012-2h5l2 2h5a2 2 0 012 2v6a2 2 0 01-2 2H4a2 2 0 01-2-2V6z"></path>
+        </svg>
+        <span class="text-sm text-gray-300">GremlinGPT</span>
+      </div>
+    </div>
+    
+    <!-- Core modules -->
+    <div class="ml-4 space-y-1">
+      <div class="file-node folder" data-path="/agent_core">
+        <div class="flex items-center space-x-2 p-1 hover:bg-gray-700 rounded cursor-pointer">
+          <svg class="w-4 h-4 text-blue-400" fill="currentColor" viewBox="0 0 20 20">
+            <path d="M2 6a2 2 0 012-2h5l2 2h5a2 2 0 012 2v6a2 2 0 01-2 2H4a2 2 0 01-2-2V6z"></path>
+          </svg>
+          <span class="text-sm text-gray-300">agent_core</span>
+        </div>
+      </div>
+      
+      <div class="file-node folder" data-path="/backend">
+        <div class="flex items-center space-x-2 p-1 hover:bg-gray-700 rounded cursor-pointer">
+          <svg class="w-4 h-4 text-blue-400" fill="currentColor" viewBox="0 0 20 20">
+            <path d="M2 6a2 2 0 012-2h5l2 2h5a2 2 0 012 2v6a2 2 0 01-2 2H4a2 2 0 01-2-2V6z"></path>
+          </svg>
+          <span class="text-sm text-gray-300">backend</span>
+        </div>
+      </div>
+      
+      <div class="file-node folder" data-path="/core">
+        <div class="flex items-center space-x-2 p-1 hover:bg-gray-700 rounded cursor-pointer">
+          <svg class="w-4 h-4 text-blue-400" fill="currentColor" viewBox="0 0 20 20">
+            <path d="M2 6a2 2 0 012-2h5l2 2h5a2 2 0 012 2v6a2 2 0 01-2 2H4a2 2 0 01-2-2V6z"></path>
+          </svg>
+          <span class="text-sm text-gray-300">core</span>
+        </div>
+      </div>
+      
+      <div class="file-node folder" data-path="/memory">
+        <div class="flex items-center space-x-2 p-1 hover:bg-gray-700 rounded cursor-pointer">
+          <svg class="w-4 h-4 text-blue-400" fill="currentColor" viewBox="0 0 20 20">
+            <path d="M2 6a2 2 0 012-2h5l2 2h5a2 2 0 012 2v6a2 2 0 01-2 2H4a2 2 0 01-2-2V6z"></path>
+          </svg>
+          <span class="text-sm text-gray-300">memory</span>
+        </div>
+      </div>
+      
+      <div class="file-node folder" data-path="/nlp_engine">
+        <div class="flex items-center space-x-2 p-1 hover:bg-gray-700 rounded cursor-pointer">
+          <svg class="w-4 h-4 text-blue-400" fill="currentColor" viewBox="0 0 20 20">
+            <path d="M2 6a2 2 0 012-2h5l2 2h5a2 2 0 012 2v6a2 2 0 01-2 2H4a2 2 0 01-2-2V6z"></path>
+          </svg>
+          <span class="text-sm text-gray-300">nlp_engine</span>
+        </div>
+      </div>
+      
+      <div class="file-node folder" data-path="/scraper">
+        <div class="flex items-center space-x-2 p-1 hover:bg-gray-700 rounded cursor-pointer">
+          <svg class="w-4 h-4 text-blue-400" fill="currentColor" viewBox="0 0 20 20">
+            <path d="M2 6a2 2 0 012-2h5l2 2h5a2 2 0 012 2v6a2 2 0 01-2 2H4a2 2 0 01-2-2V6z"></path>
+          </svg>
+          <span class="text-sm text-gray-300">scraper</span>
+        </div>
+      </div>
+      
+      <div class="file-node folder" data-path="/trading_core">
+        <div class="flex items-center space-x-2 p-1 hover:bg-gray-700 rounded cursor-pointer">
+          <svg class="w-4 h-4 text-blue-400" fill="currentColor" viewBox="0 0 20 20">
+            <path d="M2 6a2 2 0 012-2h5l2 2h5a2 2 0 012 2v6a2 2 0 01-2 2H4a2 2 0 01-2-2V6z"></path>
+          </svg>
+          <span class="text-sm text-gray-300">trading_core</span>
+        </div>
+      </div>
+      
+      <!-- Key files -->
+      <div class="file-node file" data-path="/install.sh">
+        <div class="flex items-center space-x-2 p-1 hover:bg-gray-700 rounded cursor-pointer">
+          <svg class="w-4 h-4 text-green-400" fill="currentColor" viewBox="0 0 20 20">
+            <path fill-rule="evenodd" d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4zm2 6a1 1 0 011-1h6a1 1 0 110 2H7a1 1 0 01-1-1zm1 3a1 1 0 100 2h6a1 1 0 100-2H7z" clip-rule="evenodd"></path>
+          </svg>
+          <span class="text-sm text-gray-300">install.sh</span>
+        </div>
+      </div>
+      
+      <div class="file-node file" data-path="/run/unified_startup.py">
+        <div class="flex items-center space-x-2 p-1 hover:bg-gray-700 rounded cursor-pointer">
+          <svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+            <path fill-rule="evenodd" d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4zm2 6a1 1 0 011-1h6a1 1 0 110 2H7a1 1 0 01-1-1zm1 3a1 1 0 100 2h6a1 1 0 100-2H7z" clip-rule="evenodd"></path>
+          </svg>
+          <span class="text-sm text-gray-300">unified_startup.py</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  // File tree interaction
+  document.addEventListener('DOMContentLoaded', () => {
+    const fileNodes = document.querySelectorAll('.file-node');
+    
+    fileNodes.forEach(node => {
+      node.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const path = node.dataset.path;
+        const isFolder = node.classList.contains('folder');
+        
+        if (isFolder) {
+          // Toggle folder expansion
+          toggleFolder(node);
+        } else {
+          // Open file in Monaco editor
+          openFileInEditor(path);
+        }
+      });
+    });
+  });
+  
+  function toggleFolder(folderNode) {
+    // TODO: Implement folder expansion/collapse
+    console.log('Toggle folder:', folderNode.dataset.path);
+  }
+  
+  function openFileInEditor(filePath) {
+    // Dispatch event to Monaco editor
+    window.dispatchEvent(new CustomEvent('openFile', {
+      detail: { path: filePath }
+    }));
+  }
+</script>

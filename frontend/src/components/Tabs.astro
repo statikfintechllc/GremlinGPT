@@ -1,0 +1,243 @@
+---
+// Tabs component for managing open files
+---
+
+<div id="tabs-container" class="bg-gray-800 flex items-center overflow-x-auto">
+  <div id="tabs-list" class="flex">
+    <!-- Dynamic tabs will be inserted here -->
+  </div>
+  
+  <!-- Add new tab button -->
+  <button id="new-tab-btn" class="p-2 hover:bg-gray-700 text-gray-400 hover:text-gray-200">
+    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+      <path fill-rule="evenodd" d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z" clip-rule="evenodd"></path>
+    </svg>
+  </button>
+</div>
+
+<script>
+  let activeTabs = new Set();
+  let activeTab = null;
+
+  document.addEventListener('DOMContentLoaded', () => {
+    // Listen for file tab updates
+    window.addEventListener('updateFileTab', (event) => {
+      const filePath = event.detail.path;
+      addTab(filePath);
+      setActiveTab(filePath);
+    });
+
+    // New tab button
+    document.getElementById('new-tab-btn').addEventListener('click', () => {
+      // Open a new untitled file
+      createNewFile();
+    });
+  });
+
+  function addTab(filePath) {
+    if (activeTabs.has(filePath)) {
+      return; // Tab already exists
+    }
+
+    activeTabs.add(filePath);
+    
+    const fileName = filePath.split('/').pop() || filePath;
+    const tabElement = createTabElement(filePath, fileName);
+    
+    document.getElementById('tabs-list').appendChild(tabElement);
+  }
+
+  function createTabElement(filePath, fileName) {
+    const tab = document.createElement('div');
+    tab.className = 'tab flex items-center bg-gray-700 border-r border-gray-600 px-3 py-2 cursor-pointer hover:bg-gray-600';
+    tab.dataset.filePath = filePath;
+    
+    tab.innerHTML = `
+      <div class="flex items-center space-x-2">
+        <span class="text-sm text-gray-200">${fileName}</span>
+        <span class="modified-indicator w-2 h-2 bg-orange-400 rounded-full hidden"></span>
+        <button class="close-tab text-gray-400 hover:text-gray-200 ml-2" data-file-path="${filePath}">
+          <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
+            <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+          </svg>
+        </button>
+      </div>
+    `;
+
+    // Tab click handler
+    tab.addEventListener('click', (e) => {
+      if (!e.target.closest('.close-tab')) {
+        setActiveTab(filePath);
+        // Trigger file opening in Monaco editor
+        window.dispatchEvent(new CustomEvent('openFile', {
+          detail: { path: filePath }
+        }));
+      }
+    });
+
+    // Close button handler
+    tab.querySelector('.close-tab').addEventListener('click', (e) => {
+      e.stopPropagation();
+      closeTab(filePath);
+    });
+
+    return tab;
+  }
+
+  function setActiveTab(filePath) {
+    // Remove active class from all tabs
+    document.querySelectorAll('.tab').forEach(tab => {
+      tab.classList.remove('bg-gray-600', 'border-b-2', 'border-red-400');
+      tab.classList.add('bg-gray-700');
+    });
+
+    // Add active class to selected tab
+    const activeTabElement = document.querySelector(`[data-file-path="${filePath}"]`);
+    if (activeTabElement) {
+      activeTabElement.classList.remove('bg-gray-700');
+      activeTabElement.classList.add('bg-gray-600', 'border-b-2', 'border-red-400');
+    }
+
+    activeTab = filePath;
+  }
+
+  function closeTab(filePath) {
+    // Check if file has unsaved changes
+    const fileData = window.openFiles?.get(filePath);
+    if (fileData && fileData.modified) {
+      if (!confirm(`File "${filePath}" has unsaved changes. Close anyway?`)) {
+        return;
+      }
+    }
+
+    // Remove from active tabs
+    activeTabs.delete(filePath);
+    
+    // Remove tab element
+    const tabElement = document.querySelector(`[data-file-path="${filePath}"]`);
+    if (tabElement) {
+      tabElement.remove();
+    }
+
+    // If this was the active tab, switch to another tab
+    if (activeTab === filePath) {
+      const remainingTabs = Array.from(activeTabs);
+      if (remainingTabs.length > 0) {
+        const nextTab = remainingTabs[remainingTabs.length - 1];
+        setActiveTab(nextTab);
+        window.dispatchEvent(new CustomEvent('openFile', {
+          detail: { path: nextTab }
+        }));
+      } else {
+        activeTab = null;
+        // Clear editor
+        if (window.editor) {
+          window.editor.setValue('// No files open\n// Select a file from the file tree to start editing');
+        }
+      }
+    }
+
+    // Dispose Monaco model if exists
+    if (window.openFiles?.has(filePath)) {
+      const fileData = window.openFiles.get(filePath);
+      if (fileData.model) {
+        fileData.model.dispose();
+      }
+      window.openFiles.delete(filePath);
+    }
+  }
+
+  function createNewFile() {
+    const fileName = prompt('Enter file name:');
+    if (!fileName) return;
+
+    const filePath = `/new/${fileName}`;
+    
+    // Create a new model in Monaco
+    if (window.monaco && window.editor) {
+      const language = getLanguageFromPath(fileName);
+      const model = window.monaco.editor.createModel('', language);
+      
+      // Add to cache
+      if (!window.openFiles) {
+        window.openFiles = new Map();
+      }
+      
+      window.openFiles.set(filePath, {
+        model: model,
+        originalContent: '',
+        modified: false,
+        isNew: true
+      });
+
+      // Add tab and switch to it
+      addTab(filePath);
+      setActiveTab(filePath);
+      window.editor.setModel(model);
+      window.currentFile = filePath;
+    }
+  }
+
+  function getLanguageFromPath(filePath) {
+    const ext = filePath.split('.').pop()?.toLowerCase();
+    const languageMap = {
+      'py': 'python',
+      'js': 'javascript',
+      'ts': 'typescript',
+      'json': 'json',
+      'md': 'markdown',
+      'sh': 'shell',
+      'yml': 'yaml',
+      'yaml': 'yaml',
+      'html': 'html',
+      'css': 'css',
+      'toml': 'toml',
+      'xml': 'xml'
+    };
+    return languageMap[ext] || 'plaintext';
+  }
+
+  // Listen for file modification status changes
+  window.addEventListener('fileModified', (event) => {
+    const filePath = event.detail.path;
+    const tabElement = document.querySelector(`[data-file-path="${filePath}"]`);
+    if (tabElement) {
+      const indicator = tabElement.querySelector('.modified-indicator');
+      if (indicator) {
+        indicator.classList.remove('hidden');
+      }
+    }
+  });
+
+  window.addEventListener('fileSaved', (event) => {
+    const filePath = event.detail.path;
+    const tabElement = document.querySelector(`[data-file-path="${filePath}"]`);
+    if (tabElement) {
+      const indicator = tabElement.querySelector('.modified-indicator');
+      if (indicator) {
+        indicator.classList.add('hidden');
+      }
+    }
+  });
+
+  // Keyboard shortcuts for tab management
+  document.addEventListener('keydown', (e) => {
+    if ((e.ctrlKey || e.metaKey) && e.key === 'w') {
+      e.preventDefault();
+      if (activeTab) {
+        closeTab(activeTab);
+      }
+    }
+    
+    if ((e.ctrlKey || e.metaKey) && e.key === 't') {
+      e.preventDefault();
+      createNewFile();
+    }
+  });
+</script>
+
+<style>
+  .tab.modified .modified-indicator {
+    display: block !important;
+  }
+</style>

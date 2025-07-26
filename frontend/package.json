@@ -1,0 +1,118 @@
+{
+  "name": "gremlingpt-frontend",
+  "type": "module",
+  "version": "1.0.3",
+  "description": "GremlinGPT - Autonomous AI System with Monaco Editor",
+  "author": "StatikFintechLLC",
+  "main": "main.js",
+  "homepage": "./",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro",
+    "electron": "electron .",
+    "electron-dev": "concurrently \"npm run dev\" \"wait-on http://localhost:4321 && electron .\"",
+    "build-electron": "npm run build && electron-builder",
+    "dist": "npm run build && electron-builder --publish=never",
+    "pack": "npm run build && electron-builder --dir",
+    "postinstall": "electron-builder install-app-deps"
+  },
+  "dependencies": {
+    "@astrojs/node": "^9.3.0",
+    "@monaco-editor/loader": "^1.5.0",
+    "@tailwindcss/vite": "^4.1.11",
+    "astro": "^5.12.3",
+    "chokidar": "^4.0.3",
+    "electron": "^37.2.4",
+    "monaco-editor": "^0.52.2",
+    "tailwindcss": "^4.1.11",
+    "ws": "^8.18.3"
+  },
+  "devDependencies": {
+    "concurrently": "^9.2.0",
+    "electron-builder": "^26.0.12",
+    "wait-on": "^8.0.4"
+  },
+  "build": {
+    "appId": "com.statikfintechllc.gremlingpt",
+    "productName": "GremlinGPT",
+    "directories": {
+      "output": "dist-electron"
+    },
+    "files": [
+      "dist/**/*",
+      "main.js",
+      "preload.js",
+      "package.json",
+      "node_modules/**/*"
+    ],
+    "extraResources": [
+      {
+        "from": "../",
+        "to": "gremlin-source",
+        "filter": [
+          "**/*",
+          "!frontend/**",
+          "!node_modules/**",
+          "!dist/**",
+          "!*.log",
+          "!.git/**"
+        ]
+      }
+    ],
+    "mac": {
+      "icon": "public/icon.icns",
+      "category": "public.app-category.developer-tools",
+      "target": [
+        {
+          "target": "dmg",
+          "arch": [
+            "x64",
+            "arm64"
+          ]
+        }
+      ]
+    },
+    "win": {
+      "icon": "public/icon.ico",
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        }
+      ]
+    },
+    "linux": {
+      "icon": "public/icon.png",
+      "target": [
+        {
+          "target": "AppImage",
+          "arch": [
+            "x64"
+          ]
+        },
+        {
+          "target": "deb",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "category": "Development"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true
+    },
+    "publish": {
+      "provider": "github",
+      "owner": "statikfintechllc",
+      "repo": "GremlinGPT"
+    }
+  }
+}

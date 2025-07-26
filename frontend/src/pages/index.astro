@@ -1,0 +1,60 @@
+---
+import Layout from '../layouts/Layout.astro';
+import FileTree from '../components/FileTree.astro';
+import MonacoEditor from '../components/MonacoEditor.astro';
+import Tabs from '../components/Tabs.astro';
+---
+
+<Layout title="GremlinGPT - Autonomous AI System">
+  <div class="h-screen flex flex-col">
+    <!-- Header -->
+    <header class="bg-gray-800 border-b border-gray-700 p-4 flex items-center justify-between">
+      <div class="flex items-center space-x-4">
+        <h1 class="text-xl font-bold text-red-400">GremlinGPT</h1>
+        <span class="text-sm text-gray-400">v1.0.3 - Autonomous AI System</span>
+      </div>
+      <div class="flex items-center space-x-2">
+        <div class="w-2 h-2 bg-green-500 rounded-full"></div>
+        <span class="text-sm text-gray-300">System Online</span>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="flex-1 flex">
+      <!-- Sidebar with File Tree -->
+      <aside class="w-80 bg-gray-800 border-r border-gray-700 flex flex-col">
+        <div class="p-4 border-b border-gray-700">
+          <h2 class="text-sm font-semibold text-gray-300 uppercase tracking-wide">Source</h2>
+        </div>
+        <div class="flex-1 overflow-auto">
+          <FileTree />
+        </div>
+      </aside>
+
+      <!-- Editor and Tabs Area -->
+      <main class="flex-1 flex flex-col">
+        <!-- Tab Bar -->
+        <div class="border-b border-gray-700">
+          <Tabs />
+        </div>
+        
+        <!-- Editor Content -->
+        <div class="flex-1">
+          <MonacoEditor />
+        </div>
+      </main>
+    </div>
+
+    <!-- Bottom Status Bar -->
+    <footer class="bg-gray-800 border-t border-gray-700 px-4 py-2 flex items-center justify-between text-sm">
+      <div class="flex items-center space-x-4">
+        <span class="text-gray-400">AI Agent: Active</span>
+        <span class="text-gray-400">File Changes: 0</span>
+      </div>
+      <div class="flex items-center space-x-4">
+        <span class="text-gray-400">Last Sync: Just now</span>
+        <span class="text-green-400">● Local Mode</span>
+      </div>
+    </footer>
+  </div>
+</Layout>

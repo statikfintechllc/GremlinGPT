@@ -1,0 +1,359 @@
+---
+// Monaco Editor component for code editing
+---
+
+<div id="monaco-editor-container" class="h-full w-full bg-gray-900"></div>
+
+<script>
+  import loader from '@monaco-editor/loader';
+  
+  // Configure Monaco to use a CDN
+  loader.config({ 
+    paths: { 
+      vs: 'https://cdn.jsdelivr.net/npm/monaco-editor@0.52.2/min/vs' 
+    } 
+  });
+
+  let editor;
+  let currentFile = null;
+  const openFiles = new Map(); // Cache for opened files
+
+  // Initialize Monaco Editor
+  loader.init().then((monaco) => {
+    // Configure dark theme
+    monaco.editor.defineTheme('gremlin-dark', {
+      base: 'vs-dark',
+      inherit: true,
+      rules: [
+        { token: 'comment', foreground: '6A737D' },
+        { token: 'keyword', foreground: 'F97583' },
+        { token: 'string', foreground: '9ECBFF' },
+        { token: 'number', foreground: '79B8FF' },
+        { token: 'regexp', foreground: '7CE38B' },
+        { token: 'type', foreground: 'B392F0' },
+        { token: 'class', foreground: 'FFAB70' },
+        { token: 'function', foreground: 'B392F0' },
+        { token: 'variable', foreground: 'FFAB70' },
+        { token: 'constant', foreground: '79B8FF' },
+        { token: 'attribute', foreground: 'FFAB70' },
+        { token: 'tag', foreground: '85E89D' },
+      ],
+      colors: {
+        'editor.background': '#0D1117',
+        'editor.foreground': '#C9D1D9',
+        'editor.lineHighlightBackground': '#161B22',
+        'editor.selectionBackground': '#264F78',
+        'editor.inactiveSelectionBackground': '#3A3D41',
+        'editorCursor.foreground': '#C9D1D9',
+        'editorWhitespace.foreground': '#484F58',
+        'editorLineNumber.foreground': '#6E7681',
+        'editorLineNumber.activeForeground': '#C9D1D9',
+      }
+    });
+
+    // Create editor instance
+    editor = monaco.editor.create(document.getElementById('monaco-editor-container'), {
+      value: '// Welcome to GremlinGPT Source Editor\n// Select a file from the file tree to start editing\n',
+      language: 'javascript',
+      theme: 'gremlin-dark',
+      fontSize: 14,
+      minimap: { enabled: true },
+      scrollBeyondLastLine: false,
+      automaticLayout: true,
+      wordWrap: 'on',
+      lineNumbers: 'on',
+      glyphMargin: true,
+      folding: true,
+      showFoldingControls: 'always',
+      contextmenu: true,
+      quickSuggestions: true,
+      parameterHints: { enabled: true },
+      suggestOnTriggerCharacters: true,
+      acceptSuggestionOnEnter: 'on',
+      tabCompletion: 'on',
+      renderWhitespace: 'selection',
+      renderControlCharacters: true,
+      readOnly: false,
+    });
+
+    // Handle file opening from file tree
+    window.addEventListener('openFile', (event) => {
+      const filePath = event.detail.path;
+      openFile(filePath);
+    });
+
+    // Handle content changes
+    editor.onDidChangeModelContent(() => {
+      if (currentFile) {
+        markFileAsModified(currentFile);
+        // Auto-save after 2 seconds of inactivity
+        clearTimeout(window.autoSaveTimeout);
+        window.autoSaveTimeout = setTimeout(() => {
+          saveFile(currentFile);
+        }, 2000);
+      }
+    });
+
+    // Enable AI agent integration
+    setupAIAgentIntegration(monaco, editor);
+  });
+
+  async function openFile(filePath) {
+    try {
+      // Check if file is already cached
+      if (openFiles.has(filePath)) {
+        const fileData = openFiles.get(filePath);
+        editor.setModel(fileData.model);
+        currentFile = filePath;
+        updateFileTab(filePath);
+        return;
+      }
+
+      // Fetch file content from backend
+      const response = await fetch(`/api/files${filePath}`);
+      if (!response.ok) {
+        throw new Error(`Failed to load file: ${response.statusText}`);
+      }
+
+      const content = await response.text();
+      const language = getLanguageFromPath(filePath);
+
+      // Create Monaco model for the file
+      const model = monaco.editor.createModel(content, language);
+      
+      // Cache the file
+      openFiles.set(filePath, {
+        model: model,
+        originalContent: content,
+        modified: false
+      });
+
+      // Set the model in editor
+      editor.setModel(model);
+      currentFile = filePath;
+      updateFileTab(filePath);
+
+    } catch (error) {
+      console.error('Error opening file:', error);
+      showNotification('Error opening file: ' + error.message, 'error');
+    }
+  }
+
+  async function saveFile(filePath) {
+    if (!openFiles.has(filePath)) return;
+
+    try {
+      const fileData = openFiles.get(filePath);
+      const content = fileData.model.getValue();
+
+      const response = await fetch(`/api/files${filePath}`, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'text/plain',
+        },
+        body: content
+      });
+
+      if (!response.ok) {
+        throw new Error(`Failed to save file: ${response.statusText}`);
+      }
+
+      // Update cache
+      fileData.originalContent = content;
+      fileData.modified = false;
+      
+      markFileAsSaved(filePath);
+      showNotification(`Saved: ${filePath}`, 'success');
+
+    } catch (error) {
+      console.error('Error saving file:', error);
+      showNotification('Error saving file: ' + error.message, 'error');
+    }
+  }
+
+  function getLanguageFromPath(filePath) {
+    const ext = filePath.split('.').pop().toLowerCase();
+    const languageMap = {
+      'py': 'python',
+      'js': 'javascript',
+      'ts': 'typescript',
+      'json': 'json',
+      'md': 'markdown',
+      'sh': 'shell',
+      'yml': 'yaml',
+      'yaml': 'yaml',
+      'html': 'html',
+      'css': 'css',
+      'toml': 'toml',
+      'xml': 'xml',
+      'dockerfile': 'dockerfile'
+    };
+    return languageMap[ext] || 'plaintext';
+  }
+
+  function markFileAsModified(filePath) {
+    if (openFiles.has(filePath)) {
+      openFiles.get(filePath).modified = true;
+    }
+    // Update UI to show file as modified
+    const tabElement = document.querySelector(`[data-file-path="${filePath}"]`);
+    if (tabElement) {
+      tabElement.classList.add('modified');
+    }
+  }
+
+  function markFileAsSaved(filePath) {
+    // Update UI to show file as saved
+    const tabElement = document.querySelector(`[data-file-path="${filePath}"]`);
+    if (tabElement) {
+      tabElement.classList.remove('modified');
+    }
+  }
+
+  function updateFileTab(filePath) {
+    // Dispatch event to update tabs
+    window.dispatchEvent(new CustomEvent('updateFileTab', {
+      detail: { path: filePath }
+    }));
+  }
+
+  function showNotification(message, type = 'info') {
+    // Create notification element
+    const notification = document.createElement('div');
+    notification.className = `fixed top-4 right-4 px-4 py-2 rounded shadow-lg z-50 ${
+      type === 'error' ? 'bg-red-600 text-white' : 
+      type === 'success' ? 'bg-green-600 text-white' : 
+      'bg-blue-600 text-white'
+    }`;
+    notification.textContent = message;
+    
+    document.body.appendChild(notification);
+    
+    // Remove after 3 seconds
+    setTimeout(() => {
+      notification.remove();
+    }, 3000);
+  }
+
+  function setupAIAgentIntegration(monaco, editor) {
+    // Add AI suggestion command
+    editor.addAction({
+      id: 'ai-suggest',
+      label: 'AI Suggest Changes',
+      keybindings: [monaco.KeyMod.CtrlCmd | monaco.KeyCode.KeyI],
+      contextMenuGroupId: 'modification',
+      run: async function(ed) {
+        const selection = ed.getSelection();
+        const selectedText = ed.getModel().getValueInRange(selection);
+        
+        if (selectedText.trim()) {
+          await requestAISuggestion(selectedText, selection);
+        } else {
+          await requestAISuggestion(ed.getValue(), null);
+        }
+      }
+    });
+
+    // Add AI explain command
+    editor.addAction({
+      id: 'ai-explain',
+      label: 'AI Explain Code',
+      keybindings: [monaco.KeyMod.CtrlCmd | monaco.KeyCode.KeyE],
+      contextMenuGroupId: 'navigation',
+      run: async function(ed) {
+        const selection = ed.getSelection();
+        const selectedText = ed.getModel().getValueInRange(selection);
+        
+        if (selectedText.trim()) {
+          await requestAIExplanation(selectedText);
+        }
+      }
+    });
+  }
+
+  async function requestAISuggestion(code, selection) {
+    try {
+      const response = await fetch('/api/ai/suggest', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          code: code,
+          file: currentFile,
+          selection: selection
+        })
+      });
+
+      if (!response.ok) {
+        throw new Error('AI suggestion request failed');
+      }
+
+      const suggestion = await response.json();
+      
+      // Show suggestion in a modal or inline widget
+      showAISuggestion(suggestion, selection);
+
+    } catch (error) {
+      console.error('AI suggestion error:', error);
+      showNotification('AI suggestion failed: ' + error.message, 'error');
+    }
+  }
+
+  async function requestAIExplanation(code) {
+    try {
+      const response = await fetch('/api/ai/explain', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          code: code,
+          file: currentFile
+        })
+      });
+
+      if (!response.ok) {
+        throw new Error('AI explanation request failed');
+      }
+
+      const explanation = await response.json();
+      
+      // Show explanation in a side panel or modal
+      showAIExplanation(explanation);
+
+    } catch (error) {
+      console.error('AI explanation error:', error);
+      showNotification('AI explanation failed: ' + error.message, 'error');
+    }
+  }
+
+  function showAISuggestion(suggestion, selection) {
+    // TODO: Implement AI suggestion UI
+    console.log('AI Suggestion:', suggestion);
+    showNotification('AI suggestion received - check console', 'info');
+  }
+
+  function showAIExplanation(explanation) {
+    // TODO: Implement AI explanation UI
+    console.log('AI Explanation:', explanation);
+    showNotification('AI explanation received - check console', 'info');
+  }
+
+  // Keyboard shortcuts
+  document.addEventListener('keydown', (e) => {
+    if ((e.ctrlKey || e.metaKey) && e.key === 's') {
+      e.preventDefault();
+      if (currentFile) {
+        saveFile(currentFile);
+      }
+    }
+  });
+
+  // Cleanup on page unload
+  window.addEventListener('beforeunload', () => {
+    if (editor) {
+      editor.dispose();
+    }
+  });
+</script>
