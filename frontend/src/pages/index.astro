@@ -1,60 +1,512 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import FileTree from '../components/FileTree.astro';
-import MonacoEditor from '../components/MonacoEditor.astro';
-import Tabs from '../components/Tabs.astro';
 ---
 
-<Layout title="GremlinGPT - Autonomous AI System">
-  <div class="h-screen flex flex-col">
-    <!-- Header -->
+<Layout title="GremlinGPT - Enhanced Dashboard CLI">
+  <div class="h-screen flex flex-col bg-gray-900">
+    <!-- Header with GremlinGPT Branding -->
     <header class="bg-gray-800 border-b border-gray-700 p-4 flex items-center justify-between">
       <div class="flex items-center space-x-4">
-        <h1 class="text-xl font-bold text-red-400">GremlinGPT</h1>
-        <span class="text-sm text-gray-400">v1.0.3 - Autonomous AI System</span>
+        <h1 class="text-xl font-bold text-red-400">🧠 GremlinGPT Enhanced Dashboard</h1>
+        <span class="text-sm text-gray-400">v1.0.3 - Living AI Ecosystem</span>
       </div>
       <div class="flex items-center space-x-2">
-        <div class="w-2 h-2 bg-green-500 rounded-full"></div>
-        <span class="text-sm text-gray-300">System Online</span>
+        <div id="system-status" class="w-2 h-2 bg-yellow-500 rounded-full"></div>
+        <span id="status-text" class="text-sm text-gray-300">Initializing...</span>
       </div>
     </header>
 
-    <!-- Main Content -->
-    <div class="flex-1 flex">
-      <!-- Sidebar with File Tree -->
-      <aside class="w-80 bg-gray-800 border-r border-gray-700 flex flex-col">
-        <div class="p-4 border-b border-gray-700">
-          <h2 class="text-sm font-semibold text-gray-300 uppercase tracking-wide">Source</h2>
-        </div>
-        <div class="flex-1 overflow-auto">
-          <FileTree />
-        </div>
-      </aside>
-
-      <!-- Editor and Tabs Area -->
-      <main class="flex-1 flex flex-col">
-        <!-- Tab Bar -->
-        <div class="border-b border-gray-700">
-          <Tabs />
-        </div>
-        
-        <!-- Editor Content -->
-        <div class="flex-1">
-          <MonacoEditor />
-        </div>
-      </main>
+    <!-- Main Tab Navigation -->
+    <div class="bg-gray-800 border-b border-gray-700">
+      <nav class="flex space-x-1" id="main-tabs">
+        <button class="tab-button active" data-tab="cli">
+          🎛️ CLI Dashboard
+        </button>
+        <button class="tab-button" data-tab="memory">
+          🧠 Memory
+        </button>
+        <button class="tab-button" data-tab="agents">
+          🤖 Agents
+        </button>
+        <button class="tab-button" data-tab="editor">
+          📝 Source Editor
+        </button>
+        <button class="tab-button" data-tab="settings">
+          ⚙️ Settings
+        </button>
+      </nav>
     </div>
 
-    <!-- Bottom Status Bar -->
+    <!-- Tab Content Area -->
+    <main class="flex-1 flex">
+      <!-- CLI Dashboard Tab (Default) -->
+      <div id="cli-tab" class="tab-content active w-full flex">
+        <!-- CLI Interface Container -->
+        <div class="w-full bg-black text-green-400 font-mono text-sm">
+          <div id="cli-container" class="h-full p-4 overflow-auto">
+            <div id="cli-output" class="whitespace-pre-wrap"></div>
+            <div class="flex items-center mt-2">
+              <span class="text-red-400">GremlinGPT@dashboard:~$ </span>
+              <input 
+                id="cli-input" 
+                type="text" 
+                class="flex-1 bg-transparent border-none outline-none text-green-400 ml-2"
+                placeholder="Enter command (help for options)"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Memory Tab -->
+      <div id="memory-tab" class="tab-content hidden w-full">
+        <div class="h-full bg-gray-900 text-gray-100 p-6">
+          <h2 class="text-xl font-bold mb-4">🧠 Memory Systems</h2>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="bg-gray-800 p-4 rounded-lg">
+              <h3 class="font-semibold mb-2">Vector Store</h3>
+              <div id="vector-store-status" class="text-sm text-gray-400">Loading...</div>
+            </div>
+            <div class="bg-gray-800 p-4 rounded-lg">
+              <h3 class="font-semibold mb-2">Embeddings</h3>
+              <div id="embeddings-status" class="text-sm text-gray-400">Loading...</div>
+            </div>
+            <div class="bg-gray-800 p-4 rounded-lg">
+              <h3 class="font-semibold mb-2">Training Data</h3>
+              <div id="training-status" class="text-sm text-gray-400">Loading...</div>
+            </div>
+            <div class="bg-gray-800 p-4 rounded-lg">
+              <h3 class="font-semibold mb-2">Knowledge Base</h3>
+              <div id="knowledge-status" class="text-sm text-gray-400">Loading...</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Agents Tab -->
+      <div id="agents-tab" class="tab-content hidden w-full">
+        <div class="h-full bg-gray-900 text-gray-100 p-6">
+          <h2 class="text-xl font-bold mb-4">🤖 Active Agents</h2>
+          <div class="space-y-4">
+            <div class="bg-gray-800 p-4 rounded-lg">
+              <h3 class="font-semibold mb-2">FSM Agent</h3>
+              <div id="fsm-agent-status" class="text-sm text-gray-400">Loading...</div>
+            </div>
+            <div class="bg-gray-800 p-4 rounded-lg">
+              <h3 class="font-semibold mb-2">Trading Agent</h3>
+              <div id="trading-agent-status" class="text-sm text-gray-400">Loading...</div>
+            </div>
+            <div class="bg-gray-800 p-4 rounded-lg">
+              <h3 class="font-semibold mb-2">Scraper Agent</h3>
+              <div id="scraper-agent-status" class="text-sm text-gray-400">Loading...</div>
+            </div>
+            <div class="bg-gray-800 p-4 rounded-lg">
+              <h3 class="font-semibold mb-2">NLP Agent</h3>
+              <div id="nlp-agent-status" class="text-sm text-gray-400">Loading...</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Source Editor Tab -->
+      <div id="editor-tab" class="tab-content hidden w-full flex">
+        <!-- File Tree Sidebar -->
+        <aside class="w-80 bg-gray-800 border-r border-gray-700 flex flex-col">
+          <div class="p-4 border-b border-gray-700">
+            <h2 class="text-sm font-semibold text-gray-300 uppercase tracking-wide">Source Files</h2>
+          </div>
+          <div class="flex-1 overflow-auto" id="file-tree-container">
+            <div id="file-tree" class="p-2"></div>
+          </div>
+        </aside>
+
+        <!-- Monaco Editor Area -->
+        <div class="flex-1 flex flex-col">
+          <div class="border-b border-gray-700">
+            <div id="editor-tabs" class="flex bg-gray-800"></div>
+          </div>
+          <div class="flex-1">
+            <div id="monaco-editor" class="h-full"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Settings Tab -->
+      <div id="settings-tab" class="tab-content hidden w-full">
+        <div class="h-full bg-gray-900 text-gray-100 p-6">
+          <h2 class="text-xl font-bold mb-4">⚙️ System Settings</h2>
+          <div class="space-y-6">
+            <div class="bg-gray-800 p-4 rounded-lg">
+              <h3 class="font-semibold mb-2">Configuration</h3>
+              <div id="config-editor" class="text-sm text-gray-400">Loading configuration...</div>
+            </div>
+            <div class="bg-gray-800 p-4 rounded-lg">
+              <h3 class="font-semibold mb-2">Environment</h3>
+              <div id="env-status" class="text-sm text-gray-400">Loading environment status...</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Status Bar -->
     <footer class="bg-gray-800 border-t border-gray-700 px-4 py-2 flex items-center justify-between text-sm">
       <div class="flex items-center space-x-4">
-        <span class="text-gray-400">AI Agent: Active</span>
-        <span class="text-gray-400">File Changes: 0</span>
+        <span id="footer-status" class="text-gray-400">Enhanced CLI Ready</span>
+        <span id="process-count" class="text-gray-400">Processes: 0</span>
       </div>
       <div class="flex items-center space-x-4">
-        <span class="text-gray-400">Last Sync: Just now</span>
-        <span class="text-green-400">● Local Mode</span>
+        <span id="last-update" class="text-gray-400">Last Update: Never</span>
+        <span class="text-green-400">● Electron Mode</span>
       </div>
     </footer>
   </div>
+
+  <script>
+    // Tab switching functionality
+    document.addEventListener('DOMContentLoaded', function() {
+      const tabButtons = document.querySelectorAll('.tab-button');
+      const tabContents = document.querySelectorAll('.tab-content');
+      
+      tabButtons.forEach(button => {
+        button.addEventListener('click', () => {
+          const tabName = button.dataset.tab;
+          
+          // Remove active class from all buttons and contents
+          tabButtons.forEach(btn => btn.classList.remove('active'));
+          tabContents.forEach(content => {
+            content.classList.remove('active');
+            content.classList.add('hidden');
+          });
+          
+          // Add active class to clicked button and corresponding content
+          button.classList.add('active');
+          const targetTab = document.getElementById(`${tabName}-tab`);
+          if (targetTab) {
+            targetTab.classList.remove('hidden');
+            targetTab.classList.add('active');
+          }
+
+          // Load tab content when switching
+          loadTabContent(tabName);
+        });
+      });
+
+      // Initialize CLI dashboard
+      initializeCLI();
+      
+      // Load initial system status
+      updateSystemStatus();
+      
+      // Set up periodic status updates
+      setInterval(updateSystemStatus, 5000);
+    });
+
+    function loadTabContent(tabName) {
+      switch(tabName) {
+        case 'memory':
+          loadMemoryStatus();
+          break;
+        case 'agents':
+          loadAgentStatus();
+          break;
+        case 'editor':
+          if (!window.monacoLoaded) {
+            loadMonacoEditor();
+          }
+          break;
+        case 'settings':
+          loadSettingsContent();
+          break;
+      }
+    }
+
+    function initializeCLI() {
+      const cliOutput = document.getElementById('cli-output');
+      const cliInput = document.getElementById('cli-input');
+      
+      // Welcome message
+      const welcomeMsg = `
+🧠 GremlinGPT Enhanced Dashboard CLI v1.0.3
+Living, Growing, Self-Improving AI System
+═══════════════════════════════════════════
+
+Welcome to the GremlinGPT Enhanced Dashboard!
+Type 'help' for available commands.
+
+Available commands:
+• status     - Show system status
+• start      - Start GremlinGPT system
+• stop       - Stop GremlinGPT system  
+• restart    - Restart GremlinGPT system
+• logs       - Show recent logs
+• config     - Show configuration
+• agents     - List active agents
+• memory     - Show memory status
+• help       - Show this help message
+• clear      - Clear terminal
+
+`;
+      
+      cliOutput.textContent = welcomeMsg;
+      
+      // Handle CLI input
+      cliInput.addEventListener('keypress', function(e) {
+        if (e.key === 'Enter') {
+          const command = this.value.trim();
+          if (command) {
+            processCommand(command);
+            this.value = '';
+          }
+        }
+      });
+      
+      // Focus CLI input by default
+      cliInput.focus();
+    }
+
+    async function processCommand(command) {
+      const cliOutput = document.getElementById('cli-output');
+      const timestamp = new Date().toLocaleTimeString();
+      
+      // Add command to output
+      cliOutput.textContent += `\n[${timestamp}] $ ${command}\n`;
+      
+      if (command.toLowerCase() === 'help') {
+        cliOutput.textContent += getHelpText();
+      } else if (command.toLowerCase() === 'clear') {
+        cliOutput.textContent = '';
+        initializeCLI();
+        return;
+      } else {
+        // Show processing indicator
+        cliOutput.textContent += '🔄 Processing...\n';
+        cliOutput.scrollTop = cliOutput.scrollHeight;
+        
+        try {
+          const response = await fetch('/api/cli/command', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ command: command.toLowerCase() })
+          });
+          
+          const result = await response.json();
+          
+          // Remove processing indicator
+          const lines = cliOutput.textContent.split('\n');
+          lines.pop(); // Remove '🔄 Processing...'
+          cliOutput.textContent = lines.join('\n') + '\n';
+          
+          if (result.success) {
+            cliOutput.textContent += result.output;
+          } else {
+            cliOutput.textContent += `❌ Error: ${result.error}`;
+          }
+        } catch (error) {
+          // Remove processing indicator
+          const lines = cliOutput.textContent.split('\n');
+          lines.pop(); // Remove '🔄 Processing...'
+          cliOutput.textContent = lines.join('\n') + '\n';
+          
+          cliOutput.textContent += `❌ Connection error: ${error.message}\nUsing fallback commands...`;
+          
+          // Fallback to local commands
+          switch(command.toLowerCase()) {
+            case 'status':
+              cliOutput.textContent += await getSystemStatus();
+              break;
+            case 'agents':
+              cliOutput.textContent += await getAgentStatus();
+              break;
+            case 'memory':
+              cliOutput.textContent += await getMemoryStatus();
+              break;
+            default:
+              cliOutput.textContent += `\nCommand: ${command} - Offline mode active`;
+          }
+        }
+      }
+      
+      // Scroll to bottom
+      cliOutput.scrollTop = cliOutput.scrollHeight;
+    }
+
+    function getHelpText() {
+      return `
+Available Commands:
+═══════════════════
+
+System Control:
+• status     - Show detailed system status
+• start      - Start all GremlinGPT services
+• stop       - Stop all GremlinGPT services
+• restart    - Restart all services
+• logs       - Show recent system logs
+
+Information:
+• config     - Display current configuration
+• agents     - List all active AI agents
+• memory     - Show memory system status
+• help       - Show this help message
+
+Utilities:
+• clear      - Clear terminal screen
+
+Navigation:
+Use the tabs above to access:
+• Memory - Vector stores and embeddings
+• Agents - AI agent management
+• Editor - Source code editing
+• Settings - System configuration
+
+`;
+    }
+
+    async function getSystemStatus() {
+      try {
+        // Mock system status for now - will be replaced with real API calls
+        return `
+System Status Report:
+════════════════════
+🟢 System: Online
+🟡 Services: 3/5 Running
+🟢 Memory: 2.1GB / 8GB
+🟢 Disk: 45GB free
+🟢 Network: Connected
+
+Core Services:
+• FSM Agent: Running ✓
+• Memory Service: Running ✓  
+• NLP Engine: Running ✓
+• Trading Core: Stopped ✗
+• Scraper: Stopped ✗
+
+Last Updated: ${new Date().toLocaleString()}
+`;
+      } catch (error) {
+        return `Error getting system status: ${error.message}\n`;
+      }
+    }
+
+    async function executeSystemCommand(action) {
+      try {
+        // This will be replaced with actual API calls to the system
+        return `
+Executing ${action} command...
+════════════════════════════
+🔄 Preparing to ${action} GremlinGPT system
+🔄 Checking dependencies...
+🔄 ${action === 'start' ? 'Starting' : action === 'stop' ? 'Stopping' : 'Restarting'} services...
+
+This would execute: ./run/${action}_all.sh
+Status: Command queued for execution
+`;
+      } catch (error) {
+        return `Error executing ${action}: ${error.message}\n`;
+      }
+    }
+
+    async function getRecentLogs() {
+      return `
+Recent System Logs:
+══════════════════
+[${new Date().toLocaleTimeString()}] INFO: Enhanced Dashboard CLI initialized
+[${new Date().toLocaleTimeString()}] INFO: Monitoring system status
+[${new Date().toLocaleTimeString()}] INFO: File watcher active
+[${new Date().toLocaleTimeString()}] WARN: Some services not running
+
+Use the Log Monitor in the CLI Dashboard for detailed log analysis.
+`;
+    }
+
+    async function getConfiguration() {
+      return `
+Current Configuration:
+═════════════════════
+Config File: config/config.toml
+Status: Loaded ✓
+
+[system]
+debug = true
+log_level = "INFO"
+max_processes = 10
+
+[ai]
+model_path = "models/"
+enable_training = true
+learning_rate = 0.001
+
+Use the Settings tab for interactive configuration editing.
+`;
+    }
+
+    async function getAgentStatus() {
+      return `
+Active AI Agents:
+════════════════
+🤖 FSM Agent: Active - State: IDLE
+🤖 Trading Agent: Inactive 
+🤖 Scraper Agent: Inactive
+🤖 NLP Agent: Active - Processing: 0 tasks
+
+Use the Agents tab for detailed agent management.
+`;
+    }
+
+    async function getMemoryStatus() {
+      return `
+Memory System Status:
+═══════════════════
+📊 Vector Store: 1,234 embeddings
+📊 Knowledge Base: 567 documents  
+📊 Training Data: 89 datasets
+📊 Cache: 45MB used
+
+Use the Memory tab for detailed memory management.
+`;
+    }
+
+    function updateSystemStatus() {
+      // Update header status indicator
+      const statusIndicator = document.getElementById('system-status');
+      const statusText = document.getElementById('status-text');
+      
+      // Mock status - will be replaced with real checks
+      statusIndicator.className = 'w-2 h-2 bg-green-500 rounded-full';
+      statusText.textContent = 'System Online';
+      
+      // Update footer
+      document.getElementById('last-update').textContent = `Last Update: ${new Date().toLocaleTimeString()}`;
+    }
+
+    function loadMemoryStatus() {
+      // Load memory system status
+      document.getElementById('vector-store-status').textContent = '1,234 embeddings loaded';
+      document.getElementById('embeddings-status').textContent = '567 documents indexed';
+      document.getElementById('training-status').textContent = '89 training datasets';
+      document.getElementById('knowledge-status').textContent = 'Knowledge base active';
+    }
+
+    function loadAgentStatus() {
+      // Load agent status
+      document.getElementById('fsm-agent-status').textContent = 'Status: Active, State: IDLE';
+      document.getElementById('trading-agent-status').textContent = 'Status: Inactive';
+      document.getElementById('scraper-agent-status').textContent = 'Status: Inactive';
+      document.getElementById('nlp-agent-status').textContent = 'Status: Active, Tasks: 0';
+    }
+
+    function loadMonacoEditor() {
+      // Initialize Monaco editor when editor tab is first opened
+      window.monacoLoaded = true;
+      // Monaco initialization will be added here
+    }
+
+    function loadSettingsContent() {
+      // Load settings content
+      document.getElementById('config-editor').textContent = 'Configuration editor loading...';
+      document.getElementById('env-status').textContent = 'Environment: Development';
+    }
+  </script>
 </Layout>

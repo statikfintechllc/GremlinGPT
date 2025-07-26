@@ -20,13 +20,14 @@
   },
   "dependencies": {
     "@astrojs/node": "^9.3.0",
+    "@astrojs/tailwind": "^6.0.2",
     "@monaco-editor/loader": "^1.5.0",
-    "@tailwindcss/vite": "^4.1.11",
     "astro": "^5.12.3",
+    "autoprefixer": "^10.4.21",
     "chokidar": "^4.0.3",
     "electron": "^37.2.4",
     "monaco-editor": "^0.52.2",
-    "tailwindcss": "^4.1.11",
+    "tailwindcss": "^3.4.17",
     "ws": "^8.18.3"
   },
   "devDependencies": {
