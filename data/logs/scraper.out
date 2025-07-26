@@ -8,3 +8,9 @@
 [Scraper] PYTHONPATH: /home/runner/work/GremlinGPT/GremlinGPT:/home/runner/work/GremlinGPT/GremlinGPT
 [Scraper] Running: python -m scraper.scraper_loop
 [Scraper] Started with PID: 5871
+[Scraper] ENV: gremlin-scraper
+[Scraper] CWD: /home/runner/work/GremlinGPT/GremlinGPT
+[Scraper] PYTHONPATH: /home/runner/work/GremlinGPT/GremlinGPT:/home/runner/work/GremlinGPT/GremlinGPT
+[Scraper] Running: python -m scraper.scraper_loop
+[Scraper] Port: 8004
+[Scraper] Started with PID: 3287
