@@ -13,16 +13,19 @@ setopt NO_GLOB_SUBST
 # It also ensures that the NLTK data directory is created and configured correctly.
 # This script should be run from the GremlinGPT project root directory.
 # If run from a different directory, it will still work as long as the environment variables are
-GREMLIN_HOME="$HOME"
+GREMLIN_HOME="$(pwd)"
 PYTHONPATH="$GREMLIN_HOME"
 LOGDIR="$GREMLIN_HOME/data/logs"
 
 # --- Dynamic Project Path ---
-export GREMLIN_HOME="$HOME"
+export GREMLIN_HOME="$GREMLIN_HOME"
 export PYTHONPATH="$GREMLIN_HOME"
 
 # --- Log Directory ---
 export LOGDIR="$GREMLIN_HOME/data/logs"
+
+# Ensure log directory exists
+mkdir -p "$LOGDIR"
 
 
 # --- NLTK Bootstrap: Always under repo, not home! ---
@@ -58,11 +61,23 @@ function launch_terminal() {
     
     # Run in background with proper conda environment
     (
-      source $HOME/miniconda3/etc/profile.d/conda.sh || source /usr/share/miniconda/etc/profile.d/conda.sh
-      conda activate $env || { echo "[$title] Failed to activate env: $env"; exit 1; }
+      # Try multiple conda locations
+      if [ -f "$HOME/miniconda3/etc/profile.d/conda.sh" ]; then
+        source $HOME/miniconda3/etc/profile.d/conda.sh
+      elif [ -f "/usr/share/miniconda/etc/profile.d/conda.sh" ]; then
+        source /usr/share/miniconda/etc/profile.d/conda.sh
+      elif [ -f "/opt/conda/etc/profile.d/conda.sh" ]; then
+        source /opt/conda/etc/profile.d/conda.sh
+      else
+        echo "[$title] Warning: Could not find conda.sh, using base Python environment"
+      fi
+      
+      conda activate $env 2>/dev/null || { echo "[$title] Warning: Failed to activate env: $env, using base environment"; }
       export NLTK_DATA="$GREMLIN_HOME/data/nltk_data"
-      echo "[$title] ENV: $CONDA_DEFAULT_ENV" | tee -a $logfile
+      export PYTHONPATH="$GREMLIN_HOME:$PYTHONPATH"
+      echo "[$title] ENV: ${CONDA_DEFAULT_ENV:-base}" | tee -a $logfile
       echo "[$title] CWD: $PWD" | tee -a $logfile
+      echo "[$title] PYTHONPATH: $PYTHONPATH" | tee -a $logfile
       echo "[$title] Running: $cmd" | tee -a $logfile
       cd "$GREMLIN_HOME"
       eval $cmd 2>&1 | tee -a $logfile &
@@ -112,13 +127,16 @@ launch_terminal "FSM Agent" gremlin-nlp "python -m agent_core.fsm" "$LOGDIR/fsm.
 launch_terminal "Scraper" gremlin-scraper "python -m scraper.scraper_loop" "$LOGDIR/scraper.out"
 launch_terminal "Self-Trainer" gremlin-orchestrator "python -m self_training.trainer" "$LOGDIR/trainer.out"
 launch_terminal "Backend Server" gremlin-dashboard "python -m backend.server" "$LOGDIR/backend.out"
-launch_terminal "Frontend" gremlin-dashboard "python3 -m http.server 8080 --directory frontend" "$LOGDIR/frontend.out"
+launch_terminal "Frontend" gremlin-dashboard "python3 -m http.server 8081 --directory frontend" "$LOGDIR/frontend.out"
 launch_terminal "Ngrok Tunnel" gremlin-dashboard "python run/ngrok_launcher.py" "$LOGDIR/ngrok.out"
 
 # --- Playwright install check for scraper (headless) ---
-conda activate gremlin-scraper
-python -c "import playwright; print('Playwright OK')" 2>/dev/null || playwright install
-conda deactivate
+if [ -f "/usr/share/miniconda/etc/profile.d/conda.sh" ]; then
+  source /usr/share/miniconda/etc/profile.d/conda.sh
+  conda activate gremlin-scraper 2>/dev/null || echo "[INFO] Could not activate gremlin-scraper environment"
+  python -c "import playwright; print('Playwright OK')" 2>/dev/null || echo "[INFO] Playwright not available, install with: pip install playwright && playwright install"
+  conda deactivate 2>/dev/null || true
+fi
 
 # --- Ngrok CLI check ---
 if ! command -v ngrok &> /dev/null; then

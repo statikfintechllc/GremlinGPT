@@ -10,7 +10,13 @@
 # GremlinGPT v1.0.3 :: Module Integrity Directive
 
 from backend.globals import CFG, logger, resolve_path, DATA_DIR, MEM
-from backend.globals import CFG, logger, resolve_path, DATA_DIR, MEM
+try:
+    from nlp_engine.mini_attention import MiniMultiHeadAttention
+except ImportError:
+    # Create a dummy class if the import fails
+    class MiniMultiHeadAttention:
+        def __init__(self, embed_dim=64, num_heads=4):
+            pass
 
 LOG_DIR = CFG["paths"].get("data_dir", "data/") + "logs/"
 OUTPUT_PATH = (

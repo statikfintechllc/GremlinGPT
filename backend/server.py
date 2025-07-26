@@ -13,12 +13,24 @@
 try:
     import eventlet
     eventlet.monkey_patch()
+    HAS_EVENTLET = True
 except ImportError:
+    HAS_EVENTLET = False
     pass  # eventlet is optional
 
-# Set up NLTK data path before any imports
-eventlet.monkey_patch()
-socketio = SocketIO(app, cors_allowed_origins="*", async_mode="eventlet")
+# Import Flask and other dependencies
+from flask import Flask
+from flask_socketio import SocketIO
+
+# Create Flask app
+app = Flask(__name__)
+
+# Set up SocketIO with or without eventlet
+if HAS_EVENTLET:
+    socketio = SocketIO(app, cors_allowed_origins="*", async_mode="eventlet")
+else:
+    socketio = SocketIO(app, cors_allowed_origins="*")
+
 from backend.globals import CFG, logger, resolve_path, DATA_DIR, MEM
 from backend.api.api_endpoints import *
 from backend.router import *
