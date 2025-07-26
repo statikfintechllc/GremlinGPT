@@ -95,10 +95,6 @@ fi
 # This function will print the CUDA availability status and device information.
 # It is useful for verifying that PyTorch can utilize GPU resources if available.
 # Usage: check_cuda
-# This function will print the CUDA availability status and device information.
-# It is useful for verifying that PyTorch can utilize GPU resources if available.
-# Usage: check_cuda
-# This function will print the CUDA availability status and device information.
 function check_cuda {
   echo "[*] Checking CUDA in current environment:"
   python -c "
@@ -114,8 +110,6 @@ print('[CUDA] torch.cuda.get_device_name:', torch.cuda.get_device_name(0) if tor
 # This function will attempt to upgrade pip and install the specified packages.
 # If any installation fails, it will print an error message and exit with a non-zero status.
 # Usage: pip_install_or_fail package1 package2 ...
-# This function will attempt to upgrade pip and install the specified packages.
-# If any installation fails, it will print an error message and exit with a non-zero status
 function pip_install_or_fail {
   pip install --upgrade pip || { echo '${RED}[FAIL] pip upgrade${NC}'; exit 1; }
   for pkg in "$@"; do
@@ -141,7 +135,8 @@ elif [ -f "$HOME/anaconda3/etc/profile.d/conda.sh" ]; then
 fi
 
 conda activate gremlin-nlp >> "$LOGFILE" 2>&1
-pip_install_or_fail spacy torch torchvision torchaudio sentence-transformers transformers bs4 nltk pytesseract playwright pyautogui flask flask-socketio watchdog eventlet >> "$LOGFILE" 2>&1
+pip install flask eventlet
+pip_install_or_fail spacy torch torchvision torchaudio sentence-transformers transformers bs4 nltk pytesseract playwright pyautogui flask flask-socketio eventlet >> "$LOGFILE" 2>&1
 python -m spacy download en_core_web_sm >> "$LOGFILE" 2>&1 || { echo "${RED}[FAIL] spaCy model${NC}"; exit 1; }
 playwright install >> "$LOGFILE" 2>&1 || { echo "${RED}[FAIL] playwright${NC}"; exit 1; }
 pip install nltk >> "$LOGFILE" 2>&1
@@ -149,8 +144,8 @@ export NLTK_DATA=$HOME/data/nltk_data
 python -m nltk.downloader -d "$NLTK_DATA" punkt >> "$LOGFILE" 2>&1
 download_nltk >> "$LOGFILE" 2>&1
 check_cuda >> "$LOGFILE" 2>&1
-sudo apt-get install python3-tk python3-dev
-sudo apt-get install -y python3-tk python3-dev
+# Test GPU availability and load models
+python -c "
 from transformers import AutoTokenizer, AutoModel
 import torch
 print('[GPU-TEST] Loading BERT on', 'cuda' if torch.cuda.is_available() else 'cpu')
@@ -161,7 +156,8 @@ python -c "
 from sentence_transformers import SentenceTransformer
 import torch
 print('[GPU-TEST] Loading MiniLM on', 'cuda' if torch.cuda.is_available() else 'cpu')
-SentenceTransformer('all-MiniLM-L6-v2', device='cuda' if torch.cuda.is_available() else 'cpu') >> "$LOGFILE" 2>&1
+SentenceTransformer('all-MiniLM-L6-v2', device='cuda' if torch.cuda.is_available() else 'cpu')
+" >> "$LOGFILE" 2>&1
 conda deactivate >> "$LOGFILE" 2>&1
 
 # 5. gremlin-scraper env setup, if not already set up
@@ -172,11 +168,11 @@ elif [ -f "$HOME/anaconda3/etc/profile.d/conda.sh" ]; then
     source "$HOME/anaconda3/etc/profile.d/conda.sh"
 fi
 conda activate gremlin-scraper >> "$LOGFILE" 2>&1
-pip_install_or_fail torch torchvision watchdog torchaudio sentence-transformers transformers playwright pyautogui flask flask-socketio eventlet >> "$LOGFILE" 2>&1
+pip install flask eventlet
+pip_install_or_fail torch torchvision torchaudio sentence_transformers transformers playwright pyautogui flask flask-socketio eventlet >> "$LOGFILE" 2>&1
 python -m spacy download en_core_web_sm >> "$LOGFILE" 2>&1
 playwright install >> "$LOGFILE" 2>&1
 check_cuda >> "$LOGFILE" 2>&1
-sudo apt-get install python3-tk python3-dev
 conda deactivate >> "$LOGFILE" 2>&1
 
 # 5. gremlin-scraper env setup, if not already set up. This is a duplicate of the previous step, but for gremlin-memory
@@ -190,7 +186,8 @@ elif [ -f "$HOME/anaconda3/etc/profile.d/conda.sh" ]; then
     source "$HOME/anaconda3/etc/profile.d/conda.sh"
 fi
 conda activate gremlin-memory >> "$LOGFILE" 2>&1
-pip_install_or_fail eventlet flask chromadb watchdog faiss-cpu >> "$LOGFILE" 2>&1
+pip install flask eventlet
+pip_install_or_fail flask chromadb faiss-cpu >> "$LOGFILE" 2>&1
 conda deactivate >> "$LOGFILE" 2>&1
 
 # 6. gremlin-dashboard env setup, if not already set up
@@ -201,8 +198,9 @@ elif [ -f "$HOME/anaconda3/etc/profile.d/conda.sh" ]; then
     source "$HOME/anaconda3/etc/profile.d/conda.sh"
 fi
 conda activate gremlin-dashboard >> "$LOGFILE" 2>&1
-pip_install_or_fail beautifulsoup4 lxml playwright loguru beautifulsoup4 chromadb flask eventlet torch watchdog torchvision torchaudio sentence-transformers transformers pyautogui && playwright install >> "$LOGFILE" 2>&1
-sudo apt-get install -y python3-tk python3-dev tesseract-ocr
+pip install flask eventlet
+pip_install_or_fail torch torchvision torchaudio sentence-transformers transformers pyautogui flask flask-socketio eventlet >> "$LOGFILE" 2>&1
+check_cuda >> "$LOGFILE" 2>&1
 conda deactivate >> "$LOGFILE" 2>&1
 
 # 7. gremlin-orchestrator env setup, if not already set up
@@ -213,8 +211,11 @@ elif [ -f "$HOME/anaconda3/etc/profile.d/conda.sh" ]; then
     source "$HOME/anaconda3/etc/profile.d/conda.sh"
 fi
 conda activate gremlin-orchestrator >> "$LOGFILE" 2>&1
-pip_install_or_fail torch torchvision torchaudio watchdog bs4 nltk langdetect pytesseract sentence-transformers transformers playwright pyautogui flask flask-socketio eventlet >> "$LOGFILE" 2>&1
-sudo apt-get install python3-tk python3-dev tesseract-ocr
+pip_install_or_fail torch torchvision torchaudio backend bs4 nltk langdetect pytesseract sentence-transformers transformers playwright pyautogui flask flask-socketio eventlet >> "$LOGFILE" 2>&1
+pip install flask eventlet >> "$LOGFILE" 2>&1
+# Ensure the conda environment is activated before running pip commands
+# This is necessary to ensure the correct environment is used for package installation
+# and to avoid conflicts with the base environment.
 python -m spacy download en_core_web_sm >> "$LOGFILE" 2>&1
 playwright install >> "$LOGFILE" 2>&1
 pip install nltk >> "$LOGFILE" 2>&1
@@ -222,6 +223,7 @@ export NLTK_DATA=$HOME/data/nltk_data
 python -m nltk.downloader -d "$NLTK_DATA" punkt >> "$LOGFILE" 2>&1
 download_nltk >> "$LOGFILE" 2>&1
 check_cuda >> "$LOGFILE" 2>&1
+# Test GPU availability and load models
 python -c "
 from transformers import AutoTokenizer, AutoModel
 import torch
