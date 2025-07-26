@@ -1,4 +1,4 @@
-#!/usr/bin/env zsh
+#!/usr/bin/env bash
 
 # --- AscendAI GremlinGPT Start Script ---
 # This script launches all GremlinGPT subsystems in separate terminal windows.  

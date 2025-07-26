@@ -1,4 +1,4 @@
-#!/usr/bin/env zsh
+#!/usr/bin/env bash
 
 # === Set up logging and variables AFTER move ===
 LOGFILE="data/logs/install.log"
@@ -25,36 +25,22 @@ function banner() {
 echo "${GREEN}[INSTALL] Initializing GremlinGPT installation...${NC}"
 banner "Initializing GremlinGPT installation..."
 
-# Set SCRIPT variable before checking its existence
-SCRIPT="$APPLOC/utils/dash_cli.sh"
+# Set application location
+APPLOC="$(pwd)"
 
+# Set SCRIPT variable for CLI interface
+if [ -f "$APPLOC/utils/dash_cli.sh" ]; then
+  SCRIPT="$APPLOC/utils/dash_cli.sh"
 else
-  echo "${YELLOW}[WARNING] $SCRIPT not found. Using python fallback.${NC}"
-  SCRIPT="python3 $APPLOC/utils/dash_cli.py"
-fi
-  echo "${YELLOW}[WARNING] $SCRIPT not found. Using python fallback.${NC}"
-  SCRIPT="python3 $APPLOC/utils/dash_cli.py"
-fi >> "$LOGFILE" 2>&1
-
-if [ -f "$ICON_SRC" ]; then
-  if file "$ICON_SRC" | grep -q "PNG image data"; then
-    cp "$ICON_SRC" "$ICON_DEST"
-  else
-    echo "${YELLOW}[WARNING] $ICON_SRC is not a valid PNG. Skipping icon copy.${NC}"
-  fi
-else
-  echo "${YELLOW}[WARNING] Icon file not found at $ICON_SRC. Skipping icon copy.${NC}"
+  echo "${YELLOW}[WARNING] dash_cli.sh not found. Using python fallback.${NC}"
+  SCRIPT="python3 $APPLOC/utils/enhanced_dash_cli.py"
 fi
 
-# Ensure the icon directory exists, if not create it
-CONFIG_PATH="config/config.yaml"
-if [ ! -f "$CONFIG_PATH" ]; then
-  echo "${YELLOW}[WARNING] Config file not found at $CONFIG_PATH. Skipping credential extraction.${NC}"
-  TWS_USER=""
-  TWS_PASS=""
-  STT_USER=""
-  STT_PASS=""
-else
+# Setup icon variables (if needed)
+ICON_SRC="$APPLOC/frontend/assets/gremlin-icon.png"
+ICON_DEST="$HOME/.local/share/icons/gremlingpt.png"
+
+# Create necessary directories
 DIRS=(
   "data/logs"
   "run/checkpoints"
@@ -62,18 +48,6 @@ DIRS=(
   "data/raw_scrapes"
   "data/embeddings"
   "data/nlp_training_sets"
-  "memory/vector_store/faiss"
-  "memory/vector_store/chroma"
-  "memory/local_index/documents"
-  "memory/local_index/scripts"
-  "scraper/persistence/cookies"
-  "scraper/profiles/chromium_profile"
-  "frontend/components"
-  "tests"
-  "docs"
-  "data/nltk_data"
-)
-  "data/logs"
   "memory/vector_store/faiss"
   "memory/vector_store/chroma"
   "memory/local_index/documents"

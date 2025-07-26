@@ -120,3 +120,4 @@
 2025-07-20 21:23:46.541 | INFO     | utils.logging_config:setup_module_logger:113 - [LOGGING] Module logger initialized for scraper -> /home/statiksmoke8/Ascend-Institute/GremlinGPT/data/logs/scraper/scraper.log
 2025-07-20 21:23:46.548 | INFO     | utils.logging_config:setup_module_logger:113 - [LOGGING] Module logger initialized for scraper -> /home/statiksmoke8/Ascend-Institute/GremlinGPT/data/logs/scraper/scraper.log
 2025-07-20 21:23:46.560 | INFO     | utils.logging_config:setup_module_logger:113 - [LOGGING] Module logger initialized for scraper -> /home/statiksmoke8/Ascend-Institute/GremlinGPT/data/logs/scraper/scraper.log
+2025-07-26 01:21:21.451 | INFO     | utils.logging_config:setup_module_logger:113 - [LOGGING] Module logger initialized for scraper -> /home/runner/work/GremlinGPT/GremlinGPT/data/logs/scraper/scraper.log

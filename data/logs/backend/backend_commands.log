@@ -14,3 +14,12 @@
 2025-07-20 21:23:47.880 | INFO     | backend.interface.commands:<module>:142 - [EMBEDDER] Loaded model: all-MiniLM-L6-v2
 2025-07-20 21:23:47.887 | INFO     | backend.interface.commands:<module>:288 - [EMBEDDER] Initial disk load complete
 2025-07-20 21:23:47.887 | INFO     | backend.globals:<module>:660 - [GLOBALS] Centralized import management loaded successfully. 196 items exported.
+2025-07-26 01:21:21.539 | INFO     | utils.logging_config:setup_module_logger:113 - [LOGGING] Module logger initialized for backend -> /home/runner/work/GremlinGPT/GremlinGPT/data/logs/backend/backend_commands.log
+2025-07-26 01:21:21.888 | ERROR    | backend.interface.commands:<module>:34 - [EMBEDDER] sentence_transformers import failed: No module named 'sentence_transformers'
+2025-07-26 01:21:21.889 | ERROR    | backend.interface.commands:<module>:45 - [COMMANDS] Failed to import from backend.globals: cannot import name 'MEM' from partially initialized module 'backend.globals' (most likely due to a circular import) (/home/runner/work/GremlinGPT/GremlinGPT/backend/globals.py)
+2025-07-26 01:21:21.889 | ERROR    | backend.interface.commands:<module>:57 - [COMMANDS] encode import failed: No module named 'transformers'
+2025-07-26 01:21:22.073 | INFO     | backend.interface.commands:<module>:117 - [FAISS] Loaded index from ./memory/vector_store/faiss/faiss_index.index
+2025-07-26 01:21:22.073 | ERROR    | backend.interface.commands:<module>:147 - [EMBEDDER] SentenceTransformer unavailable; using fallback
+2025-07-26 01:21:22.088 | INFO     | backend.interface.commands:<module>:288 - [EMBEDDER] Initial disk load complete
+2025-07-26 01:21:22.089 | INFO     | backend.globals:<module>:660 - [GLOBALS] Centralized import management loaded successfully. 196 items exported.
+2025-07-26 01:21:22.090 | WARNING  | nlp_engine.tokenizer:<module>:45 - [TOKENIZER] Failed to load bert-base-uncased. Falling back to nltk: 'NoneType' object has no attribute 'from_pretrained'

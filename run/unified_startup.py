@@ -9,9 +9,15 @@
 
 # GremlinGPT v1.0.3 :: Unified System Startup - Living AI Ecosystem
 
+import asyncio
+import sys
+import signal
+from datetime import datetime, timezone
+
 from backend.globals import CFG, logger, resolve_path, DATA_DIR, MEM
 from backend.api.api_endpoints import *
-from backend.router import route_task
+from core.integration import initialize_gremlin_ecosystem
+from memory.log_history import log_event
 
 
 class GremlinGPTEcosystemLauncher:

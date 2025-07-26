@@ -9,9 +9,14 @@
 
 # GremlinGPT v1.0.3 :: System Integration Module - Unified Architecture Bridge
 
+import asyncio
+import threading
+from datetime import datetime, timezone
+from typing import Dict, List, Any, Optional
+
 from backend.globals import CFG, logger, resolve_path, DATA_DIR, MEM
 from backend.api.api_endpoints import *
-from backend.router import route_task
+from core.orchestrator import get_global_orchestrator
 
 
 class GremlinGPTUnifiedSystem:
