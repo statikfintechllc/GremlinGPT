@@ -12,7 +12,11 @@
 import os
 import sys
 import json
-import toml
+try:
+    import toml
+except ImportError:
+    toml = None
+    print("[WARNING] toml module not available, some config features may be limited")
 import subprocess
 import time
 import signal

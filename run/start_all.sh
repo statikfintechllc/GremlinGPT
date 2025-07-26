@@ -50,26 +50,53 @@ function launch_terminal() {
   local cmd="$3"
   local logfile="$4"
 
-  local preamble="
-    source \$HOME/miniconda3/etc/profile.d/conda.sh
-    conda activate $env || { echo '[${title}] Failed to activate env: $env'; exec zsh; }
-    export NLTK_DATA=\"\$GREMLIN_HOME/data/nltk_data\"
-    echo '[${title}] ENV:' \$CONDA_DEFAULT_ENV
-    echo '[${title}] CWD:' \$PWD
-    echo '[${title}] Running: $cmd'
-    $cmd | tee $logfile
-    EXIT_CODE=\${PIPESTATUS[0]}
-    echo '[${title}] Process exited with code' \$EXIT_CODE
-    exec zsh
-  "
-
-  if command -v gnome-terminal > /dev/null; then
-    gnome-terminal --title="$title" -- zsh --login -c "$preamble"
-  elif command -v xterm > /dev/null; then
-    xterm -T "$title" -e "zsh --login -c '$preamble'"
+  echo "[LAUNCH] Starting $title in background with env $env..."
+  
+  # Check if we're in a headless environment or GUI environment
+  if [ -z "$DISPLAY" ] || ! command -v gnome-terminal > /dev/null; then
+    echo "[HEADLESS] Running $title as background process"
+    
+    # Run in background with proper conda environment
+    (
+      source $HOME/miniconda3/etc/profile.d/conda.sh || source /usr/share/miniconda/etc/profile.d/conda.sh
+      conda activate $env || { echo "[$title] Failed to activate env: $env"; exit 1; }
+      export NLTK_DATA="$GREMLIN_HOME/data/nltk_data"
+      echo "[$title] ENV: $CONDA_DEFAULT_ENV" | tee -a $logfile
+      echo "[$title] CWD: $PWD" | tee -a $logfile
+      echo "[$title] Running: $cmd" | tee -a $logfile
+      cd "$GREMLIN_HOME"
+      eval $cmd 2>&1 | tee -a $logfile &
+      PID=$!
+      echo "[$title] Started with PID: $PID" | tee -a $logfile
+      echo $PID > "/tmp/gremlin_${title// /_}.pid"
+      wait $PID
+      EXIT_CODE=$?
+      echo "[$title] Process exited with code $EXIT_CODE" | tee -a $logfile
+    ) &
+    sleep 1
   else
-    echo "No supported terminal emulator found (gnome-terminal or xterm)."
-    exit 1
+    # Original GUI terminal launch code
+    local preamble="
+      source \$HOME/miniconda3/etc/profile.d/conda.sh
+      conda activate $env || { echo '[${title}] Failed to activate env: $env'; exec zsh; }
+      export NLTK_DATA=\"\$GREMLIN_HOME/data/nltk_data\"
+      echo '[${title}] ENV:' \$CONDA_DEFAULT_ENV
+      echo '[${title}] CWD:' \$PWD
+      echo '[${title}] Running: $cmd'
+      $cmd | tee $logfile
+      EXIT_CODE=\${PIPESTATUS[0]}
+      echo '[${title}] Process exited with code' \$EXIT_CODE
+      exec zsh
+    "
+
+    if command -v gnome-terminal > /dev/null; then
+      gnome-terminal --title="$title" -- zsh --login -c "$preamble"
+    elif command -v xterm > /dev/null; then
+      xterm -T "$title" -e "zsh --login -c '$preamble'"
+    else
+      echo "No supported terminal emulator found (gnome-terminal or xterm)."
+      exit 1
+    fi
   fi
 }
 
