@@ -1,0 +1,88 @@
+# Core web framework
+flask>=2.3.0
+flask-socketio>=5.3.0
+eventlet>=0.33.0
+
+# Machine Learning and AI
+torch>=2.0.0
+transformers>=4.30.0
+sentence-transformers>=2.2.0
+nltk>=3.8.0
+huggingface-hub>=0.15.0
+tokenizers>=0.13.0
+
+# Vector stores and databases
+faiss-cpu>=1.7.4
+chromadb>=0.4.0
+
+# Data processing
+numpy>=1.24.0
+pandas>=2.0.0
+scikit-learn>=1.3.0
+
+# HTTP and networking
+requests>=2.31.0
+aiohttp>=3.8.0
+urllib3>=2.0.0
+
+# Web scraping and automation
+playwright>=1.35.0
+beautifulsoup4>=4.12.0
+selenium>=4.10.0
+lxml>=4.9.0
+
+# Configuration and serialization
+toml>=0.10.2
+pyyaml>=6.0
+jsonschema>=4.17.0
+
+# Async and scheduling
+schedule>=1.2.0
+python-crontab>=2.7.0
+
+# Data visualization and plotting
+matplotlib>=3.7.0
+plotly>=5.15.0
+
+# Testing and development
+pytest>=7.4.0
+pytest-asyncio>=0.21.0
+
+# Logging and monitoring
+loguru>=0.7.0
+psutil>=5.9.0
+
+# File watching and system utilities
+watchdog>=3.0.0
+
+# Financial and trading
+yfinance>=0.2.18
+alpha-vantage>=2.3.1
+
+# Crypto and security
+cryptography>=41.0.0
+pycryptodome>=3.18.0
+
+# Image processing
+Pillow>=10.0.0
+
+# Math and statistics
+scipy>=1.11.0
+statsmodels>=0.14.0
+
+# Progress bars and CLI utilities
+tqdm>=4.65.0
+rich>=13.4.0
+click>=8.1.0
+
+# Environment and process management
+python-dotenv>=1.0.0
+psutil>=5.9.0
+
+# API documentation and validation
+pydantic>=2.0.0
+fastapi>=0.100.0
+
+# Additional utilities
+python-dateutil>=2.8.0
+pytz>=2023.3

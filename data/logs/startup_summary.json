@@ -1,7 +1,7 @@
 {
-  "timestamp": "2025-07-26T19:47:54Z",
+  "timestamp": "2025-07-27T02:30:30Z",
   "validation_result": 1,
-  "service_ports": {"ngrok":"8006""nlp":"8001""memory":"8002""frontend":"8080""trainer":"8005""scraper":"8004""backend":"8000""fsm":"8003"},
-  "health_monitor_pid": 3271,
+  "service_ports": {"ngrok":"8006""nlp":"8001""memory":"8002""frontend":"8180""trainer":"8005""scraper":"8004""backend":"8000""fsm":"8003"},
+  "health_monitor_pid": 3158,
   "log_directory": "/home/runner/work/GremlinGPT/GremlinGPT/data/logs"
 }

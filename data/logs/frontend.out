@@ -40,3 +40,12 @@ server.py: error: unrecognized arguments: --port 8080
 usage: server.py [-h] [--cgi] [--bind ADDRESS] [--directory DIRECTORY] [port]
 server.py: error: unrecognized arguments: --port 8080
 [Frontend] Process exited with code 0
+[Frontend] ENV: base
+[Frontend] CWD: /home/runner/work/GremlinGPT/GremlinGPT
+[Frontend] PYTHONPATH: /home/runner/work/GremlinGPT/GremlinGPT:/home/runner/work/GremlinGPT/GremlinGPT
+[Frontend] Running: python3 -m http.server 8180 --directory frontend --port 8180
+[Frontend] Port: 8180
+[Frontend] Started with PID: 3052
+usage: server.py [-h] [--cgi] [-b ADDRESS] [-d DIRECTORY] [-p VERSION] [port]
+server.py: error: unrecognized arguments: --port 8180
+[Frontend] Process exited with code 0

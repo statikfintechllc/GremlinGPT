@@ -4,3 +4,27 @@
 2025-07-20 01:26:34.997 | INFO     | utils.logging_config:setup_module_logger:113 - [LOGGING] Module logger initialized for agent_core -> /home/statiksmoke8/Ascend-Institute/GremlinGPT/data/logs/agent_core/agent_core_heuristics.log
 2025-07-20 21:23:46.243 | INFO     | utils.logging_config:setup_module_logger:113 - [LOGGING] Module logger initialized for agent_core -> /home/statiksmoke8/Ascend-Institute/GremlinGPT/data/logs/agent_core/agent_core_heuristics.log
 2025-07-20 21:23:46.492 | SUCCESS  | nlp_engine.tokenizer:<module>:43 - [TOKENIZER] Loaded: bert-base-uncased
+2025-07-27 02:26:30.524 | INFO     | utils.logging_config:setup_module_logger:113 - [LOGGING] Module logger initialized for agent_core -> /home/runner/work/GremlinGPT/GremlinGPT/data/logs/agent_core/agent_core_heuristics.log
+2025-07-27 02:26:30.651 | SUCCESS  | nlp_engine.tokenizer:<module>:43 - [TOKENIZER] Loaded: bert-base-uncased
+2025-07-27 02:27:23.513 | INFO     | utils.logging_config:setup_module_logger:113 - [LOGGING] Module logger initialized for agent_core -> /home/runner/work/GremlinGPT/GremlinGPT/data/logs/agent_core/agent_core_heuristics.log
+2025-07-27 02:27:23.621 | SUCCESS  | nlp_engine.tokenizer:<module>:43 - [TOKENIZER] Loaded: bert-base-uncased
+2025-07-27 02:28:14.961 | INFO     | utils.logging_config:setup_module_logger:113 - [LOGGING] Module logger initialized for agent_core -> /home/runner/work/GremlinGPT/GremlinGPT/data/logs/agent_core/agent_core_heuristics.log
+2025-07-27 02:28:15.061 | SUCCESS  | nlp_engine.tokenizer:<module>:43 - [TOKENIZER] Loaded: bert-base-uncased
+2025-07-27 02:29:54.941 | INFO     | utils.logging_config:setup_module_logger:113 - [LOGGING] Module logger initialized for agent_core -> /home/runner/work/GremlinGPT/GremlinGPT/data/logs/agent_core/agent_core_heuristics.log
+2025-07-27 02:29:55.579 | SUCCESS  | nlp_engine.tokenizer:<module>:43 - [TOKENIZER] Loaded: bert-base-uncased
+2025-07-27 02:30:34.921 | INFO     | utils.logging_config:setup_module_logger:113 - [LOGGING] Module logger initialized for agent_core -> /home/runner/work/GremlinGPT/GremlinGPT/data/logs/agent_core/agent_core_heuristics.log
+2025-07-27 02:30:35.117 | SUCCESS  | nlp_engine.tokenizer:<module>:43 - [TOKENIZER] Loaded: bert-base-uncased
+2025-07-27 02:30:35.159 | INFO     | utils.logging_config:setup_module_logger:113 - [LOGGING] Module logger initialized for agent_core -> /home/runner/work/GremlinGPT/GremlinGPT/data/logs/agent_core/agent_core_heuristics.log
+2025-07-27 02:30:35.363 | SUCCESS  | nlp_engine.tokenizer:<module>:43 - [TOKENIZER] Loaded: bert-base-uncased
+2025-07-27 02:30:35.530 | INFO     | utils.logging_config:setup_module_logger:113 - [LOGGING] Module logger initialized for agent_core -> /home/runner/work/GremlinGPT/GremlinGPT/data/logs/agent_core/agent_core_heuristics.log
+2025-07-27 02:30:35.687 | INFO     | utils.logging_config:setup_module_logger:113 - [LOGGING] Module logger initialized for agent_core -> /home/runner/work/GremlinGPT/GremlinGPT/data/logs/agent_core/agent_core_heuristics.log
+2025-07-27 02:30:35.840 | INFO     | utils.logging_config:setup_module_logger:113 - [LOGGING] Module logger initialized for agent_core -> /home/runner/work/GremlinGPT/GremlinGPT/data/logs/agent_core/agent_core_heuristics.log
+2025-07-27 02:30:35.920 | SUCCESS  | nlp_engine.tokenizer:<module>:43 - [TOKENIZER] Loaded: bert-base-uncased
+2025-07-27 02:30:35.955 | SUCCESS  | nlp_engine.tokenizer:<module>:43 - [TOKENIZER] Loaded: bert-base-uncased
+2025-07-27 02:30:36.084 | INFO     | utils.logging_config:setup_module_logger:113 - [LOGGING] Module logger initialized for agent_core -> /home/runner/work/GremlinGPT/GremlinGPT/data/logs/agent_core/agent_core_heuristics.log
+2025-07-27 02:30:36.097 | SUCCESS  | nlp_engine.tokenizer:<module>:43 - [TOKENIZER] Loaded: bert-base-uncased
+2025-07-27 02:30:36.272 | SUCCESS  | nlp_engine.tokenizer:<module>:43 - [TOKENIZER] Loaded: bert-base-uncased
+2025-07-27 02:30:36.532 | INFO     | utils.logging_config:setup_module_logger:113 - [LOGGING] Module logger initialized for agent_core -> /home/runner/work/GremlinGPT/GremlinGPT/data/logs/agent_core/agent_core_heuristics.log
+2025-07-27 02:30:36.641 | INFO     | utils.logging_config:setup_module_logger:113 - [LOGGING] Module logger initialized for agent_core -> /home/runner/work/GremlinGPT/GremlinGPT/data/logs/agent_core/agent_core_heuristics.log
+2025-07-27 02:30:36.758 | SUCCESS  | nlp_engine.tokenizer:<module>:43 - [TOKENIZER] Loaded: bert-base-uncased
+2025-07-27 02:30:36.929 | SUCCESS  | nlp_engine.tokenizer:<module>:43 - [TOKENIZER] Loaded: bert-base-uncased

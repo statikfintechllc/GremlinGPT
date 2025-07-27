@@ -23,3 +23,90 @@
 2025-07-26 01:21:22.088 | INFO     | backend.interface.commands:<module>:288 - [EMBEDDER] Initial disk load complete
 2025-07-26 01:21:22.089 | INFO     | backend.globals:<module>:660 - [GLOBALS] Centralized import management loaded successfully. 196 items exported.
 2025-07-26 01:21:22.090 | WARNING  | nlp_engine.tokenizer:<module>:45 - [TOKENIZER] Failed to load bert-base-uncased. Falling back to nltk: 'NoneType' object has no attribute 'from_pretrained'
+2025-07-27 02:26:31.345 | INFO     | utils.logging_config:setup_module_logger:113 - [LOGGING] Module logger initialized for backend -> /home/runner/work/GremlinGPT/GremlinGPT/data/logs/backend/backend_commands.log
+2025-07-27 02:26:31.960 | ERROR    | backend.interface.commands:<module>:45 - [COMMANDS] Failed to import from backend.globals: cannot import name 'MEM' from partially initialized module 'backend.globals' (most likely due to a circular import) (/home/runner/work/GremlinGPT/GremlinGPT/backend/globals.py)
+2025-07-27 02:26:32.068 | INFO     | backend.interface.commands:<module>:117 - [FAISS] Loaded index from ./memory/vector_store/faiss/faiss_index.index
+2025-07-27 02:26:33.417 | INFO     | backend.interface.commands:<module>:142 - [EMBEDDER] Loaded model: all-MiniLM-L6-v2
+2025-07-27 02:26:33.813 | INFO     | backend.interface.commands:<module>:288 - [EMBEDDER] Initial disk load complete
+2025-07-27 02:26:33.815 | INFO     | backend.globals:<module>:660 - [GLOBALS] Centralized import management loaded successfully. 196 items exported.
+2025-07-27 02:26:33.819 | INFO     | backend.router:register_routes:17 - [ROUTER] Verifying and backing up API routes...
+2025-07-27 02:26:33.819 | WARNING  | backend.server:<module>:42 - [SERVER] Could not register additional routes: name 'chat_handler' is not defined
+2025-07-27 02:27:23.844 | INFO     | utils.logging_config:setup_module_logger:113 - [LOGGING] Module logger initialized for backend -> /home/runner/work/GremlinGPT/GremlinGPT/data/logs/backend/backend_commands.log
+2025-07-27 02:27:24.448 | ERROR    | backend.interface.commands:<module>:45 - [COMMANDS] Failed to import from backend.globals: cannot import name 'MEM' from partially initialized module 'backend.globals' (most likely due to a circular import) (/home/runner/work/GremlinGPT/GremlinGPT/backend/globals.py)
+2025-07-27 02:27:24.543 | INFO     | backend.interface.commands:<module>:117 - [FAISS] Loaded index from ./memory/vector_store/faiss/faiss_index.index
+2025-07-27 02:27:25.303 | INFO     | backend.interface.commands:<module>:142 - [EMBEDDER] Loaded model: all-MiniLM-L6-v2
+2025-07-27 02:27:25.317 | INFO     | backend.interface.commands:<module>:288 - [EMBEDDER] Initial disk load complete
+2025-07-27 02:27:25.319 | INFO     | backend.globals:<module>:660 - [GLOBALS] Centralized import management loaded successfully. 196 items exported.
+2025-07-27 02:27:25.320 | INFO     | backend.router:register_routes:17 - [ROUTER] Verifying and backing up API routes...
+2025-07-27 02:27:25.320 | WARNING  | __main__:<module>:42 - [SERVER] Could not register additional routes: name 'chat_handler' is not defined
+2025-07-27 02:27:25.321 | INFO     | __main__:run_server_forever:75 - [BACKEND] Starting GremlinGPT backend on 0.0.0.0:8080
+2025-07-27 02:27:25.321 | INFO     | __main__:broadcast_status:52 - [BROADCAST] GremlinGPT backend server online at 0.0.0.0:8080
+2025-07-27 02:28:15.282 | INFO     | utils.logging_config:setup_module_logger:113 - [LOGGING] Module logger initialized for backend -> /home/runner/work/GremlinGPT/GremlinGPT/data/logs/backend/backend_commands.log
+2025-07-27 02:28:15.884 | ERROR    | backend.interface.commands:<module>:45 - [COMMANDS] Failed to import from backend.globals: cannot import name 'MEM' from partially initialized module 'backend.globals' (most likely due to a circular import) (/home/runner/work/GremlinGPT/GremlinGPT/backend/globals.py)
+2025-07-27 02:28:15.979 | INFO     | backend.interface.commands:<module>:117 - [FAISS] Loaded index from ./memory/vector_store/faiss/faiss_index.index
+2025-07-27 02:28:16.718 | INFO     | backend.interface.commands:<module>:142 - [EMBEDDER] Loaded model: all-MiniLM-L6-v2
+2025-07-27 02:28:16.732 | INFO     | backend.interface.commands:<module>:288 - [EMBEDDER] Initial disk load complete
+2025-07-27 02:28:16.734 | INFO     | backend.globals:<module>:660 - [GLOBALS] Centralized import management loaded successfully. 196 items exported.
+2025-07-27 02:28:16.738 | INFO     | backend.router:register_routes:17 - [ROUTER] Verifying and backing up API routes...
+2025-07-27 02:28:16.739 | WARNING  | __main__:<module>:45 - [SERVER] Could not register additional routes: name 'chat_handler' is not defined
+2025-07-27 02:28:16.739 | INFO     | __main__:run_server_forever:76 - [BACKEND] Starting GremlinGPT backend on 0.0.0.0:8080
+2025-07-27 02:28:16.740 | INFO     | __main__:broadcast_status:52 - [BROADCAST] GremlinGPT backend server online at 0.0.0.0:8080
+2025-07-27 02:29:55.799 | INFO     | utils.logging_config:setup_module_logger:113 - [LOGGING] Module logger initialized for backend -> /home/runner/work/GremlinGPT/GremlinGPT/data/logs/backend/backend_commands.log
+2025-07-27 02:29:56.217 | ERROR    | backend.interface.commands:<module>:45 - [COMMANDS] Failed to import from backend.globals: cannot import name 'MEM' from partially initialized module 'backend.globals' (most likely due to a circular import) (/home/runner/work/GremlinGPT/GremlinGPT/backend/globals.py)
+2025-07-27 02:29:56.301 | INFO     | backend.interface.commands:<module>:117 - [FAISS] Loaded index from ./memory/vector_store/faiss/faiss_index.index
+2025-07-27 02:29:57.422 | INFO     | backend.interface.commands:<module>:142 - [EMBEDDER] Loaded model: all-MiniLM-L6-v2
+2025-07-27 02:29:57.436 | INFO     | backend.interface.commands:<module>:288 - [EMBEDDER] Initial disk load complete
+2025-07-27 02:29:57.438 | INFO     | backend.globals:<module>:660 - [GLOBALS] Centralized import management loaded successfully. 196 items exported.
+2025-07-27 02:30:35.831 | INFO     | utils.logging_config:setup_module_logger:113 - [LOGGING] Module logger initialized for backend -> /home/runner/work/GremlinGPT/GremlinGPT/data/logs/backend/backend_commands.log
+2025-07-27 02:30:36.107 | INFO     | utils.logging_config:setup_module_logger:113 - [LOGGING] Module logger initialized for backend -> /home/runner/work/GremlinGPT/GremlinGPT/data/logs/backend/backend_commands.log
+2025-07-27 02:30:36.553 | INFO     | utils.logging_config:setup_module_logger:113 - [LOGGING] Module logger initialized for backend -> /home/runner/work/GremlinGPT/GremlinGPT/data/logs/backend/backend_commands.log
+2025-07-27 02:30:36.743 | INFO     | utils.logging_config:setup_module_logger:113 - [LOGGING] Module logger initialized for backend -> /home/runner/work/GremlinGPT/GremlinGPT/data/logs/backend/backend_commands.log
+2025-07-27 02:30:36.888 | INFO     | utils.logging_config:setup_module_logger:113 - [LOGGING] Module logger initialized for backend -> /home/runner/work/GremlinGPT/GremlinGPT/data/logs/backend/backend_commands.log
+2025-07-27 02:30:37.148 | ERROR    | backend.interface.commands:<module>:45 - [COMMANDS] Failed to import from backend.globals: cannot import name 'MEM' from partially initialized module 'backend.globals' (most likely due to a circular import) (/home/runner/work/GremlinGPT/GremlinGPT/backend/globals.py)
+2025-07-27 02:30:37.203 | ERROR    | backend.interface.commands:<module>:45 - [COMMANDS] Failed to import from backend.globals: cannot import name 'MEM' from partially initialized module 'backend.globals' (most likely due to a circular import) (/home/runner/work/GremlinGPT/GremlinGPT/backend/globals.py)
+2025-07-27 02:30:37.373 | INFO     | backend.interface.commands:<module>:117 - [FAISS] Loaded index from ./memory/vector_store/faiss/faiss_index.index
+2025-07-27 02:30:37.479 | INFO     | utils.logging_config:setup_module_logger:113 - [LOGGING] Module logger initialized for backend -> /home/runner/work/GremlinGPT/GremlinGPT/data/logs/backend/backend_commands.log
+2025-07-27 02:30:37.491 | INFO     | backend.interface.commands:<module>:117 - [FAISS] Loaded index from ./memory/vector_store/faiss/faiss_index.index
+2025-07-27 02:30:37.653 | INFO     | utils.logging_config:setup_module_logger:113 - [LOGGING] Module logger initialized for backend -> /home/runner/work/GremlinGPT/GremlinGPT/data/logs/backend/backend_commands.log
+2025-07-27 02:30:37.876 | ERROR    | backend.interface.commands:<module>:45 - [COMMANDS] Failed to import from backend.globals: cannot import name 'MEM' from partially initialized module 'backend.globals' (most likely due to a circular import) (/home/runner/work/GremlinGPT/GremlinGPT/backend/globals.py)
+2025-07-27 02:30:38.012 | ERROR    | backend.interface.commands:<module>:45 - [COMMANDS] Failed to import from backend.globals: cannot import name 'MEM' from partially initialized module 'backend.globals' (most likely due to a circular import) (/home/runner/work/GremlinGPT/GremlinGPT/backend/globals.py)
+2025-07-27 02:30:38.015 | INFO     | backend.interface.commands:<module>:142 - [EMBEDDER] Loaded model: all-MiniLM-L6-v2
+2025-07-27 02:30:38.080 | INFO     | backend.interface.commands:<module>:288 - [EMBEDDER] Initial disk load complete
+2025-07-27 02:30:38.086 | INFO     | backend.globals:<module>:660 - [GLOBALS] Centralized import management loaded successfully. 196 items exported.
+2025-07-27 02:30:38.100 | INFO     | backend.interface.commands:<module>:142 - [EMBEDDER] Loaded model: all-MiniLM-L6-v2
+2025-07-27 02:30:38.147 | ERROR    | backend.interface.commands:<module>:45 - [COMMANDS] Failed to import from backend.globals: cannot import name 'MEM' from partially initialized module 'backend.globals' (most likely due to a circular import) (/home/runner/work/GremlinGPT/GremlinGPT/backend/globals.py)
+2025-07-27 02:30:38.149 | INFO     | backend.interface.commands:<module>:117 - [FAISS] Loaded index from ./memory/vector_store/faiss/faiss_index.index
+2025-07-27 02:30:38.155 | INFO     | backend.interface.commands:<module>:288 - [EMBEDDER] Initial disk load complete
+2025-07-27 02:30:38.160 | INFO     | backend.globals:<module>:660 - [GLOBALS] Centralized import management loaded successfully. 196 items exported.
+2025-07-27 02:30:38.266 | INFO     | backend.interface.commands:<module>:117 - [FAISS] Loaded index from ./memory/vector_store/faiss/faiss_index.index
+2025-07-27 02:30:38.293 | INFO     | backend.interface.commands:<module>:117 - [FAISS] Loaded index from ./memory/vector_store/faiss/faiss_index.index
+2025-07-27 02:30:38.446 | ERROR    | backend.interface.commands:<module>:45 - [COMMANDS] Failed to import from backend.globals: cannot import name 'MEM' from partially initialized module 'backend.globals' (most likely due to a circular import) (/home/runner/work/GremlinGPT/GremlinGPT/backend/globals.py)
+2025-07-27 02:30:37.046 | INFO     | utils.logging_config:setup_module_logger:113 - [LOGGING] Module logger initialized for backend -> /home/runner/work/GremlinGPT/GremlinGPT/data/logs/backend/backend_commands.log
+2025-07-27 02:30:38.577 | INFO     | backend.interface.commands:<module>:117 - [FAISS] Loaded index from ./memory/vector_store/faiss/faiss_index.index
+2025-07-27 02:30:38.478 | ERROR    | backend.interface.commands:<module>:45 - [COMMANDS] Failed to import from backend.globals: cannot import name 'MEM' from partially initialized module 'backend.globals' (most likely due to a circular import) (/home/runner/work/GremlinGPT/GremlinGPT/backend/globals.py)
+2025-07-27 02:30:38.601 | INFO     | backend.interface.commands:<module>:117 - [FAISS] Loaded index from ./memory/vector_store/faiss/faiss_index.index
+2025-07-27 02:30:38.620 | ERROR    | backend.interface.commands:<module>:45 - [COMMANDS] Failed to import from backend.globals: cannot import name 'MEM' from partially initialized module 'backend.globals' (most likely due to a circular import) (/home/runner/work/GremlinGPT/GremlinGPT/backend/globals.py)
+2025-07-27 02:30:38.707 | INFO     | backend.interface.commands:<module>:142 - [EMBEDDER] Loaded model: all-MiniLM-L6-v2
+2025-07-27 02:30:38.739 | INFO     | backend.interface.commands:<module>:288 - [EMBEDDER] Initial disk load complete
+2025-07-27 02:30:38.742 | INFO     | backend.globals:<module>:660 - [GLOBALS] Centralized import management loaded successfully. 196 items exported.
+2025-07-27 02:30:38.753 | INFO     | backend.interface.commands:<module>:117 - [FAISS] Loaded index from ./memory/vector_store/faiss/faiss_index.index
+2025-07-27 02:30:38.898 | INFO     | backend.interface.commands:<module>:142 - [EMBEDDER] Loaded model: all-MiniLM-L6-v2
+2025-07-27 02:30:38.910 | INFO     | backend.interface.commands:<module>:142 - [EMBEDDER] Loaded model: all-MiniLM-L6-v2
+2025-07-27 02:30:38.919 | INFO     | backend.interface.commands:<module>:288 - [EMBEDDER] Initial disk load complete
+2025-07-27 02:30:38.921 | INFO     | backend.globals:<module>:660 - [GLOBALS] Centralized import management loaded successfully. 196 items exported.
+2025-07-27 02:30:38.939 | INFO     | backend.interface.commands:<module>:288 - [EMBEDDER] Initial disk load complete
+2025-07-27 02:30:38.941 | INFO     | backend.globals:<module>:660 - [GLOBALS] Centralized import management loaded successfully. 196 items exported.
+2025-07-27 02:30:39.060 | SUCCESS  | tokenizer:<module>:43 - [TOKENIZER] Loaded: bert-base-uncased
+2025-07-27 02:30:39.071 | INFO     | backend.interface.commands:<module>:142 - [EMBEDDER] Loaded model: all-MiniLM-L6-v2
+2025-07-27 02:30:39.086 | INFO     | backend.interface.commands:<module>:288 - [EMBEDDER] Initial disk load complete
+2025-07-27 02:30:39.088 | INFO     | backend.globals:<module>:660 - [GLOBALS] Centralized import management loaded successfully. 196 items exported.
+2025-07-27 02:30:39.096 | INFO     | backend.router:register_routes:17 - [ROUTER] Verifying and backing up API routes...
+2025-07-27 02:30:39.097 | WARNING  | __main__:<module>:45 - [SERVER] Could not register additional routes: name 'chat_handler' is not defined
+2025-07-27 02:30:39.098 | INFO     | __main__:run_server_forever:76 - [BACKEND] Starting GremlinGPT backend on 0.0.0.0:8080
+2025-07-27 02:30:39.098 | INFO     | __main__:broadcast_status:52 - [BROADCAST] GremlinGPT backend server online at 0.0.0.0:8080
+2025-07-27 02:30:39.105 | INFO     | backend.interface.commands:<module>:142 - [EMBEDDER] Loaded model: all-MiniLM-L6-v2
+2025-07-27 02:30:39.125 | INFO     | backend.interface.commands:<module>:288 - [EMBEDDER] Initial disk load complete
+2025-07-27 02:30:39.127 | INFO     | backend.globals:<module>:660 - [GLOBALS] Centralized import management loaded successfully. 196 items exported.
+2025-07-27 02:30:39.239 | INFO     | backend.interface.commands:<module>:142 - [EMBEDDER] Loaded model: all-MiniLM-L6-v2
+2025-07-27 02:30:39.259 | INFO     | backend.interface.commands:<module>:288 - [EMBEDDER] Initial disk load complete
+2025-07-27 02:30:39.261 | INFO     | backend.globals:<module>:660 - [GLOBALS] Centralized import management loaded successfully. 196 items exported.
