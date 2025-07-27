@@ -2,130 +2,221 @@
 // File tree component for browsing GremlinGPT source files
 ---
 
-<div id="file-tree" class="p-4">
-  <div class="space-y-1">
-    <!-- Root folders -->
-    <div class="file-node folder" data-path="/">
-      <div class="flex items-center space-x-2 p-1 hover:bg-gray-700 rounded cursor-pointer">
-        <svg class="w-4 h-4 text-blue-400" fill="currentColor" viewBox="0 0 20 20">
-          <path d="M2 6a2 2 0 012-2h5l2 2h5a2 2 0 012 2v6a2 2 0 01-2 2H4a2 2 0 01-2-2V6z"></path>
-        </svg>
-        <span class="text-sm text-gray-300">GremlinGPT</span>
-      </div>
+<div id="file-tree" class="p-2">
+  <div class="mb-4">
+    <div class="flex items-center justify-between mb-2">
+      <h3 class="text-sm font-semibold text-gray-300 uppercase tracking-wide">Project Files</h3>
+      <button id="refresh-tree" class="text-xs text-blue-400 hover:text-blue-300">
+        🔄 Refresh
+      </button>
     </div>
-    
-    <!-- Core modules -->
-    <div class="ml-4 space-y-1">
-      <div class="file-node folder" data-path="/agent_core">
-        <div class="flex items-center space-x-2 p-1 hover:bg-gray-700 rounded cursor-pointer">
-          <svg class="w-4 h-4 text-blue-400" fill="currentColor" viewBox="0 0 20 20">
-            <path d="M2 6a2 2 0 012-2h5l2 2h5a2 2 0 012 2v6a2 2 0 01-2 2H4a2 2 0 01-2-2V6z"></path>
-          </svg>
-          <span class="text-sm text-gray-300">agent_core</span>
-        </div>
-      </div>
-      
-      <div class="file-node folder" data-path="/backend">
-        <div class="flex items-center space-x-2 p-1 hover:bg-gray-700 rounded cursor-pointer">
-          <svg class="w-4 h-4 text-blue-400" fill="currentColor" viewBox="0 0 20 20">
-            <path d="M2 6a2 2 0 012-2h5l2 2h5a2 2 0 012 2v6a2 2 0 01-2 2H4a2 2 0 01-2-2V6z"></path>
-          </svg>
-          <span class="text-sm text-gray-300">backend</span>
-        </div>
-      </div>
-      
-      <div class="file-node folder" data-path="/core">
-        <div class="flex items-center space-x-2 p-1 hover:bg-gray-700 rounded cursor-pointer">
-          <svg class="w-4 h-4 text-blue-400" fill="currentColor" viewBox="0 0 20 20">
-            <path d="M2 6a2 2 0 012-2h5l2 2h5a2 2 0 012 2v6a2 2 0 01-2 2H4a2 2 0 01-2-2V6z"></path>
-          </svg>
-          <span class="text-sm text-gray-300">core</span>
-        </div>
-      </div>
-      
-      <div class="file-node folder" data-path="/memory">
-        <div class="flex items-center space-x-2 p-1 hover:bg-gray-700 rounded cursor-pointer">
-          <svg class="w-4 h-4 text-blue-400" fill="currentColor" viewBox="0 0 20 20">
-            <path d="M2 6a2 2 0 012-2h5l2 2h5a2 2 0 012 2v6a2 2 0 01-2 2H4a2 2 0 01-2-2V6z"></path>
-          </svg>
-          <span class="text-sm text-gray-300">memory</span>
-        </div>
-      </div>
-      
-      <div class="file-node folder" data-path="/nlp_engine">
-        <div class="flex items-center space-x-2 p-1 hover:bg-gray-700 rounded cursor-pointer">
-          <svg class="w-4 h-4 text-blue-400" fill="currentColor" viewBox="0 0 20 20">
-            <path d="M2 6a2 2 0 012-2h5l2 2h5a2 2 0 012 2v6a2 2 0 01-2 2H4a2 2 0 01-2-2V6z"></path>
-          </svg>
-          <span class="text-sm text-gray-300">nlp_engine</span>
-        </div>
-      </div>
-      
-      <div class="file-node folder" data-path="/scraper">
-        <div class="flex items-center space-x-2 p-1 hover:bg-gray-700 rounded cursor-pointer">
-          <svg class="w-4 h-4 text-blue-400" fill="currentColor" viewBox="0 0 20 20">
-            <path d="M2 6a2 2 0 012-2h5l2 2h5a2 2 0 012 2v6a2 2 0 01-2 2H4a2 2 0 01-2-2V6z"></path>
-          </svg>
-          <span class="text-sm text-gray-300">scraper</span>
-        </div>
-      </div>
-      
-      <div class="file-node folder" data-path="/trading_core">
-        <div class="flex items-center space-x-2 p-1 hover:bg-gray-700 rounded cursor-pointer">
-          <svg class="w-4 h-4 text-blue-400" fill="currentColor" viewBox="0 0 20 20">
-            <path d="M2 6a2 2 0 012-2h5l2 2h5a2 2 0 012 2v6a2 2 0 01-2 2H4a2 2 0 01-2-2V6z"></path>
-          </svg>
-          <span class="text-sm text-gray-300">trading_core</span>
-        </div>
-      </div>
-      
-      <!-- Key files -->
-      <div class="file-node file" data-path="/install.sh">
-        <div class="flex items-center space-x-2 p-1 hover:bg-gray-700 rounded cursor-pointer">
-          <svg class="w-4 h-4 text-green-400" fill="currentColor" viewBox="0 0 20 20">
-            <path fill-rule="evenodd" d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4zm2 6a1 1 0 011-1h6a1 1 0 110 2H7a1 1 0 01-1-1zm1 3a1 1 0 100 2h6a1 1 0 100-2H7z" clip-rule="evenodd"></path>
-          </svg>
-          <span class="text-sm text-gray-300">install.sh</span>
-        </div>
-      </div>
-      
-      <div class="file-node file" data-path="/run/unified_startup.py">
-        <div class="flex items-center space-x-2 p-1 hover:bg-gray-700 rounded cursor-pointer">
-          <svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
-            <path fill-rule="evenodd" d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4zm2 6a1 1 0 011-1h6a1 1 0 110 2H7a1 1 0 01-1-1zm1 3a1 1 0 100 2h6a1 1 0 100-2H7z" clip-rule="evenodd"></path>
-          </svg>
-          <span class="text-sm text-gray-300">unified_startup.py</span>
-        </div>
+    <div class="text-xs text-gray-500 mb-2">
+      <span id="file-count">Loading...</span> files • Click to open
+    </div>
+  </div>
+  
+  <div id="file-tree-content" class="space-y-1">
+    <div class="flex items-center justify-center py-8 text-gray-500">
+      <div class="text-center">
+        <div class="animate-spin w-5 h-5 border-2 border-blue-400 border-t-transparent rounded-full mx-auto mb-2"></div>
+        <div class="text-sm">Loading file tree...</div>
       </div>
     </div>
   </div>
 </div>
 
 <script>
+  let fileTree = null;
+  let expandedFolders = new Set();
+  
   // File tree interaction
   document.addEventListener('DOMContentLoaded', () => {
-    const fileNodes = document.querySelectorAll('.file-node');
+    loadFileTree();
     
-    fileNodes.forEach(node => {
-      node.addEventListener('click', (e) => {
-        e.stopPropagation();
-        const path = node.dataset.path;
-        const isFolder = node.classList.contains('folder');
-        
-        if (isFolder) {
-          // Toggle folder expansion
-          toggleFolder(node);
-        } else {
-          // Open file in Monaco editor
-          openFileInEditor(path);
-        }
+    // Refresh button
+    const refreshBtn = document.getElementById('refresh-tree');
+    if (refreshBtn) {
+      refreshBtn.addEventListener('click', () => {
+        loadFileTree();
       });
-    });
+    }
   });
   
-  function toggleFolder(folderNode) {
-    // TODO: Implement folder expansion/collapse
-    console.log('Toggle folder:', folderNode.dataset.path);
+  async function loadFileTree() {
+    try {
+      console.log('Loading file tree...');
+      const response = await fetch('/api/tree');
+      console.log('Tree response status:', response.status);
+      
+      const data = await response.json();
+      console.log('Tree data received:', data);
+      
+      if (data.success && data.tree) {
+        fileTree = data.tree;
+        renderFileTree(data.tree);
+        updateFileCount(data.tree);
+        console.log('File tree rendered successfully');
+      } else {
+        console.error('Failed to load file tree:', data.error);
+        showError('Failed to load file tree: ' + (data.error || 'Unknown error'));
+      }
+    } catch (error) {
+      console.error('Error loading file tree:', error);
+      showError('Error loading file tree: ' + error.message);
+    }
+  }
+  
+  function updateFileCount(tree) {
+    const count = countFiles(tree);
+    const fileCountEl = document.getElementById('file-count');
+    if (fileCountEl) {
+      fileCountEl.textContent = `${count.files} files, ${count.directories} directories`;
+    }
+  }
+  
+  function countFiles(nodes) {
+    let files = 0;
+    let directories = 0;
+    
+    for (const node of nodes) {
+      if (node.type === 'file') {
+        files++;
+      } else if (node.type === 'directory') {
+        directories++;
+        if (node.children) {
+          const childCounts = countFiles(node.children);
+          files += childCounts.files;
+          directories += childCounts.directories;
+        }
+      }
+    }
+    
+    return { files, directories };
+  }
+  
+  function renderFileTree(nodes, container = null, level = 0) {
+    if (!container) {
+      container = document.getElementById('file-tree-content');
+      container.innerHTML = '';
+    }
+    
+    for (const node of nodes) {
+      const nodeElement = createFileNode(node, level);
+      container.appendChild(nodeElement);
+    }
+  }
+  
+  function createFileNode(node, level) {
+    const nodeDiv = document.createElement('div');
+    nodeDiv.className = 'file-node';
+    nodeDiv.dataset.path = node.path;
+    nodeDiv.dataset.type = node.type;
+    
+    const padding = level * 16; // 16px per level
+    
+    if (node.type === 'directory') {
+      const isExpanded = expandedFolders.has(node.path);
+      
+      nodeDiv.innerHTML = `
+        <div class="flex items-center space-x-2 p-1 hover:bg-gray-700 rounded cursor-pointer select-none" style="padding-left: ${padding + 4}px">
+          <svg class="w-3 h-3 text-gray-400 transform transition-transform ${isExpanded ? 'rotate-90' : ''}" fill="currentColor" viewBox="0 0 20 20">
+            <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path>
+          </svg>
+          <svg class="w-4 h-4 text-blue-400" fill="currentColor" viewBox="0 0 20 20">
+            <path d="M2 6a2 2 0 012-2h5l2 2h5a2 2 0 012 2v6a2 2 0 01-2 2H4a2 2 0 01-2-2V6z"></path>
+          </svg>
+          <span class="text-sm text-gray-300 truncate">${node.name}</span>
+          <span class="text-xs text-gray-500 ml-auto">${node.children ? node.children.length : 0}</span>
+        </div>
+      `;
+      
+      const childrenContainer = document.createElement('div');
+      childrenContainer.className = `children-container ${isExpanded ? '' : 'hidden'}`;
+      
+      if (node.children && isExpanded) {
+        renderFileTree(node.children, childrenContainer, level + 1);
+      }
+      
+      nodeDiv.appendChild(childrenContainer);
+      
+      // Add click handler for folder
+      const folderHeader = nodeDiv.querySelector('.flex');
+      folderHeader.addEventListener('click', (e) => {
+        e.stopPropagation();
+        toggleFolder(node, nodeDiv, childrenContainer, level);
+      });
+      
+    } else {
+      // File node
+      const fileIcon = getFileIcon(node.name);
+      const fileSize = node.size ? formatFileSize(node.size) : '';
+      
+      nodeDiv.innerHTML = `
+        <div class="flex items-center space-x-2 p-1 hover:bg-gray-700 rounded cursor-pointer select-none" style="padding-left: ${padding + 20}px">
+          ${fileIcon}
+          <span class="text-sm text-gray-300 truncate flex-1">${node.name}</span>
+          ${fileSize ? `<span class="text-xs text-gray-500">${fileSize}</span>` : ''}
+        </div>
+      `;
+      
+      // Add click handler for file
+      nodeDiv.addEventListener('click', (e) => {
+        e.stopPropagation();
+        openFileInEditor(node.path);
+      });
+    }
+    
+    return nodeDiv;
+  }
+  
+  function toggleFolder(node, nodeElement, childrenContainer, level) {
+    const isExpanded = expandedFolders.has(node.path);
+    
+    if (isExpanded) {
+      // Collapse
+      expandedFolders.delete(node.path);
+      childrenContainer.classList.add('hidden');
+      const arrow = nodeElement.querySelector('svg');
+      arrow.classList.remove('rotate-90');
+    } else {
+      // Expand
+      expandedFolders.add(node.path);
+      childrenContainer.classList.remove('hidden');
+      const arrow = nodeElement.querySelector('svg');
+      arrow.classList.add('rotate-90');
+      
+      // Render children if not already rendered
+      if (node.children && childrenContainer.children.length === 0) {
+        renderFileTree(node.children, childrenContainer, level + 1);
+      }
+    }
+  }
+  
+  function getFileIcon(filename) {
+    const ext = filename.split('.').pop()?.toLowerCase();
+    
+    const iconMap = {
+      'py': '<svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4z" clip-rule="evenodd"></path></svg>',
+      'js': '<svg class="w-4 h-4 text-yellow-300" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4z" clip-rule="evenodd"></path></svg>',
+      'ts': '<svg class="w-4 h-4 text-blue-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4z" clip-rule="evenodd"></path></svg>',
+      'json': '<svg class="w-4 h-4 text-green-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4z" clip-rule="evenodd"></path></svg>',
+      'md': '<svg class="w-4 h-4 text-blue-300" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4z" clip-rule="evenodd"></path></svg>',
+      'toml': '<svg class="w-4 h-4 text-orange-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4z" clip-rule="evenodd"></path></svg>',
+      'sh': '<svg class="w-4 h-4 text-green-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4z" clip-rule="evenodd"></path></svg>',
+      'html': '<svg class="w-4 h-4 text-orange-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4z" clip-rule="evenodd"></path></svg>',
+      'css': '<svg class="w-4 h-4 text-blue-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4z" clip-rule="evenodd"></path></svg>',
+      'txt': '<svg class="w-4 h-4 text-gray-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4z" clip-rule="evenodd"></path></svg>'
+    };
+    
+    return iconMap[ext] || '<svg class="w-4 h-4 text-gray-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4z" clip-rule="evenodd"></path></svg>';
+  }
+  
+  function formatFileSize(bytes) {
+    if (bytes === 0) return '0 B';
+    const k = 1024;
+    const sizes = ['B', 'KB', 'MB', 'GB'];
+    const i = Math.floor(Math.log(bytes) / Math.log(k));
+    return parseFloat((bytes / Math.pow(k, i)).toFixed(1)) + ' ' + sizes[i];
   }
   
   function openFileInEditor(filePath) {
@@ -133,5 +224,20 @@
     window.dispatchEvent(new CustomEvent('openFile', {
       detail: { path: filePath }
     }));
+  }
+  
+  function showError(message) {
+    const container = document.getElementById('file-tree-content');
+    container.innerHTML = `
+      <div class="flex items-center justify-center py-8 text-red-400">
+        <div class="text-center">
+          <svg class="w-8 h-8 mx-auto mb-2" fill="currentColor" viewBox="0 0 20 20">
+            <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd"></path>
+          </svg>
+          <div class="text-sm">${message}</div>
+          <button onclick="loadFileTree()" class="mt-2 text-xs text-blue-400 hover:text-blue-300">Try Again</button>
+        </div>
+      </div>
+    `;
   }
 </script>

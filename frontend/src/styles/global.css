@@ -251,3 +251,80 @@ body {
   background: #ef4444;
   border-radius: 50%;
 }
+
+/* Settings Interface Styles */
+.settings-nav-item {
+  transition: all 0.2s ease;
+  border-left: 3px solid transparent;
+}
+
+.settings-nav-item:hover {
+  background-color: #4b5563;
+  border-left-color: #6b7280;
+}
+
+.settings-nav-item.active {
+  background-color: #1e40af;
+  border-left-color: #3b82f6;
+  color: white;
+}
+
+.settings-nav-item.active svg {
+  color: #93c5fd !important;
+}
+
+.settings-content {
+  position: absolute;
+  inset: 0;
+  overflow-y: auto;
+}
+
+.settings-content.hidden {
+  display: none;
+}
+
+.settings-content.active {
+  display: block;
+}
+
+/* File Tree Enhanced Styles */
+.file-node .children-container {
+  overflow: hidden;
+  transition: max-height 0.2s ease;
+}
+
+.file-node .children-container.hidden {
+  max-height: 0;
+}
+
+.file-node svg {
+  transition: transform 0.2s ease;
+  flex-shrink: 0;
+}
+
+.file-node:hover {
+  background-color: rgba(75, 85, 99, 0.3);
+}
+
+.file-node[data-type="file"]:hover {
+  background-color: rgba(59, 130, 246, 0.1);
+}
+
+/* Monaco Editor Container Styles */
+#config-editor, #memory-editor {
+  border: 1px solid #374151;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .settings-nav-item {
+    font-size: 0.75rem;
+    padding: 0.5rem 0.75rem;
+  }
+  
+  .file-node span {
+    font-size: 0.75rem;
+  }
+}

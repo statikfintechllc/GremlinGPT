@@ -116,7 +116,28 @@ import Layout from '../layouts/Layout.astro';
             <h2 class="text-sm font-semibold text-gray-300 uppercase tracking-wide">Source Files</h2>
           </div>
           <div class="flex-1 overflow-auto" id="file-tree-container">
-            <div id="file-tree" class="p-2"></div>
+            <div id="file-tree" class="p-2">
+              <div class="mb-4">
+                <div class="flex items-center justify-between mb-2">
+                  <h3 class="text-sm font-semibold text-gray-300 uppercase tracking-wide">Project Files</h3>
+                  <button id="refresh-tree" class="text-xs text-blue-400 hover:text-blue-300">
+                    🔄 Refresh
+                  </button>
+                </div>
+                <div class="text-xs text-gray-500 mb-2">
+                  <span id="file-count">Loading...</span> files • Click to open
+                </div>
+              </div>
+              
+              <div id="file-tree-content" class="space-y-1">
+                <div class="flex items-center justify-center py-8 text-gray-500">
+                  <div class="text-center">
+                    <div class="animate-spin w-5 h-5 border-2 border-blue-400 border-t-transparent rounded-full mx-auto mb-2"></div>
+                    <div class="text-sm">Loading file tree...</div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </aside>
 
@@ -133,16 +154,174 @@ import Layout from '../layouts/Layout.astro';
 
       <!-- Settings Tab -->
       <div id="settings-tab" class="tab-content hidden w-full">
-        <div class="h-full bg-gray-900 text-gray-100 p-6">
-          <h2 class="text-xl font-bold mb-4">⚙️ System Settings</h2>
-          <div class="space-y-6">
-            <div class="bg-gray-800 p-4 rounded-lg">
-              <h3 class="font-semibold mb-2">Configuration</h3>
-              <div id="config-editor" class="text-sm text-gray-400">Loading configuration...</div>
+        <div class="h-full bg-gray-900 text-gray-100 flex">
+          <!-- Settings Sidebar -->
+          <aside class="w-80 bg-gray-800 border-r border-gray-700 flex flex-col">
+            <div class="p-4 border-b border-gray-700">
+              <h2 class="text-sm font-semibold text-gray-300 uppercase tracking-wide">System Settings</h2>
             </div>
-            <div class="bg-gray-800 p-4 rounded-lg">
-              <h3 class="font-semibold mb-2">Environment</h3>
-              <div id="env-status" class="text-sm text-gray-400">Loading environment status...</div>
+            <nav class="flex-1 overflow-auto">
+              <div class="p-2 space-y-1">
+                <button class="settings-nav-item active w-full text-left px-3 py-2 text-sm rounded hover:bg-gray-700 flex items-center space-x-2" data-setting="main-config">
+                  <svg class="w-4 h-4 text-orange-400" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M11.49 3.17c-.38-1.56-2.6-1.56-2.98 0a1.532 1.532 0 01-2.286.948c-1.372-.836-2.942.734-2.106 2.106.54.886.061 2.042-.947 2.287-1.561.379-1.561 2.6 0 2.978a1.532 1.532 0 01.947 2.287c-.836 1.372.734 2.942 2.106 2.106a1.532 1.532 0 012.287.947c.379 1.561 2.6 1.561 2.978 0a1.533 1.533 0 012.287-.947c1.372.836 2.942-.734 2.106-2.106a1.533 1.533 0 01.947-2.287c1.561-.379 1.561-2.6 0-2.978a1.532 1.532 0 01-.947-2.287c.836-1.372-.734-2.942-2.106-2.106a1.532 1.532 0 01-2.287-.947zM10 13a3 3 0 100-6 3 3 0 000 6z" clip-rule="evenodd"></path>
+                  </svg>
+                  <span>Main Configuration</span>
+                </button>
+                <button class="settings-nav-item w-full text-left px-3 py-2 text-sm rounded hover:bg-gray-700 flex items-center space-x-2" data-setting="memory-config">
+                  <svg class="w-4 h-4 text-blue-400" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z"></path>
+                  </svg>
+                  <span>Memory Settings</span>
+                </button>
+                <button class="settings-nav-item w-full text-left px-3 py-2 text-sm rounded hover:bg-gray-700 flex items-center space-x-2" data-setting="environment">
+                  <svg class="w-4 h-4 text-green-400" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M3 3a1 1 0 000 2v8a2 2 0 002 2h2.586l-1.293 1.293a1 1 0 101.414 1.414L10 15.414l2.293 2.293a1 1 0 001.414-1.414L12.414 15H15a2 2 0 002-2V5a1 1 0 100-2H3zm11.707 4.707a1 1 0 00-1.414-1.414L10 9.586 8.707 8.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                  </svg>
+                  <span>Environment Status</span>
+                </button>
+                <button class="settings-nav-item w-full text-left px-3 py-2 text-sm rounded hover:bg-gray-700 flex items-center space-x-2" data-setting="system-info">
+                  <svg class="w-4 h-4 text-purple-400" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"></path>
+                  </svg>
+                  <span>System Information</span>
+                </button>
+              </div>
+            </nav>
+            <div class="p-4 border-t border-gray-700">
+              <button id="save-settings" class="w-full bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded text-sm font-medium disabled:opacity-50 disabled:cursor-not-allowed">
+                💾 Save Changes
+              </button>
+            </div>
+          </aside>
+
+          <!-- Settings Content Area -->
+          <div class="flex-1 flex flex-col">
+            <!-- Settings Header -->
+            <div class="bg-gray-800 border-b border-gray-700 p-4">
+              <div class="flex items-center justify-between">
+                <div>
+                  <h3 id="settings-title" class="text-lg font-semibold text-gray-100">Main Configuration</h3>
+                  <p id="settings-description" class="text-sm text-gray-400 mt-1">Edit the main system configuration file (config.toml)</p>
+                </div>
+                <div class="flex items-center space-x-2">
+                  <span id="settings-status" class="text-sm text-gray-400">Ready</span>
+                  <button id="reload-settings" class="text-gray-400 hover:text-gray-200">
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                      <path fill-rule="evenodd" d="M4 2a1 1 0 011 1v2.101a7.002 7.002 0 0111.601 2.566 1 1 0 11-1.885.666A5.002 5.002 0 005.999 7H9a1 1 0 010 2H4a1 1 0 01-1-1V3a1 1 0 011-1zm.008 9.057a1 1 0 011.276.61A5.002 5.002 0 0014.001 13H11a1 1 0 110-2h5a1 1 0 011 1v5a1 1 0 11-2 0v-2.101a7.002 7.002 0 01-11.601-2.566 1 1 0 01.61-1.276z" clip-rule="evenodd"></path>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Settings Editor Area -->
+            <div class="flex-1 relative">
+              <!-- Main Config Editor -->
+              <div id="main-config-content" class="settings-content active h-full">
+                <div id="config-editor" class="h-full"></div>
+              </div>
+              
+              <!-- Memory Config Editor -->
+              <div id="memory-config-content" class="settings-content hidden h-full">
+                <div id="memory-editor" class="h-full"></div>
+              </div>
+              
+              <!-- Environment Status -->
+              <div id="environment-content" class="settings-content hidden h-full p-6 overflow-auto">
+                <div class="space-y-6">
+                  <div class="bg-gray-800 p-4 rounded-lg">
+                    <h4 class="font-semibold mb-3 text-gray-100">Python Environment</h4>
+                    <div id="python-env-status" class="space-y-2 text-sm">
+                      <div class="flex justify-between">
+                        <span class="text-gray-400">Python Version:</span>
+                        <span id="python-version" class="text-gray-300">Loading...</span>
+                      </div>
+                      <div class="flex justify-between">
+                        <span class="text-gray-400">Virtual Environment:</span>
+                        <span id="venv-status" class="text-gray-300">Loading...</span>
+                      </div>
+                      <div class="flex justify-between">
+                        <span class="text-gray-400">Package Count:</span>
+                        <span id="package-count" class="text-gray-300">Loading...</span>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div class="bg-gray-800 p-4 rounded-lg">
+                    <h4 class="font-semibold mb-3 text-gray-100">Node.js Environment</h4>
+                    <div id="node-env-status" class="space-y-2 text-sm">
+                      <div class="flex justify-between">
+                        <span class="text-gray-400">Node Version:</span>
+                        <span id="node-version" class="text-gray-300">Loading...</span>
+                      </div>
+                      <div class="flex justify-between">
+                        <span class="text-gray-400">NPM Version:</span>
+                        <span id="npm-version" class="text-gray-300">Loading...</span>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div class="bg-gray-800 p-4 rounded-lg">
+                    <h4 class="font-semibold mb-3 text-gray-100">System Resources</h4>
+                    <div id="system-resources" class="space-y-2 text-sm">
+                      <div class="flex justify-between">
+                        <span class="text-gray-400">Memory Usage:</span>
+                        <span id="memory-usage" class="text-gray-300">Loading...</span>
+                      </div>
+                      <div class="flex justify-between">
+                        <span class="text-gray-400">Disk Space:</span>
+                        <span id="disk-space" class="text-gray-300">Loading...</span>
+                      </div>
+                      <div class="flex justify-between">
+                        <span class="text-gray-400">CPU Usage:</span>
+                        <span id="cpu-usage" class="text-gray-300">Loading...</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- System Information -->
+              <div id="system-info-content" class="settings-content hidden h-full p-6 overflow-auto">
+                <div class="space-y-6">
+                  <div class="bg-gray-800 p-4 rounded-lg">
+                    <h4 class="font-semibold mb-3 text-gray-100">GremlinGPT Information</h4>
+                    <div class="space-y-2 text-sm">
+                      <div class="flex justify-between">
+                        <span class="text-gray-400">Version:</span>
+                        <span class="text-gray-300">1.0.3</span>
+                      </div>
+                      <div class="flex justify-between">
+                        <span class="text-gray-400">Installation Path:</span>
+                        <span class="text-gray-300 font-mono text-xs" id="install-path">Loading...</span>
+                      </div>
+                      <div class="flex justify-between">
+                        <span class="text-gray-400">Config Path:</span>
+                        <span class="text-gray-300 font-mono text-xs">config/config.toml</span>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div class="bg-gray-800 p-4 rounded-lg">
+                    <h4 class="font-semibold mb-3 text-gray-100">Runtime Statistics</h4>
+                    <div id="runtime-stats" class="space-y-2 text-sm">
+                      <div class="flex justify-between">
+                        <span class="text-gray-400">Uptime:</span>
+                        <span id="system-uptime" class="text-gray-300">Loading...</span>
+                      </div>
+                      <div class="flex justify-between">
+                        <span class="text-gray-400">Active Processes:</span>
+                        <span id="active-processes" class="text-gray-300">Loading...</span>
+                      </div>
+                      <div class="flex justify-between">
+                        <span class="text-gray-400">Memory Usage:</span>
+                        <span id="system-memory" class="text-gray-300">Loading...</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -213,6 +392,10 @@ import Layout from '../layouts/Layout.astro';
         case 'editor':
           if (!window.monacoLoaded) {
             loadMonacoEditor();
+          }
+          if (!window.fileTreeLoaded) {
+            initializeFileTree();
+            window.fileTreeLoaded = true;
           }
           break;
         case 'settings':
@@ -500,13 +683,798 @@ Use the Memory tab for detailed memory management.
     function loadMonacoEditor() {
       // Initialize Monaco editor when editor tab is first opened
       window.monacoLoaded = true;
-      // Monaco initialization will be added here
+      
+      // Load Monaco from CDN
+      const script = document.createElement('script');
+      script.src = 'https://cdn.jsdelivr.net/npm/monaco-editor@0.52.2/min/vs/loader.js';
+      script.onload = function() {
+        require.config({ paths: { vs: 'https://cdn.jsdelivr.net/npm/monaco-editor@0.52.2/min/vs' } });
+        require(['vs/editor/editor.main'], function() {
+          window.monaco = monaco;
+          initializeMonacoEditor();
+        });
+      };
+      document.head.appendChild(script);
+    }
+
+    function initializeMonacoEditor() {
+      if (!window.monaco) return;
+
+      // Configure dark theme
+      monaco.editor.defineTheme('gremlin-dark', {
+        base: 'vs-dark',
+        inherit: true,
+        rules: [
+          { token: 'comment', foreground: '6A737D' },
+          { token: 'keyword', foreground: 'F97583' },
+          { token: 'string', foreground: '9ECBFF' },
+          { token: 'number', foreground: '79B8FF' },
+          { token: 'regexp', foreground: '7CE38B' },
+          { token: 'type', foreground: 'B392F0' },
+          { token: 'class', foreground: 'FFAB70' },
+          { token: 'function', foreground: 'B392F0' },
+          { token: 'variable', foreground: 'FFAB70' },
+          { token: 'constant', foreground: '79B8FF' },
+          { token: 'attribute', foreground: 'FFAB70' },
+          { token: 'tag', foreground: '85E89D' },
+        ],
+        colors: {
+          'editor.background': '#0D1117',
+          'editor.foreground': '#C9D1D9',
+          'editor.lineHighlightBackground': '#161B22',
+          'editor.selectionBackground': '#264F78',
+          'editor.inactiveSelectionBackground': '#3A3D41',
+          'editorCursor.foreground': '#C9D1D9',
+          'editorWhitespace.foreground': '#484F58',
+          'editorLineNumber.foreground': '#6E7681',
+          'editorLineNumber.activeForeground': '#C9D1D9',
+        }
+      });
+
+      // Create editor instance
+      const editorContainer = document.getElementById('monaco-editor');
+      if (editorContainer) {
+        window.monacoEditorInstance = monaco.editor.create(editorContainer, {
+          value: '// Welcome to GremlinGPT Source Editor\n// Select a file from the file tree to start editing\n',
+          language: 'javascript',
+          theme: 'gremlin-dark',
+          fontSize: 14,
+          minimap: { enabled: true },
+          scrollBeyondLastLine: false,
+          automaticLayout: true,
+          wordWrap: 'on',
+          lineNumbers: 'on',
+          glyphMargin: true,
+          folding: true,
+          showFoldingControls: 'always',
+          contextmenu: true,
+          quickSuggestions: true,
+          parameterHints: { enabled: true },
+          suggestOnTriggerCharacters: true,
+          acceptSuggestionOnEnter: 'on',
+          tabCompletion: 'on',
+          renderWhitespace: 'selection',
+          renderControlCharacters: true,
+          readOnly: false,
+        });
+
+        // Handle file opening from file tree
+        window.addEventListener('openFile', (event) => {
+          const filePath = event.detail.path;
+          openFileInMonaco(filePath);
+        });
+
+        // Handle content changes
+        window.monacoEditorInstance.onDidChangeModelContent(() => {
+          if (window.currentEditingFile) {
+            markFileAsModified(window.currentEditingFile);
+            // Auto-save after 2 seconds of inactivity
+            clearTimeout(window.autoSaveTimeout);
+            window.autoSaveTimeout = setTimeout(() => {
+              saveFileFromMonaco(window.currentEditingFile);
+            }, 2000);
+          }
+        });
+      }
+    }
+
+    async function openFileInMonaco(filePath) {
+      if (!window.monacoEditorInstance) return;
+
+      try {
+        // Fetch file content from backend
+        const response = await fetch(`/api/files${filePath}`);
+        if (!response.ok) {
+          throw new Error(`Failed to load file: ${response.statusText}`);
+        }
+
+        const content = await response.text();
+        const language = getLanguageFromPath(filePath);
+
+        // Create Monaco model for the file
+        const model = monaco.editor.createModel(content, language);
+        
+        // Set the model in editor
+        window.monacoEditorInstance.setModel(model);
+        window.currentEditingFile = filePath;
+        
+        // Update editor tab
+        updateEditorTab(filePath);
+        
+        showNotification(`Opened: ${filePath}`, 'success');
+
+      } catch (error) {
+        console.error('Error opening file:', error);
+        showNotification('Error opening file: ' + error.message, 'error');
+      }
+    }
+
+    async function saveFileFromMonaco(filePath) {
+      if (!window.monacoEditorInstance || !filePath) return;
+
+      try {
+        const content = window.monacoEditorInstance.getValue();
+
+        const response = await fetch(`/api/files${filePath}`, {
+          method: 'PUT',
+          headers: {
+            'Content-Type': 'text/plain',
+          },
+          body: content
+        });
+
+        if (!response.ok) {
+          throw new Error(`Failed to save file: ${response.statusText}`);
+        }
+
+        markFileAsSaved(filePath);
+        showNotification(`Saved: ${filePath}`, 'success');
+
+      } catch (error) {
+        console.error('Error saving file:', error);
+        showNotification('Error saving file: ' + error.message, 'error');
+      }
+    }
+
+    function getLanguageFromPath(filePath) {
+      const ext = filePath.split('.').pop()?.toLowerCase();
+      const languageMap = {
+        'py': 'python',
+        'js': 'javascript',
+        'ts': 'typescript',
+        'json': 'json',
+        'md': 'markdown',
+        'sh': 'shell',
+        'yml': 'yaml',
+        'yaml': 'yaml',
+        'html': 'html',
+        'css': 'css',
+        'toml': 'toml',
+        'xml': 'xml',
+        'dockerfile': 'dockerfile'
+      };
+      return languageMap[ext] || 'plaintext';
+    }
+
+    function markFileAsModified(filePath) {
+      // Update UI to show file as modified
+      updateEditorTab(filePath, true);
+    }
+
+    function markFileAsSaved(filePath) {
+      // Update UI to show file as saved
+      updateEditorTab(filePath, false);
+    }
+
+    function updateEditorTab(filePath, isModified = false) {
+      const tabsContainer = document.getElementById('editor-tabs');
+      if (!tabsContainer) return;
+
+      const fileName = filePath.split('/').pop();
+      const tabId = `tab-${filePath.replace(/[^a-zA-Z0-9]/g, '_')}`;
+      
+      let tab = document.getElementById(tabId);
+      if (!tab) {
+        // Create new tab
+        tab = document.createElement('div');
+        tab.id = tabId;
+        tab.className = 'tab px-4 py-2 bg-gray-700 text-sm cursor-pointer border-r border-gray-600 flex items-center space-x-2';
+        tab.innerHTML = `
+          <span class="truncate">${fileName}</span>
+          <span class="modified-indicator text-yellow-400 ${isModified ? '' : 'hidden'}">●</span>
+          <button class="close-tab hover:text-red-400 ml-2">×</button>
+        `;
+        
+        tab.addEventListener('click', () => {
+          if (filePath !== window.currentEditingFile) {
+            openFileInMonaco(filePath);
+          }
+        });
+        
+        tab.querySelector('.close-tab').addEventListener('click', (e) => {
+          e.stopPropagation();
+          closeTab(filePath, tab);
+        });
+        
+        tabsContainer.appendChild(tab);
+      }
+      
+      // Update modified indicator
+      const indicator = tab.querySelector('.modified-indicator');
+      if (indicator) {
+        if (isModified) {
+          indicator.classList.remove('hidden');
+        } else {
+          indicator.classList.add('hidden');
+        }
+      }
+      
+      // Update active tab
+      document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
+    }
+
+    function closeTab(filePath, tabElement) {
+      if (tabElement) {
+        tabElement.remove();
+      }
+      
+      if (filePath === window.currentEditingFile) {
+        // Clear editor if closing current file
+        if (window.monacoEditorInstance) {
+          window.monacoEditorInstance.setValue('// No file selected\n// Choose a file from the file tree to start editing');
+        }
+        window.currentEditingFile = null;
+      }
+    }
+
+    function showNotification(message, type = 'info') {
+      // Create notification element
+      const notification = document.createElement('div');
+      notification.className = `fixed top-4 right-4 px-4 py-2 rounded shadow-lg z-50 notification ${
+        type === 'error' ? 'bg-red-600 text-white' : 
+        type === 'success' ? 'bg-green-600 text-white' : 
+        'bg-blue-600 text-white'
+      }`;
+      notification.textContent = message;
+      
+      document.body.appendChild(notification);
+      
+      // Remove after 3 seconds
+      setTimeout(() => {
+        notification.remove();
+      }, 3000);
+    }
+
+    // File Tree Functionality
+    let fileTree = null;
+    let expandedFolders = new Set();
+    
+    function initializeFileTree() {
+      loadFileTree();
+      
+      // Refresh button
+      const refreshBtn = document.getElementById('refresh-tree');
+      if (refreshBtn) {
+        refreshBtn.addEventListener('click', () => {
+          loadFileTree();
+        });
+      }
+    }
+    
+    async function loadFileTree() {
+      try {
+        console.log('Loading file tree...');
+        const response = await fetch('/api/tree');
+        console.log('Tree response status:', response.status);
+        
+        const data = await response.json();
+        console.log('Tree data received:', data);
+        
+        if (data.success && data.tree) {
+          fileTree = data.tree;
+          renderFileTree(data.tree);
+          updateFileCount(data.tree);
+          console.log('File tree rendered successfully');
+        } else {
+          console.error('Failed to load file tree:', data.error);
+          showFileTreeError('Failed to load file tree: ' + (data.error || 'Unknown error'));
+        }
+      } catch (error) {
+        console.error('Error loading file tree:', error);
+        showFileTreeError('Error loading file tree: ' + error.message);
+      }
+    }
+    
+    function updateFileCount(tree) {
+      const count = countFiles(tree);
+      const fileCountEl = document.getElementById('file-count');
+      if (fileCountEl) {
+        fileCountEl.textContent = `${count.files} files, ${count.directories} directories`;
+      }
+    }
+    
+    function countFiles(nodes) {
+      let files = 0;
+      let directories = 0;
+      
+      for (const node of nodes) {
+        if (node.type === 'file') {
+          files++;
+        } else if (node.type === 'directory') {
+          directories++;
+          if (node.children) {
+            const childCounts = countFiles(node.children);
+            files += childCounts.files;
+            directories += childCounts.directories;
+          }
+        }
+      }
+      
+      return { files, directories };
+    }
+    
+    function renderFileTree(nodes, container = null, level = 0) {
+      if (!container) {
+        container = document.getElementById('file-tree-content');
+        if (!container) return;
+        container.innerHTML = '';
+      }
+      
+      for (const node of nodes) {
+        const nodeElement = createFileNode(node, level);
+        container.appendChild(nodeElement);
+      }
+    }
+    
+    function createFileNode(node, level) {
+      const nodeDiv = document.createElement('div');
+      nodeDiv.className = 'file-node';
+      nodeDiv.dataset.path = node.path;
+      nodeDiv.dataset.type = node.type;
+      
+      const padding = level * 16; // 16px per level
+      
+      if (node.type === 'directory') {
+        const isExpanded = expandedFolders.has(node.path);
+        
+        nodeDiv.innerHTML = `
+          <div class="flex items-center space-x-2 p-1 hover:bg-gray-700 rounded cursor-pointer select-none" style="padding-left: ${padding + 4}px">
+            <svg class="w-3 h-3 text-gray-400 transform transition-transform ${isExpanded ? 'rotate-90' : ''}" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path>
+            </svg>
+            <svg class="w-4 h-4 text-blue-400" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M2 6a2 2 0 012-2h5l2 2h5a2 2 0 012 2v6a2 2 0 01-2 2H4a2 2 0 01-2-2V6z"></path>
+            </svg>
+            <span class="text-sm text-gray-300 truncate">${node.name}</span>
+            <span class="text-xs text-gray-500 ml-auto">${node.children ? node.children.length : 0}</span>
+          </div>
+        `;
+        
+        const childrenContainer = document.createElement('div');
+        childrenContainer.className = `children-container ${isExpanded ? '' : 'hidden'}`;
+        
+        if (node.children && isExpanded) {
+          renderFileTree(node.children, childrenContainer, level + 1);
+        }
+        
+        nodeDiv.appendChild(childrenContainer);
+        
+        // Add click handler for folder
+        const folderHeader = nodeDiv.querySelector('.flex');
+        folderHeader.addEventListener('click', (e) => {
+          e.stopPropagation();
+          toggleFolder(node, nodeDiv, childrenContainer, level);
+        });
+        
+      } else {
+        // File node
+        const fileIcon = getFileIcon(node.name);
+        const fileSize = node.size ? formatFileSize(node.size) : '';
+        
+        nodeDiv.innerHTML = `
+          <div class="flex items-center space-x-2 p-1 hover:bg-gray-700 rounded cursor-pointer select-none" style="padding-left: ${padding + 20}px">
+            ${fileIcon}
+            <span class="text-sm text-gray-300 truncate flex-1">${node.name}</span>
+            ${fileSize ? `<span class="text-xs text-gray-500">${fileSize}</span>` : ''}
+          </div>
+        `;
+        
+        // Add click handler for file
+        nodeDiv.addEventListener('click', (e) => {
+          e.stopPropagation();
+          openFileInMonaco(node.path);
+        });
+      }
+      
+      return nodeDiv;
+    }
+    
+    function toggleFolder(node, nodeElement, childrenContainer, level) {
+      const isExpanded = expandedFolders.has(node.path);
+      
+      if (isExpanded) {
+        // Collapse
+        expandedFolders.delete(node.path);
+        childrenContainer.classList.add('hidden');
+        const arrow = nodeElement.querySelector('svg');
+        if (arrow) arrow.classList.remove('rotate-90');
+      } else {
+        // Expand
+        expandedFolders.add(node.path);
+        childrenContainer.classList.remove('hidden');
+        const arrow = nodeElement.querySelector('svg');
+        if (arrow) arrow.classList.add('rotate-90');
+        
+        // Render children if not already rendered
+        if (node.children && childrenContainer.children.length === 0) {
+          renderFileTree(node.children, childrenContainer, level + 1);
+        }
+      }
+    }
+    
+    function getFileIcon(filename) {
+      const ext = filename.split('.').pop()?.toLowerCase();
+      
+      const iconMap = {
+        'py': '<svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4z" clip-rule="evenodd"></path></svg>',
+        'js': '<svg class="w-4 h-4 text-yellow-300" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4z" clip-rule="evenodd"></path></svg>',
+        'ts': '<svg class="w-4 h-4 text-blue-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4z" clip-rule="evenodd"></path></svg>',
+        'json': '<svg class="w-4 h-4 text-green-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4z" clip-rule="evenodd"></path></svg>',
+        'md': '<svg class="w-4 h-4 text-blue-300" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4z" clip-rule="evenodd"></path></svg>',
+        'toml': '<svg class="w-4 h-4 text-orange-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4z" clip-rule="evenodd"></path></svg>',
+        'sh': '<svg class="w-4 h-4 text-green-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4z" clip-rule="evenodd"></path></svg>',
+        'html': '<svg class="w-4 h-4 text-orange-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4z" clip-rule="evenodd"></path></svg>',
+        'css': '<svg class="w-4 h-4 text-blue-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4z" clip-rule="evenodd"></path></svg>',
+        'txt': '<svg class="w-4 h-4 text-gray-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4z" clip-rule="evenodd"></path></svg>'
+      };
+      
+      return iconMap[ext] || '<svg class="w-4 h-4 text-gray-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4z" clip-rule="evenodd"></path></svg>';
+    }
+    
+    function formatFileSize(bytes) {
+      if (bytes === 0) return '0 B';
+      const k = 1024;
+      const sizes = ['B', 'KB', 'MB', 'GB'];
+      const i = Math.floor(Math.log(bytes) / Math.log(k));
+      return parseFloat((bytes / Math.pow(k, i)).toFixed(1)) + ' ' + sizes[i];
+    }
+    
+    function showFileTreeError(message) {
+      const container = document.getElementById('file-tree-content');
+      if (!container) return;
+      
+      container.innerHTML = `
+        <div class="flex items-center justify-center py-8 text-red-400">
+          <div class="text-center">
+            <svg class="w-8 h-8 mx-auto mb-2" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd"></path>
+            </svg>
+            <div class="text-sm">${message}</div>
+            <button onclick="loadFileTree()" class="mt-2 text-xs text-blue-400 hover:text-blue-300">Try Again</button>
+          </div>
+        </div>
+      `;
     }
 
     function loadSettingsContent() {
-      // Load settings content
-      document.getElementById('config-editor').textContent = 'Configuration editor loading...';
-      document.getElementById('env-status').textContent = 'Environment: Development';
+      // Initialize settings navigation
+      initializeSettingsNavigation();
+      
+      // Load main configuration by default
+      loadConfigurationEditor('main');
+      
+      // Load environment status
+      loadEnvironmentStatus();
+      
+      // Load system information  
+      loadSystemInformation();
+    }
+
+    function initializeSettingsNavigation() {
+      const navItems = document.querySelectorAll('.settings-nav-item');
+      
+      navItems.forEach(item => {
+        item.addEventListener('click', () => {
+          const settingType = item.dataset.setting;
+          
+          // Update active nav item
+          navItems.forEach(nav => nav.classList.remove('active'));
+          item.classList.add('active');
+          
+          // Show corresponding content
+          showSettingsContent(settingType);
+        });
+      });
+      
+      // Save settings button
+      const saveBtn = document.getElementById('save-settings');
+      if (saveBtn) {
+        saveBtn.addEventListener('click', saveCurrentSettings);
+      }
+      
+      // Reload settings button
+      const reloadBtn = document.getElementById('reload-settings');
+      if (reloadBtn) {
+        reloadBtn.addEventListener('click', reloadCurrentSettings);
+      }
+    }
+
+    function showSettingsContent(settingType) {
+      // Hide all content areas
+      const contents = document.querySelectorAll('.settings-content');
+      contents.forEach(content => {
+        content.classList.add('hidden');
+        content.classList.remove('active');
+      });
+      
+      // Update header
+      const title = document.getElementById('settings-title');
+      const description = document.getElementById('settings-description');
+      
+      switch (settingType) {
+        case 'main-config':
+          document.getElementById('main-config-content').classList.remove('hidden');
+          document.getElementById('main-config-content').classList.add('active');
+          title.textContent = 'Main Configuration';
+          description.textContent = 'Edit the main system configuration file (config.toml)';
+          if (!window.configEditorLoaded) {
+            loadConfigurationEditor('main');
+          }
+          break;
+          
+        case 'memory-config':
+          document.getElementById('memory-config-content').classList.remove('hidden');
+          document.getElementById('memory-config-content').classList.add('active');
+          title.textContent = 'Memory Settings';
+          description.textContent = 'Configure memory and vector store settings (memory.json)';
+          if (!window.memoryEditorLoaded) {
+            loadConfigurationEditor('memory');
+          }
+          break;
+          
+        case 'environment':
+          document.getElementById('environment-content').classList.remove('hidden');
+          document.getElementById('environment-content').classList.add('active');
+          title.textContent = 'Environment Status';
+          description.textContent = 'View system environment and runtime information';
+          loadEnvironmentStatus();
+          break;
+          
+        case 'system-info':
+          document.getElementById('system-info-content').classList.remove('hidden');
+          document.getElementById('system-info-content').classList.add('active');
+          title.textContent = 'System Information';
+          description.textContent = 'View detailed system and GremlinGPT information';
+          loadSystemInformation();
+          break;
+      }
+    }
+
+    async function loadConfigurationEditor(type) {
+      try {
+        // Update status
+        updateSettingsStatus('Loading configuration...');
+        
+        const response = await fetch(`/api/config?type=${type}`);
+        const data = await response.json();
+        
+        if (data.success) {
+          if (type === 'main') {
+            createConfigEditor('config-editor', data.content, 'ini');
+            window.configEditorLoaded = true;
+          } else if (type === 'memory') {
+            createConfigEditor('memory-editor', data.content, 'json');
+            window.memoryEditorLoaded = true;
+          }
+          updateSettingsStatus('Configuration loaded');
+        } else {
+          throw new Error(data.error || 'Failed to load configuration');
+        }
+      } catch (error) {
+        console.error('Error loading configuration:', error);
+        updateSettingsStatus('Error loading configuration');
+        showConfigError(type, error.message);
+      }
+    }
+
+    function createConfigEditor(containerId, content, language) {
+      // Load Monaco editor for config editing
+      if (typeof monaco !== 'undefined') {
+        const container = document.getElementById(containerId);
+        
+        // Clear container
+        container.innerHTML = '';
+        
+        // Create editor
+        const editor = monaco.editor.create(container, {
+          value: content,
+          language: language,
+          theme: 'gremlin-dark',
+          fontSize: 13,
+          minimap: { enabled: false },
+          scrollBeyondLastLine: false,
+          automaticLayout: true,
+          wordWrap: 'on',
+          lineNumbers: 'on',
+          folding: true,
+          contextmenu: true,
+          readOnly: false,
+        });
+        
+        // Store editor reference
+        if (containerId === 'config-editor') {
+          window.mainConfigEditor = editor;
+        } else if (containerId === 'memory-editor') {
+          window.memoryConfigEditor = editor;
+        }
+        
+        // Handle content changes
+        editor.onDidChangeModelContent(() => {
+          updateSettingsStatus('Configuration modified');
+          enableSaveButton();
+        });
+        
+      } else {
+        // Fallback to textarea
+        const container = document.getElementById(containerId);
+        container.innerHTML = `
+          <textarea class="w-full h-full bg-gray-800 text-gray-100 font-mono text-sm p-4 border-none outline-none resize-none" 
+                    placeholder="Loading configuration...">${content}</textarea>
+        `;
+        
+        const textarea = container.querySelector('textarea');
+        textarea.addEventListener('input', () => {
+          updateSettingsStatus('Configuration modified');
+          enableSaveButton();
+        });
+        
+        if (containerId === 'config-editor') {
+          window.mainConfigTextarea = textarea;
+        } else if (containerId === 'memory-editor') {
+          window.memoryConfigTextarea = textarea;
+        }
+      }
+    }
+
+    function showConfigError(type, message) {
+      const containerId = type === 'main' ? 'config-editor' : 'memory-editor';
+      const container = document.getElementById(containerId);
+      
+      container.innerHTML = `
+        <div class="flex items-center justify-center h-full text-red-400">
+          <div class="text-center">
+            <svg class="w-12 h-12 mx-auto mb-4" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd"></path>
+            </svg>
+            <h3 class="text-lg font-semibold mb-2">Error Loading Configuration</h3>
+            <p class="text-sm text-gray-400 mb-4">${message}</p>
+            <button onclick="loadConfigurationEditor('${type}')" class="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded text-sm">
+              Try Again
+            </button>
+          </div>
+        </div>
+      `;
+    }
+
+    async function saveCurrentSettings() {
+      try {
+        disableSaveButton();
+        updateSettingsStatus('Saving...');
+        
+        const activeContent = document.querySelector('.settings-content.active');
+        let type, content;
+        
+        if (activeContent.id === 'main-config-content') {
+          type = 'main';
+          content = window.mainConfigEditor ? window.mainConfigEditor.getValue() : 
+                   window.mainConfigTextarea ? window.mainConfigTextarea.value : '';
+        } else if (activeContent.id === 'memory-config-content') {
+          type = 'memory';
+          content = window.memoryConfigEditor ? window.memoryConfigEditor.getValue() : 
+                   window.memoryConfigTextarea ? window.memoryConfigTextarea.value : '';
+        } else {
+          updateSettingsStatus('No configuration to save');
+          enableSaveButton();
+          return;
+        }
+        
+        const response = await fetch(`/api/config?type=${type}`, {
+          method: 'PUT',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ content })
+        });
+        
+        const result = await response.json();
+        
+        if (result.success) {
+          updateSettingsStatus('Configuration saved successfully');
+          showNotification('Configuration saved successfully', 'success');
+          setTimeout(() => {
+            updateSettingsStatus('Ready');
+            enableSaveButton();
+          }, 2000);
+        } else {
+          throw new Error(result.error || 'Failed to save configuration');
+        }
+        
+      } catch (error) {
+        console.error('Error saving configuration:', error);
+        updateSettingsStatus('Error saving configuration');
+        showNotification('Error saving configuration: ' + error.message, 'error');
+        enableSaveButton();
+      }
+    }
+
+    async function reloadCurrentSettings() {
+      const activeNav = document.querySelector('.settings-nav-item.active');
+      if (activeNav) {
+        const settingType = activeNav.dataset.setting;
+        if (settingType === 'main-config') {
+          loadConfigurationEditor('main');
+        } else if (settingType === 'memory-config') {
+          loadConfigurationEditor('memory');
+        } else if (settingType === 'environment') {
+          loadEnvironmentStatus();
+        } else if (settingType === 'system-info') {
+          loadSystemInformation();
+        }
+      }
+    }
+
+    function updateSettingsStatus(message) {
+      const statusEl = document.getElementById('settings-status');
+      if (statusEl) {
+        statusEl.textContent = message;
+      }
+    }
+
+    function enableSaveButton() {
+      const saveBtn = document.getElementById('save-settings');
+      if (saveBtn) {
+        saveBtn.disabled = false;
+      }
+    }
+
+    function disableSaveButton() {
+      const saveBtn = document.getElementById('save-settings');
+      if (saveBtn) {
+        saveBtn.disabled = true;
+      }
+    }
+
+    async function loadEnvironmentStatus() {
+      try {
+        // Mock environment data - in real implementation, these would come from API calls
+        document.getElementById('python-version').textContent = 'Python 3.8.10';
+        document.getElementById('venv-status').textContent = 'Active (gremlin-env)';
+        document.getElementById('package-count').textContent = '47 packages';
+        
+        document.getElementById('node-version').textContent = 'Node.js 18.17.0';
+        document.getElementById('npm-version').textContent = 'NPM 9.6.7';
+        
+        document.getElementById('memory-usage').textContent = '2.1GB / 8GB (26%)';
+        document.getElementById('disk-space').textContent = '45GB free / 120GB';
+        document.getElementById('cpu-usage').textContent = '15%';
+        
+      } catch (error) {
+        console.error('Error loading environment status:', error);
+      }
+    }
+
+    async function loadSystemInformation() {
+      try {
+        // Mock system data - in real implementation, these would come from API calls
+        document.getElementById('install-path').textContent = '/home/runner/work/GremlinGPT/GremlinGPT';
+        document.getElementById('system-uptime').textContent = '2h 34m';
+        document.getElementById('active-processes').textContent = '5 processes';
+        document.getElementById('system-memory').textContent = '2.1GB used';
+        
+      } catch (error) {
+        console.error('Error loading system information:', error);
+      }
     }
   </script>
 </Layout>
