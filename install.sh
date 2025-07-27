@@ -288,20 +288,54 @@ cd frontend || { echo "${RED}[ERROR] Frontend directory not found!${NC}"; exit 1
 echo "[*] Installing frontend dependencies..."
 npm install >> "$LOGFILE" 2>&1 || { echo "${RED}[ERROR] Failed to install frontend dependencies${NC}"; exit 1; }
 
+# Copy proper icon
+cp "public/Icon_Logo/App_Icon_&_Loading_&_Inference_Image.png" public/icon.png || { echo "${YELLOW}[WARNING] Could not copy icon${NC}"; }
+
 # Build Astro application
 echo "[*] Building Astro application..."
 npm run build >> "$LOGFILE" 2>&1 || { echo "${RED}[ERROR] Failed to build Astro application${NC}"; exit 1; }
 
-# Package Electron application
-echo "[*] Packaging Electron application..."
-npm run pack >> "$LOGFILE" 2>&1 || { echo "${RED}[ERROR] Failed to package Electron application${NC}"; exit 1; }
+# Package Electron application as distributable
+echo "[*] Packaging Electron application as distributable..."
+npm run dist >> "$LOGFILE" 2>&1 || { echo "${RED}[ERROR] Failed to package Electron application${NC}"; exit 1; }
+
+# Make AppImage executable if it exists
+if [ -f "dist-electron/GremlinGPT-1.0.3.AppImage" ]; then
+    chmod +x "dist-electron/GremlinGPT-1.0.3.AppImage"
+    echo "${GREEN}[✓] Created GremlinGPT AppImage: frontend/dist-electron/GremlinGPT-1.0.3.AppImage${NC}"
+fi
+
+# Create desktop entry for easier access
+DESKTOP_ENTRY="$HOME/.local/share/applications/gremlingpt.desktop"
+mkdir -p "$HOME/.local/share/applications"
+cat > "$DESKTOP_ENTRY" << EOF
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=GremlinGPT
+Comment=Living AI Ecosystem with Enhanced Dashboard
+Exec=$(pwd)/dist-electron/linux-unpacked/gremlingpt-frontend
+Icon=$(pwd)/public/icon.png
+Terminal=false
+Categories=Development;Utility;
+StartupWMClass=GremlinGPT
+EOF
+
+echo "${GREEN}[✓] Created desktop entry: $DESKTOP_ENTRY${NC}"
 
 cd .. || exit 1
 
 # 10. Final message, indicating successful installation
 banner "GremlinGPT installation completed successfully!"
 echo "${GREEN}[✓] GremlinGPT installation completed successfully!${NC}"
-echo "${GREEN}[✓] Electron application packaged and ready to use!${NC}"
-banner "Launch the application with: cd frontend && npm run electron"
+echo "${GREEN}[✓] Desktop application ready to use!${NC}"
+echo ""
+echo "${GREEN}Launch Options:${NC}"
+echo "  1. ${YELLOW}Desktop App (Recommended):${NC} Search for 'GremlinGPT' in applications menu"
+echo "  2. ${YELLOW}Direct Launch:${NC} cd frontend && ./dist-electron/linux-unpacked/gremlingpt-frontend"
+echo "  3. ${YELLOW}Development Mode:${NC} cd frontend && npm run electron"
+echo "  4. ${YELLOW}CLI Only:${NC} python3 utils/enhanced_dash_cli.py"
+echo ""
+banner "Launch the application to access the Enhanced CLI Dashboard!"
 echo "${GREEN}[INSTALL] GremlinGPT installation completed successfully.${NC}"
 banner "Installation log saved to $LOGFILE"

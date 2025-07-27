@@ -10,9 +10,59 @@ let mainWindow;
 let fileWatcher;
 let wsServer;
 let astroProcess;
+let backendProcess;
 
 // GremlinGPT root directory (parent of frontend)
 const GREMLIN_ROOT = path.join(__dirname, '..');
+
+function startGremlinBackend() {
+  return new Promise((resolve, reject) => {
+    console.log('[GremlinGPT] Starting backend services...');
+    
+    const startScript = path.join(GREMLIN_ROOT, 'run', 'start_all.sh');
+    
+    // Check if start_all.sh exists
+    fs.access(startScript)
+      .then(() => {
+        backendProcess = spawn('bash', [startScript], {
+          cwd: GREMLIN_ROOT,
+          stdio: ['ignore', 'pipe', 'pipe'],
+          detached: false
+        });
+        
+        backendProcess.stdout.on('data', (data) => {
+          console.log('[GremlinGPT Backend]', data.toString());
+        });
+        
+        backendProcess.stderr.on('data', (data) => {
+          console.error('[GremlinGPT Backend Error]', data.toString());
+        });
+        
+        backendProcess.on('error', (error) => {
+          console.error('Failed to start GremlinGPT backend:', error);
+          reject(error);
+        });
+        
+        // Give backend time to start
+        setTimeout(() => {
+          console.log('[GremlinGPT] Backend startup initiated');
+          resolve();
+        }, 3000);
+      })
+      .catch(() => {
+        console.log('[GremlinGPT] start_all.sh not found, continuing without backend');
+        resolve();
+      });
+  });
+}
+
+function stopGremlinBackend() {
+  if (backendProcess) {
+    console.log('[GremlinGPT] Stopping backend services...');
+    backendProcess.kill('SIGTERM');
+    backendProcess = null;
+  }
+}
 
 function createWindow() {
   // Create the browser window
@@ -36,13 +86,22 @@ function createWindow() {
     } : undefined
   });
 
-  // Start Astro server and load the app
-  startAstroServer().then(() => {
+  // Start backend services first, then Astro server
+  Promise.all([
+    startGremlinBackend(),
+    startAstroServer()
+  ]).then(() => {
     mainWindow.loadURL('http://localhost:4321');
     
     if (process.env.NODE_ENV === 'development') {
       mainWindow.webContents.openDevTools();
     }
+  }).catch((error) => {
+    console.error('Failed to start services:', error);
+    // Still load the frontend even if backend fails
+    startAstroServer().then(() => {
+      mainWindow.loadURL('http://localhost:4321');
+    });
   });
 
   // Show window when ready to prevent visual flash
@@ -62,6 +121,7 @@ function createWindow() {
     stopFileWatcher();
     stopWebSocketServer();
     stopAstroServer();
+    stopGremlinBackend();
   });
 
   // Handle external links
@@ -464,6 +524,8 @@ app.on('window-all-closed', () => {
 app.on('before-quit', () => {
   stopFileWatcher();
   stopWebSocketServer();
+  stopAstroServer();
+  stopGremlinBackend();
 });
 
 // Security: Prevent new window creation

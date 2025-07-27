@@ -3,7 +3,10 @@
   "type": "module",
   "version": "1.0.3",
   "description": "GremlinGPT - Autonomous AI System with Monaco Editor",
-  "author": "StatikFintechLLC",
+  "author": {
+    "name": "StatikFintechLLC",
+    "email": "contact@statikfintech.com"
+  },
   "main": "main.cjs",
   "homepage": "./",
   "scripts": {
@@ -25,13 +28,13 @@
     "astro": "^5.12.3",
     "autoprefixer": "^10.4.21",
     "chokidar": "^4.0.3",
-    "electron": "^37.2.4",
     "monaco-editor": "^0.52.2",
     "tailwindcss": "^3.4.17",
     "ws": "^8.18.3"
   },
   "devDependencies": {
     "concurrently": "^9.2.0",
+    "electron": "^37.2.4",
     "electron-builder": "^26.0.12",
     "wait-on": "^8.0.4"
   },
@@ -43,10 +46,9 @@
     },
     "files": [
       "dist/**/*",
-      "main.js",
-      "preload.js",
-      "package.json",
-      "node_modules/**/*"
+      "main.cjs",
+      "preload.cjs",
+      "package.json"
     ],
     "extraResources": [
       {
