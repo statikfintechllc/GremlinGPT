@@ -13,25 +13,37 @@
 try:
     import eventlet
     eventlet.monkey_patch()
+    HAS_EVENTLET = True
 except ImportError:
+    HAS_EVENTLET = False
     pass  # eventlet is optional
 
-# Set up NLTK data path before any imports
-eventlet.monkey_patch()
-socketio = SocketIO(app, cors_allowed_origins="*", async_mode="eventlet")
-from backend.globals import CFG, logger, resolve_path, DATA_DIR, MEM
-from backend.api.api_endpoints import *
-from backend.router import *
+# Import Flask and other dependencies
+from flask import Flask
+from flask_socketio import SocketIO
+
+# Create Flask app
+app = Flask(__name__)
+
+# Set up SocketIO with or without eventlet
+if HAS_EVENTLET:
+    socketio = SocketIO(app, cors_allowed_origins="*", async_mode="eventlet")
+else:
+    socketio = SocketIO(app, cors_allowed_origins="*")
+
+from backend.globals import CFG, logger, resolve_path, DATA_DIR
+
+# Import and register API blueprint
+from backend.api.api_endpoints import api_blueprint
+app.register_blueprint(api_blueprint)
 
 try:
+    from backend.router import register_routes
     register_routes(app)
     logger.info("[SERVER] Additional routes registered")
 except Exception as e:
     logger.warning(f"[SERVER] Could not register additional routes: {e}")
     # Continue without additional routes - API endpoints are already registered
-
-# Log directory is already set up by globals.py, no need to duplicate logger setup
-
 
 # Broadcast function for system status
 def broadcast_status(msg):
@@ -41,6 +53,7 @@ def broadcast_status(msg):
     except Exception as e:
         logger.error(f"[BROADCAST] Broadcast failed: {e}")
 
+from flask import send_from_directory
 
 # Base API Checkpoint
 @app.route("/")

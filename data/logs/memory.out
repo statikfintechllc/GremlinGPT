@@ -1,0 +1,92 @@
+[Memory Service] ENV: gremlin-memory
+[Memory Service] CWD: /home/runner/work/GremlinGPT/GremlinGPT
+[Memory Service] PYTHONPATH: /home/runner/work/GremlinGPT/GremlinGPT:/home/runner/work/GremlinGPT/GremlinGPT
+[Memory Service] Running: python memory/vector_store/embedder.py
+[Memory Service] Started with PID: 5262
+ERROR:backend.globals:[TRANSFORMER] Failed to load model 'bert-base-uncased': We couldn't connect to 'https://huggingface.co' to load the files, and couldn't find them in the cached files.
+Check your internet connection or see how to run the library in offline mode at 'https://huggingface.co/docs/transformers/installation#offline-mode'.
+WARNING:backend.globals:[TOKENIZER] Failed to load bert-base-uncased. Falling back to nltk: We couldn't connect to 'https://huggingface.co' to load the files, and couldn't find them in the cached files.
+Check your internet connection or see how to run the library in offline mode at 'https://huggingface.co/docs/transformers/installation#offline-mode'.
+INFO:backend.globals:[GLOBALS] Centralized import management loaded successfully. 196 items exported.
+[NLTK] Found punkt in /home/runner/work/GremlinGPT/GremlinGPT/data/nltk_data
+[NLTK] Found punkt_tab in /home/runner/work/GremlinGPT/GremlinGPT/data/nltk_data
+Traceback (most recent call last):
+  File "/home/runner/work/GremlinGPT/GremlinGPT/memory/vector_store/embedder.py", line 37, in <module>
+    FAISS_DIR        = os.path.join(BASE_VECTOR_PATH, "faiss")
+NameError: name 'os' is not defined
+[Memory Service] Process exited with code 0
+[Memory Service] ENV: gremlin-memory
+[Memory Service] CWD: /home/runner/work/GremlinGPT/GremlinGPT
+[Memory Service] PYTHONPATH: /home/runner/work/GremlinGPT/GremlinGPT:/home/runner/work/GremlinGPT/GremlinGPT
+[Memory Service] Running: python memory/vector_store/embedder.py
+[Memory Service] Started with PID: 5817
+[Memory Service] ENV: gremlin-memory
+[Memory Service] CWD: /home/runner/work/GremlinGPT/GremlinGPT
+[Memory Service] PYTHONPATH: /home/runner/work/GremlinGPT/GremlinGPT:/home/runner/work/GremlinGPT/GremlinGPT
+[Memory Service] Running: python memory/vector_store/embedder.py
+[Memory Service] Port: 8002
+[Memory Service] Started with PID: 3228
+ERROR:backend.globals:[TRANSFORMER] Failed to load model 'bert-base-uncased': 'Logger' object has no attribute 'success'
+WARNING:backend.globals:[TOKENIZER] Failed to load bert-base-uncased. Falling back to nltk: 'Logger' object has no attribute 'success'
+INFO:backend.globals:[GLOBALS] Centralized import management loaded successfully. 196 items exported.
+[NLTK] Found punkt in /home/runner/work/GremlinGPT/GremlinGPT/data/nltk_data
+[NLTK] Found punkt_tab in /home/runner/work/GremlinGPT/GremlinGPT/data/nltk_data
+Traceback (most recent call last):
+  File "/home/runner/work/GremlinGPT/GremlinGPT/memory/vector_store/embedder.py", line 71, in <module>
+    if chromadb:
+NameError: name 'chromadb' is not defined
+[Memory Service] Process exited with code 0
+[Memory Service] ENV: gremlin-memory
+[Memory Service] CWD: /home/runner/work/GremlinGPT/GremlinGPT
+[Memory Service] PYTHONPATH: /home/runner/work/GremlinGPT/GremlinGPT:/home/runner/work/GremlinGPT/GremlinGPT
+[Memory Service] Running: python memory/vector_store/embedder.py
+[Memory Service] Port: 8002
+[Memory Service] Started with PID: 3065
+ERROR:backend.globals:[TRANSFORMER] Failed to load model 'bert-base-uncased': 'Logger' object has no attribute 'success'
+WARNING:backend.globals:[TOKENIZER] Failed to load bert-base-uncased. Falling back to nltk: 'Logger' object has no attribute 'success'
+INFO:backend.globals:[GLOBALS] Centralized import management loaded successfully. 196 items exported.
+[NLTK] Found punkt in /home/runner/work/GremlinGPT/GremlinGPT/data/nltk_data
+[NLTK] Found punkt_tab in /home/runner/work/GremlinGPT/GremlinGPT/data/nltk_data
+Traceback (most recent call last):
+  File "/home/runner/work/GremlinGPT/GremlinGPT/memory/vector_store/embedder.py", line 71, in <module>
+    if chromadb:
+NameError: name 'chromadb' is not defined
+[Memory Service] Process exited with code 0
+[Memory Service] ENV: base
+[Memory Service] CWD: /home/runner/work/GremlinGPT/GremlinGPT
+[Memory Service] PYTHONPATH: /home/runner/work/GremlinGPT/GremlinGPT:/home/runner/work/GremlinGPT/GremlinGPT
+[Memory Service] Running: python memory/vector_store/embedder.py
+[Memory Service] Port: 8002
+[Memory Service] Started with PID: 3068
+[32m02:30:27[0m | [1mINFO    [0m | [36mutils.logging_config[0m:[36msetup_module_logger[0m:[36m113[0m - [1m[LOGGING] Module logger initialized for backend -> /home/runner/work/GremlinGPT/GremlinGPT/data/logs/backend/backend_globals.log[0m
+[32m02:30:27[0m | [1mINFO    [0m | [36mutils.logging_config[0m:[36msetup_module_logger[0m:[36m113[0m - [1m[LOGGING] Module logger initialized for nlp_engine -> /home/runner/work/GremlinGPT/GremlinGPT/data/logs/nlp_engine/nlp_engine_diff_engine.log[0m
+[32m02:30:27[0m | [1mINFO    [0m | [36mutils.logging_config[0m:[36msetup_module_logger[0m:[36m113[0m - [1m[LOGGING] Module logger initialized for nlp_engine -> /home/runner/work/GremlinGPT/GremlinGPT/data/logs/nlp_engine/nlp_engine_diff_engine.log[0m
+[32m02:30:27[0m | [1mINFO    [0m | [36mutils.logging_config[0m:[36msetup_module_logger[0m:[36m113[0m - [1m[LOGGING] Module logger initialized for nlp_engine -> /home/runner/work/GremlinGPT/GremlinGPT/data/logs/nlp_engine/nlp_engine_pos_tagger.log[0m
+[32m02:30:35[0m | [31m[1mERROR   [0m | [36mnlp_engine.transformer_core[0m:[36m<module>[0m:[36m35[0m - [31m[1m[TRANSFORMER] Failed to load model 'bert-base-uncased': Found no NVIDIA driver on your system. Please check that you have an NVIDIA GPU and installed a driver from http://www.nvidia.com/Download/index.aspx[0m
+[32m02:30:35[0m | [1mINFO    [0m | [36mutils.logging_config[0m:[36msetup_module_logger[0m:[36m113[0m - [1m[LOGGING] Module logger initialized for agent_core -> /home/runner/work/GremlinGPT/GremlinGPT/data/logs/agent_core/agent_core_heuristics.log[0m
+[32m02:30:35[0m | [32m[1mSUCCESS [0m | [36mnlp_engine.tokenizer[0m:[36m<module>[0m:[36m43[0m - [32m[1m[TOKENIZER] Loaded: bert-base-uncased[0m
+[32m02:30:35[0m | [1mINFO    [0m | [36mutils.logging_config[0m:[36msetup_module_logger[0m:[36m113[0m - [1m[LOGGING] Module logger initialized for nlp_engine -> /home/runner/work/GremlinGPT/GremlinGPT/data/logs/nlp_engine/nlp_engine_pos_tagger.log[0m
+[32m02:30:35[0m | [1mINFO    [0m | [36mutils.logging_config[0m:[36msetup_module_logger[0m:[36m113[0m - [1m[LOGGING] Module logger initialized for nlp_engine -> /home/runner/work/GremlinGPT/GremlinGPT/data/logs/nlp_engine/nlp_engine_pos_tagger.log[0m
+[32m02:30:35[0m | [1mINFO    [0m | [36mutils.logging_config[0m:[36msetup_module_logger[0m:[36m113[0m - [1m[LOGGING] Module logger initialized for scraper -> /home/runner/work/GremlinGPT/GremlinGPT/data/logs/scraper/scraper.log[0m
+[32m02:30:35[0m | [1mINFO    [0m | [36mutils.logging_config[0m:[36msetup_module_logger[0m:[36m113[0m - [1m[LOGGING] Module logger initialized for scraper -> /home/runner/work/GremlinGPT/GremlinGPT/data/logs/scraper/scraper.log[0m
+[32m02:30:35[0m | [1mINFO    [0m | [36mutils.logging_config[0m:[36msetup_module_logger[0m:[36m113[0m - [1m[LOGGING] Module logger initialized for scraper -> /home/runner/work/GremlinGPT/GremlinGPT/data/logs/scraper/scraper_stt_scraper.log[0m
+[32m02:30:35[0m | [1mINFO    [0m | [36mutils.logging_config[0m:[36msetup_module_logger[0m:[36m113[0m - [1m[LOGGING] Module logger initialized for scraper -> /home/runner/work/GremlinGPT/GremlinGPT/data/logs/scraper/scraper.log[0m
+[32m02:30:35[0m | [1mINFO    [0m | [36mutils.logging_config[0m:[36msetup_module_logger[0m:[36m113[0m - [1m[LOGGING] Module logger initialized for tools -> /home/runner/work/GremlinGPT/GremlinGPT/data/logs/tools/tools_reward_model.log[0m
+[32m02:30:35[0m | [1mINFO    [0m | [36mutils.logging_config[0m:[36msetup_module_logger[0m:[36m113[0m - [1m[LOGGING] Module logger initialized for tools -> /home/runner/work/GremlinGPT/GremlinGPT/data/logs/tools/tools_reward_model.log[0m
+[32m02:30:35[0m | [1mINFO    [0m | [36mutils.logging_config[0m:[36msetup_module_logger[0m:[36m113[0m - [1m[LOGGING] Module logger initialized for tools -> /home/runner/work/GremlinGPT/GremlinGPT/data/logs/tools/tools_reward_model.log[0m
+[32m02:30:35[0m | [1mINFO    [0m | [36mutils.logging_config[0m:[36msetup_module_logger[0m:[36m113[0m - [1m[LOGGING] Module logger initialized for tools -> /home/runner/work/GremlinGPT/GremlinGPT/data/logs/tools/tools_reward_model.log[0m
+[32m02:30:35[0m | [1mINFO    [0m | [36mutils.logging_config[0m:[36msetup_module_logger[0m:[36m113[0m - [1m[LOGGING] Module logger initialized for tools -> /home/runner/work/GremlinGPT/GremlinGPT/data/logs/tools/tools_reward_model.log[0m
+[32m02:30:36[0m | [1mINFO    [0m | [36mutils.logging_config[0m:[36msetup_module_logger[0m:[36m113[0m - [1m[LOGGING] Module logger initialized for backend -> /home/runner/work/GremlinGPT/GremlinGPT/data/logs/backend/backend_commands.log[0m
+[32m02:30:37[0m | [31m[1mERROR   [0m | [36mbackend.interface.commands[0m:[36m<module>[0m:[36m45[0m - [31m[1m[COMMANDS] Failed to import from backend.globals: cannot import name 'MEM' from partially initialized module 'backend.globals' (most likely due to a circular import) (/home/runner/work/GremlinGPT/GremlinGPT/backend/globals.py)[0m
+[32m02:30:37[0m | [1mINFO    [0m | [36mbackend.interface.commands[0m:[36m<module>[0m:[36m117[0m - [1m[FAISS] Loaded index from ./memory/vector_store/faiss/faiss_index.index[0m
+[32m02:30:38[0m | [1mINFO    [0m | [36mbackend.interface.commands[0m:[36m<module>[0m:[36m142[0m - [1m[EMBEDDER] Loaded model: all-MiniLM-L6-v2[0m
+[32m02:30:38[0m | [1mINFO    [0m | [36mbackend.interface.commands[0m:[36m<module>[0m:[36m288[0m - [1m[EMBEDDER] Initial disk load complete[0m
+[32m02:30:38[0m | [1mINFO    [0m | [36mbackend.globals[0m:[36m<module>[0m:[36m660[0m - [1m[GLOBALS] Centralized import management loaded successfully. 196 items exported.[0m
+[NLTK] Found punkt in /home/runner/work/GremlinGPT/GremlinGPT/data/nltk_data
+[NLTK] Found punkt_tab in /home/runner/work/GremlinGPT/GremlinGPT/data/nltk_data
+Traceback (most recent call last):
+  File "/home/runner/work/GremlinGPT/GremlinGPT/memory/vector_store/embedder.py", line 71, in <module>
+    if chromadb:
+       ^^^^^^^^
+NameError: name 'chromadb' is not defined
+[Memory Service] Process exited with code 0

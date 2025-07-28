@@ -1,0 +1,61 @@
+[Sat Jul 26 18:01:58 UTC 2025] Health monitor started
+[Sat Jul 26 18:02:58 UTC 2025] Service died: Backend_Server (PID: 3345)
+[Sat Jul 26 18:02:58 UTC 2025] Service died: Core_Loop (PID: 3170)
+[Sat Jul 26 18:02:58 UTC 2025] Service died: FSM_Agent (PID: 3257)
+[Sat Jul 26 18:02:58 UTC 2025] Service died: Frontend (PID: 3387)
+[Sat Jul 26 18:02:58 UTC 2025] Service died: Memory_Service (PID: 3228)
+[Sat Jul 26 18:02:58 UTC 2025] Service died: NLP_Service (PID: 3199)
+[Sat Jul 26 18:02:58 UTC 2025] Service died: Ngrok_Tunnel (PID: 3417)
+[Sat Jul 26 18:02:58 UTC 2025] Service died: Self-Trainer (PID: 3315)
+[Sat Jul 26 18:02:58 UTC 2025] Health check: 2 services active
+[Sat Jul 26 18:02:58 UTC 2025] System health score: 25%
+[Sat Jul 26 18:02:58 UTC 2025] WARNING: System health degraded (25%)
+[Sat Jul 26 18:02:58 UTC 2025] Dead services: Backend_Server Core_Loop FSM_Agent Frontend Memory_Service NLP_Service Ngrok_Tunnel Self-Trainer
+[Sat Jul 26 18:03:58 UTC 2025] Health check: 2 services active
+[Sat Jul 26 18:03:58 UTC 2025] System health score: 25%
+[Sat Jul 26 18:03:58 UTC 2025] WARNING: System health degraded (25%)
+[Sat Jul 26 19:47:53 UTC 2025] Health monitor started
+[Sat Jul 26 19:48:53 UTC 2025] Service died: Backend_Server (PID: 3180)
+[Sat Jul 26 19:48:53 UTC 2025] Service died: Core_Loop (PID: 3007)
+[Sat Jul 26 19:48:53 UTC 2025] Service died: FSM_Agent (PID: 3094)
+[Sat Jul 26 19:48:53 UTC 2025] Service died: Frontend (PID: 3209)
+[Sat Jul 26 19:48:53 UTC 2025] Service died: Memory_Service (PID: 3065)
+[Sat Jul 26 19:48:53 UTC 2025] Service died: NLP_Service (PID: 3036)
+[Sat Jul 26 19:48:53 UTC 2025] Service died: Ngrok_Tunnel (PID: 3252)
+[Sat Jul 26 19:48:53 UTC 2025] Service died: Self-Trainer (PID: 3151)
+[Sat Jul 26 19:48:53 UTC 2025] Health check: 2 services active
+[Sat Jul 26 19:48:53 UTC 2025] System health score: 25%
+[Sat Jul 26 19:48:53 UTC 2025] WARNING: System health degraded (25%)
+[Sat Jul 26 19:48:53 UTC 2025] Dead services: Backend_Server Core_Loop FSM_Agent Frontend Memory_Service NLP_Service Ngrok_Tunnel Self-Trainer
+[Sat Jul 26 19:49:53 UTC 2025] Health check: 2 services active
+[Sat Jul 26 19:49:53 UTC 2025] System health score: 25%
+[Sat Jul 26 19:49:53 UTC 2025] WARNING: System health degraded (25%)
+[Sat Jul 26 19:50:53 UTC 2025] Health check: 2 services active
+[Sat Jul 26 19:50:53 UTC 2025] System health score: 25%
+[Sat Jul 26 19:50:53 UTC 2025] WARNING: System health degraded (25%)
+[Sat Jul 26 19:51:53 UTC 2025] Health check: 2 services active
+[Sat Jul 26 19:51:53 UTC 2025] System health score: 25%
+[Sat Jul 26 19:51:53 UTC 2025] WARNING: System health degraded (25%)
+[Sat Jul 26 19:52:53 UTC 2025] Service died: Scraper (PID: 3123)
+[Sat Jul 26 19:52:53 UTC 2025] Health check: 1 services active
+[Sat Jul 26 19:52:53 UTC 2025] System health score: 12%
+[Sat Jul 26 19:52:53 UTC 2025] WARNING: System health degraded (12%)
+[Sat Jul 26 19:52:53 UTC 2025] Dead services: Scraper
+[Sat Jul 26 19:53:53 UTC 2025] Health check: 1 services active
+[Sat Jul 26 19:53:53 UTC 2025] System health score: 12%
+[Sat Jul 26 19:53:53 UTC 2025] WARNING: System health degraded (12%)
+[Sun Jul 27 02:30:27 UTC 2025] Health monitor started
+[Sun Jul 27 02:31:28 UTC 2025] Service died: Core_Loop (PID: 3045)
+[Sun Jul 27 02:31:28 UTC 2025] Service died: FSM_Agent (PID: 3064)
+[Sun Jul 27 02:31:28 UTC 2025] Service died: Frontend (PID: 3052)
+[Sun Jul 27 02:31:28 UTC 2025] Service died: Memory_Service (PID: 3068)
+[Sun Jul 27 02:31:28 UTC 2025] Service died: NLP_Service (PID: 3057)
+[Sun Jul 27 02:31:28 UTC 2025] Service died: Ngrok_Tunnel (PID: 3105)
+[Sun Jul 27 02:31:28 UTC 2025] Service died: Self-Trainer (PID: 3040)
+[Sun Jul 27 02:31:28 UTC 2025] Health check: 3 services active
+[Sun Jul 27 02:31:28 UTC 2025] System health score: 37%
+[Sun Jul 27 02:31:28 UTC 2025] WARNING: System health degraded (37%)
+[Sun Jul 27 02:31:28 UTC 2025] Dead services: Core_Loop FSM_Agent Frontend Memory_Service NLP_Service Ngrok_Tunnel Self-Trainer
+[Sun Jul 27 02:32:28 UTC 2025] Health check: 3 services active
+[Sun Jul 27 02:32:28 UTC 2025] System health score: 37%
+[Sun Jul 27 02:32:28 UTC 2025] WARNING: System health degraded (37%)

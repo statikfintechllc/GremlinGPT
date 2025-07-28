@@ -9,6 +9,7 @@
 
 # GremlinGPT v1.0.3 :: Memory Embedder & Vector Store Core
 
+import os
 from backend.globals import CFG, logger, resolve_path, DATA_DIR, MEM
 
 try:

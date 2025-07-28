@@ -1,0 +1,52 @@
+[Scraper] ENV: gremlin-scraper
+[Scraper] CWD: /home/runner/work/GremlinGPT/GremlinGPT
+[Scraper] PYTHONPATH: /home/runner/work/GremlinGPT/GremlinGPT:/home/runner/work/GremlinGPT/GremlinGPT
+[Scraper] Running: python -m scraper.scraper_loop
+[Scraper] Started with PID: 5316
+[Scraper] ENV: gremlin-scraper
+[Scraper] CWD: /home/runner/work/GremlinGPT/GremlinGPT
+[Scraper] PYTHONPATH: /home/runner/work/GremlinGPT/GremlinGPT:/home/runner/work/GremlinGPT/GremlinGPT
+[Scraper] Running: python -m scraper.scraper_loop
+[Scraper] Started with PID: 5871
+[Scraper] ENV: gremlin-scraper
+[Scraper] CWD: /home/runner/work/GremlinGPT/GremlinGPT
+[Scraper] PYTHONPATH: /home/runner/work/GremlinGPT/GremlinGPT:/home/runner/work/GremlinGPT/GremlinGPT
+[Scraper] Running: python -m scraper.scraper_loop
+[Scraper] Port: 8004
+[Scraper] Started with PID: 3287
+[Scraper] ENV: gremlin-scraper
+[Scraper] CWD: /home/runner/work/GremlinGPT/GremlinGPT
+[Scraper] PYTHONPATH: /home/runner/work/GremlinGPT/GremlinGPT:/home/runner/work/GremlinGPT/GremlinGPT
+[Scraper] Running: python -m scraper.scraper_loop
+[Scraper] Port: 8004
+[Scraper] Started with PID: 3123
+[Scraper] ENV: base
+[Scraper] CWD: /home/runner/work/GremlinGPT/GremlinGPT
+[Scraper] PYTHONPATH: /home/runner/work/GremlinGPT/GremlinGPT:/home/runner/work/GremlinGPT/GremlinGPT
+[Scraper] Running: python -m scraper.scraper_loop
+[Scraper] Port: 8004
+[Scraper] Started with PID: 3031
+[32m02:30:26[0m | [1mINFO    [0m | [36mutils.logging_config[0m:[36msetup_module_logger[0m:[36m113[0m - [1m[LOGGING] Module logger initialized for backend -> /home/runner/work/GremlinGPT/GremlinGPT/data/logs/backend/backend_globals.log[0m
+[32m02:30:26[0m | [1mINFO    [0m | [36mutils.logging_config[0m:[36msetup_module_logger[0m:[36m113[0m - [1m[LOGGING] Module logger initialized for nlp_engine -> /home/runner/work/GremlinGPT/GremlinGPT/data/logs/nlp_engine/nlp_engine_diff_engine.log[0m
+[32m02:30:26[0m | [1mINFO    [0m | [36mutils.logging_config[0m:[36msetup_module_logger[0m:[36m113[0m - [1m[LOGGING] Module logger initialized for nlp_engine -> /home/runner/work/GremlinGPT/GremlinGPT/data/logs/nlp_engine/nlp_engine_diff_engine.log[0m
+[32m02:30:26[0m | [1mINFO    [0m | [36mutils.logging_config[0m:[36msetup_module_logger[0m:[36m113[0m - [1m[LOGGING] Module logger initialized for nlp_engine -> /home/runner/work/GremlinGPT/GremlinGPT/data/logs/nlp_engine/nlp_engine_pos_tagger.log[0m
+[32m02:30:34[0m | [31m[1mERROR   [0m | [36mnlp_engine.transformer_core[0m:[36m<module>[0m:[36m35[0m - [31m[1m[TRANSFORMER] Failed to load model 'bert-base-uncased': Found no NVIDIA driver on your system. Please check that you have an NVIDIA GPU and installed a driver from http://www.nvidia.com/Download/index.aspx[0m
+[32m02:30:34[0m | [1mINFO    [0m | [36mutils.logging_config[0m:[36msetup_module_logger[0m:[36m113[0m - [1m[LOGGING] Module logger initialized for agent_core -> /home/runner/work/GremlinGPT/GremlinGPT/data/logs/agent_core/agent_core_heuristics.log[0m
+[32m02:30:35[0m | [32m[1mSUCCESS [0m | [36mnlp_engine.tokenizer[0m:[36m<module>[0m:[36m43[0m - [32m[1m[TOKENIZER] Loaded: bert-base-uncased[0m
+[32m02:30:35[0m | [1mINFO    [0m | [36mutils.logging_config[0m:[36msetup_module_logger[0m:[36m113[0m - [1m[LOGGING] Module logger initialized for nlp_engine -> /home/runner/work/GremlinGPT/GremlinGPT/data/logs/nlp_engine/nlp_engine_pos_tagger.log[0m
+[32m02:30:35[0m | [1mINFO    [0m | [36mutils.logging_config[0m:[36msetup_module_logger[0m:[36m113[0m - [1m[LOGGING] Module logger initialized for nlp_engine -> /home/runner/work/GremlinGPT/GremlinGPT/data/logs/nlp_engine/nlp_engine_pos_tagger.log[0m
+[32m02:30:35[0m | [1mINFO    [0m | [36mutils.logging_config[0m:[36msetup_module_logger[0m:[36m113[0m - [1m[LOGGING] Module logger initialized for scraper -> /home/runner/work/GremlinGPT/GremlinGPT/data/logs/scraper/scraper.log[0m
+[32m02:30:35[0m | [1mINFO    [0m | [36mutils.logging_config[0m:[36msetup_module_logger[0m:[36m113[0m - [1m[LOGGING] Module logger initialized for scraper -> /home/runner/work/GremlinGPT/GremlinGPT/data/logs/scraper/scraper.log[0m
+[32m02:30:35[0m | [1mINFO    [0m | [36mutils.logging_config[0m:[36msetup_module_logger[0m:[36m113[0m - [1m[LOGGING] Module logger initialized for scraper -> /home/runner/work/GremlinGPT/GremlinGPT/data/logs/scraper/scraper_stt_scraper.log[0m
+[32m02:30:35[0m | [1mINFO    [0m | [36mutils.logging_config[0m:[36msetup_module_logger[0m:[36m113[0m - [1m[LOGGING] Module logger initialized for scraper -> /home/runner/work/GremlinGPT/GremlinGPT/data/logs/scraper/scraper.log[0m
+[32m02:30:35[0m | [1mINFO    [0m | [36mutils.logging_config[0m:[36msetup_module_logger[0m:[36m113[0m - [1m[LOGGING] Module logger initialized for tools -> /home/runner/work/GremlinGPT/GremlinGPT/data/logs/tools/tools_reward_model.log[0m
+[32m02:30:35[0m | [1mINFO    [0m | [36mutils.logging_config[0m:[36msetup_module_logger[0m:[36m113[0m - [1m[LOGGING] Module logger initialized for tools -> /home/runner/work/GremlinGPT/GremlinGPT/data/logs/tools/tools_reward_model.log[0m
+[32m02:30:35[0m | [1mINFO    [0m | [36mutils.logging_config[0m:[36msetup_module_logger[0m:[36m113[0m - [1m[LOGGING] Module logger initialized for tools -> /home/runner/work/GremlinGPT/GremlinGPT/data/logs/tools/tools_reward_model.log[0m
+[32m02:30:35[0m | [1mINFO    [0m | [36mutils.logging_config[0m:[36msetup_module_logger[0m:[36m113[0m - [1m[LOGGING] Module logger initialized for tools -> /home/runner/work/GremlinGPT/GremlinGPT/data/logs/tools/tools_reward_model.log[0m
+[32m02:30:35[0m | [1mINFO    [0m | [36mutils.logging_config[0m:[36msetup_module_logger[0m:[36m113[0m - [1m[LOGGING] Module logger initialized for tools -> /home/runner/work/GremlinGPT/GremlinGPT/data/logs/tools/tools_reward_model.log[0m
+[32m02:30:35[0m | [1mINFO    [0m | [36mutils.logging_config[0m:[36msetup_module_logger[0m:[36m113[0m - [1m[LOGGING] Module logger initialized for backend -> /home/runner/work/GremlinGPT/GremlinGPT/data/logs/backend/backend_commands.log[0m
+[32m02:30:37[0m | [31m[1mERROR   [0m | [36mbackend.interface.commands[0m:[36m<module>[0m:[36m45[0m - [31m[1m[COMMANDS] Failed to import from backend.globals: cannot import name 'MEM' from partially initialized module 'backend.globals' (most likely due to a circular import) (/home/runner/work/GremlinGPT/GremlinGPT/backend/globals.py)[0m
+[32m02:30:37[0m | [1mINFO    [0m | [36mbackend.interface.commands[0m:[36m<module>[0m:[36m117[0m - [1m[FAISS] Loaded index from ./memory/vector_store/faiss/faiss_index.index[0m
+[32m02:30:38[0m | [1mINFO    [0m | [36mbackend.interface.commands[0m:[36m<module>[0m:[36m142[0m - [1m[EMBEDDER] Loaded model: all-MiniLM-L6-v2[0m
+[32m02:30:38[0m | [1mINFO    [0m | [36mbackend.interface.commands[0m:[36m<module>[0m:[36m288[0m - [1m[EMBEDDER] Initial disk load complete[0m
+[32m02:30:38[0m | [1mINFO    [0m | [36mbackend.globals[0m:[36m<module>[0m:[36m660[0m - [1m[GLOBALS] Centralized import management loaded successfully. 196 items exported.[0m

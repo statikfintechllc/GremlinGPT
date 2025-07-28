@@ -11,7 +11,7 @@
 
 from backend.globals import CFG, logger, resolve_path, DATA_DIR, MEM
 from backend.api.api_endpoints import *
-from backend.router import route_task
+from utils.logging_config import setup_module_logger
 
 logger = setup_module_logger("core", "orchestrator")
 

@@ -1,5 +1,4568 @@
-[1;32m[INSTALL] Initializing GremlinGPT installation...[0m
+./install.sh: line 8: setopt: command not found
+\033[1;32m[INSTALL] Initializing GremlinGPT installation...\033[0m
 
 [1;36m[INSTALL] Initializing GremlinGPT installation...[0m
 
-./install.sh:29: APPLOC: parameter not set
+Exists:  data/logs
+Exists:  run/checkpoints
+Exists:  data/prompts
+Exists:  data/raw_scrapes
+Exists:  data/embeddings
+Exists:  data/nlp_training_sets
+Exists:  memory/vector_store/faiss
+Exists:  memory/vector_store/chroma
+Exists:  memory/local_index/documents
+Exists:  memory/local_index/scripts
+Created: scraper/persistence/cookies
+Created: scraper/profiles/chromium_profile
+Created: frontend/components
+Created: tests
+Exists:  docs
+Exists:  data/nltk_data
+
+[1;36m[INSTALL] Ensuring conda is initialized...[0m
+
+[*] Ensuring conda is initialized...
+
+[1;36m[INSTALL] Building all conda environments via ./conda_envs/create_envs.sh...[0m
+
+[GremlinGPT] Creating conda environments...
+[INFO] Checking environment: gremlin-nlp
+[CREATE] Creating minimal 'gremlin-nlp' environment with conda packages only...
+CI detected...
+By accessing https://repo.anaconda.com/pkgs/main via CI for this repository you acknowledge and agree to the Terms of 
+Service:
+ANACONDA TERMS OF SERVICE
+Effective Date: July 15, 2025
+
+See https://anaconda.com/legal/terms/terms-of-service
+By accessing https://repo.anaconda.com/pkgs/r via CI for this repository you acknowledge and agree to the Terms of 
+Service:
+ANACONDA TERMS OF SERVICE
+Effective Date: July 15, 2025
+
+See https://anaconda.com/legal/terms/terms-of-service
+2 channel Terms of Service accepted
+Channels:
+ - pytorch
+ - conda-forge
+ - defaults
+Platform: linux-64
+Collecting package metadata (repodata.json): - \ | / - \ | / - \ | / - \ | / - \ | / - done
+Solving environment: | / - done
+
+## Package Plan ##
+
+  environment location: /usr/share/miniconda/envs/gremlin-nlp
+
+  added / updated specs:
+    - cpuonly
+    - flask
+    - nltk
+    - numpy
+    - pandas
+    - pip
+    - python=3.9
+    - pytorch
+    - requests
+    - scikit-learn
+    - scipy
+    - spacy
+    - transformers
+
+
+The following packages will be downloaded:
+
+    package                    |            build
+    ---------------------------|-----------------
+    _libgcc_mutex-0.1          |      conda_forge           3 KB  conda-forge
+    _openmp_mutex-4.5          |            2_gnu          23 KB  conda-forge
+    _python_abi3_support-1.0   |       hd8ed1ab_2           8 KB  conda-forge
+    aiohappyeyeballs-2.6.1     |     pyhd8ed1ab_0          19 KB  conda-forge
+    aiohttp-3.12.14            |   py39heb7d2ae_0         853 KB  conda-forge
+    aiosignal-1.4.0            |     pyhd8ed1ab_0          13 KB  conda-forge
+    annotated-types-0.7.0      |     pyhd8ed1ab_1          18 KB  conda-forge
+    async-timeout-5.0.1        |     pyhd8ed1ab_1          11 KB  conda-forge
+    attrs-25.3.0               |     pyh71513ae_0          56 KB  conda-forge
+    aws-c-auth-0.9.0           |      h0fbd49f_19         120 KB  conda-forge
+    aws-c-cal-0.9.2            |       he7b75e1_1          50 KB  conda-forge
+    aws-c-common-0.12.4        |       hb03c661_0         231 KB  conda-forge
+    aws-c-compression-0.3.1    |       h92c474e_6          22 KB  conda-forge
+    aws-c-event-stream-0.5.5   |       h149bd38_3          56 KB  conda-forge
+    aws-c-http-0.10.4          |       h37a7233_0         219 KB  conda-forge
+    aws-c-io-0.21.2            |       h6252d9a_1         176 KB  conda-forge
+    aws-c-mqtt-0.13.3          |       h19deb91_3         211 KB  conda-forge
+    aws-c-s3-0.8.6             |       h800fcd2_2         134 KB  conda-forge
+    aws-c-sdkutils-0.2.4       |       h92c474e_1          58 KB  conda-forge
+    aws-checksums-0.2.7        |       h92c474e_2          75 KB  conda-forge
+    aws-crt-cpp-0.33.1         |       hb4fd278_2         397 KB  conda-forge
+    aws-sdk-cpp-1.11.606       |       h31ade35_1         3.2 MB  conda-forge
+    azure-core-cpp-1.16.0      |       h3a458e0_0         340 KB  conda-forge
+    azure-identity-cpp-1.12.0  |       ha729027_0         236 KB  conda-forge
+    azure-storage-blobs-cpp-12.14.0|       hb1c9500_1         564 KB  conda-forge
+    azure-storage-common-cpp-12.10.0|       hebae86a_2         145 KB  conda-forge
+    azure-storage-files-datalake-cpp-12.12.0|       h8b27e44_3         293 KB  conda-forge
+    blas-1.0                   |              mkl           1 KB  conda-forge
+    blinker-1.9.0              |     pyhff2d567_0          14 KB  conda-forge
+    brotli-python-1.1.0        |   py39hf88036b_3         342 KB  conda-forge
+    bzip2-1.0.8                |       h4bc722e_7         247 KB  conda-forge
+    c-ares-1.34.5              |       hb9d3cd8_0         202 KB  conda-forge
+    ca-certificates-2025.7.14  |       hbd8a1cb_0         152 KB  conda-forge
+    catalogue-2.0.10           |   py39hf3d152e_1          34 KB  conda-forge
+    certifi-2025.7.14          |     pyhd8ed1ab_0         156 KB  conda-forge
+    cffi-1.17.1                |   py39h15c3d72_0         236 KB  conda-forge
+    charset-normalizer-3.4.2   |     pyhd8ed1ab_0          49 KB  conda-forge
+    click-8.1.8                |     pyh707e725_0          83 KB  conda-forge
+    cloudpathlib-0.21.1        |     pyhd8ed1ab_0          43 KB  conda-forge
+    cloudpickle-3.1.1          |     pyhd8ed1ab_0          25 KB  conda-forge
+    colorama-0.4.6             |     pyhd8ed1ab_1          26 KB  conda-forge
+    confection-0.1.5           |     pyhecae5ae_0          37 KB  conda-forge
+    cpuonly-2.0                |                0           2 KB  pytorch
+    cpython-3.9.23             |   py39hd8ed1ab_0          48 KB  conda-forge
+    cymem-2.0.11               |   py39hf88036b_0          51 KB  conda-forge
+    cython-blis-1.3.0          |   py39hf3d9206_0         7.8 MB  conda-forge
+    datasets-3.6.0             |     pyhd8ed1ab_0         331 KB  conda-forge
+    dill-0.3.8                 |     pyhd8ed1ab_0          86 KB  conda-forge
+    filelock-3.18.0            |     pyhd8ed1ab_0          17 KB  conda-forge
+    flask-3.1.1                |     pyhd8ed1ab_0          81 KB  conda-forge
+    frozenlist-1.7.0           |   py39h53edacf_0          53 KB  conda-forge
+    fsspec-2025.3.0            |     pyhd8ed1ab_0         138 KB  conda-forge
+    gflags-2.2.2               |    h5888daf_1005         117 KB  conda-forge
+    glog-0.7.1                 |       hbabe93e_0         140 KB  conda-forge
+    gmp-6.3.0                  |       hac33072_2         449 KB  conda-forge
+    gmpy2-2.2.1                |   py39h7196dd7_0         199 KB  conda-forge
+    h2-4.2.0                   |     pyhd8ed1ab_0          53 KB  conda-forge
+    hf-xet-1.1.5               |   py39h260a9e5_3         2.4 MB  conda-forge
+    hpack-4.1.0                |     pyhd8ed1ab_0          30 KB  conda-forge
+    huggingface_hub-0.33.4     |     pyhd8ed1ab_0         311 KB  conda-forge
+    hyperframe-6.1.0           |     pyhd8ed1ab_0          17 KB  conda-forge
+    icu-75.1                   |       he02047a_0        11.6 MB  conda-forge
+    idna-3.10                  |     pyhd8ed1ab_1          49 KB  conda-forge
+    importlib-metadata-8.7.0   |     pyhe01879c_1          34 KB  conda-forge
+    intel-openmp-2022.0.1      |    h06a4308_3633         4.2 MB
+    itsdangerous-2.2.0         |     pyhd8ed1ab_1          19 KB  conda-forge
+    jinja2-3.1.6               |     pyhd8ed1ab_0         110 KB  conda-forge
+    joblib-1.5.1               |     pyhd8ed1ab_0         219 KB  conda-forge
+    keyutils-1.6.1             |       h166bdaf_0         115 KB  conda-forge
+    krb5-1.21.3                |       h659f571_0         1.3 MB  conda-forge
+    langcodes-3.4.1            |     pyhd8ed1ab_1         152 KB  conda-forge
+    language-data-1.3.0        |     pyhff2d567_0         4.0 MB  conda-forge
+    ld_impl_linux-64-2.44      |       h1423503_1         660 KB  conda-forge
+    libabseil-20250512.1       | cxx17_hba17884_0         1.2 MB  conda-forge
+    libarrow-21.0.0            |   hd5bb725_0_cpu         6.2 MB  conda-forge
+    libarrow-acero-21.0.0      |   h635bf11_0_cpu         644 KB  conda-forge
+    libarrow-compute-21.0.0    |   he319acf_0_cpu         3.0 MB  conda-forge
+    libarrow-dataset-21.0.0    |   h635bf11_0_cpu         616 KB  conda-forge
+    libarrow-substrait-21.0.0  |   h3f74fd7_0_cpu         503 KB  conda-forge
+    libblas-3.9.0              |   16_linux64_mkl          13 KB  conda-forge
+    libbrotlicommon-1.1.0      |       hb9d3cd8_3          68 KB  conda-forge
+    libbrotlidec-1.1.0         |       hb9d3cd8_3          32 KB  conda-forge
+    libbrotlienc-1.1.0         |       hb9d3cd8_3         276 KB  conda-forge
+    libcblas-3.9.0             |   16_linux64_mkl          12 KB  conda-forge
+    libcrc32c-1.1.2            |       h9c3ff4c_0          20 KB  conda-forge
+    libcurl-8.14.1             |       h332b0f4_0         439 KB  conda-forge
+    libedit-3.1.20250104       | pl5321h7949ede_0         132 KB  conda-forge
+    libev-4.33                 |       hd590300_2         110 KB  conda-forge
+    libevent-2.1.12            |       hf998b51_1         417 KB  conda-forge
+    libexpat-2.7.1             |       hecca717_0          73 KB  conda-forge
+    libffi-3.4.6               |       h2dba641_1          56 KB  conda-forge
+    libgcc-15.1.0              |       h767d61c_3         806 KB  conda-forge
+    libgcc-ng-15.1.0           |       h69a702a_3          28 KB  conda-forge
+    libgfortran-15.1.0         |       h69a702a_3          28 KB  conda-forge
+    libgfortran-ng-15.1.0      |       h69a702a_3          28 KB  conda-forge
+    libgfortran5-15.1.0        |       hcea5267_3         1.5 MB  conda-forge
+    libgomp-15.1.0             |       h767d61c_3         437 KB  conda-forge
+    libgoogle-cloud-2.39.0     |       hdb79228_0         1.2 MB  conda-forge
+    libgoogle-cloud-storage-2.39.0|       hdbdcf42_0         785 KB  conda-forge
+    libgrpc-1.73.1             |       h1e535eb_0         8.0 MB  conda-forge
+    libiconv-1.18              |       h4ce23a2_1         696 KB  conda-forge
+    liblapack-3.9.0            |   16_linux64_mkl          12 KB  conda-forge
+    liblzma-5.8.1              |       hb9d3cd8_2         110 KB  conda-forge
+    libnghttp2-1.64.0          |       h161d5f1_0         632 KB  conda-forge
+    libnsl-2.0.1               |       hb9d3cd8_1          33 KB  conda-forge
+    libopentelemetry-cpp-1.21.0|       hb9b0907_1         865 KB  conda-forge
+    libopentelemetry-cpp-headers-1.21.0|       ha770c72_1         355 KB  conda-forge
+    libparquet-21.0.0          |   h790f06f_0_cpu         1.3 MB  conda-forge
+    libprotobuf-6.31.1         |       h9ef548d_1         3.8 MB  conda-forge
+    libre2-11-2025.07.22       |       h7b12aa8_0         206 KB  conda-forge
+    libsqlite-3.50.3           |       hee844dc_1         914 KB  conda-forge
+    libssh2-1.11.1             |       hcf80075_0         298 KB  conda-forge
+    libstdcxx-15.1.0           |       h8f9b012_3         3.7 MB  conda-forge
+    libstdcxx-ng-15.1.0        |       h4852527_3          28 KB  conda-forge
+    libthrift-0.22.0           |       h454ac66_1         414 KB  conda-forge
+    libutf8proc-2.10.0         |       h202a827_0          81 KB  conda-forge
+    libuuid-2.38.1             |       h0b41bf4_0          33 KB  conda-forge
+    libxcrypt-4.4.36           |       hd590300_1          98 KB  conda-forge
+    libxml2-2.13.8             |       h4bc477f_0         675 KB  conda-forge
+    libzlib-1.3.1              |       hb9d3cd8_2          60 KB  conda-forge
+    llvm-openmp-15.0.7         |       h0cdce71_0         3.1 MB  conda-forge
+    lz4-c-1.10.0               |       h5888daf_1         163 KB  conda-forge
+    marisa-trie-1.2.1          |   py39hf88036b_0         178 KB  conda-forge
+    markdown-it-py-3.0.0       |     pyhd8ed1ab_1          63 KB  conda-forge
+    markupsafe-3.0.2           |   py39h9399b63_1          22 KB  conda-forge
+    mdurl-0.1.2                |     pyhd8ed1ab_1          14 KB  conda-forge
+    mkl-2022.1.0               |     hc2b9512_224       129.7 MB
+    mpc-1.3.1                  |       h24ddda3_1         114 KB  conda-forge
+    mpfr-4.2.1                 |       h90cbb55_3         620 KB  conda-forge
+    mpmath-1.3.0               |     pyhd8ed1ab_1         429 KB  conda-forge
+    multidict-6.6.3            |   py39h9399b63_0          85 KB  conda-forge
+    multiprocess-0.70.16       |   py39h8cd3c5a_1         231 KB  conda-forge
+    murmurhash-1.0.10          |   py39hf88036b_2          34 KB  conda-forge
+    ncurses-6.5                |       h2d0b736_3         871 KB  conda-forge
+    networkx-3.2.1             |     pyhd8ed1ab_0         1.1 MB  conda-forge
+    nlohmann_json-3.12.0       |       h3f2d84a_0         133 KB  conda-forge
+    nltk-3.9.1                 |     pyhd8ed1ab_1         1.0 MB  conda-forge
+    numpy-2.0.2                |   py39h9cb892a_1         7.6 MB  conda-forge
+    openssl-3.5.1              |       h7b32b05_0         3.0 MB  conda-forge
+    orc-2.1.3                  |       h61e0c1e_0         1.2 MB  conda-forge
+    packaging-25.0             |     pyh29332c3_1          61 KB  conda-forge
+    pandas-2.3.1               |   py39h1b6b32d_0        11.9 MB  conda-forge
+    pip-25.1.1                 |     pyh8b19718_0         1.2 MB  conda-forge
+    preshed-3.0.9              |   py39hf88036b_2         132 KB  conda-forge
+    prometheus-cpp-1.3.0       |       ha5d0236_0         195 KB  conda-forge
+    propcache-0.3.1            |   py39h9399b63_0          53 KB  conda-forge
+    pyarrow-21.0.0             |   py39hf3d152e_0          26 KB  conda-forge
+    pyarrow-core-21.0.0        |py39h1aa8787_0_cpu         5.0 MB  conda-forge
+    pycparser-2.22             |     pyh29332c3_1         108 KB  conda-forge
+    pydantic-2.11.7            |     pyh3cfb1c2_0         300 KB  conda-forge
+    pydantic-core-2.33.2       |   py39h20260ba_0         1.8 MB  conda-forge
+    pygments-2.19.2            |     pyhd8ed1ab_0         868 KB  conda-forge
+    pysocks-1.7.1              |     pyha55dd90_7          21 KB  conda-forge
+    python-3.9.23              |hc30ae73_0_cpython        22.6 MB  conda-forge
+    python-dateutil-2.9.0.post0|     pyhe01879c_2         228 KB  conda-forge
+    python-gil-3.9.23          |       hd8ed1ab_0          48 KB  conda-forge
+    python-tzdata-2025.2       |     pyhd8ed1ab_0         141 KB  conda-forge
+    python-xxhash-3.5.0        |   py39h8cd3c5a_2          23 KB  conda-forge
+    python_abi-3.9             |           8_cp39           7 KB  conda-forge
+    pytorch-2.5.1              |      py3.9_cpu_0        87.8 MB  pytorch
+    pytorch-mutex-1.0          |              cpu           3 KB  pytorch
+    pytz-2025.2                |     pyhd8ed1ab_0         185 KB  conda-forge
+    pyyaml-6.0.2               |   py39h9399b63_2         178 KB  conda-forge
+    re2-2025.07.22             |       h5a314c3_0          27 KB  conda-forge
+    readline-8.2               |       h8c095d6_2         276 KB  conda-forge
+    regex-2024.11.6            |   py39h8cd3c5a_0         342 KB  conda-forge
+    requests-2.32.4            |     pyhd8ed1ab_0          58 KB  conda-forge
+    rich-14.1.0                |     pyhe01879c_0         196 KB  conda-forge
+    s2n-1.5.23                 |       h8e187f5_0         374 KB  conda-forge
+    safetensors-0.5.3          |   py39he612d8f_0         417 KB  conda-forge
+    scikit-learn-1.6.1         |   py39h4b7350c_0         8.9 MB  conda-forge
+    scipy-1.13.1               |   py39haf93ffa_0        15.8 MB  conda-forge
+    setuptools-80.9.0          |     pyhff2d567_0         731 KB  conda-forge
+    shellingham-1.5.4          |     pyhd8ed1ab_1          14 KB  conda-forge
+    six-1.17.0                 |     pyhe01879c_1          18 KB  conda-forge
+    smart-open-7.3.0.post1     |       h87fe6b5_0           5 KB  conda-forge
+    smart_open-7.3.0.post1     |     pyhe01879c_0          53 KB  conda-forge
+    snappy-1.2.2               |       h03e3b7b_0          45 KB  conda-forge
+    spacy-3.8.7                |   py39h0f8f440_0         5.2 MB  conda-forge
+    spacy-legacy-3.0.12        |     pyhd8ed1ab_0          28 KB  conda-forge
+    spacy-loggers-1.0.5        |     pyhd8ed1ab_0          21 KB  conda-forge
+    srsly-2.5.1                |   py39hf88036b_1         496 KB  conda-forge
+    sympy-1.14.0               |   pyh2585a3b_105         4.4 MB  conda-forge
+    thinc-8.3.6                |   py39h0f8f440_0         836 KB  conda-forge
+    threadpoolctl-3.6.0        |     pyhecae5ae_0          23 KB  conda-forge
+    tk-8.6.13                  |noxft_hd72426e_102         3.1 MB  conda-forge
+    tokenizers-0.21.3          |   py39he41eae5_0         2.2 MB  conda-forge
+    tqdm-4.67.1                |     pyhd8ed1ab_1          87 KB  conda-forge
+    transformers-4.53.3        |     pyhd8ed1ab_0         3.7 MB  conda-forge
+    typer-0.16.0               |     pyh167b9f4_0          75 KB  conda-forge
+    typer-slim-0.16.0          |     pyhe01879c_0          46 KB  conda-forge
+    typer-slim-standard-0.16.0 |       hf964461_0           5 KB  conda-forge
+    typing-extensions-4.14.1   |       h4440ef1_0          88 KB  conda-forge
+    typing-inspection-0.4.1    |     pyhd8ed1ab_0          18 KB  conda-forge
+    typing_extensions-4.14.1   |     pyhe01879c_0          50 KB  conda-forge
+    tzdata-2025b               |       h78e105d_0         120 KB  conda-forge
+    ujson-5.10.0               |   py39hf88036b_1          51 KB  conda-forge
+    urllib3-2.5.0              |     pyhd8ed1ab_0          99 KB  conda-forge
+    wasabi-1.1.3               |     pyhd8ed1ab_1          28 KB  conda-forge
+    weasel-0.4.1               |     pyhd8ed1ab_2          42 KB  conda-forge
+    werkzeug-3.1.3             |     pyhd8ed1ab_1         238 KB  conda-forge
+    wheel-0.45.1               |     pyhd8ed1ab_1          61 KB  conda-forge
+    wrapt-1.17.2               |   py39h8cd3c5a_0          55 KB  conda-forge
+    xxhash-0.8.3               |       hb47aa4a_0         106 KB  conda-forge
+    yaml-0.2.5                 |       h280c20c_3          83 KB  conda-forge
+    yarl-1.20.1                |   py39h9399b63_0         134 KB  conda-forge
+    zipp-3.23.0                |     pyhd8ed1ab_0          22 KB  conda-forge
+    zlib-1.3.1                 |       hb9d3cd8_2          90 KB  conda-forge
+    zstandard-0.23.0           |   py39h8cd3c5a_2         704 KB  conda-forge
+    zstd-1.5.7                 |       hb8e6e7a_2         554 KB  conda-forge
+    ------------------------------------------------------------
+                                           Total:       416.9 MB
+
+The following NEW packages will be INSTALLED:
+
+  _libgcc_mutex      conda-forge/linux-64::_libgcc_mutex-0.1-conda_forge 
+  _openmp_mutex      conda-forge/linux-64::_openmp_mutex-4.5-2_gnu 
+  _python_abi3_supp~ conda-forge/noarch::_python_abi3_support-1.0-hd8ed1ab_2 
+  aiohappyeyeballs   conda-forge/noarch::aiohappyeyeballs-2.6.1-pyhd8ed1ab_0 
+  aiohttp            conda-forge/linux-64::aiohttp-3.12.14-py39heb7d2ae_0 
+  aiosignal          conda-forge/noarch::aiosignal-1.4.0-pyhd8ed1ab_0 
+  annotated-types    conda-forge/noarch::annotated-types-0.7.0-pyhd8ed1ab_1 
+  async-timeout      conda-forge/noarch::async-timeout-5.0.1-pyhd8ed1ab_1 
+  attrs              conda-forge/noarch::attrs-25.3.0-pyh71513ae_0 
+  aws-c-auth         conda-forge/linux-64::aws-c-auth-0.9.0-h0fbd49f_19 
+  aws-c-cal          conda-forge/linux-64::aws-c-cal-0.9.2-he7b75e1_1 
+  aws-c-common       conda-forge/linux-64::aws-c-common-0.12.4-hb03c661_0 
+  aws-c-compression  conda-forge/linux-64::aws-c-compression-0.3.1-h92c474e_6 
+  aws-c-event-stream conda-forge/linux-64::aws-c-event-stream-0.5.5-h149bd38_3 
+  aws-c-http         conda-forge/linux-64::aws-c-http-0.10.4-h37a7233_0 
+  aws-c-io           conda-forge/linux-64::aws-c-io-0.21.2-h6252d9a_1 
+  aws-c-mqtt         conda-forge/linux-64::aws-c-mqtt-0.13.3-h19deb91_3 
+  aws-c-s3           conda-forge/linux-64::aws-c-s3-0.8.6-h800fcd2_2 
+  aws-c-sdkutils     conda-forge/linux-64::aws-c-sdkutils-0.2.4-h92c474e_1 
+  aws-checksums      conda-forge/linux-64::aws-checksums-0.2.7-h92c474e_2 
+  aws-crt-cpp        conda-forge/linux-64::aws-crt-cpp-0.33.1-hb4fd278_2 
+  aws-sdk-cpp        conda-forge/linux-64::aws-sdk-cpp-1.11.606-h31ade35_1 
+  azure-core-cpp     conda-forge/linux-64::azure-core-cpp-1.16.0-h3a458e0_0 
+  azure-identity-cpp conda-forge/linux-64::azure-identity-cpp-1.12.0-ha729027_0 
+  azure-storage-blo~ conda-forge/linux-64::azure-storage-blobs-cpp-12.14.0-hb1c9500_1 
+  azure-storage-com~ conda-forge/linux-64::azure-storage-common-cpp-12.10.0-hebae86a_2 
+  azure-storage-fil~ conda-forge/linux-64::azure-storage-files-datalake-cpp-12.12.0-h8b27e44_3 
+  blas               conda-forge/linux-64::blas-1.0-mkl 
+  blinker            conda-forge/noarch::blinker-1.9.0-pyhff2d567_0 
+  brotli-python      conda-forge/linux-64::brotli-python-1.1.0-py39hf88036b_3 
+  bzip2              conda-forge/linux-64::bzip2-1.0.8-h4bc722e_7 
+  c-ares             conda-forge/linux-64::c-ares-1.34.5-hb9d3cd8_0 
+  ca-certificates    conda-forge/noarch::ca-certificates-2025.7.14-hbd8a1cb_0 
+  catalogue          conda-forge/linux-64::catalogue-2.0.10-py39hf3d152e_1 
+  certifi            conda-forge/noarch::certifi-2025.7.14-pyhd8ed1ab_0 
+  cffi               conda-forge/linux-64::cffi-1.17.1-py39h15c3d72_0 
+  charset-normalizer conda-forge/noarch::charset-normalizer-3.4.2-pyhd8ed1ab_0 
+  click              conda-forge/noarch::click-8.1.8-pyh707e725_0 
+  cloudpathlib       conda-forge/noarch::cloudpathlib-0.21.1-pyhd8ed1ab_0 
+  cloudpickle        conda-forge/noarch::cloudpickle-3.1.1-pyhd8ed1ab_0 
+  colorama           conda-forge/noarch::colorama-0.4.6-pyhd8ed1ab_1 
+  confection         conda-forge/noarch::confection-0.1.5-pyhecae5ae_0 
+  cpuonly            pytorch/noarch::cpuonly-2.0-0 
+  cpython            conda-forge/noarch::cpython-3.9.23-py39hd8ed1ab_0 
+  cymem              conda-forge/linux-64::cymem-2.0.11-py39hf88036b_0 
+  cython-blis        conda-forge/linux-64::cython-blis-1.3.0-py39hf3d9206_0 
+  datasets           conda-forge/noarch::datasets-3.6.0-pyhd8ed1ab_0 
+  dill               conda-forge/noarch::dill-0.3.8-pyhd8ed1ab_0 
+  filelock           conda-forge/noarch::filelock-3.18.0-pyhd8ed1ab_0 
+  flask              conda-forge/noarch::flask-3.1.1-pyhd8ed1ab_0 
+  frozenlist         conda-forge/linux-64::frozenlist-1.7.0-py39h53edacf_0 
+  fsspec             conda-forge/noarch::fsspec-2025.3.0-pyhd8ed1ab_0 
+  gflags             conda-forge/linux-64::gflags-2.2.2-h5888daf_1005 
+  glog               conda-forge/linux-64::glog-0.7.1-hbabe93e_0 
+  gmp                conda-forge/linux-64::gmp-6.3.0-hac33072_2 
+  gmpy2              conda-forge/linux-64::gmpy2-2.2.1-py39h7196dd7_0 
+  h2                 conda-forge/noarch::h2-4.2.0-pyhd8ed1ab_0 
+  hf-xet             conda-forge/linux-64::hf-xet-1.1.5-py39h260a9e5_3 
+  hpack              conda-forge/noarch::hpack-4.1.0-pyhd8ed1ab_0 
+  huggingface_hub    conda-forge/noarch::huggingface_hub-0.33.4-pyhd8ed1ab_0 
+  hyperframe         conda-forge/noarch::hyperframe-6.1.0-pyhd8ed1ab_0 
+  icu                conda-forge/linux-64::icu-75.1-he02047a_0 
+  idna               conda-forge/noarch::idna-3.10-pyhd8ed1ab_1 
+  importlib-metadata conda-forge/noarch::importlib-metadata-8.7.0-pyhe01879c_1 
+  intel-openmp       pkgs/main/linux-64::intel-openmp-2022.0.1-h06a4308_3633 
+  itsdangerous       conda-forge/noarch::itsdangerous-2.2.0-pyhd8ed1ab_1 
+  jinja2             conda-forge/noarch::jinja2-3.1.6-pyhd8ed1ab_0 
+  joblib             conda-forge/noarch::joblib-1.5.1-pyhd8ed1ab_0 
+  keyutils           conda-forge/linux-64::keyutils-1.6.1-h166bdaf_0 
+  krb5               conda-forge/linux-64::krb5-1.21.3-h659f571_0 
+  langcodes          conda-forge/noarch::langcodes-3.4.1-pyhd8ed1ab_1 
+  language-data      conda-forge/noarch::language-data-1.3.0-pyhff2d567_0 
+  ld_impl_linux-64   conda-forge/linux-64::ld_impl_linux-64-2.44-h1423503_1 
+  libabseil          conda-forge/linux-64::libabseil-20250512.1-cxx17_hba17884_0 
+  libarrow           conda-forge/linux-64::libarrow-21.0.0-hd5bb725_0_cpu 
+  libarrow-acero     conda-forge/linux-64::libarrow-acero-21.0.0-h635bf11_0_cpu 
+  libarrow-compute   conda-forge/linux-64::libarrow-compute-21.0.0-he319acf_0_cpu 
+  libarrow-dataset   conda-forge/linux-64::libarrow-dataset-21.0.0-h635bf11_0_cpu 
+  libarrow-substrait conda-forge/linux-64::libarrow-substrait-21.0.0-h3f74fd7_0_cpu 
+  libblas            conda-forge/linux-64::libblas-3.9.0-16_linux64_mkl 
+  libbrotlicommon    conda-forge/linux-64::libbrotlicommon-1.1.0-hb9d3cd8_3 
+  libbrotlidec       conda-forge/linux-64::libbrotlidec-1.1.0-hb9d3cd8_3 
+  libbrotlienc       conda-forge/linux-64::libbrotlienc-1.1.0-hb9d3cd8_3 
+  libcblas           conda-forge/linux-64::libcblas-3.9.0-16_linux64_mkl 
+  libcrc32c          conda-forge/linux-64::libcrc32c-1.1.2-h9c3ff4c_0 
+  libcurl            conda-forge/linux-64::libcurl-8.14.1-h332b0f4_0 
+  libedit            conda-forge/linux-64::libedit-3.1.20250104-pl5321h7949ede_0 
+  libev              conda-forge/linux-64::libev-4.33-hd590300_2 
+  libevent           conda-forge/linux-64::libevent-2.1.12-hf998b51_1 
+  libexpat           conda-forge/linux-64::libexpat-2.7.1-hecca717_0 
+  libffi             conda-forge/linux-64::libffi-3.4.6-h2dba641_1 
+  libgcc             conda-forge/linux-64::libgcc-15.1.0-h767d61c_3 
+  libgcc-ng          conda-forge/linux-64::libgcc-ng-15.1.0-h69a702a_3 
+  libgfortran        conda-forge/linux-64::libgfortran-15.1.0-h69a702a_3 
+  libgfortran-ng     conda-forge/linux-64::libgfortran-ng-15.1.0-h69a702a_3 
+  libgfortran5       conda-forge/linux-64::libgfortran5-15.1.0-hcea5267_3 
+  libgomp            conda-forge/linux-64::libgomp-15.1.0-h767d61c_3 
+  libgoogle-cloud    conda-forge/linux-64::libgoogle-cloud-2.39.0-hdb79228_0 
+  libgoogle-cloud-s~ conda-forge/linux-64::libgoogle-cloud-storage-2.39.0-hdbdcf42_0 
+  libgrpc            conda-forge/linux-64::libgrpc-1.73.1-h1e535eb_0 
+  libiconv           conda-forge/linux-64::libiconv-1.18-h4ce23a2_1 
+  liblapack          conda-forge/linux-64::liblapack-3.9.0-16_linux64_mkl 
+  liblzma            conda-forge/linux-64::liblzma-5.8.1-hb9d3cd8_2 
+  libnghttp2         conda-forge/linux-64::libnghttp2-1.64.0-h161d5f1_0 
+  libnsl             conda-forge/linux-64::libnsl-2.0.1-hb9d3cd8_1 
+  libopentelemetry-~ conda-forge/linux-64::libopentelemetry-cpp-1.21.0-hb9b0907_1 
+  libopentelemetry-~ conda-forge/linux-64::libopentelemetry-cpp-headers-1.21.0-ha770c72_1 
+  libparquet         conda-forge/linux-64::libparquet-21.0.0-h790f06f_0_cpu 
+  libprotobuf        conda-forge/linux-64::libprotobuf-6.31.1-h9ef548d_1 
+  libre2-11          conda-forge/linux-64::libre2-11-2025.07.22-h7b12aa8_0 
+  libsqlite          conda-forge/linux-64::libsqlite-3.50.3-hee844dc_1 
+  libssh2            conda-forge/linux-64::libssh2-1.11.1-hcf80075_0 
+  libstdcxx          conda-forge/linux-64::libstdcxx-15.1.0-h8f9b012_3 
+  libstdcxx-ng       conda-forge/linux-64::libstdcxx-ng-15.1.0-h4852527_3 
+  libthrift          conda-forge/linux-64::libthrift-0.22.0-h454ac66_1 
+  libutf8proc        conda-forge/linux-64::libutf8proc-2.10.0-h202a827_0 
+  libuuid            conda-forge/linux-64::libuuid-2.38.1-h0b41bf4_0 
+  libxcrypt          conda-forge/linux-64::libxcrypt-4.4.36-hd590300_1 
+  libxml2            conda-forge/linux-64::libxml2-2.13.8-h4bc477f_0 
+  libzlib            conda-forge/linux-64::libzlib-1.3.1-hb9d3cd8_2 
+  llvm-openmp        conda-forge/linux-64::llvm-openmp-15.0.7-h0cdce71_0 
+  lz4-c              conda-forge/linux-64::lz4-c-1.10.0-h5888daf_1 
+  marisa-trie        conda-forge/linux-64::marisa-trie-1.2.1-py39hf88036b_0 
+  markdown-it-py     conda-forge/noarch::markdown-it-py-3.0.0-pyhd8ed1ab_1 
+  markupsafe         conda-forge/linux-64::markupsafe-3.0.2-py39h9399b63_1 
+  mdurl              conda-forge/noarch::mdurl-0.1.2-pyhd8ed1ab_1 
+  mkl                pkgs/main/linux-64::mkl-2022.1.0-hc2b9512_224 
+  mpc                conda-forge/linux-64::mpc-1.3.1-h24ddda3_1 
+  mpfr               conda-forge/linux-64::mpfr-4.2.1-h90cbb55_3 
+  mpmath             conda-forge/noarch::mpmath-1.3.0-pyhd8ed1ab_1 
+  multidict          conda-forge/linux-64::multidict-6.6.3-py39h9399b63_0 
+  multiprocess       conda-forge/linux-64::multiprocess-0.70.16-py39h8cd3c5a_1 
+  murmurhash         conda-forge/linux-64::murmurhash-1.0.10-py39hf88036b_2 
+  ncurses            conda-forge/linux-64::ncurses-6.5-h2d0b736_3 
+  networkx           conda-forge/noarch::networkx-3.2.1-pyhd8ed1ab_0 
+  nlohmann_json      conda-forge/linux-64::nlohmann_json-3.12.0-h3f2d84a_0 
+  nltk               conda-forge/noarch::nltk-3.9.1-pyhd8ed1ab_1 
+  numpy              conda-forge/linux-64::numpy-2.0.2-py39h9cb892a_1 
+  openssl            conda-forge/linux-64::openssl-3.5.1-h7b32b05_0 
+  orc                conda-forge/linux-64::orc-2.1.3-h61e0c1e_0 
+  packaging          conda-forge/noarch::packaging-25.0-pyh29332c3_1 
+  pandas             conda-forge/linux-64::pandas-2.3.1-py39h1b6b32d_0 
+  pip                conda-forge/noarch::pip-25.1.1-pyh8b19718_0 
+  preshed            conda-forge/linux-64::preshed-3.0.9-py39hf88036b_2 
+  prometheus-cpp     conda-forge/linux-64::prometheus-cpp-1.3.0-ha5d0236_0 
+  propcache          conda-forge/linux-64::propcache-0.3.1-py39h9399b63_0 
+  pyarrow            conda-forge/linux-64::pyarrow-21.0.0-py39hf3d152e_0 
+  pyarrow-core       conda-forge/linux-64::pyarrow-core-21.0.0-py39h1aa8787_0_cpu 
+  pycparser          conda-forge/noarch::pycparser-2.22-pyh29332c3_1 
+  pydantic           conda-forge/noarch::pydantic-2.11.7-pyh3cfb1c2_0 
+  pydantic-core      conda-forge/linux-64::pydantic-core-2.33.2-py39h20260ba_0 
+  pygments           conda-forge/noarch::pygments-2.19.2-pyhd8ed1ab_0 
+  pysocks            conda-forge/noarch::pysocks-1.7.1-pyha55dd90_7 
+  python             conda-forge/linux-64::python-3.9.23-hc30ae73_0_cpython 
+  python-dateutil    conda-forge/noarch::python-dateutil-2.9.0.post0-pyhe01879c_2 
+  python-gil         conda-forge/noarch::python-gil-3.9.23-hd8ed1ab_0 
+  python-tzdata      conda-forge/noarch::python-tzdata-2025.2-pyhd8ed1ab_0 
+  python-xxhash      conda-forge/linux-64::python-xxhash-3.5.0-py39h8cd3c5a_2 
+  python_abi         conda-forge/noarch::python_abi-3.9-8_cp39 
+  pytorch            pytorch/linux-64::pytorch-2.5.1-py3.9_cpu_0 
+  pytorch-mutex      pytorch/noarch::pytorch-mutex-1.0-cpu 
+  pytz               conda-forge/noarch::pytz-2025.2-pyhd8ed1ab_0 
+  pyyaml             conda-forge/linux-64::pyyaml-6.0.2-py39h9399b63_2 
+  re2                conda-forge/linux-64::re2-2025.07.22-h5a314c3_0 
+  readline           conda-forge/linux-64::readline-8.2-h8c095d6_2 
+  regex              conda-forge/linux-64::regex-2024.11.6-py39h8cd3c5a_0 
+  requests           conda-forge/noarch::requests-2.32.4-pyhd8ed1ab_0 
+  rich               conda-forge/noarch::rich-14.1.0-pyhe01879c_0 
+  s2n                conda-forge/linux-64::s2n-1.5.23-h8e187f5_0 
+  safetensors        conda-forge/linux-64::safetensors-0.5.3-py39he612d8f_0 
+  scikit-learn       conda-forge/linux-64::scikit-learn-1.6.1-py39h4b7350c_0 
+  scipy              conda-forge/linux-64::scipy-1.13.1-py39haf93ffa_0 
+  setuptools         conda-forge/noarch::setuptools-80.9.0-pyhff2d567_0 
+  shellingham        conda-forge/noarch::shellingham-1.5.4-pyhd8ed1ab_1 
+  six                conda-forge/noarch::six-1.17.0-pyhe01879c_1 
+  smart-open         conda-forge/noarch::smart-open-7.3.0.post1-h87fe6b5_0 
+  smart_open         conda-forge/noarch::smart_open-7.3.0.post1-pyhe01879c_0 
+  snappy             conda-forge/linux-64::snappy-1.2.2-h03e3b7b_0 
+  spacy              conda-forge/linux-64::spacy-3.8.7-py39h0f8f440_0 
+  spacy-legacy       conda-forge/noarch::spacy-legacy-3.0.12-pyhd8ed1ab_0 
+  spacy-loggers      conda-forge/noarch::spacy-loggers-1.0.5-pyhd8ed1ab_0 
+  srsly              conda-forge/linux-64::srsly-2.5.1-py39hf88036b_1 
+  sympy              conda-forge/noarch::sympy-1.14.0-pyh2585a3b_105 
+  thinc              conda-forge/linux-64::thinc-8.3.6-py39h0f8f440_0 
+  threadpoolctl      conda-forge/noarch::threadpoolctl-3.6.0-pyhecae5ae_0 
+  tk                 conda-forge/linux-64::tk-8.6.13-noxft_hd72426e_102 
+  tokenizers         conda-forge/linux-64::tokenizers-0.21.3-py39he41eae5_0 
+  tqdm               conda-forge/noarch::tqdm-4.67.1-pyhd8ed1ab_1 
+  transformers       conda-forge/noarch::transformers-4.53.3-pyhd8ed1ab_0 
+  typer              conda-forge/noarch::typer-0.16.0-pyh167b9f4_0 
+  typer-slim         conda-forge/noarch::typer-slim-0.16.0-pyhe01879c_0 
+  typer-slim-standa~ conda-forge/noarch::typer-slim-standard-0.16.0-hf964461_0 
+  typing-extensions  conda-forge/noarch::typing-extensions-4.14.1-h4440ef1_0 
+  typing-inspection  conda-forge/noarch::typing-inspection-0.4.1-pyhd8ed1ab_0 
+  typing_extensions  conda-forge/noarch::typing_extensions-4.14.1-pyhe01879c_0 
+  tzdata             conda-forge/noarch::tzdata-2025b-h78e105d_0 
+  ujson              conda-forge/linux-64::ujson-5.10.0-py39hf88036b_1 
+  urllib3            conda-forge/noarch::urllib3-2.5.0-pyhd8ed1ab_0 
+  wasabi             conda-forge/noarch::wasabi-1.1.3-pyhd8ed1ab_1 
+  weasel             conda-forge/noarch::weasel-0.4.1-pyhd8ed1ab_2 
+  werkzeug           conda-forge/noarch::werkzeug-3.1.3-pyhd8ed1ab_1 
+  wheel              conda-forge/noarch::wheel-0.45.1-pyhd8ed1ab_1 
+  wrapt              conda-forge/linux-64::wrapt-1.17.2-py39h8cd3c5a_0 
+  xxhash             conda-forge/linux-64::xxhash-0.8.3-hb47aa4a_0 
+  yaml               conda-forge/linux-64::yaml-0.2.5-h280c20c_3 
+  yarl               conda-forge/linux-64::yarl-1.20.1-py39h9399b63_0 
+  zipp               conda-forge/noarch::zipp-3.23.0-pyhd8ed1ab_0 
+  zlib               conda-forge/linux-64::zlib-1.3.1-hb9d3cd8_2 
+  zstandard          conda-forge/linux-64::zstandard-0.23.0-py39h8cd3c5a_2 
+  zstd               conda-forge/linux-64::zstd-1.5.7-hb8e6e7a_2 
+
+
+
+Downloading and Extracting Packages: ...working...mkl-2022.1.0         | 129.7 MB  |            |   0% 
+pytorch-2.5.1        | 87.8 MB   |            |   0% [A
+
+python-3.9.23        | 22.6 MB   |            |   0% [A[A
+
+
+scipy-1.13.1         | 15.8 MB   |            |   0% [A[A[A
+
+
+
+pandas-2.3.1         | 11.9 MB   |            |   0% [A[A[A[A
+
+
+
+
+icu-75.1             | 11.6 MB   |            |   0% [A[A[A[A[A
+
+
+
+
+
+scikit-learn-1.6.1   | 8.9 MB    |            |   0% [A[A[A[A[A[A
+
+
+
+
+
+
+libgrpc-1.73.1       | 8.0 MB    |            |   0% [A[A[A[A[A[A[A
+
+
+
+
+
+
+
+cython-blis-1.3.0    | 7.8 MB    |            |   0% [A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+numpy-2.0.2          | 7.6 MB    |            |   0% [A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+libarrow-21.0.0      | 6.2 MB    |            |   0% [A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+spacy-3.8.7          | 5.2 MB    |            |   0% [A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+pyarrow-core-21.0.0  | 5.0 MB    |            |   0% [A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+sympy-1.14.0         | 4.4 MB    |            |   0% [A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+intel-openmp-2022.0. | 4.2 MB    |            |   0% [A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+language-data-1.3.0  | 4.0 MB    |            |   0% [A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+libprotobuf-6.31.1   | 3.8 MB    |            |   0% [A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+transformers-4.53.3  | 3.7 MB    |            |   0% [A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+libstdcxx-15.1.0     | 3.7 MB    |            |   0% [A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ ... (more hidden) ...[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[Amkl-2022.1.0         | 129.7 MB  |            |   1% 
+pytorch-2.5.1        | 87.8 MB   | 1          |   2% [A
+
+
+scipy-1.13.1         | 15.8 MB   |            |   1% [A[A[A
+
+
+
+pandas-2.3.1         | 11.9 MB   | 3          |   4% [A[A[A[A
+
+python-3.9.23        | 22.6 MB   |            |   0% [A[Amkl-2022.1.0         | 129.7 MB  | 3          |   4% 
+pytorch-2.5.1        | 87.8 MB   | 5          |   6% [A
+
+
+scipy-1.13.1         | 15.8 MB   | ##6        |  26% [A[A[A
+
+
+
+pandas-2.3.1         | 11.9 MB   | ###5       |  35% [A[A[A[A
+
+python-3.9.23        | 22.6 MB   | #4         |  15% [A[Amkl-2022.1.0         | 129.7 MB  | 6          |   7% 
+pytorch-2.5.1        | 87.8 MB   | 9          |  10% [A
+
+
+scipy-1.13.1         | 15.8 MB   | ####9      |  50% [A[A[A
+
+
+
+pandas-2.3.1         | 11.9 MB   | ######4    |  65% [A[A[A[A
+
+python-3.9.23        | 22.6 MB   | ###2       |  33% [A[Amkl-2022.1.0         | 129.7 MB  | 9          |  10% 
+pytorch-2.5.1        | 87.8 MB   | #3         |  14% [A
+
+
+scipy-1.13.1         | 15.8 MB   | #######5   |  75% [A[A[A
+
+
+
+pandas-2.3.1         | 11.9 MB   | #########8 |  99% [A[A[A[A
+
+python-3.9.23        | 22.6 MB   | #####2     |  52% [A[Amkl-2022.1.0         | 129.7 MB  | #3         |  13% 
+pytorch-2.5.1        | 87.8 MB   | #8         |  19% [A
+
+python-3.9.23        | 22.6 MB   | #######2   |  72% [A[Amkl-2022.1.0         | 129.7 MB  | #6         |  17% 
+
+
+
+pandas-2.3.1         | 11.9 MB   | ########## | 100% [A[A[A[A
+pytorch-2.5.1        | 87.8 MB   | ##4        |  24% [A
+
+python-3.9.23        | 22.6 MB   | #########3 |  93% [A[A
+
+
+
+
+icu-75.1             | 11.6 MB   |            |   0% [A[A[A[A[Amkl-2022.1.0         | 129.7 MB  | ##         |  20% 
+pytorch-2.5.1        | 87.8 MB   | ##8        |  29% [A
+
+
+
+
+icu-75.1             | 11.6 MB   | ###        |  30% [A[A[A[A[A
+
+
+scipy-1.13.1         | 15.8 MB   | ########## | 100% [A[A[A
+
+
+scipy-1.13.1         | 15.8 MB   | ########## | 100% [A[A[Amkl-2022.1.0         | 129.7 MB  | ##3        |  24% 
+pytorch-2.5.1        | 87.8 MB   | ###3       |  33% [A
+
+
+
+
+
+scikit-learn-1.6.1   | 8.9 MB    |            |   0% [A[A[A[A[A[A
+
+
+
+
+icu-75.1             | 11.6 MB   | #####9     |  59% [A[A[A[A[Amkl-2022.1.0         | 129.7 MB  | ##6        |  27% 
+
+
+
+
+
+scikit-learn-1.6.1   | 8.9 MB    | ###4       |  34% [A[A[A[A[A[A
+
+
+
+
+icu-75.1             | 11.6 MB   | ########5  |  85% [A[A[A[A[A
+pytorch-2.5.1        | 87.8 MB   | ###7       |  38% [A
+
+
+
+
+
+scikit-learn-1.6.1   | 8.9 MB    | #######2   |  73% [A[A[A[A[A[Amkl-2022.1.0         | 129.7 MB  | ##9        |  30% 
+pytorch-2.5.1        | 87.8 MB   | ####1      |  42% [Amkl-2022.1.0         | 129.7 MB  | ###2       |  33% 
+pytorch-2.5.1        | 87.8 MB   | ####5      |  46% [A
+
+python-3.9.23        | 22.6 MB   | ########## | 100% [A[Amkl-2022.1.0         | 129.7 MB  | ###5       |  36% 
+pytorch-2.5.1        | 87.8 MB   | #####      |  50% [A
+
+
+
+
+icu-75.1             | 11.6 MB   | ########## | 100% [A[A[A[A[A
+
+
+
+
+
+scikit-learn-1.6.1   | 8.9 MB    | ########## | 100% [A[A[A[A[A[A
+
+
+
+
+
+
+
+cython-blis-1.3.0    | 7.8 MB    |            |   0% [A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+numpy-2.0.2          | 7.6 MB    |            |   0% [A[A[A[A[A[A[A[A[Amkl-2022.1.0         | 129.7 MB  | ###8       |  39% 
+pytorch-2.5.1        | 87.8 MB   | #####4     |  54% [A
+
+
+
+
+
+
+libgrpc-1.73.1       | 8.0 MB    |            |   0% [A[A[A[A[A[A[A
+
+
+
+
+
+
+
+cython-blis-1.3.0    | 7.8 MB    | ##9        |  29% [A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+numpy-2.0.2          | 7.6 MB    | ###8       |  38% [A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+libgrpc-1.73.1       | 8.0 MB    | #          |  10% [A[A[A[A[A[A[Amkl-2022.1.0         | 129.7 MB  | ####1      |  42% 
+pytorch-2.5.1        | 87.8 MB   | #####8     |  58% [A
+
+
+
+
+
+
+
+cython-blis-1.3.0    | 7.8 MB    | ######6    |  66% [A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+numpy-2.0.2          | 7.6 MB    | #######3   |  73% [A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+libgrpc-1.73.1       | 8.0 MB    | ####2      |  42% [A[A[A[A[A[A[Amkl-2022.1.0         | 129.7 MB  | ####4      |  45% 
+pytorch-2.5.1        | 87.8 MB   | ######1    |  62% [A
+
+
+
+
+
+
+
+cython-blis-1.3.0    | 7.8 MB    | ########## | 100% [A[A[A[A[A[A[A[A
+
+
+
+
+
+
+libgrpc-1.73.1       | 8.0 MB    | #######7   |  78% [A[A[A[A[A[A[Amkl-2022.1.0         | 129.7 MB  | ####7      |  47% 
+pytorch-2.5.1        | 87.8 MB   | ######5    |  65% [Amkl-2022.1.0         | 129.7 MB  | #####      |  50% 
+pytorch-2.5.1        | 87.8 MB   | ######9    |  69% [A
+
+
+
+
+
+
+
+
+numpy-2.0.2          | 7.6 MB    | ########## | 100% [A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+cython-blis-1.3.0    | 7.8 MB    | ########## | 100% [A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+libarrow-21.0.0      | 6.2 MB    |            |   0% [A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+spacy-3.8.7          | 5.2 MB    |            |   0% [A[A[A[A[A[A[A[A[A[A[Amkl-2022.1.0         | 129.7 MB  | #####3     |  53% 
+pytorch-2.5.1        | 87.8 MB   | #######2   |  73% [A
+
+
+
+
+
+
+libgrpc-1.73.1       | 8.0 MB    | ########## | 100% [A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+libarrow-21.0.0      | 6.2 MB    | ####4      |  45% [A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+pyarrow-core-21.0.0  | 5.0 MB    |            |   0% [A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+spacy-3.8.7          | 5.2 MB    | #####1     |  51% [A[A[A[A[A[A[A[A[A[A[Amkl-2022.1.0         | 129.7 MB  | #####6     |  56% 
+pytorch-2.5.1        | 87.8 MB   | #######6   |  77% [A
+
+
+
+
+
+
+
+
+
+libarrow-21.0.0      | 6.2 MB    | ########3  |  84% [A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+pyarrow-core-21.0.0  | 5.0 MB    | #####9     |  60% [A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+spacy-3.8.7          | 5.2 MB    | #########9 |  99% [A[A[A[A[A[A[A[A[A[A[Amkl-2022.1.0         | 129.7 MB  | #####8     |  59% 
+pytorch-2.5.1        | 87.8 MB   | ########   |  80% [Amkl-2022.1.0         | 129.7 MB  | ######1    |  62% 
+pytorch-2.5.1        | 87.8 MB   | ########4  |  84% [A
+
+
+
+
+
+
+
+
+
+
+spacy-3.8.7          | 5.2 MB    | ########## | 100% [A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+pyarrow-core-21.0.0  | 5.0 MB    | ########## | 100% [A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+pyarrow-core-21.0.0  | 5.0 MB    | ########## | 100% [A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+sympy-1.14.0         | 4.4 MB    |            |   0% [A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+libarrow-21.0.0      | 6.2 MB    | ########## | 100% [A[A[A[A[A[A[A[A[A[Amkl-2022.1.0         | 129.7 MB  | ######4    |  64% 
+pytorch-2.5.1        | 87.8 MB   | ########8  |  88% [A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+language-data-1.3.0  | 4.0 MB    |            |   0% [A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+sympy-1.14.0         | 4.4 MB    | ######8    |  69% [A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+intel-openmp-2022.0. | 4.2 MB    |            |   0% [A[A[A[A[A[A[A[A[A[A[A[A[A[Amkl-2022.1.0         | 129.7 MB  | ######7    |  67% 
+pytorch-2.5.1        | 87.8 MB   | #########2 |  92% [A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+language-data-1.3.0  | 4.0 MB    | ######4    |  65% [A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+intel-openmp-2022.0. | 4.2 MB    | ####8      |  49% [A[A[A[A[A[A[A[A[A[A[A[A[A[A
+pytorch-2.5.1        | 87.8 MB   | #########5 |  96% [Amkl-2022.1.0         | 129.7 MB  | ######9    |  70% 
+
+
+
+
+
+
+
+
+
+
+
+
+sympy-1.14.0         | 4.4 MB    | ########## | 100% [A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+libprotobuf-6.31.1   | 3.8 MB    |            |   0% [A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+language-data-1.3.0  | 4.0 MB    | ########## | 100% [A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+intel-openmp-2022.0. | 4.2 MB    | #########  |  91% [A[A[A[A[A[A[A[A[A[A[A[A[A[Amkl-2022.1.0         | 129.7 MB  | #######2   |  73% 
+pytorch-2.5.1        | 87.8 MB   | #########9 |  99% [A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+transformers-4.53.3  | 3.7 MB    |            |   0% [A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+libprotobuf-6.31.1   | 3.8 MB    | ########3  |  84% [A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[Amkl-2022.1.0         | 129.7 MB  | #######5   |  75% 
+
+
+
+
+
+
+
+
+
+
+
+
+
+intel-openmp-2022.0. | 4.2 MB    | ########## | 100% [A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+transformers-4.53.3  | 3.7 MB    | #######1   |  71% [A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+libstdcxx-15.1.0     | 3.7 MB    |            |   0% [A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+libprotobuf-6.31.1   | 3.8 MB    | ########## | 100% [A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[Amkl-2022.1.0         | 129.7 MB  | #######8   |  78% 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+transformers-4.53.3  | 3.7 MB    | ########## | 100% [A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+libstdcxx-15.1.0     | 3.7 MB    | ########8  |  89% [A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ ... (more hidden) ...[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[Amkl-2022.1.0         | 129.7 MB  | ########1  |  81% 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ ... (more hidden) ...[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+libstdcxx-15.1.0     | 3.7 MB    | ########## | 100% [A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[Amkl-2022.1.0         | 129.7 MB  | ########4  |  84% 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ ... (more hidden) ...[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[Amkl-2022.1.0         | 129.7 MB  | ########7  |  87% mkl-2022.1.0         | 129.7 MB  | #########  |  90% mkl-2022.1.0         | 129.7 MB  | #########3 |  93% mkl-2022.1.0         | 129.7 MB  | #########5 |  96% mkl-2022.1.0         | 129.7 MB  | #########9 | 100% 
+pytorch-2.5.1        | 87.8 MB   | ########## | 100% [A
+
+
+scipy-1.13.1         | 15.8 MB   | ########## | 100% [A[A[Amkl-2022.1.0         | 129.7 MB  | ########## | 100% 
+
+
+
+
+icu-75.1             | 11.6 MB   | ########## | 100% [A[A[A[A[A
+
+python-3.9.23        | 22.6 MB   | ########## | 100% [A[A
+
+
+
+pandas-2.3.1         | 11.9 MB   | ########## | 100% [A[A[A[A
+
+
+
+
+
+
+
+cython-blis-1.3.0    | 7.8 MB    | ########## | 100% [A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+numpy-2.0.2          | 7.6 MB    | ########## | 100% [A[A[A[A[A[A[A[A[A
+
+
+
+
+
+scikit-learn-1.6.1   | 8.9 MB    | ########## | 100% [A[A[A[A[A[A
+
+
+
+
+
+
+libgrpc-1.73.1       | 8.0 MB    | ########## | 100% [A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+libarrow-21.0.0      | 6.2 MB    | ########## | 100% [A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+pyarrow-core-21.0.0  | 5.0 MB    | ########## | 100% [A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+language-data-1.3.0  | 4.0 MB    | ########## | 100% [A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+spacy-3.8.7          | 5.2 MB    | ########## | 100% [A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+intel-openmp-2022.0. | 4.2 MB    | ########## | 100% [A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+sympy-1.14.0         | 4.4 MB    | ########## | 100% [A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+libprotobuf-6.31.1   | 3.8 MB    | ########## | 100% [A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+libstdcxx-15.1.0     | 3.7 MB    | ########## | 100% [A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ ... (more hidden) ...[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+transformers-4.53.3  | 3.7 MB    | ########## | 100% [A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[Amkl-2022.1.0         | 129.7 MB  | ########## | 100% 
+pytorch-2.5.1        | 87.8 MB   | ########## | 100% [A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                      [A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A                                                     
+                                                     [A
+
+                                                     [A[A
+
+
+                                                     [A[A[A
+
+
+
+                                                     [A[A[A[A
+
+
+
+
+                                                     [A[A[A[A[A
+
+
+
+
+
+                                                     [A[A[A[A[A[A
+
+
+
+
+
+
+                                                     [A[A[A[A[A[A[A
+
+
+
+
+
+
+
+                                                     [A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+                                                     [A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+                                                     [A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+                                                     [A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+                                                     [A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+                                                     [A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                                     [A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                                     [A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                                     [A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                                     [A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                                     [A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+[A
+
+[A[A
+
+
+[A[A[A
+
+
+
+[A[A[A[A
+
+
+
+
+[A[A[A[A[A
+
+
+
+
+
+[A[A[A[A[A[A
+
+
+
+
+
+
+[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+[A
+
+[A[A
+
+
+[A[A[A
+
+
+
+[A[A[A[A
+
+
+
+
+[A[A[A[A[A
+
+
+
+
+
+[A[A[A[A[A[A
+
+
+
+
+
+
+[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+[A
+
+[A[A
+
+
+[A[A[A
+
+
+
+[A[A[A[A
+
+
+
+
+[A[A[A[A[A
+
+
+
+
+
+[A[A[A[A[A[A
+
+
+
+
+
+
+[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+[A
+
+[A[A
+
+
+[A[A[A
+
+
+
+[A[A[A[A
+
+
+
+
+[A[A[A[A[A
+
+
+
+
+
+[A[A[A[A[A[A
+
+
+
+
+
+
+[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+[A
+
+[A[A
+
+
+[A[A[A
+
+
+
+[A[A[A[A
+
+
+
+
+[A[A[A[A[A
+
+
+
+
+
+[A[A[A[A[A[A
+
+
+
+
+
+
+[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+[A
+
+[A[A
+
+
+[A[A[A
+
+
+
+[A[A[A[A
+
+
+
+
+[A[A[A[A[A
+
+
+
+
+
+[A[A[A[A[A[A
+
+
+
+
+
+
+[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+[A
+
+[A[A
+
+
+[A[A[A
+
+
+
+[A[A[A[A
+
+
+
+
+[A[A[A[A[A
+
+
+
+
+
+[A[A[A[A[A[A
+
+
+
+
+
+
+[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+[A
+
+[A[A
+
+
+[A[A[A
+
+
+
+[A[A[A[A
+
+
+
+
+[A[A[A[A[A
+
+
+
+
+
+[A[A[A[A[A[A
+
+
+
+
+
+
+[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+[A
+
+[A[A
+
+
+[A[A[A
+
+
+
+[A[A[A[A
+
+
+
+
+[A[A[A[A[A
+
+
+
+
+
+[A[A[A[A[A[A
+
+
+
+
+
+
+[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+[A
+
+[A[A
+
+
+[A[A[A
+
+
+
+[A[A[A[A
+
+
+
+
+[A[A[A[A[A
+
+
+
+
+
+[A[A[A[A[A[A
+
+
+
+
+
+
+[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A done
+Preparing transaction: | / - \ | / - \ | done
+Verifying transaction: - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / done
+Executing transaction: \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | done
+#
+# To activate this environment, use
+#
+#     $ conda activate gremlin-nlp
+#
+# To deactivate an active environment, use
+#
+#     $ conda deactivate
+
+[SUCCESS] Environment 'gremlin-nlp' created with conda packages
+[INFO] Checking environment: gremlin-dashboard
+[CREATE] Creating minimal 'gremlin-dashboard' environment with conda packages only...
+CI detected...
+2 channel Terms of Service accepted
+Channels:
+ - pytorch
+ - conda-forge
+ - defaults
+Platform: linux-64
+Collecting package metadata (repodata.json): - \ | / - \ | done
+Solving environment: - \ | done
+
+## Package Plan ##
+
+  environment location: /usr/share/miniconda/envs/gremlin-dashboard
+
+  added / updated specs:
+    - cpuonly
+    - flask
+    - nltk
+    - numpy
+    - pandas
+    - pip
+    - python=3.9
+    - pytorch
+    - requests
+    - scikit-learn
+    - scipy
+    - spacy
+    - transformers
+
+
+The following NEW packages will be INSTALLED:
+
+  _libgcc_mutex      conda-forge/linux-64::_libgcc_mutex-0.1-conda_forge 
+  _openmp_mutex      conda-forge/linux-64::_openmp_mutex-4.5-2_gnu 
+  _python_abi3_supp~ conda-forge/noarch::_python_abi3_support-1.0-hd8ed1ab_2 
+  aiohappyeyeballs   conda-forge/noarch::aiohappyeyeballs-2.6.1-pyhd8ed1ab_0 
+  aiohttp            conda-forge/linux-64::aiohttp-3.12.14-py39heb7d2ae_0 
+  aiosignal          conda-forge/noarch::aiosignal-1.4.0-pyhd8ed1ab_0 
+  annotated-types    conda-forge/noarch::annotated-types-0.7.0-pyhd8ed1ab_1 
+  async-timeout      conda-forge/noarch::async-timeout-5.0.1-pyhd8ed1ab_1 
+  attrs              conda-forge/noarch::attrs-25.3.0-pyh71513ae_0 
+  aws-c-auth         conda-forge/linux-64::aws-c-auth-0.9.0-h0fbd49f_19 
+  aws-c-cal          conda-forge/linux-64::aws-c-cal-0.9.2-he7b75e1_1 
+  aws-c-common       conda-forge/linux-64::aws-c-common-0.12.4-hb03c661_0 
+  aws-c-compression  conda-forge/linux-64::aws-c-compression-0.3.1-h92c474e_6 
+  aws-c-event-stream conda-forge/linux-64::aws-c-event-stream-0.5.5-h149bd38_3 
+  aws-c-http         conda-forge/linux-64::aws-c-http-0.10.4-h37a7233_0 
+  aws-c-io           conda-forge/linux-64::aws-c-io-0.21.2-h6252d9a_1 
+  aws-c-mqtt         conda-forge/linux-64::aws-c-mqtt-0.13.3-h19deb91_3 
+  aws-c-s3           conda-forge/linux-64::aws-c-s3-0.8.6-h800fcd2_2 
+  aws-c-sdkutils     conda-forge/linux-64::aws-c-sdkutils-0.2.4-h92c474e_1 
+  aws-checksums      conda-forge/linux-64::aws-checksums-0.2.7-h92c474e_2 
+  aws-crt-cpp        conda-forge/linux-64::aws-crt-cpp-0.33.1-hb4fd278_2 
+  aws-sdk-cpp        conda-forge/linux-64::aws-sdk-cpp-1.11.606-h31ade35_1 
+  azure-core-cpp     conda-forge/linux-64::azure-core-cpp-1.16.0-h3a458e0_0 
+  azure-identity-cpp conda-forge/linux-64::azure-identity-cpp-1.12.0-ha729027_0 
+  azure-storage-blo~ conda-forge/linux-64::azure-storage-blobs-cpp-12.14.0-hb1c9500_1 
+  azure-storage-com~ conda-forge/linux-64::azure-storage-common-cpp-12.10.0-hebae86a_2 
+  azure-storage-fil~ conda-forge/linux-64::azure-storage-files-datalake-cpp-12.12.0-h8b27e44_3 
+  blas               conda-forge/linux-64::blas-1.0-mkl 
+  blinker            conda-forge/noarch::blinker-1.9.0-pyhff2d567_0 
+  brotli-python      conda-forge/linux-64::brotli-python-1.1.0-py39hf88036b_3 
+  bzip2              conda-forge/linux-64::bzip2-1.0.8-h4bc722e_7 
+  c-ares             conda-forge/linux-64::c-ares-1.34.5-hb9d3cd8_0 
+  ca-certificates    conda-forge/noarch::ca-certificates-2025.7.14-hbd8a1cb_0 
+  catalogue          conda-forge/linux-64::catalogue-2.0.10-py39hf3d152e_1 
+  certifi            conda-forge/noarch::certifi-2025.7.14-pyhd8ed1ab_0 
+  cffi               conda-forge/linux-64::cffi-1.17.1-py39h15c3d72_0 
+  charset-normalizer conda-forge/noarch::charset-normalizer-3.4.2-pyhd8ed1ab_0 
+  click              conda-forge/noarch::click-8.1.8-pyh707e725_0 
+  cloudpathlib       conda-forge/noarch::cloudpathlib-0.21.1-pyhd8ed1ab_0 
+  cloudpickle        conda-forge/noarch::cloudpickle-3.1.1-pyhd8ed1ab_0 
+  colorama           conda-forge/noarch::colorama-0.4.6-pyhd8ed1ab_1 
+  confection         conda-forge/noarch::confection-0.1.5-pyhecae5ae_0 
+  cpuonly            pytorch/noarch::cpuonly-2.0-0 
+  cpython            conda-forge/noarch::cpython-3.9.23-py39hd8ed1ab_0 
+  cymem              conda-forge/linux-64::cymem-2.0.11-py39hf88036b_0 
+  cython-blis        conda-forge/linux-64::cython-blis-1.3.0-py39hf3d9206_0 
+  datasets           conda-forge/noarch::datasets-3.6.0-pyhd8ed1ab_0 
+  dill               conda-forge/noarch::dill-0.3.8-pyhd8ed1ab_0 
+  filelock           conda-forge/noarch::filelock-3.18.0-pyhd8ed1ab_0 
+  flask              conda-forge/noarch::flask-3.1.1-pyhd8ed1ab_0 
+  frozenlist         conda-forge/linux-64::frozenlist-1.7.0-py39h53edacf_0 
+  fsspec             conda-forge/noarch::fsspec-2025.3.0-pyhd8ed1ab_0 
+  gflags             conda-forge/linux-64::gflags-2.2.2-h5888daf_1005 
+  glog               conda-forge/linux-64::glog-0.7.1-hbabe93e_0 
+  gmp                conda-forge/linux-64::gmp-6.3.0-hac33072_2 
+  gmpy2              conda-forge/linux-64::gmpy2-2.2.1-py39h7196dd7_0 
+  h2                 conda-forge/noarch::h2-4.2.0-pyhd8ed1ab_0 
+  hf-xet             conda-forge/linux-64::hf-xet-1.1.5-py39h260a9e5_3 
+  hpack              conda-forge/noarch::hpack-4.1.0-pyhd8ed1ab_0 
+  huggingface_hub    conda-forge/noarch::huggingface_hub-0.33.4-pyhd8ed1ab_0 
+  hyperframe         conda-forge/noarch::hyperframe-6.1.0-pyhd8ed1ab_0 
+  icu                conda-forge/linux-64::icu-75.1-he02047a_0 
+  idna               conda-forge/noarch::idna-3.10-pyhd8ed1ab_1 
+  importlib-metadata conda-forge/noarch::importlib-metadata-8.7.0-pyhe01879c_1 
+  intel-openmp       pkgs/main/linux-64::intel-openmp-2022.0.1-h06a4308_3633 
+  itsdangerous       conda-forge/noarch::itsdangerous-2.2.0-pyhd8ed1ab_1 
+  jinja2             conda-forge/noarch::jinja2-3.1.6-pyhd8ed1ab_0 
+  joblib             conda-forge/noarch::joblib-1.5.1-pyhd8ed1ab_0 
+  keyutils           conda-forge/linux-64::keyutils-1.6.1-h166bdaf_0 
+  krb5               conda-forge/linux-64::krb5-1.21.3-h659f571_0 
+  langcodes          conda-forge/noarch::langcodes-3.4.1-pyhd8ed1ab_1 
+  language-data      conda-forge/noarch::language-data-1.3.0-pyhff2d567_0 
+  ld_impl_linux-64   conda-forge/linux-64::ld_impl_linux-64-2.44-h1423503_1 
+  libabseil          conda-forge/linux-64::libabseil-20250512.1-cxx17_hba17884_0 
+  libarrow           conda-forge/linux-64::libarrow-21.0.0-hd5bb725_0_cpu 
+  libarrow-acero     conda-forge/linux-64::libarrow-acero-21.0.0-h635bf11_0_cpu 
+  libarrow-compute   conda-forge/linux-64::libarrow-compute-21.0.0-he319acf_0_cpu 
+  libarrow-dataset   conda-forge/linux-64::libarrow-dataset-21.0.0-h635bf11_0_cpu 
+  libarrow-substrait conda-forge/linux-64::libarrow-substrait-21.0.0-h3f74fd7_0_cpu 
+  libblas            conda-forge/linux-64::libblas-3.9.0-16_linux64_mkl 
+  libbrotlicommon    conda-forge/linux-64::libbrotlicommon-1.1.0-hb9d3cd8_3 
+  libbrotlidec       conda-forge/linux-64::libbrotlidec-1.1.0-hb9d3cd8_3 
+  libbrotlienc       conda-forge/linux-64::libbrotlienc-1.1.0-hb9d3cd8_3 
+  libcblas           conda-forge/linux-64::libcblas-3.9.0-16_linux64_mkl 
+  libcrc32c          conda-forge/linux-64::libcrc32c-1.1.2-h9c3ff4c_0 
+  libcurl            conda-forge/linux-64::libcurl-8.14.1-h332b0f4_0 
+  libedit            conda-forge/linux-64::libedit-3.1.20250104-pl5321h7949ede_0 
+  libev              conda-forge/linux-64::libev-4.33-hd590300_2 
+  libevent           conda-forge/linux-64::libevent-2.1.12-hf998b51_1 
+  libexpat           conda-forge/linux-64::libexpat-2.7.1-hecca717_0 
+  libffi             conda-forge/linux-64::libffi-3.4.6-h2dba641_1 
+  libgcc             conda-forge/linux-64::libgcc-15.1.0-h767d61c_3 
+  libgcc-ng          conda-forge/linux-64::libgcc-ng-15.1.0-h69a702a_3 
+  libgfortran        conda-forge/linux-64::libgfortran-15.1.0-h69a702a_3 
+  libgfortran-ng     conda-forge/linux-64::libgfortran-ng-15.1.0-h69a702a_3 
+  libgfortran5       conda-forge/linux-64::libgfortran5-15.1.0-hcea5267_3 
+  libgomp            conda-forge/linux-64::libgomp-15.1.0-h767d61c_3 
+  libgoogle-cloud    conda-forge/linux-64::libgoogle-cloud-2.39.0-hdb79228_0 
+  libgoogle-cloud-s~ conda-forge/linux-64::libgoogle-cloud-storage-2.39.0-hdbdcf42_0 
+  libgrpc            conda-forge/linux-64::libgrpc-1.73.1-h1e535eb_0 
+  libiconv           conda-forge/linux-64::libiconv-1.18-h4ce23a2_1 
+  liblapack          conda-forge/linux-64::liblapack-3.9.0-16_linux64_mkl 
+  liblzma            conda-forge/linux-64::liblzma-5.8.1-hb9d3cd8_2 
+  libnghttp2         conda-forge/linux-64::libnghttp2-1.64.0-h161d5f1_0 
+  libnsl             conda-forge/linux-64::libnsl-2.0.1-hb9d3cd8_1 
+  libopentelemetry-~ conda-forge/linux-64::libopentelemetry-cpp-1.21.0-hb9b0907_1 
+  libopentelemetry-~ conda-forge/linux-64::libopentelemetry-cpp-headers-1.21.0-ha770c72_1 
+  libparquet         conda-forge/linux-64::libparquet-21.0.0-h790f06f_0_cpu 
+  libprotobuf        conda-forge/linux-64::libprotobuf-6.31.1-h9ef548d_1 
+  libre2-11          conda-forge/linux-64::libre2-11-2025.07.22-h7b12aa8_0 
+  libsqlite          conda-forge/linux-64::libsqlite-3.50.3-hee844dc_1 
+  libssh2            conda-forge/linux-64::libssh2-1.11.1-hcf80075_0 
+  libstdcxx          conda-forge/linux-64::libstdcxx-15.1.0-h8f9b012_3 
+  libstdcxx-ng       conda-forge/linux-64::libstdcxx-ng-15.1.0-h4852527_3 
+  libthrift          conda-forge/linux-64::libthrift-0.22.0-h454ac66_1 
+  libutf8proc        conda-forge/linux-64::libutf8proc-2.10.0-h202a827_0 
+  libuuid            conda-forge/linux-64::libuuid-2.38.1-h0b41bf4_0 
+  libxcrypt          conda-forge/linux-64::libxcrypt-4.4.36-hd590300_1 
+  libxml2            conda-forge/linux-64::libxml2-2.13.8-h4bc477f_0 
+  libzlib            conda-forge/linux-64::libzlib-1.3.1-hb9d3cd8_2 
+  llvm-openmp        conda-forge/linux-64::llvm-openmp-15.0.7-h0cdce71_0 
+  lz4-c              conda-forge/linux-64::lz4-c-1.10.0-h5888daf_1 
+  marisa-trie        conda-forge/linux-64::marisa-trie-1.2.1-py39hf88036b_0 
+  markdown-it-py     conda-forge/noarch::markdown-it-py-3.0.0-pyhd8ed1ab_1 
+  markupsafe         conda-forge/linux-64::markupsafe-3.0.2-py39h9399b63_1 
+  mdurl              conda-forge/noarch::mdurl-0.1.2-pyhd8ed1ab_1 
+  mkl                pkgs/main/linux-64::mkl-2022.1.0-hc2b9512_224 
+  mpc                conda-forge/linux-64::mpc-1.3.1-h24ddda3_1 
+  mpfr               conda-forge/linux-64::mpfr-4.2.1-h90cbb55_3 
+  mpmath             conda-forge/noarch::mpmath-1.3.0-pyhd8ed1ab_1 
+  multidict          conda-forge/linux-64::multidict-6.6.3-py39h9399b63_0 
+  multiprocess       conda-forge/linux-64::multiprocess-0.70.16-py39h8cd3c5a_1 
+  murmurhash         conda-forge/linux-64::murmurhash-1.0.10-py39hf88036b_2 
+  ncurses            conda-forge/linux-64::ncurses-6.5-h2d0b736_3 
+  networkx           conda-forge/noarch::networkx-3.2.1-pyhd8ed1ab_0 
+  nlohmann_json      conda-forge/linux-64::nlohmann_json-3.12.0-h3f2d84a_0 
+  nltk               conda-forge/noarch::nltk-3.9.1-pyhd8ed1ab_1 
+  numpy              conda-forge/linux-64::numpy-2.0.2-py39h9cb892a_1 
+  openssl            conda-forge/linux-64::openssl-3.5.1-h7b32b05_0 
+  orc                conda-forge/linux-64::orc-2.1.3-h61e0c1e_0 
+  packaging          conda-forge/noarch::packaging-25.0-pyh29332c3_1 
+  pandas             conda-forge/linux-64::pandas-2.3.1-py39h1b6b32d_0 
+  pip                conda-forge/noarch::pip-25.1.1-pyh8b19718_0 
+  preshed            conda-forge/linux-64::preshed-3.0.9-py39hf88036b_2 
+  prometheus-cpp     conda-forge/linux-64::prometheus-cpp-1.3.0-ha5d0236_0 
+  propcache          conda-forge/linux-64::propcache-0.3.1-py39h9399b63_0 
+  pyarrow            conda-forge/linux-64::pyarrow-21.0.0-py39hf3d152e_0 
+  pyarrow-core       conda-forge/linux-64::pyarrow-core-21.0.0-py39h1aa8787_0_cpu 
+  pycparser          conda-forge/noarch::pycparser-2.22-pyh29332c3_1 
+  pydantic           conda-forge/noarch::pydantic-2.11.7-pyh3cfb1c2_0 
+  pydantic-core      conda-forge/linux-64::pydantic-core-2.33.2-py39h20260ba_0 
+  pygments           conda-forge/noarch::pygments-2.19.2-pyhd8ed1ab_0 
+  pysocks            conda-forge/noarch::pysocks-1.7.1-pyha55dd90_7 
+  python             conda-forge/linux-64::python-3.9.23-hc30ae73_0_cpython 
+  python-dateutil    conda-forge/noarch::python-dateutil-2.9.0.post0-pyhe01879c_2 
+  python-gil         conda-forge/noarch::python-gil-3.9.23-hd8ed1ab_0 
+  python-tzdata      conda-forge/noarch::python-tzdata-2025.2-pyhd8ed1ab_0 
+  python-xxhash      conda-forge/linux-64::python-xxhash-3.5.0-py39h8cd3c5a_2 
+  python_abi         conda-forge/noarch::python_abi-3.9-8_cp39 
+  pytorch            pytorch/linux-64::pytorch-2.5.1-py3.9_cpu_0 
+  pytorch-mutex      pytorch/noarch::pytorch-mutex-1.0-cpu 
+  pytz               conda-forge/noarch::pytz-2025.2-pyhd8ed1ab_0 
+  pyyaml             conda-forge/linux-64::pyyaml-6.0.2-py39h9399b63_2 
+  re2                conda-forge/linux-64::re2-2025.07.22-h5a314c3_0 
+  readline           conda-forge/linux-64::readline-8.2-h8c095d6_2 
+  regex              conda-forge/linux-64::regex-2024.11.6-py39h8cd3c5a_0 
+  requests           conda-forge/noarch::requests-2.32.4-pyhd8ed1ab_0 
+  rich               conda-forge/noarch::rich-14.1.0-pyhe01879c_0 
+  s2n                conda-forge/linux-64::s2n-1.5.23-h8e187f5_0 
+  safetensors        conda-forge/linux-64::safetensors-0.5.3-py39he612d8f_0 
+  scikit-learn       conda-forge/linux-64::scikit-learn-1.6.1-py39h4b7350c_0 
+  scipy              conda-forge/linux-64::scipy-1.13.1-py39haf93ffa_0 
+  setuptools         conda-forge/noarch::setuptools-80.9.0-pyhff2d567_0 
+  shellingham        conda-forge/noarch::shellingham-1.5.4-pyhd8ed1ab_1 
+  six                conda-forge/noarch::six-1.17.0-pyhe01879c_1 
+  smart-open         conda-forge/noarch::smart-open-7.3.0.post1-h87fe6b5_0 
+  smart_open         conda-forge/noarch::smart_open-7.3.0.post1-pyhe01879c_0 
+  snappy             conda-forge/linux-64::snappy-1.2.2-h03e3b7b_0 
+  spacy              conda-forge/linux-64::spacy-3.8.7-py39h0f8f440_0 
+  spacy-legacy       conda-forge/noarch::spacy-legacy-3.0.12-pyhd8ed1ab_0 
+  spacy-loggers      conda-forge/noarch::spacy-loggers-1.0.5-pyhd8ed1ab_0 
+  srsly              conda-forge/linux-64::srsly-2.5.1-py39hf88036b_1 
+  sympy              conda-forge/noarch::sympy-1.14.0-pyh2585a3b_105 
+  thinc              conda-forge/linux-64::thinc-8.3.6-py39h0f8f440_0 
+  threadpoolctl      conda-forge/noarch::threadpoolctl-3.6.0-pyhecae5ae_0 
+  tk                 conda-forge/linux-64::tk-8.6.13-noxft_hd72426e_102 
+  tokenizers         conda-forge/linux-64::tokenizers-0.21.3-py39he41eae5_0 
+  tqdm               conda-forge/noarch::tqdm-4.67.1-pyhd8ed1ab_1 
+  transformers       conda-forge/noarch::transformers-4.53.3-pyhd8ed1ab_0 
+  typer              conda-forge/noarch::typer-0.16.0-pyh167b9f4_0 
+  typer-slim         conda-forge/noarch::typer-slim-0.16.0-pyhe01879c_0 
+  typer-slim-standa~ conda-forge/noarch::typer-slim-standard-0.16.0-hf964461_0 
+  typing-extensions  conda-forge/noarch::typing-extensions-4.14.1-h4440ef1_0 
+  typing-inspection  conda-forge/noarch::typing-inspection-0.4.1-pyhd8ed1ab_0 
+  typing_extensions  conda-forge/noarch::typing_extensions-4.14.1-pyhe01879c_0 
+  tzdata             conda-forge/noarch::tzdata-2025b-h78e105d_0 
+  ujson              conda-forge/linux-64::ujson-5.10.0-py39hf88036b_1 
+  urllib3            conda-forge/noarch::urllib3-2.5.0-pyhd8ed1ab_0 
+  wasabi             conda-forge/noarch::wasabi-1.1.3-pyhd8ed1ab_1 
+  weasel             conda-forge/noarch::weasel-0.4.1-pyhd8ed1ab_2 
+  werkzeug           conda-forge/noarch::werkzeug-3.1.3-pyhd8ed1ab_1 
+  wheel              conda-forge/noarch::wheel-0.45.1-pyhd8ed1ab_1 
+  wrapt              conda-forge/linux-64::wrapt-1.17.2-py39h8cd3c5a_0 
+  xxhash             conda-forge/linux-64::xxhash-0.8.3-hb47aa4a_0 
+  yaml               conda-forge/linux-64::yaml-0.2.5-h280c20c_3 
+  yarl               conda-forge/linux-64::yarl-1.20.1-py39h9399b63_0 
+  zipp               conda-forge/noarch::zipp-3.23.0-pyhd8ed1ab_0 
+  zlib               conda-forge/linux-64::zlib-1.3.1-hb9d3cd8_2 
+  zstandard          conda-forge/linux-64::zstandard-0.23.0-py39h8cd3c5a_2 
+  zstd               conda-forge/linux-64::zstd-1.5.7-hb8e6e7a_2 
+
+
+
+Downloading and Extracting Packages: ...working... done
+Preparing transaction: - \ | / - \ | / - done
+Verifying transaction: | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - done
+Executing transaction: | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - done
+#
+# To activate this environment, use
+#
+#     $ conda activate gremlin-dashboard
+#
+# To deactivate an active environment, use
+#
+#     $ conda deactivate
+
+[SUCCESS] Environment 'gremlin-dashboard' created with conda packages
+[INFO] Checking environment: gremlin-scraper
+[CREATE] Creating minimal 'gremlin-scraper' environment with conda packages only...
+CI detected...
+2 channel Terms of Service accepted
+Channels:
+ - pytorch
+ - conda-forge
+ - defaults
+Platform: linux-64
+Collecting package metadata (repodata.json): - \ | / - \ done
+Solving environment: / - done
+
+## Package Plan ##
+
+  environment location: /usr/share/miniconda/envs/gremlin-scraper
+
+  added / updated specs:
+    - cpuonly
+    - flask
+    - nltk
+    - numpy
+    - pandas
+    - pip
+    - python=3.9
+    - pytorch
+    - requests
+    - scikit-learn
+    - scipy
+    - spacy
+    - transformers
+
+
+The following NEW packages will be INSTALLED:
+
+  _libgcc_mutex      conda-forge/linux-64::_libgcc_mutex-0.1-conda_forge 
+  _openmp_mutex      conda-forge/linux-64::_openmp_mutex-4.5-2_gnu 
+  _python_abi3_supp~ conda-forge/noarch::_python_abi3_support-1.0-hd8ed1ab_2 
+  aiohappyeyeballs   conda-forge/noarch::aiohappyeyeballs-2.6.1-pyhd8ed1ab_0 
+  aiohttp            conda-forge/linux-64::aiohttp-3.12.14-py39heb7d2ae_0 
+  aiosignal          conda-forge/noarch::aiosignal-1.4.0-pyhd8ed1ab_0 
+  annotated-types    conda-forge/noarch::annotated-types-0.7.0-pyhd8ed1ab_1 
+  async-timeout      conda-forge/noarch::async-timeout-5.0.1-pyhd8ed1ab_1 
+  attrs              conda-forge/noarch::attrs-25.3.0-pyh71513ae_0 
+  aws-c-auth         conda-forge/linux-64::aws-c-auth-0.9.0-h0fbd49f_19 
+  aws-c-cal          conda-forge/linux-64::aws-c-cal-0.9.2-he7b75e1_1 
+  aws-c-common       conda-forge/linux-64::aws-c-common-0.12.4-hb03c661_0 
+  aws-c-compression  conda-forge/linux-64::aws-c-compression-0.3.1-h92c474e_6 
+  aws-c-event-stream conda-forge/linux-64::aws-c-event-stream-0.5.5-h149bd38_3 
+  aws-c-http         conda-forge/linux-64::aws-c-http-0.10.4-h37a7233_0 
+  aws-c-io           conda-forge/linux-64::aws-c-io-0.21.2-h6252d9a_1 
+  aws-c-mqtt         conda-forge/linux-64::aws-c-mqtt-0.13.3-h19deb91_3 
+  aws-c-s3           conda-forge/linux-64::aws-c-s3-0.8.6-h800fcd2_2 
+  aws-c-sdkutils     conda-forge/linux-64::aws-c-sdkutils-0.2.4-h92c474e_1 
+  aws-checksums      conda-forge/linux-64::aws-checksums-0.2.7-h92c474e_2 
+  aws-crt-cpp        conda-forge/linux-64::aws-crt-cpp-0.33.1-hb4fd278_2 
+  aws-sdk-cpp        conda-forge/linux-64::aws-sdk-cpp-1.11.606-h31ade35_1 
+  azure-core-cpp     conda-forge/linux-64::azure-core-cpp-1.16.0-h3a458e0_0 
+  azure-identity-cpp conda-forge/linux-64::azure-identity-cpp-1.12.0-ha729027_0 
+  azure-storage-blo~ conda-forge/linux-64::azure-storage-blobs-cpp-12.14.0-hb1c9500_1 
+  azure-storage-com~ conda-forge/linux-64::azure-storage-common-cpp-12.10.0-hebae86a_2 
+  azure-storage-fil~ conda-forge/linux-64::azure-storage-files-datalake-cpp-12.12.0-h8b27e44_3 
+  blas               conda-forge/linux-64::blas-1.0-mkl 
+  blinker            conda-forge/noarch::blinker-1.9.0-pyhff2d567_0 
+  brotli-python      conda-forge/linux-64::brotli-python-1.1.0-py39hf88036b_3 
+  bzip2              conda-forge/linux-64::bzip2-1.0.8-h4bc722e_7 
+  c-ares             conda-forge/linux-64::c-ares-1.34.5-hb9d3cd8_0 
+  ca-certificates    conda-forge/noarch::ca-certificates-2025.7.14-hbd8a1cb_0 
+  catalogue          conda-forge/linux-64::catalogue-2.0.10-py39hf3d152e_1 
+  certifi            conda-forge/noarch::certifi-2025.7.14-pyhd8ed1ab_0 
+  cffi               conda-forge/linux-64::cffi-1.17.1-py39h15c3d72_0 
+  charset-normalizer conda-forge/noarch::charset-normalizer-3.4.2-pyhd8ed1ab_0 
+  click              conda-forge/noarch::click-8.1.8-pyh707e725_0 
+  cloudpathlib       conda-forge/noarch::cloudpathlib-0.21.1-pyhd8ed1ab_0 
+  cloudpickle        conda-forge/noarch::cloudpickle-3.1.1-pyhd8ed1ab_0 
+  colorama           conda-forge/noarch::colorama-0.4.6-pyhd8ed1ab_1 
+  confection         conda-forge/noarch::confection-0.1.5-pyhecae5ae_0 
+  cpuonly            pytorch/noarch::cpuonly-2.0-0 
+  cpython            conda-forge/noarch::cpython-3.9.23-py39hd8ed1ab_0 
+  cymem              conda-forge/linux-64::cymem-2.0.11-py39hf88036b_0 
+  cython-blis        conda-forge/linux-64::cython-blis-1.3.0-py39hf3d9206_0 
+  datasets           conda-forge/noarch::datasets-3.6.0-pyhd8ed1ab_0 
+  dill               conda-forge/noarch::dill-0.3.8-pyhd8ed1ab_0 
+  filelock           conda-forge/noarch::filelock-3.18.0-pyhd8ed1ab_0 
+  flask              conda-forge/noarch::flask-3.1.1-pyhd8ed1ab_0 
+  frozenlist         conda-forge/linux-64::frozenlist-1.7.0-py39h53edacf_0 
+  fsspec             conda-forge/noarch::fsspec-2025.3.0-pyhd8ed1ab_0 
+  gflags             conda-forge/linux-64::gflags-2.2.2-h5888daf_1005 
+  glog               conda-forge/linux-64::glog-0.7.1-hbabe93e_0 
+  gmp                conda-forge/linux-64::gmp-6.3.0-hac33072_2 
+  gmpy2              conda-forge/linux-64::gmpy2-2.2.1-py39h7196dd7_0 
+  h2                 conda-forge/noarch::h2-4.2.0-pyhd8ed1ab_0 
+  hf-xet             conda-forge/linux-64::hf-xet-1.1.5-py39h260a9e5_3 
+  hpack              conda-forge/noarch::hpack-4.1.0-pyhd8ed1ab_0 
+  huggingface_hub    conda-forge/noarch::huggingface_hub-0.33.4-pyhd8ed1ab_0 
+  hyperframe         conda-forge/noarch::hyperframe-6.1.0-pyhd8ed1ab_0 
+  icu                conda-forge/linux-64::icu-75.1-he02047a_0 
+  idna               conda-forge/noarch::idna-3.10-pyhd8ed1ab_1 
+  importlib-metadata conda-forge/noarch::importlib-metadata-8.7.0-pyhe01879c_1 
+  intel-openmp       pkgs/main/linux-64::intel-openmp-2022.0.1-h06a4308_3633 
+  itsdangerous       conda-forge/noarch::itsdangerous-2.2.0-pyhd8ed1ab_1 
+  jinja2             conda-forge/noarch::jinja2-3.1.6-pyhd8ed1ab_0 
+  joblib             conda-forge/noarch::joblib-1.5.1-pyhd8ed1ab_0 
+  keyutils           conda-forge/linux-64::keyutils-1.6.1-h166bdaf_0 
+  krb5               conda-forge/linux-64::krb5-1.21.3-h659f571_0 
+  langcodes          conda-forge/noarch::langcodes-3.4.1-pyhd8ed1ab_1 
+  language-data      conda-forge/noarch::language-data-1.3.0-pyhff2d567_0 
+  ld_impl_linux-64   conda-forge/linux-64::ld_impl_linux-64-2.44-h1423503_1 
+  libabseil          conda-forge/linux-64::libabseil-20250512.1-cxx17_hba17884_0 
+  libarrow           conda-forge/linux-64::libarrow-21.0.0-hd5bb725_0_cpu 
+  libarrow-acero     conda-forge/linux-64::libarrow-acero-21.0.0-h635bf11_0_cpu 
+  libarrow-compute   conda-forge/linux-64::libarrow-compute-21.0.0-he319acf_0_cpu 
+  libarrow-dataset   conda-forge/linux-64::libarrow-dataset-21.0.0-h635bf11_0_cpu 
+  libarrow-substrait conda-forge/linux-64::libarrow-substrait-21.0.0-h3f74fd7_0_cpu 
+  libblas            conda-forge/linux-64::libblas-3.9.0-16_linux64_mkl 
+  libbrotlicommon    conda-forge/linux-64::libbrotlicommon-1.1.0-hb9d3cd8_3 
+  libbrotlidec       conda-forge/linux-64::libbrotlidec-1.1.0-hb9d3cd8_3 
+  libbrotlienc       conda-forge/linux-64::libbrotlienc-1.1.0-hb9d3cd8_3 
+  libcblas           conda-forge/linux-64::libcblas-3.9.0-16_linux64_mkl 
+  libcrc32c          conda-forge/linux-64::libcrc32c-1.1.2-h9c3ff4c_0 
+  libcurl            conda-forge/linux-64::libcurl-8.14.1-h332b0f4_0 
+  libedit            conda-forge/linux-64::libedit-3.1.20250104-pl5321h7949ede_0 
+  libev              conda-forge/linux-64::libev-4.33-hd590300_2 
+  libevent           conda-forge/linux-64::libevent-2.1.12-hf998b51_1 
+  libexpat           conda-forge/linux-64::libexpat-2.7.1-hecca717_0 
+  libffi             conda-forge/linux-64::libffi-3.4.6-h2dba641_1 
+  libgcc             conda-forge/linux-64::libgcc-15.1.0-h767d61c_3 
+  libgcc-ng          conda-forge/linux-64::libgcc-ng-15.1.0-h69a702a_3 
+  libgfortran        conda-forge/linux-64::libgfortran-15.1.0-h69a702a_3 
+  libgfortran-ng     conda-forge/linux-64::libgfortran-ng-15.1.0-h69a702a_3 
+  libgfortran5       conda-forge/linux-64::libgfortran5-15.1.0-hcea5267_3 
+  libgomp            conda-forge/linux-64::libgomp-15.1.0-h767d61c_3 
+  libgoogle-cloud    conda-forge/linux-64::libgoogle-cloud-2.39.0-hdb79228_0 
+  libgoogle-cloud-s~ conda-forge/linux-64::libgoogle-cloud-storage-2.39.0-hdbdcf42_0 
+  libgrpc            conda-forge/linux-64::libgrpc-1.73.1-h1e535eb_0 
+  libiconv           conda-forge/linux-64::libiconv-1.18-h4ce23a2_1 
+  liblapack          conda-forge/linux-64::liblapack-3.9.0-16_linux64_mkl 
+  liblzma            conda-forge/linux-64::liblzma-5.8.1-hb9d3cd8_2 
+  libnghttp2         conda-forge/linux-64::libnghttp2-1.64.0-h161d5f1_0 
+  libnsl             conda-forge/linux-64::libnsl-2.0.1-hb9d3cd8_1 
+  libopentelemetry-~ conda-forge/linux-64::libopentelemetry-cpp-1.21.0-hb9b0907_1 
+  libopentelemetry-~ conda-forge/linux-64::libopentelemetry-cpp-headers-1.21.0-ha770c72_1 
+  libparquet         conda-forge/linux-64::libparquet-21.0.0-h790f06f_0_cpu 
+  libprotobuf        conda-forge/linux-64::libprotobuf-6.31.1-h9ef548d_1 
+  libre2-11          conda-forge/linux-64::libre2-11-2025.07.22-h7b12aa8_0 
+  libsqlite          conda-forge/linux-64::libsqlite-3.50.3-hee844dc_1 
+  libssh2            conda-forge/linux-64::libssh2-1.11.1-hcf80075_0 
+  libstdcxx          conda-forge/linux-64::libstdcxx-15.1.0-h8f9b012_3 
+  libstdcxx-ng       conda-forge/linux-64::libstdcxx-ng-15.1.0-h4852527_3 
+  libthrift          conda-forge/linux-64::libthrift-0.22.0-h454ac66_1 
+  libutf8proc        conda-forge/linux-64::libutf8proc-2.10.0-h202a827_0 
+  libuuid            conda-forge/linux-64::libuuid-2.38.1-h0b41bf4_0 
+  libxcrypt          conda-forge/linux-64::libxcrypt-4.4.36-hd590300_1 
+  libxml2            conda-forge/linux-64::libxml2-2.13.8-h4bc477f_0 
+  libzlib            conda-forge/linux-64::libzlib-1.3.1-hb9d3cd8_2 
+  llvm-openmp        conda-forge/linux-64::llvm-openmp-15.0.7-h0cdce71_0 
+  lz4-c              conda-forge/linux-64::lz4-c-1.10.0-h5888daf_1 
+  marisa-trie        conda-forge/linux-64::marisa-trie-1.2.1-py39hf88036b_0 
+  markdown-it-py     conda-forge/noarch::markdown-it-py-3.0.0-pyhd8ed1ab_1 
+  markupsafe         conda-forge/linux-64::markupsafe-3.0.2-py39h9399b63_1 
+  mdurl              conda-forge/noarch::mdurl-0.1.2-pyhd8ed1ab_1 
+  mkl                pkgs/main/linux-64::mkl-2022.1.0-hc2b9512_224 
+  mpc                conda-forge/linux-64::mpc-1.3.1-h24ddda3_1 
+  mpfr               conda-forge/linux-64::mpfr-4.2.1-h90cbb55_3 
+  mpmath             conda-forge/noarch::mpmath-1.3.0-pyhd8ed1ab_1 
+  multidict          conda-forge/linux-64::multidict-6.6.3-py39h9399b63_0 
+  multiprocess       conda-forge/linux-64::multiprocess-0.70.16-py39h8cd3c5a_1 
+  murmurhash         conda-forge/linux-64::murmurhash-1.0.10-py39hf88036b_2 
+  ncurses            conda-forge/linux-64::ncurses-6.5-h2d0b736_3 
+  networkx           conda-forge/noarch::networkx-3.2.1-pyhd8ed1ab_0 
+  nlohmann_json      conda-forge/linux-64::nlohmann_json-3.12.0-h3f2d84a_0 
+  nltk               conda-forge/noarch::nltk-3.9.1-pyhd8ed1ab_1 
+  numpy              conda-forge/linux-64::numpy-2.0.2-py39h9cb892a_1 
+  openssl            conda-forge/linux-64::openssl-3.5.1-h7b32b05_0 
+  orc                conda-forge/linux-64::orc-2.1.3-h61e0c1e_0 
+  packaging          conda-forge/noarch::packaging-25.0-pyh29332c3_1 
+  pandas             conda-forge/linux-64::pandas-2.3.1-py39h1b6b32d_0 
+  pip                conda-forge/noarch::pip-25.1.1-pyh8b19718_0 
+  preshed            conda-forge/linux-64::preshed-3.0.9-py39hf88036b_2 
+  prometheus-cpp     conda-forge/linux-64::prometheus-cpp-1.3.0-ha5d0236_0 
+  propcache          conda-forge/linux-64::propcache-0.3.1-py39h9399b63_0 
+  pyarrow            conda-forge/linux-64::pyarrow-21.0.0-py39hf3d152e_0 
+  pyarrow-core       conda-forge/linux-64::pyarrow-core-21.0.0-py39h1aa8787_0_cpu 
+  pycparser          conda-forge/noarch::pycparser-2.22-pyh29332c3_1 
+  pydantic           conda-forge/noarch::pydantic-2.11.7-pyh3cfb1c2_0 
+  pydantic-core      conda-forge/linux-64::pydantic-core-2.33.2-py39h20260ba_0 
+  pygments           conda-forge/noarch::pygments-2.19.2-pyhd8ed1ab_0 
+  pysocks            conda-forge/noarch::pysocks-1.7.1-pyha55dd90_7 
+  python             conda-forge/linux-64::python-3.9.23-hc30ae73_0_cpython 
+  python-dateutil    conda-forge/noarch::python-dateutil-2.9.0.post0-pyhe01879c_2 
+  python-gil         conda-forge/noarch::python-gil-3.9.23-hd8ed1ab_0 
+  python-tzdata      conda-forge/noarch::python-tzdata-2025.2-pyhd8ed1ab_0 
+  python-xxhash      conda-forge/linux-64::python-xxhash-3.5.0-py39h8cd3c5a_2 
+  python_abi         conda-forge/noarch::python_abi-3.9-8_cp39 
+  pytorch            pytorch/linux-64::pytorch-2.5.1-py3.9_cpu_0 
+  pytorch-mutex      pytorch/noarch::pytorch-mutex-1.0-cpu 
+  pytz               conda-forge/noarch::pytz-2025.2-pyhd8ed1ab_0 
+  pyyaml             conda-forge/linux-64::pyyaml-6.0.2-py39h9399b63_2 
+  re2                conda-forge/linux-64::re2-2025.07.22-h5a314c3_0 
+  readline           conda-forge/linux-64::readline-8.2-h8c095d6_2 
+  regex              conda-forge/linux-64::regex-2024.11.6-py39h8cd3c5a_0 
+  requests           conda-forge/noarch::requests-2.32.4-pyhd8ed1ab_0 
+  rich               conda-forge/noarch::rich-14.1.0-pyhe01879c_0 
+  s2n                conda-forge/linux-64::s2n-1.5.23-h8e187f5_0 
+  safetensors        conda-forge/linux-64::safetensors-0.5.3-py39he612d8f_0 
+  scikit-learn       conda-forge/linux-64::scikit-learn-1.6.1-py39h4b7350c_0 
+  scipy              conda-forge/linux-64::scipy-1.13.1-py39haf93ffa_0 
+  setuptools         conda-forge/noarch::setuptools-80.9.0-pyhff2d567_0 
+  shellingham        conda-forge/noarch::shellingham-1.5.4-pyhd8ed1ab_1 
+  six                conda-forge/noarch::six-1.17.0-pyhe01879c_1 
+  smart-open         conda-forge/noarch::smart-open-7.3.0.post1-h87fe6b5_0 
+  smart_open         conda-forge/noarch::smart_open-7.3.0.post1-pyhe01879c_0 
+  snappy             conda-forge/linux-64::snappy-1.2.2-h03e3b7b_0 
+  spacy              conda-forge/linux-64::spacy-3.8.7-py39h0f8f440_0 
+  spacy-legacy       conda-forge/noarch::spacy-legacy-3.0.12-pyhd8ed1ab_0 
+  spacy-loggers      conda-forge/noarch::spacy-loggers-1.0.5-pyhd8ed1ab_0 
+  srsly              conda-forge/linux-64::srsly-2.5.1-py39hf88036b_1 
+  sympy              conda-forge/noarch::sympy-1.14.0-pyh2585a3b_105 
+  thinc              conda-forge/linux-64::thinc-8.3.6-py39h0f8f440_0 
+  threadpoolctl      conda-forge/noarch::threadpoolctl-3.6.0-pyhecae5ae_0 
+  tk                 conda-forge/linux-64::tk-8.6.13-noxft_hd72426e_102 
+  tokenizers         conda-forge/linux-64::tokenizers-0.21.3-py39he41eae5_0 
+  tqdm               conda-forge/noarch::tqdm-4.67.1-pyhd8ed1ab_1 
+  transformers       conda-forge/noarch::transformers-4.53.3-pyhd8ed1ab_0 
+  typer              conda-forge/noarch::typer-0.16.0-pyh167b9f4_0 
+  typer-slim         conda-forge/noarch::typer-slim-0.16.0-pyhe01879c_0 
+  typer-slim-standa~ conda-forge/noarch::typer-slim-standard-0.16.0-hf964461_0 
+  typing-extensions  conda-forge/noarch::typing-extensions-4.14.1-h4440ef1_0 
+  typing-inspection  conda-forge/noarch::typing-inspection-0.4.1-pyhd8ed1ab_0 
+  typing_extensions  conda-forge/noarch::typing_extensions-4.14.1-pyhe01879c_0 
+  tzdata             conda-forge/noarch::tzdata-2025b-h78e105d_0 
+  ujson              conda-forge/linux-64::ujson-5.10.0-py39hf88036b_1 
+  urllib3            conda-forge/noarch::urllib3-2.5.0-pyhd8ed1ab_0 
+  wasabi             conda-forge/noarch::wasabi-1.1.3-pyhd8ed1ab_1 
+  weasel             conda-forge/noarch::weasel-0.4.1-pyhd8ed1ab_2 
+  werkzeug           conda-forge/noarch::werkzeug-3.1.3-pyhd8ed1ab_1 
+  wheel              conda-forge/noarch::wheel-0.45.1-pyhd8ed1ab_1 
+  wrapt              conda-forge/linux-64::wrapt-1.17.2-py39h8cd3c5a_0 
+  xxhash             conda-forge/linux-64::xxhash-0.8.3-hb47aa4a_0 
+  yaml               conda-forge/linux-64::yaml-0.2.5-h280c20c_3 
+  yarl               conda-forge/linux-64::yarl-1.20.1-py39h9399b63_0 
+  zipp               conda-forge/noarch::zipp-3.23.0-pyhd8ed1ab_0 
+  zlib               conda-forge/linux-64::zlib-1.3.1-hb9d3cd8_2 
+  zstandard          conda-forge/linux-64::zstandard-0.23.0-py39h8cd3c5a_2 
+  zstd               conda-forge/linux-64::zstd-1.5.7-hb8e6e7a_2 
+
+
+
+Downloading and Extracting Packages: ...working... done
+Preparing transaction: | / - \ | / - \ | done
+Verifying transaction: - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | done
+Executing transaction: - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ done
+#
+# To activate this environment, use
+#
+#     $ conda activate gremlin-scraper
+#
+# To deactivate an active environment, use
+#
+#     $ conda deactivate
+
+[SUCCESS] Environment 'gremlin-scraper' created with conda packages
+[INFO] Checking environment: gremlin-memory
+[CREATE] Creating minimal 'gremlin-memory' environment with conda packages only...
+CI detected...
+2 channel Terms of Service accepted
+Channels:
+ - pytorch
+ - conda-forge
+ - defaults
+Platform: linux-64
+Collecting package metadata (repodata.json): - \ | / - \ | done
+Solving environment: - \ | done
+
+## Package Plan ##
+
+  environment location: /usr/share/miniconda/envs/gremlin-memory
+
+  added / updated specs:
+    - cpuonly
+    - flask
+    - nltk
+    - numpy
+    - pandas
+    - pip
+    - python=3.9
+    - pytorch
+    - requests
+    - scikit-learn
+    - scipy
+    - spacy
+    - transformers
+
+
+The following NEW packages will be INSTALLED:
+
+  _libgcc_mutex      conda-forge/linux-64::_libgcc_mutex-0.1-conda_forge 
+  _openmp_mutex      conda-forge/linux-64::_openmp_mutex-4.5-2_gnu 
+  _python_abi3_supp~ conda-forge/noarch::_python_abi3_support-1.0-hd8ed1ab_2 
+  aiohappyeyeballs   conda-forge/noarch::aiohappyeyeballs-2.6.1-pyhd8ed1ab_0 
+  aiohttp            conda-forge/linux-64::aiohttp-3.12.14-py39heb7d2ae_0 
+  aiosignal          conda-forge/noarch::aiosignal-1.4.0-pyhd8ed1ab_0 
+  annotated-types    conda-forge/noarch::annotated-types-0.7.0-pyhd8ed1ab_1 
+  async-timeout      conda-forge/noarch::async-timeout-5.0.1-pyhd8ed1ab_1 
+  attrs              conda-forge/noarch::attrs-25.3.0-pyh71513ae_0 
+  aws-c-auth         conda-forge/linux-64::aws-c-auth-0.9.0-h0fbd49f_19 
+  aws-c-cal          conda-forge/linux-64::aws-c-cal-0.9.2-he7b75e1_1 
+  aws-c-common       conda-forge/linux-64::aws-c-common-0.12.4-hb03c661_0 
+  aws-c-compression  conda-forge/linux-64::aws-c-compression-0.3.1-h92c474e_6 
+  aws-c-event-stream conda-forge/linux-64::aws-c-event-stream-0.5.5-h149bd38_3 
+  aws-c-http         conda-forge/linux-64::aws-c-http-0.10.4-h37a7233_0 
+  aws-c-io           conda-forge/linux-64::aws-c-io-0.21.2-h6252d9a_1 
+  aws-c-mqtt         conda-forge/linux-64::aws-c-mqtt-0.13.3-h19deb91_3 
+  aws-c-s3           conda-forge/linux-64::aws-c-s3-0.8.6-h800fcd2_2 
+  aws-c-sdkutils     conda-forge/linux-64::aws-c-sdkutils-0.2.4-h92c474e_1 
+  aws-checksums      conda-forge/linux-64::aws-checksums-0.2.7-h92c474e_2 
+  aws-crt-cpp        conda-forge/linux-64::aws-crt-cpp-0.33.1-hb4fd278_2 
+  aws-sdk-cpp        conda-forge/linux-64::aws-sdk-cpp-1.11.606-h31ade35_1 
+  azure-core-cpp     conda-forge/linux-64::azure-core-cpp-1.16.0-h3a458e0_0 
+  azure-identity-cpp conda-forge/linux-64::azure-identity-cpp-1.12.0-ha729027_0 
+  azure-storage-blo~ conda-forge/linux-64::azure-storage-blobs-cpp-12.14.0-hb1c9500_1 
+  azure-storage-com~ conda-forge/linux-64::azure-storage-common-cpp-12.10.0-hebae86a_2 
+  azure-storage-fil~ conda-forge/linux-64::azure-storage-files-datalake-cpp-12.12.0-h8b27e44_3 
+  blas               conda-forge/linux-64::blas-1.0-mkl 
+  blinker            conda-forge/noarch::blinker-1.9.0-pyhff2d567_0 
+  brotli-python      conda-forge/linux-64::brotli-python-1.1.0-py39hf88036b_3 
+  bzip2              conda-forge/linux-64::bzip2-1.0.8-h4bc722e_7 
+  c-ares             conda-forge/linux-64::c-ares-1.34.5-hb9d3cd8_0 
+  ca-certificates    conda-forge/noarch::ca-certificates-2025.7.14-hbd8a1cb_0 
+  catalogue          conda-forge/linux-64::catalogue-2.0.10-py39hf3d152e_1 
+  certifi            conda-forge/noarch::certifi-2025.7.14-pyhd8ed1ab_0 
+  cffi               conda-forge/linux-64::cffi-1.17.1-py39h15c3d72_0 
+  charset-normalizer conda-forge/noarch::charset-normalizer-3.4.2-pyhd8ed1ab_0 
+  click              conda-forge/noarch::click-8.1.8-pyh707e725_0 
+  cloudpathlib       conda-forge/noarch::cloudpathlib-0.21.1-pyhd8ed1ab_0 
+  cloudpickle        conda-forge/noarch::cloudpickle-3.1.1-pyhd8ed1ab_0 
+  colorama           conda-forge/noarch::colorama-0.4.6-pyhd8ed1ab_1 
+  confection         conda-forge/noarch::confection-0.1.5-pyhecae5ae_0 
+  cpuonly            pytorch/noarch::cpuonly-2.0-0 
+  cpython            conda-forge/noarch::cpython-3.9.23-py39hd8ed1ab_0 
+  cymem              conda-forge/linux-64::cymem-2.0.11-py39hf88036b_0 
+  cython-blis        conda-forge/linux-64::cython-blis-1.3.0-py39hf3d9206_0 
+  datasets           conda-forge/noarch::datasets-3.6.0-pyhd8ed1ab_0 
+  dill               conda-forge/noarch::dill-0.3.8-pyhd8ed1ab_0 
+  filelock           conda-forge/noarch::filelock-3.18.0-pyhd8ed1ab_0 
+  flask              conda-forge/noarch::flask-3.1.1-pyhd8ed1ab_0 
+  frozenlist         conda-forge/linux-64::frozenlist-1.7.0-py39h53edacf_0 
+  fsspec             conda-forge/noarch::fsspec-2025.3.0-pyhd8ed1ab_0 
+  gflags             conda-forge/linux-64::gflags-2.2.2-h5888daf_1005 
+  glog               conda-forge/linux-64::glog-0.7.1-hbabe93e_0 
+  gmp                conda-forge/linux-64::gmp-6.3.0-hac33072_2 
+  gmpy2              conda-forge/linux-64::gmpy2-2.2.1-py39h7196dd7_0 
+  h2                 conda-forge/noarch::h2-4.2.0-pyhd8ed1ab_0 
+  hf-xet             conda-forge/linux-64::hf-xet-1.1.5-py39h260a9e5_3 
+  hpack              conda-forge/noarch::hpack-4.1.0-pyhd8ed1ab_0 
+  huggingface_hub    conda-forge/noarch::huggingface_hub-0.33.4-pyhd8ed1ab_0 
+  hyperframe         conda-forge/noarch::hyperframe-6.1.0-pyhd8ed1ab_0 
+  icu                conda-forge/linux-64::icu-75.1-he02047a_0 
+  idna               conda-forge/noarch::idna-3.10-pyhd8ed1ab_1 
+  importlib-metadata conda-forge/noarch::importlib-metadata-8.7.0-pyhe01879c_1 
+  intel-openmp       pkgs/main/linux-64::intel-openmp-2022.0.1-h06a4308_3633 
+  itsdangerous       conda-forge/noarch::itsdangerous-2.2.0-pyhd8ed1ab_1 
+  jinja2             conda-forge/noarch::jinja2-3.1.6-pyhd8ed1ab_0 
+  joblib             conda-forge/noarch::joblib-1.5.1-pyhd8ed1ab_0 
+  keyutils           conda-forge/linux-64::keyutils-1.6.1-h166bdaf_0 
+  krb5               conda-forge/linux-64::krb5-1.21.3-h659f571_0 
+  langcodes          conda-forge/noarch::langcodes-3.4.1-pyhd8ed1ab_1 
+  language-data      conda-forge/noarch::language-data-1.3.0-pyhff2d567_0 
+  ld_impl_linux-64   conda-forge/linux-64::ld_impl_linux-64-2.44-h1423503_1 
+  libabseil          conda-forge/linux-64::libabseil-20250512.1-cxx17_hba17884_0 
+  libarrow           conda-forge/linux-64::libarrow-21.0.0-hd5bb725_0_cpu 
+  libarrow-acero     conda-forge/linux-64::libarrow-acero-21.0.0-h635bf11_0_cpu 
+  libarrow-compute   conda-forge/linux-64::libarrow-compute-21.0.0-he319acf_0_cpu 
+  libarrow-dataset   conda-forge/linux-64::libarrow-dataset-21.0.0-h635bf11_0_cpu 
+  libarrow-substrait conda-forge/linux-64::libarrow-substrait-21.0.0-h3f74fd7_0_cpu 
+  libblas            conda-forge/linux-64::libblas-3.9.0-16_linux64_mkl 
+  libbrotlicommon    conda-forge/linux-64::libbrotlicommon-1.1.0-hb9d3cd8_3 
+  libbrotlidec       conda-forge/linux-64::libbrotlidec-1.1.0-hb9d3cd8_3 
+  libbrotlienc       conda-forge/linux-64::libbrotlienc-1.1.0-hb9d3cd8_3 
+  libcblas           conda-forge/linux-64::libcblas-3.9.0-16_linux64_mkl 
+  libcrc32c          conda-forge/linux-64::libcrc32c-1.1.2-h9c3ff4c_0 
+  libcurl            conda-forge/linux-64::libcurl-8.14.1-h332b0f4_0 
+  libedit            conda-forge/linux-64::libedit-3.1.20250104-pl5321h7949ede_0 
+  libev              conda-forge/linux-64::libev-4.33-hd590300_2 
+  libevent           conda-forge/linux-64::libevent-2.1.12-hf998b51_1 
+  libexpat           conda-forge/linux-64::libexpat-2.7.1-hecca717_0 
+  libffi             conda-forge/linux-64::libffi-3.4.6-h2dba641_1 
+  libgcc             conda-forge/linux-64::libgcc-15.1.0-h767d61c_3 
+  libgcc-ng          conda-forge/linux-64::libgcc-ng-15.1.0-h69a702a_3 
+  libgfortran        conda-forge/linux-64::libgfortran-15.1.0-h69a702a_3 
+  libgfortran-ng     conda-forge/linux-64::libgfortran-ng-15.1.0-h69a702a_3 
+  libgfortran5       conda-forge/linux-64::libgfortran5-15.1.0-hcea5267_3 
+  libgomp            conda-forge/linux-64::libgomp-15.1.0-h767d61c_3 
+  libgoogle-cloud    conda-forge/linux-64::libgoogle-cloud-2.39.0-hdb79228_0 
+  libgoogle-cloud-s~ conda-forge/linux-64::libgoogle-cloud-storage-2.39.0-hdbdcf42_0 
+  libgrpc            conda-forge/linux-64::libgrpc-1.73.1-h1e535eb_0 
+  libiconv           conda-forge/linux-64::libiconv-1.18-h4ce23a2_1 
+  liblapack          conda-forge/linux-64::liblapack-3.9.0-16_linux64_mkl 
+  liblzma            conda-forge/linux-64::liblzma-5.8.1-hb9d3cd8_2 
+  libnghttp2         conda-forge/linux-64::libnghttp2-1.64.0-h161d5f1_0 
+  libnsl             conda-forge/linux-64::libnsl-2.0.1-hb9d3cd8_1 
+  libopentelemetry-~ conda-forge/linux-64::libopentelemetry-cpp-1.21.0-hb9b0907_1 
+  libopentelemetry-~ conda-forge/linux-64::libopentelemetry-cpp-headers-1.21.0-ha770c72_1 
+  libparquet         conda-forge/linux-64::libparquet-21.0.0-h790f06f_0_cpu 
+  libprotobuf        conda-forge/linux-64::libprotobuf-6.31.1-h9ef548d_1 
+  libre2-11          conda-forge/linux-64::libre2-11-2025.07.22-h7b12aa8_0 
+  libsqlite          conda-forge/linux-64::libsqlite-3.50.3-hee844dc_1 
+  libssh2            conda-forge/linux-64::libssh2-1.11.1-hcf80075_0 
+  libstdcxx          conda-forge/linux-64::libstdcxx-15.1.0-h8f9b012_3 
+  libstdcxx-ng       conda-forge/linux-64::libstdcxx-ng-15.1.0-h4852527_3 
+  libthrift          conda-forge/linux-64::libthrift-0.22.0-h454ac66_1 
+  libutf8proc        conda-forge/linux-64::libutf8proc-2.10.0-h202a827_0 
+  libuuid            conda-forge/linux-64::libuuid-2.38.1-h0b41bf4_0 
+  libxcrypt          conda-forge/linux-64::libxcrypt-4.4.36-hd590300_1 
+  libxml2            conda-forge/linux-64::libxml2-2.13.8-h4bc477f_0 
+  libzlib            conda-forge/linux-64::libzlib-1.3.1-hb9d3cd8_2 
+  llvm-openmp        conda-forge/linux-64::llvm-openmp-15.0.7-h0cdce71_0 
+  lz4-c              conda-forge/linux-64::lz4-c-1.10.0-h5888daf_1 
+  marisa-trie        conda-forge/linux-64::marisa-trie-1.2.1-py39hf88036b_0 
+  markdown-it-py     conda-forge/noarch::markdown-it-py-3.0.0-pyhd8ed1ab_1 
+  markupsafe         conda-forge/linux-64::markupsafe-3.0.2-py39h9399b63_1 
+  mdurl              conda-forge/noarch::mdurl-0.1.2-pyhd8ed1ab_1 
+  mkl                pkgs/main/linux-64::mkl-2022.1.0-hc2b9512_224 
+  mpc                conda-forge/linux-64::mpc-1.3.1-h24ddda3_1 
+  mpfr               conda-forge/linux-64::mpfr-4.2.1-h90cbb55_3 
+  mpmath             conda-forge/noarch::mpmath-1.3.0-pyhd8ed1ab_1 
+  multidict          conda-forge/linux-64::multidict-6.6.3-py39h9399b63_0 
+  multiprocess       conda-forge/linux-64::multiprocess-0.70.16-py39h8cd3c5a_1 
+  murmurhash         conda-forge/linux-64::murmurhash-1.0.10-py39hf88036b_2 
+  ncurses            conda-forge/linux-64::ncurses-6.5-h2d0b736_3 
+  networkx           conda-forge/noarch::networkx-3.2.1-pyhd8ed1ab_0 
+  nlohmann_json      conda-forge/linux-64::nlohmann_json-3.12.0-h3f2d84a_0 
+  nltk               conda-forge/noarch::nltk-3.9.1-pyhd8ed1ab_1 
+  numpy              conda-forge/linux-64::numpy-2.0.2-py39h9cb892a_1 
+  openssl            conda-forge/linux-64::openssl-3.5.1-h7b32b05_0 
+  orc                conda-forge/linux-64::orc-2.1.3-h61e0c1e_0 
+  packaging          conda-forge/noarch::packaging-25.0-pyh29332c3_1 
+  pandas             conda-forge/linux-64::pandas-2.3.1-py39h1b6b32d_0 
+  pip                conda-forge/noarch::pip-25.1.1-pyh8b19718_0 
+  preshed            conda-forge/linux-64::preshed-3.0.9-py39hf88036b_2 
+  prometheus-cpp     conda-forge/linux-64::prometheus-cpp-1.3.0-ha5d0236_0 
+  propcache          conda-forge/linux-64::propcache-0.3.1-py39h9399b63_0 
+  pyarrow            conda-forge/linux-64::pyarrow-21.0.0-py39hf3d152e_0 
+  pyarrow-core       conda-forge/linux-64::pyarrow-core-21.0.0-py39h1aa8787_0_cpu 
+  pycparser          conda-forge/noarch::pycparser-2.22-pyh29332c3_1 
+  pydantic           conda-forge/noarch::pydantic-2.11.7-pyh3cfb1c2_0 
+  pydantic-core      conda-forge/linux-64::pydantic-core-2.33.2-py39h20260ba_0 
+  pygments           conda-forge/noarch::pygments-2.19.2-pyhd8ed1ab_0 
+  pysocks            conda-forge/noarch::pysocks-1.7.1-pyha55dd90_7 
+  python             conda-forge/linux-64::python-3.9.23-hc30ae73_0_cpython 
+  python-dateutil    conda-forge/noarch::python-dateutil-2.9.0.post0-pyhe01879c_2 
+  python-gil         conda-forge/noarch::python-gil-3.9.23-hd8ed1ab_0 
+  python-tzdata      conda-forge/noarch::python-tzdata-2025.2-pyhd8ed1ab_0 
+  python-xxhash      conda-forge/linux-64::python-xxhash-3.5.0-py39h8cd3c5a_2 
+  python_abi         conda-forge/noarch::python_abi-3.9-8_cp39 
+  pytorch            pytorch/linux-64::pytorch-2.5.1-py3.9_cpu_0 
+  pytorch-mutex      pytorch/noarch::pytorch-mutex-1.0-cpu 
+  pytz               conda-forge/noarch::pytz-2025.2-pyhd8ed1ab_0 
+  pyyaml             conda-forge/linux-64::pyyaml-6.0.2-py39h9399b63_2 
+  re2                conda-forge/linux-64::re2-2025.07.22-h5a314c3_0 
+  readline           conda-forge/linux-64::readline-8.2-h8c095d6_2 
+  regex              conda-forge/linux-64::regex-2024.11.6-py39h8cd3c5a_0 
+  requests           conda-forge/noarch::requests-2.32.4-pyhd8ed1ab_0 
+  rich               conda-forge/noarch::rich-14.1.0-pyhe01879c_0 
+  s2n                conda-forge/linux-64::s2n-1.5.23-h8e187f5_0 
+  safetensors        conda-forge/linux-64::safetensors-0.5.3-py39he612d8f_0 
+  scikit-learn       conda-forge/linux-64::scikit-learn-1.6.1-py39h4b7350c_0 
+  scipy              conda-forge/linux-64::scipy-1.13.1-py39haf93ffa_0 
+  setuptools         conda-forge/noarch::setuptools-80.9.0-pyhff2d567_0 
+  shellingham        conda-forge/noarch::shellingham-1.5.4-pyhd8ed1ab_1 
+  six                conda-forge/noarch::six-1.17.0-pyhe01879c_1 
+  smart-open         conda-forge/noarch::smart-open-7.3.0.post1-h87fe6b5_0 
+  smart_open         conda-forge/noarch::smart_open-7.3.0.post1-pyhe01879c_0 
+  snappy             conda-forge/linux-64::snappy-1.2.2-h03e3b7b_0 
+  spacy              conda-forge/linux-64::spacy-3.8.7-py39h0f8f440_0 
+  spacy-legacy       conda-forge/noarch::spacy-legacy-3.0.12-pyhd8ed1ab_0 
+  spacy-loggers      conda-forge/noarch::spacy-loggers-1.0.5-pyhd8ed1ab_0 
+  srsly              conda-forge/linux-64::srsly-2.5.1-py39hf88036b_1 
+  sympy              conda-forge/noarch::sympy-1.14.0-pyh2585a3b_105 
+  thinc              conda-forge/linux-64::thinc-8.3.6-py39h0f8f440_0 
+  threadpoolctl      conda-forge/noarch::threadpoolctl-3.6.0-pyhecae5ae_0 
+  tk                 conda-forge/linux-64::tk-8.6.13-noxft_hd72426e_102 
+  tokenizers         conda-forge/linux-64::tokenizers-0.21.3-py39he41eae5_0 
+  tqdm               conda-forge/noarch::tqdm-4.67.1-pyhd8ed1ab_1 
+  transformers       conda-forge/noarch::transformers-4.53.3-pyhd8ed1ab_0 
+  typer              conda-forge/noarch::typer-0.16.0-pyh167b9f4_0 
+  typer-slim         conda-forge/noarch::typer-slim-0.16.0-pyhe01879c_0 
+  typer-slim-standa~ conda-forge/noarch::typer-slim-standard-0.16.0-hf964461_0 
+  typing-extensions  conda-forge/noarch::typing-extensions-4.14.1-h4440ef1_0 
+  typing-inspection  conda-forge/noarch::typing-inspection-0.4.1-pyhd8ed1ab_0 
+  typing_extensions  conda-forge/noarch::typing_extensions-4.14.1-pyhe01879c_0 
+  tzdata             conda-forge/noarch::tzdata-2025b-h78e105d_0 
+  ujson              conda-forge/linux-64::ujson-5.10.0-py39hf88036b_1 
+  urllib3            conda-forge/noarch::urllib3-2.5.0-pyhd8ed1ab_0 
+  wasabi             conda-forge/noarch::wasabi-1.1.3-pyhd8ed1ab_1 
+  weasel             conda-forge/noarch::weasel-0.4.1-pyhd8ed1ab_2 
+  werkzeug           conda-forge/noarch::werkzeug-3.1.3-pyhd8ed1ab_1 
+  wheel              conda-forge/noarch::wheel-0.45.1-pyhd8ed1ab_1 
+  wrapt              conda-forge/linux-64::wrapt-1.17.2-py39h8cd3c5a_0 
+  xxhash             conda-forge/linux-64::xxhash-0.8.3-hb47aa4a_0 
+  yaml               conda-forge/linux-64::yaml-0.2.5-h280c20c_3 
+  yarl               conda-forge/linux-64::yarl-1.20.1-py39h9399b63_0 
+  zipp               conda-forge/noarch::zipp-3.23.0-pyhd8ed1ab_0 
+  zlib               conda-forge/linux-64::zlib-1.3.1-hb9d3cd8_2 
+  zstandard          conda-forge/linux-64::zstandard-0.23.0-py39h8cd3c5a_2 
+  zstd               conda-forge/linux-64::zstd-1.5.7-hb8e6e7a_2 
+
+
+
+Downloading and Extracting Packages: ...working... done
+Preparing transaction: - \ | / - \ | / - done
+Verifying transaction: | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - done
+Executing transaction: | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ done
+#
+# To activate this environment, use
+#
+#     $ conda activate gremlin-memory
+#
+# To deactivate an active environment, use
+#
+#     $ conda deactivate
+
+[SUCCESS] Environment 'gremlin-memory' created with conda packages
+[INFO] Checking environment: gremlin-orchestrator
+[CREATE] Creating minimal 'gremlin-orchestrator' environment with conda packages only...
+CI detected...
+2 channel Terms of Service accepted
+Channels:
+ - pytorch
+ - conda-forge
+ - defaults
+Platform: linux-64
+Collecting package metadata (repodata.json): - \ | / - \ | done
+Solving environment: - \ | done
+
+## Package Plan ##
+
+  environment location: /usr/share/miniconda/envs/gremlin-orchestrator
+
+  added / updated specs:
+    - cpuonly
+    - flask
+    - nltk
+    - numpy
+    - pandas
+    - pip
+    - python=3.9
+    - pytorch
+    - requests
+    - scikit-learn
+    - scipy
+    - spacy
+    - transformers
+
+
+The following NEW packages will be INSTALLED:
+
+  _libgcc_mutex      conda-forge/linux-64::_libgcc_mutex-0.1-conda_forge 
+  _openmp_mutex      conda-forge/linux-64::_openmp_mutex-4.5-2_gnu 
+  _python_abi3_supp~ conda-forge/noarch::_python_abi3_support-1.0-hd8ed1ab_2 
+  aiohappyeyeballs   conda-forge/noarch::aiohappyeyeballs-2.6.1-pyhd8ed1ab_0 
+  aiohttp            conda-forge/linux-64::aiohttp-3.12.14-py39heb7d2ae_0 
+  aiosignal          conda-forge/noarch::aiosignal-1.4.0-pyhd8ed1ab_0 
+  annotated-types    conda-forge/noarch::annotated-types-0.7.0-pyhd8ed1ab_1 
+  async-timeout      conda-forge/noarch::async-timeout-5.0.1-pyhd8ed1ab_1 
+  attrs              conda-forge/noarch::attrs-25.3.0-pyh71513ae_0 
+  aws-c-auth         conda-forge/linux-64::aws-c-auth-0.9.0-h0fbd49f_19 
+  aws-c-cal          conda-forge/linux-64::aws-c-cal-0.9.2-he7b75e1_1 
+  aws-c-common       conda-forge/linux-64::aws-c-common-0.12.4-hb03c661_0 
+  aws-c-compression  conda-forge/linux-64::aws-c-compression-0.3.1-h92c474e_6 
+  aws-c-event-stream conda-forge/linux-64::aws-c-event-stream-0.5.5-h149bd38_3 
+  aws-c-http         conda-forge/linux-64::aws-c-http-0.10.4-h37a7233_0 
+  aws-c-io           conda-forge/linux-64::aws-c-io-0.21.2-h6252d9a_1 
+  aws-c-mqtt         conda-forge/linux-64::aws-c-mqtt-0.13.3-h19deb91_3 
+  aws-c-s3           conda-forge/linux-64::aws-c-s3-0.8.6-h800fcd2_2 
+  aws-c-sdkutils     conda-forge/linux-64::aws-c-sdkutils-0.2.4-h92c474e_1 
+  aws-checksums      conda-forge/linux-64::aws-checksums-0.2.7-h92c474e_2 
+  aws-crt-cpp        conda-forge/linux-64::aws-crt-cpp-0.33.1-hb4fd278_2 
+  aws-sdk-cpp        conda-forge/linux-64::aws-sdk-cpp-1.11.606-h31ade35_1 
+  azure-core-cpp     conda-forge/linux-64::azure-core-cpp-1.16.0-h3a458e0_0 
+  azure-identity-cpp conda-forge/linux-64::azure-identity-cpp-1.12.0-ha729027_0 
+  azure-storage-blo~ conda-forge/linux-64::azure-storage-blobs-cpp-12.14.0-hb1c9500_1 
+  azure-storage-com~ conda-forge/linux-64::azure-storage-common-cpp-12.10.0-hebae86a_2 
+  azure-storage-fil~ conda-forge/linux-64::azure-storage-files-datalake-cpp-12.12.0-h8b27e44_3 
+  blas               conda-forge/linux-64::blas-1.0-mkl 
+  blinker            conda-forge/noarch::blinker-1.9.0-pyhff2d567_0 
+  brotli-python      conda-forge/linux-64::brotli-python-1.1.0-py39hf88036b_3 
+  bzip2              conda-forge/linux-64::bzip2-1.0.8-h4bc722e_7 
+  c-ares             conda-forge/linux-64::c-ares-1.34.5-hb9d3cd8_0 
+  ca-certificates    conda-forge/noarch::ca-certificates-2025.7.14-hbd8a1cb_0 
+  catalogue          conda-forge/linux-64::catalogue-2.0.10-py39hf3d152e_1 
+  certifi            conda-forge/noarch::certifi-2025.7.14-pyhd8ed1ab_0 
+  cffi               conda-forge/linux-64::cffi-1.17.1-py39h15c3d72_0 
+  charset-normalizer conda-forge/noarch::charset-normalizer-3.4.2-pyhd8ed1ab_0 
+  click              conda-forge/noarch::click-8.1.8-pyh707e725_0 
+  cloudpathlib       conda-forge/noarch::cloudpathlib-0.21.1-pyhd8ed1ab_0 
+  cloudpickle        conda-forge/noarch::cloudpickle-3.1.1-pyhd8ed1ab_0 
+  colorama           conda-forge/noarch::colorama-0.4.6-pyhd8ed1ab_1 
+  confection         conda-forge/noarch::confection-0.1.5-pyhecae5ae_0 
+  cpuonly            pytorch/noarch::cpuonly-2.0-0 
+  cpython            conda-forge/noarch::cpython-3.9.23-py39hd8ed1ab_0 
+  cymem              conda-forge/linux-64::cymem-2.0.11-py39hf88036b_0 
+  cython-blis        conda-forge/linux-64::cython-blis-1.3.0-py39hf3d9206_0 
+  datasets           conda-forge/noarch::datasets-3.6.0-pyhd8ed1ab_0 
+  dill               conda-forge/noarch::dill-0.3.8-pyhd8ed1ab_0 
+  filelock           conda-forge/noarch::filelock-3.18.0-pyhd8ed1ab_0 
+  flask              conda-forge/noarch::flask-3.1.1-pyhd8ed1ab_0 
+  frozenlist         conda-forge/linux-64::frozenlist-1.7.0-py39h53edacf_0 
+  fsspec             conda-forge/noarch::fsspec-2025.3.0-pyhd8ed1ab_0 
+  gflags             conda-forge/linux-64::gflags-2.2.2-h5888daf_1005 
+  glog               conda-forge/linux-64::glog-0.7.1-hbabe93e_0 
+  gmp                conda-forge/linux-64::gmp-6.3.0-hac33072_2 
+  gmpy2              conda-forge/linux-64::gmpy2-2.2.1-py39h7196dd7_0 
+  h2                 conda-forge/noarch::h2-4.2.0-pyhd8ed1ab_0 
+  hf-xet             conda-forge/linux-64::hf-xet-1.1.5-py39h260a9e5_3 
+  hpack              conda-forge/noarch::hpack-4.1.0-pyhd8ed1ab_0 
+  huggingface_hub    conda-forge/noarch::huggingface_hub-0.33.4-pyhd8ed1ab_0 
+  hyperframe         conda-forge/noarch::hyperframe-6.1.0-pyhd8ed1ab_0 
+  icu                conda-forge/linux-64::icu-75.1-he02047a_0 
+  idna               conda-forge/noarch::idna-3.10-pyhd8ed1ab_1 
+  importlib-metadata conda-forge/noarch::importlib-metadata-8.7.0-pyhe01879c_1 
+  intel-openmp       pkgs/main/linux-64::intel-openmp-2022.0.1-h06a4308_3633 
+  itsdangerous       conda-forge/noarch::itsdangerous-2.2.0-pyhd8ed1ab_1 
+  jinja2             conda-forge/noarch::jinja2-3.1.6-pyhd8ed1ab_0 
+  joblib             conda-forge/noarch::joblib-1.5.1-pyhd8ed1ab_0 
+  keyutils           conda-forge/linux-64::keyutils-1.6.1-h166bdaf_0 
+  krb5               conda-forge/linux-64::krb5-1.21.3-h659f571_0 
+  langcodes          conda-forge/noarch::langcodes-3.4.1-pyhd8ed1ab_1 
+  language-data      conda-forge/noarch::language-data-1.3.0-pyhff2d567_0 
+  ld_impl_linux-64   conda-forge/linux-64::ld_impl_linux-64-2.44-h1423503_1 
+  libabseil          conda-forge/linux-64::libabseil-20250512.1-cxx17_hba17884_0 
+  libarrow           conda-forge/linux-64::libarrow-21.0.0-hd5bb725_0_cpu 
+  libarrow-acero     conda-forge/linux-64::libarrow-acero-21.0.0-h635bf11_0_cpu 
+  libarrow-compute   conda-forge/linux-64::libarrow-compute-21.0.0-he319acf_0_cpu 
+  libarrow-dataset   conda-forge/linux-64::libarrow-dataset-21.0.0-h635bf11_0_cpu 
+  libarrow-substrait conda-forge/linux-64::libarrow-substrait-21.0.0-h3f74fd7_0_cpu 
+  libblas            conda-forge/linux-64::libblas-3.9.0-16_linux64_mkl 
+  libbrotlicommon    conda-forge/linux-64::libbrotlicommon-1.1.0-hb9d3cd8_3 
+  libbrotlidec       conda-forge/linux-64::libbrotlidec-1.1.0-hb9d3cd8_3 
+  libbrotlienc       conda-forge/linux-64::libbrotlienc-1.1.0-hb9d3cd8_3 
+  libcblas           conda-forge/linux-64::libcblas-3.9.0-16_linux64_mkl 
+  libcrc32c          conda-forge/linux-64::libcrc32c-1.1.2-h9c3ff4c_0 
+  libcurl            conda-forge/linux-64::libcurl-8.14.1-h332b0f4_0 
+  libedit            conda-forge/linux-64::libedit-3.1.20250104-pl5321h7949ede_0 
+  libev              conda-forge/linux-64::libev-4.33-hd590300_2 
+  libevent           conda-forge/linux-64::libevent-2.1.12-hf998b51_1 
+  libexpat           conda-forge/linux-64::libexpat-2.7.1-hecca717_0 
+  libffi             conda-forge/linux-64::libffi-3.4.6-h2dba641_1 
+  libgcc             conda-forge/linux-64::libgcc-15.1.0-h767d61c_3 
+  libgcc-ng          conda-forge/linux-64::libgcc-ng-15.1.0-h69a702a_3 
+  libgfortran        conda-forge/linux-64::libgfortran-15.1.0-h69a702a_3 
+  libgfortran-ng     conda-forge/linux-64::libgfortran-ng-15.1.0-h69a702a_3 
+  libgfortran5       conda-forge/linux-64::libgfortran5-15.1.0-hcea5267_3 
+  libgomp            conda-forge/linux-64::libgomp-15.1.0-h767d61c_3 
+  libgoogle-cloud    conda-forge/linux-64::libgoogle-cloud-2.39.0-hdb79228_0 
+  libgoogle-cloud-s~ conda-forge/linux-64::libgoogle-cloud-storage-2.39.0-hdbdcf42_0 
+  libgrpc            conda-forge/linux-64::libgrpc-1.73.1-h1e535eb_0 
+  libiconv           conda-forge/linux-64::libiconv-1.18-h4ce23a2_1 
+  liblapack          conda-forge/linux-64::liblapack-3.9.0-16_linux64_mkl 
+  liblzma            conda-forge/linux-64::liblzma-5.8.1-hb9d3cd8_2 
+  libnghttp2         conda-forge/linux-64::libnghttp2-1.64.0-h161d5f1_0 
+  libnsl             conda-forge/linux-64::libnsl-2.0.1-hb9d3cd8_1 
+  libopentelemetry-~ conda-forge/linux-64::libopentelemetry-cpp-1.21.0-hb9b0907_1 
+  libopentelemetry-~ conda-forge/linux-64::libopentelemetry-cpp-headers-1.21.0-ha770c72_1 
+  libparquet         conda-forge/linux-64::libparquet-21.0.0-h790f06f_0_cpu 
+  libprotobuf        conda-forge/linux-64::libprotobuf-6.31.1-h9ef548d_1 
+  libre2-11          conda-forge/linux-64::libre2-11-2025.07.22-h7b12aa8_0 
+  libsqlite          conda-forge/linux-64::libsqlite-3.50.3-hee844dc_1 
+  libssh2            conda-forge/linux-64::libssh2-1.11.1-hcf80075_0 
+  libstdcxx          conda-forge/linux-64::libstdcxx-15.1.0-h8f9b012_3 
+  libstdcxx-ng       conda-forge/linux-64::libstdcxx-ng-15.1.0-h4852527_3 
+  libthrift          conda-forge/linux-64::libthrift-0.22.0-h454ac66_1 
+  libutf8proc        conda-forge/linux-64::libutf8proc-2.10.0-h202a827_0 
+  libuuid            conda-forge/linux-64::libuuid-2.38.1-h0b41bf4_0 
+  libxcrypt          conda-forge/linux-64::libxcrypt-4.4.36-hd590300_1 
+  libxml2            conda-forge/linux-64::libxml2-2.13.8-h4bc477f_0 
+  libzlib            conda-forge/linux-64::libzlib-1.3.1-hb9d3cd8_2 
+  llvm-openmp        conda-forge/linux-64::llvm-openmp-15.0.7-h0cdce71_0 
+  lz4-c              conda-forge/linux-64::lz4-c-1.10.0-h5888daf_1 
+  marisa-trie        conda-forge/linux-64::marisa-trie-1.2.1-py39hf88036b_0 
+  markdown-it-py     conda-forge/noarch::markdown-it-py-3.0.0-pyhd8ed1ab_1 
+  markupsafe         conda-forge/linux-64::markupsafe-3.0.2-py39h9399b63_1 
+  mdurl              conda-forge/noarch::mdurl-0.1.2-pyhd8ed1ab_1 
+  mkl                pkgs/main/linux-64::mkl-2022.1.0-hc2b9512_224 
+  mpc                conda-forge/linux-64::mpc-1.3.1-h24ddda3_1 
+  mpfr               conda-forge/linux-64::mpfr-4.2.1-h90cbb55_3 
+  mpmath             conda-forge/noarch::mpmath-1.3.0-pyhd8ed1ab_1 
+  multidict          conda-forge/linux-64::multidict-6.6.3-py39h9399b63_0 
+  multiprocess       conda-forge/linux-64::multiprocess-0.70.16-py39h8cd3c5a_1 
+  murmurhash         conda-forge/linux-64::murmurhash-1.0.10-py39hf88036b_2 
+  ncurses            conda-forge/linux-64::ncurses-6.5-h2d0b736_3 
+  networkx           conda-forge/noarch::networkx-3.2.1-pyhd8ed1ab_0 
+  nlohmann_json      conda-forge/linux-64::nlohmann_json-3.12.0-h3f2d84a_0 
+  nltk               conda-forge/noarch::nltk-3.9.1-pyhd8ed1ab_1 
+  numpy              conda-forge/linux-64::numpy-2.0.2-py39h9cb892a_1 
+  openssl            conda-forge/linux-64::openssl-3.5.1-h7b32b05_0 
+  orc                conda-forge/linux-64::orc-2.1.3-h61e0c1e_0 
+  packaging          conda-forge/noarch::packaging-25.0-pyh29332c3_1 
+  pandas             conda-forge/linux-64::pandas-2.3.1-py39h1b6b32d_0 
+  pip                conda-forge/noarch::pip-25.1.1-pyh8b19718_0 
+  preshed            conda-forge/linux-64::preshed-3.0.9-py39hf88036b_2 
+  prometheus-cpp     conda-forge/linux-64::prometheus-cpp-1.3.0-ha5d0236_0 
+  propcache          conda-forge/linux-64::propcache-0.3.1-py39h9399b63_0 
+  pyarrow            conda-forge/linux-64::pyarrow-21.0.0-py39hf3d152e_0 
+  pyarrow-core       conda-forge/linux-64::pyarrow-core-21.0.0-py39h1aa8787_0_cpu 
+  pycparser          conda-forge/noarch::pycparser-2.22-pyh29332c3_1 
+  pydantic           conda-forge/noarch::pydantic-2.11.7-pyh3cfb1c2_0 
+  pydantic-core      conda-forge/linux-64::pydantic-core-2.33.2-py39h20260ba_0 
+  pygments           conda-forge/noarch::pygments-2.19.2-pyhd8ed1ab_0 
+  pysocks            conda-forge/noarch::pysocks-1.7.1-pyha55dd90_7 
+  python             conda-forge/linux-64::python-3.9.23-hc30ae73_0_cpython 
+  python-dateutil    conda-forge/noarch::python-dateutil-2.9.0.post0-pyhe01879c_2 
+  python-gil         conda-forge/noarch::python-gil-3.9.23-hd8ed1ab_0 
+  python-tzdata      conda-forge/noarch::python-tzdata-2025.2-pyhd8ed1ab_0 
+  python-xxhash      conda-forge/linux-64::python-xxhash-3.5.0-py39h8cd3c5a_2 
+  python_abi         conda-forge/noarch::python_abi-3.9-8_cp39 
+  pytorch            pytorch/linux-64::pytorch-2.5.1-py3.9_cpu_0 
+  pytorch-mutex      pytorch/noarch::pytorch-mutex-1.0-cpu 
+  pytz               conda-forge/noarch::pytz-2025.2-pyhd8ed1ab_0 
+  pyyaml             conda-forge/linux-64::pyyaml-6.0.2-py39h9399b63_2 
+  re2                conda-forge/linux-64::re2-2025.07.22-h5a314c3_0 
+  readline           conda-forge/linux-64::readline-8.2-h8c095d6_2 
+  regex              conda-forge/linux-64::regex-2024.11.6-py39h8cd3c5a_0 
+  requests           conda-forge/noarch::requests-2.32.4-pyhd8ed1ab_0 
+  rich               conda-forge/noarch::rich-14.1.0-pyhe01879c_0 
+  s2n                conda-forge/linux-64::s2n-1.5.23-h8e187f5_0 
+  safetensors        conda-forge/linux-64::safetensors-0.5.3-py39he612d8f_0 
+  scikit-learn       conda-forge/linux-64::scikit-learn-1.6.1-py39h4b7350c_0 
+  scipy              conda-forge/linux-64::scipy-1.13.1-py39haf93ffa_0 
+  setuptools         conda-forge/noarch::setuptools-80.9.0-pyhff2d567_0 
+  shellingham        conda-forge/noarch::shellingham-1.5.4-pyhd8ed1ab_1 
+  six                conda-forge/noarch::six-1.17.0-pyhe01879c_1 
+  smart-open         conda-forge/noarch::smart-open-7.3.0.post1-h87fe6b5_0 
+  smart_open         conda-forge/noarch::smart_open-7.3.0.post1-pyhe01879c_0 
+  snappy             conda-forge/linux-64::snappy-1.2.2-h03e3b7b_0 
+  spacy              conda-forge/linux-64::spacy-3.8.7-py39h0f8f440_0 
+  spacy-legacy       conda-forge/noarch::spacy-legacy-3.0.12-pyhd8ed1ab_0 
+  spacy-loggers      conda-forge/noarch::spacy-loggers-1.0.5-pyhd8ed1ab_0 
+  srsly              conda-forge/linux-64::srsly-2.5.1-py39hf88036b_1 
+  sympy              conda-forge/noarch::sympy-1.14.0-pyh2585a3b_105 
+  thinc              conda-forge/linux-64::thinc-8.3.6-py39h0f8f440_0 
+  threadpoolctl      conda-forge/noarch::threadpoolctl-3.6.0-pyhecae5ae_0 
+  tk                 conda-forge/linux-64::tk-8.6.13-noxft_hd72426e_102 
+  tokenizers         conda-forge/linux-64::tokenizers-0.21.3-py39he41eae5_0 
+  tqdm               conda-forge/noarch::tqdm-4.67.1-pyhd8ed1ab_1 
+  transformers       conda-forge/noarch::transformers-4.53.3-pyhd8ed1ab_0 
+  typer              conda-forge/noarch::typer-0.16.0-pyh167b9f4_0 
+  typer-slim         conda-forge/noarch::typer-slim-0.16.0-pyhe01879c_0 
+  typer-slim-standa~ conda-forge/noarch::typer-slim-standard-0.16.0-hf964461_0 
+  typing-extensions  conda-forge/noarch::typing-extensions-4.14.1-h4440ef1_0 
+  typing-inspection  conda-forge/noarch::typing-inspection-0.4.1-pyhd8ed1ab_0 
+  typing_extensions  conda-forge/noarch::typing_extensions-4.14.1-pyhe01879c_0 
+  tzdata             conda-forge/noarch::tzdata-2025b-h78e105d_0 
+  ujson              conda-forge/linux-64::ujson-5.10.0-py39hf88036b_1 
+  urllib3            conda-forge/noarch::urllib3-2.5.0-pyhd8ed1ab_0 
+  wasabi             conda-forge/noarch::wasabi-1.1.3-pyhd8ed1ab_1 
+  weasel             conda-forge/noarch::weasel-0.4.1-pyhd8ed1ab_2 
+  werkzeug           conda-forge/noarch::werkzeug-3.1.3-pyhd8ed1ab_1 
+  wheel              conda-forge/noarch::wheel-0.45.1-pyhd8ed1ab_1 
+  wrapt              conda-forge/linux-64::wrapt-1.17.2-py39h8cd3c5a_0 
+  xxhash             conda-forge/linux-64::xxhash-0.8.3-hb47aa4a_0 
+  yaml               conda-forge/linux-64::yaml-0.2.5-h280c20c_3 
+  yarl               conda-forge/linux-64::yarl-1.20.1-py39h9399b63_0 
+  zipp               conda-forge/noarch::zipp-3.23.0-pyhd8ed1ab_0 
+  zlib               conda-forge/linux-64::zlib-1.3.1-hb9d3cd8_2 
+  zstandard          conda-forge/linux-64::zstandard-0.23.0-py39h8cd3c5a_2 
+  zstd               conda-forge/linux-64::zstd-1.5.7-hb8e6e7a_2 
+
+
+
+Downloading and Extracting Packages: ...working... done
+Preparing transaction: - \ | / - \ | / - done
+Verifying transaction: | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ done
+Executing transaction: / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | done
+#
+# To activate this environment, use
+#
+#     $ conda activate gremlin-orchestrator
+#
+# To deactivate an active environment, use
+#
+#     $ conda deactivate
+
+[SUCCESS] Environment 'gremlin-orchestrator' created with conda packages
+[GremlinGPT] ✅ All environments created with conda packages (pip requirements skipped due to network issues)
+
+[1;36m[INSTALL] Activating gremlin-nlp and installing deps...[0m
+
+/usr/share/miniconda/envs/gremlin-nlp/etc/conda/activate.d/libblas_mkl_activate.sh: line 1: MKL_INTERFACE_LAYER: unbound variable
