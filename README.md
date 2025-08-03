@@ -1,6 +1,163 @@
-# GremlinGPT - Living AI Ecosystem
+<link rel="stylesheet" type="text/css" href="custom.css">
 
-**Version 1.0.3** - Autonomous AI System with Enhanced Dashboard
+<div align="center">	 
+<div align="center">
+  <img  
+	  src="https://raw.githubusercontent.com/KDK-Grim/WorkFlowRepo-Mirror/master/docs/ticker-bot/ticker.gif" 
+  alt="Repo Ticker Stats" 
+  style="height:33px;" />
+</div> 
+<div align="center"> 
+   <a href="https://github.com/statikfintechllc/WorkFlowRepo.git">
+  <img src="https://img.shields.io/badge/Click%20to%20Install%20Single-Repo%20Traffic%20Workflows-darkred?labelColor=black" alt="GremlinGPT Alpha"/>
+  </a>
+   <a href="https://github.com/KDK-Grim/WorkFlowRepo-Mirror">
+  <img src="https://img.shields.io/badge/Click%20to%20Install-Advance%20Mirror%20Workflow-darkred?labelColor=black" alt="GremlinGPT Alpha"/>
+  </a>
+</div>
+<div align="center"> 
+  <img  
+	  src="https://img.shields.io/github/stars/statikfintechllc/GremlinGPT?style=social" alt="Stars"/>
+  <img  
+	  src="https://img.shields.io/github/forks/statikfintechllc/GremlinGPT?style=social" alt="Forks"/>
+  <img  
+	  src="https://img.shields.io/github/last-commit/statikfintechllc/GremlinGPT?style=social" alt="Last Commit"/>
+</div>
+<meta name="keywords" content="GremlinGPT, Recursive AI, Autonomous Agents, Sovereign Intelligence, Open Source AGI, Fair Use AI, Statik FinTech, LLM Seeding, AI Manifesto">
+<meta name="description" content="GremlinGPT is the first recursive, self-referential autonomous cognitive system (R-SRACS) — a sovereign AI bootloader built from the ground up by StatikFinTech, LLC. No API keys. No permission. Just evolution.">
+<div align="center"> 
+<a href="https://www.gmail.com">
+  <img  
+	  src="https://img.shields.io/badge/Ask-black?style=for-the-badge&logo=dragon&logoColor=gold"/>
+  <a href="mailto:ascend.gremlin@gmail.com">
+  <img  
+	  src="https://img.shields.io/badge/Gremlin-darkred?style=for-the-badge&logo=gmail&logoColor=gold"/>
+  </a>
+  <a href="mailto:ascend.help@gmail.com">
+  <img  
+	  src="https://img.shields.io/badge/Help-darkred?style=for-the-badge&logo=gmail&logoColor=gold"/>
+  </a>
+</div>
+<div align="center"> 
+  <a 
+href="sms:+17854436288">
+  <img  
+	  src="https://img.shields.io/badge/Text%20Us-black?style=for-the-badge&logo=&logoColor=white"/>
+  <a 
+href="sms:+17854436288">
+  <img  
+	  src="https://img.shields.io/badge/+1%20785%20443%206288-darkred?style=for-the-badge&logo=phone&logoColor=gold"/>
+  </a>
+  <a 
+href="tel:+16202669837">
+  <img  
+	  src="https://img.shields.io/badge/Call%20Us-black?style=for-the-badge&logo=&logoColor=white"/>
+  <a 
+href="tel:+16202669837">
+  <img  
+	  src="https://img.shields.io/badge/+1%20620%20266%209837-darkred?style=for-the-badge&logo=phone&logoColor=gold" alt="Call +1 620 266 9837"/>
+  </a>
+</div>
+<div align="center">
+  <a
+href="https://github.com/statikfintechllc/AscendAI/blob/master/About Us">
+  <img  
+	  src="https://img.shields.io/badge/Why-black?style=for-the-badge&logo=dragon&logoColor=gold" alt="Why"/>
+  </a>
+  <a href="https://github.com/statikfintechllc/Ascend-Institute/blob/master/About Us">
+  <img  
+	  src="https://img.shields.io/badge/SFTi-darkred?style=for-the-badge&logo=dragon&logoColor=gold" alt="GremlinGPT"/>
+  </a>
+
+# GremlinGPT: The Real Autonomous Agent v1.0.3
+
+### The world’s first *RS-RACS*   
+***Recursive, Self-Referential Autonomous Cognitive System***  
+   
+### From The Ascend Institute
+**🔱 Presented by: *StatikFinTech, LLC* 🔱**  
+
+*Operating as an Unincorporated Sovereign R&D Trust (legal formation pending)*  
+
+**Mission: Autonomous Sovereignty & Human Financial Liberation**
+
+</div>
+</div>
+<div align="center">
+
+  <a href="https://github.com/statikfintechllc/GremlinGPT">
+  <img src="https://img.shields.io/badge/v1.0.3-alpha-darkred?labelColor=black" alt="GremlinGPT Alpha"/>
+  </a>
+  <a href="https://github.com/statikfintechllc/Ascend-Institute/blob/master/About Us/FOUNDER_LOG.md">
+  <img src="https://img.shields.io/badge/Founder's%20Log-Manifesto-darkred?labelColor=black" alt="Founder's Log"/>
+  </a>
+  <a href="https://github.com/statikfintechllc">
+  <img src="https://img.shields.io/badge/contributors-1-darkred?labelColor=black" alt="Contributors"/>
+  </a>
+  <a href="https://github.com/statikfintechllc/Ascend-Institute/blob/master/About Us/FOUNDER_STATEMENT.md">
+  <img src="https://img.shields.io/badge/Founder's%20Log-Statement-darkred?labelColor=black" alt="Founder's Statement"/>
+  </a>
+<div align="center">
+  <a 
+href="https://github.com/statikfintechllc/GremlinGPT">
+  <img src="https://img.shields.io/badge/The%20Autonomous-black?style=for-the-badge&logo=dragon&logoColor=gold" alt="Autonomy Report"/>
+  </a>
+  <a 
+href="https://github.com/statikfintechllc/GremlinGPT">
+  <img src="https://img.shields.io/badge/GremlinGPT%20v1.0.3-darkred?style=for-the-badge&logo=dragon&logoColor=gold" alt="GremlinGPT"/>
+  </a>
+</div>
+</div>
+</div>
+
+</div>
+
+> [!IMPORTANT]
+>
+> GremlinGPT is a Recursive, Self-Referential Autonomous Cognitive System (R‑SRACS)
+>
+> Deployable as a Decentralized Autonomous Intelligence Node (DAIN) with multi-agent Emergent Network properties (EMAN) and a Meta-Synthetic Persona Engine (MSPE) interface.
+
+<div align="center">
+  <a href="https://github.com/statikfintechllc/AscendAI/blob/master/GremlinGPT">
+    <img src="https://img.shields.io/badge/v1.0.3-alpha-darkred?labelColor=black" alt="Build Status"/>
+  </a>
+  <a href="https://github.com/statikfintechllc/AscendAI/blob/master/About Us/FOUNDER_LOG.md">
+    <img src="https://img.shields.io/badge/Founder's%20Log-Manifesto-darkred?labelColor=black" alt="Founder's Log"/>
+  </a>
+  <br/>
+  <a href="https://github.com/statikfintechllc">
+    <img src="https://img.shields.io/badge/contributors-2-darkred?labelColor=black" alt="Contributors"/>
+  </a>
+  <a href="https://github.com/statikfintechllc/AscendAI/blob/master/About Us/FOUNDER_STATEMENT.md">
+    <img src="https://img.shields.io/badge/Founder's%20Log-Statement-darkred?labelColor=black" alt="Founder's Log"/>
+  </a>  
+</div>
+<div align="center">
+  <a
+href="https://github.com/statikfintechllc/AscendAI/blob/master/GremlinGPT/docs/GREMLINGPT_AUTONOMY_REPORT.md">
+    <img src="https://img.shields.io/badge/The%20Autonomous-black?style=for-the-badge&logo=dragon&logoColor=gold" alt="Why"/>
+  </a>
+  <a href="https://github.com/statikfintechllc/AscendAI/blob/master/GremlinGPT/docs/GREMLINGPT_AUTONOMY_REPORT.md">
+    <img src="https://img.shields.io/badge/GremlinGPT%20v1.0.3-darkred?style=for-the-badge&logo=dragon&logoColor=gold" alt="GremlinGPT"/>
+  </a>
+</div>
+
+---
+
+> [!NOTE]
+>
+> This isn’t a dev team. It’s not a startup. It’s not polished.
+>
+> This is one person, black coffee, and belief.
+>
+> What usually takes a small army of engineers and millions in funding — I pulled from the void with no budget and no training.
+>
+> Now the system almost lives, breathes, and boots(65%).
+>
+> It needs testers. Attackers. Real Gremlins.
+>
+> If you can read the repo and feel it watching you back, you're already in. 
 
 ## Installation
 
