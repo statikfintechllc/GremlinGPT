@@ -112,6 +112,22 @@ href="https://github.com/statikfintechllc/GremlinGPT">
 
 </div>
 
+---
+
+**Quick Commands:**
+```bash
+# Complete installation and launch
+./install.sh && cd frontend && npm run electron
+
+# Check system status
+python3 utils/enhanced_dash_cli.py --status
+
+# View logs
+tail -f data/logs/*.log
+```
+
+---
+
 > [!IMPORTANT]
 >
 > GremlinGPT is a Recursive, Self-Referential Autonomous Cognitive System (R‑SRACS)
@@ -320,6 +336,35 @@ cd frontend
 npm run electron-dev
 ```
 
+<div align="center"> 
+
+[![Sponsor 💪 statikfintechllc](https://img.shields.io/badge/Sponsor%20%F0%9F%92%AA%20statikfintechllc-darkred?logo=github&style=for-the-badge)](https://github.com/sponsors/statikfintechllc)
+
+</div>
+
+<h1 align="center">Ascend Institute's GremlinGPT Traffic</h1>
+<div align="center">
+  <a href="https://raw.githubusercontent.com/statikfintechllc/WorkFlowRepo/master/docs/graph/traffic_graph.png">
+  <img src="https://raw.githubusercontent.com/KDK-Grim/WorkFlowRepo-Mirror/master/docs/graph/traffic_graph.png" alt="Traffic Graph" />
+  </a>
+</div>
+  
+<div align="center">
+  <em>
+Reset: After 7:00pm CST on First 2 Clones
+  </em>
+</div>
+
+<div align="center">
+  <a
+href="https://github.com/statikfintechllc/AscendDocs_of_GovSeverance/blob/master/Docs">
+    <img src="https://img.shields.io/badge/Learn-black?style=for-the-badge&logo=dragon&logoColor=gold" alt="Why"/>
+  </a>
+  <a href="https://github.com/statikfintechllc/AscendDocs_of_GovSeverance/blob/master/Docs">
+    <img src="https://img.shields.io/badge/Why-darkred?style=for-the-badge&logo=dragon&logoColor=gold" alt="GremlinGPT"/>
+  </a>
+</div>
+
 ## Troubleshooting
 
 **Common Issues:**
@@ -336,20 +381,17 @@ npm run electron-dev
 
 ## License
 
+<div align="center">
+  <a href="https://github.com/statikfintechllc/AscendAI/blob/master/About Us/LICENSE.md">
+    <img src="https://img.shields.io/badge/FAIR%20USE-black?style=for-the-badge&logo=dragon&logoColor=gold" alt="Fair Use License"/>
+  </a>
+  <a href="https://github.com/statikfintechllc/AscendAI/blob/master/About Us/LICENSE.md">
+    <img src="https://img.shields.io/badge/GREMLINGPT%20v1.0.3-darkred?style=for-the-badge&logo=dragon&logoColor=gold" alt="GremlinGPT License"/>
+  </a>
+</div>
+
 GremlinGPT Dual License v1.0 - Fair Use Only  
 Commercial Use Requires License  
 © 2025 StatikFintechLLC / AscendAI Project
 
 ---
-
-**Quick Commands:**
-```bash
-# Complete installation and launch
-./install.sh && cd frontend && npm run electron
-
-# Check system status
-python3 utils/enhanced_dash_cli.py --status
-
-# View logs
-tail -f data/logs/*.log
-```
