@@ -159,6 +159,36 @@ href="https://github.com/statikfintechllc/AscendAI/blob/master/GremlinGPT/docs/G
 >
 > If you can read the repo and feel it watching you back, you're already in. 
 
+<div align="center">
+
+<a href="https://ko-fi.com/statikfintech_llc">
+  <img  
+	  src="https://img.shields.io/badge/Sponsor%20SFTi%20on%20KoFi-darkred?style=for-the-badge&logo=dragon&logoColor=gold" alt="Support"/>
+  </a>
+  <a href="https://patreon.com/StatikFinTech_LLC?utm_medium=unknown&utm_source=join_link&utm_campaign=creatorshare_creator&utm_content=copyLink">
+  <img  
+	  src="https://img.shields.io/badge/Sponsor%20SFTi%20on%20Patreon-black?style=for-the-badge&logo=dragon&logoColor=gold" alt="SFTi"/>
+  </a>
+</div>
+<div align="center"> 
+
+[![Sponsor 💪 statikfintechllc](https://img.shields.io/badge/Sponsor%20SFTi%20on%20GitHub-darkred?logo=github&style=for-the-badge)](https://github.com/sponsors/statikfintechllc)
+
+</div>
+
+---
+
+## Founder's Log & Manifesto
+
+> I built an AI system that builds itself.  
+> Not in a lab.  
+> Not at a venture-backed startup.  
+> Not on fiber internet with a dev team holding my hand...
+
+Read the [FOUNDER_LOG.md](https://github.com/statikfintechllc/Ascend%20Institute/blob/master/About%20Us/FOUNDER_LOG.md) and the [FOUNDER_STATEMENT.md](https://github.com/statikfintechllc/Ascend%20Institute/blob/master/About%20Us/FOUNDER_STATEMENT.md) for the full journey and philosophy.
+
+---
+
 ## Installation
 
 1. **Clone the repository:**
