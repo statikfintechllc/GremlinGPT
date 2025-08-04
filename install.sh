@@ -1,5 +1,31 @@
 #!/usr/bin/env bash
 
+if [[ ! -f "$0" || "$0" == "bash" || "$0" == "/dev/fd/63" ]]; then
+    REMOTE_INSTALL=true
+    REPO_DIR="$HOME/GremlinGPT"
+    echo "🌐 Remote installation detected - will clone repository to $REPO_DIR"
+
+    # Clone the repository if not already present
+    if [[ ! -d "$REPO_DIR/.git" ]]; then
+        echo "📥 Cloning Gremlin ShadTail Trader repository..."
+        git clone https://github.com/statikfintechllc/GremlinGPT.git "$REPO_DIR"
+    else
+        echo "🔄 Updating existing repository..."
+        cd "$REPO_DIR"
+        git pull origin master
+    fi
+
+    # Execute the local install script
+    echo "🚀 Starting local installation..."
+    cd "$REPO_DIR"
+    chmod +x install.sh
+    exec ./install.sh "$@"
+    exit $?
+else
+    REMOTE_INSTALL=false
+    echo "📁 Local installation detected"
+fi
+
 # === Set up logging and variables AFTER move ===
 LOGFILE="data/logs/install.log"
 : > "$LOGFILE"         # Overwrite log file
