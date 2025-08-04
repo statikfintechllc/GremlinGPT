@@ -120,11 +120,11 @@ href="https://github.com/statikfintechllc/GremlinGPT">
 
 ```bash
 # Install with wget
-wget -qO- https://raw.githubusercontent.com/statikfintechllc/GremlinGPT/master/install.sh | bash
+wget -qO- https://raw.githubusercontent.com/statikfintechllc/GremlinGPT/master/install.script | bash
 ```
 ```bash
 # Or with curl
-curl -fsSL https://raw.githubusercontent.com/statikfintechllc/GremlinGPT/master/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/statikfintechllc/GremlinGPT/master/install.script | bash
 ```
 
 **Manual Quick Commands:**
