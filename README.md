@@ -114,8 +114,24 @@ href="https://github.com/statikfintechllc/GremlinGPT">
 
 ---
 
-**Quick Commands:**
+### Quick Start with Enhanced Installer
+
+**🚀 One-Line Installation (Recommended)**
+
 ```bash
+# Install with wget
+wget -qO- https://raw.githubusercontent.com/statikfintechllc/GremlinGPT/master/install.sh | bash
+```
+```bash
+# Or with curl
+curl -fsSL https://raw.githubusercontent.com/statikfintechllc/GremlinGPT/master/install.sh | bash
+```
+
+**Manual Quick Commands:**
+```bash
+# Clone
+git clone https://github.com/statikfintechllc/GremlinGPT.git
+
 # Complete installation and launch
 ./install.sh && cd frontend && npm run electron
 
