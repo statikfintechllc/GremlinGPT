@@ -18,8 +18,8 @@ if [[ ! -f "$0" || "$0" == "bash" || "$0" == "/dev/fd/63" ]]; then
     # Execute the local install script
     echo "🚀 Starting local installation..."
     cd "$REPO_DIR"
-    chmod +x install.sh
-    exec ./install.sh "$@"
+    chmod +x install.script
+    exec ./install.script "$@"
     exit $?
 else
     REMOTE_INSTALL=false
