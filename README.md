@@ -71,6 +71,12 @@ href="https://github.com/statikfintechllc/AscendAI/blob/master/About Us">
 
 # GremlinGPT: The Real Autonomous Agent v1.0.3
 
+> [!IMPORTANT]
+>
+> Building is paused while I study to pass a Single function Exam for xAI.
+>
+> I will be back. I will be making small commits. However, Big Progress will be paused.
+
 ### The world’s first *RS-RACS*   
 ***Recursive, Self-Referential Autonomous Cognitive System***  
    
