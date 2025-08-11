@@ -73,13 +73,6 @@ href="https://github.com/statikfintechllc/AscendAI/blob/master/About Us">
 
 </div>
 </div>
-
-> [!IMPORTANT]
->
-> Building is paused while I study to pass a Single function Exam for xAI.
->
-> I will be back. I will be making small commits. However, Big Progress will be paused.
-
 <div align="center">
 	
 ### The world’s first *RS-RACS*   
