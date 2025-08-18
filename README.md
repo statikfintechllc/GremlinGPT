@@ -69,21 +69,34 @@ href="https://github.com/statikfintechllc/AscendAI/blob/master/About Us">
 	  src="https://img.shields.io/badge/SFTi-darkred?style=for-the-badge&logo=dragon&logoColor=gold" alt="GremlinGPT"/>
   </a>
 
-# GremlinGPT: The Real Autonomous Agent v1.0.3
-
-</div>
+<div align="center">
+  <a href="https://github.com/statikfintechllc">
+    <img src="https://img.shields.io/badge/-000000?logo=github&logoColor=white&style=flat-square" alt="GitHub">
+  </a>
+  <a href="https://www.linkedin.com/in/daniel-morris-780804368">
+    <img src="https://img.shields.io/badge/In-e11d48?logo=linkedin&logoColor=white&style=flat-square" alt="LinkedIn">
+  </a>
+  <a href="mailto:ascend.gremlin@gmail.com">
+    <img src="https://img.shields.io/badge/-D14836?logo=gmail&logoColor=white&style=flat-square" alt="Email">
+  </a>
+  <a href="https://www.youtube.com/@Gremlins_Forge">
+    <img src="https://img.shields.io/badge/-FF0000?logo=youtube&logoColor=white&style=flat-square" alt="YouTube">
+  </a>
+  <a href="https://x.com/GremlinsForge">
+    <img src="https://img.shields.io/badge/-000000?logo=x&logoColor=white&style=flat-square" alt="X">
+  </a>
+  <a href="https://medium.com/@ascend.gremlin">
+    <img src="https://img.shields.io/badge/-000000?logo=medium&logoColor=white&style=flat-square" alt="Medium">
+  </a>
 </div>
 <div align="center">
-	
-### The world’s first *RS-RACS*   
-***Recursive, Self-Referential Autonomous Cognitive System***  
-   
-### From The Ascend Institute
-**🔱 Presented by: *StatikFinTech, LLC* 🔱**  
-
-*Operating as an Unincorporated Sovereign R&D Trust (legal formation pending)*  
-
-**Mission: Autonomous Sovereignty & Human Financial Liberation**
+  <a href="https://github.com/sponsors/statikfintechllc">
+    <img src="https://raw.githubusercontent.com/statikfintechllc/statikfintechllc/master/badges/g.h.svg">
+  </a><br>
+  <a href="https://github.com/sponsors/statikfintechllc">
+    <img src="https://raw.githubusercontent.com/statikfintechllc/statikfintechllc/master/docs/g.svg/assets/github-profile.svg">
+  </a>
+</div>
 
 </div>
 <div align="center">
