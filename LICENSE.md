@@ -30,7 +30,7 @@ href="https://github.com/statikfintechllc/AscendAI/blob/master/About Us/WHY_GREM
 
 <p align="center"><strong>GremlinGPT Dual License v1.0</strong></p>
 
-<p align="center">Copyright (c) 2025 StatikFintechLLC / AscendAI Project</p>
+<p align="center">Copyright © 2025 StatikFintechLLC / AscendAI Project</p>
 
 ---
 
