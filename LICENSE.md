@@ -1,50 +1,26 @@
-<link rel="stylesheet" type="text/css" href="docs/custom.css">
 <div align="center">
-  <a
-href="https://github.com/statikfintechllc/AscendAI/blob/master/About Us/LICENSE.md">
-    <img src="https://img.shields.io/badge/FAIR%20USE-black?style=for-the-badge&logo=dragon&logoColor=gold" alt="Fair Use License"/>
-  </a>
-  <a href="https://github.com/statikfintechllc/AscendAI/blob/master/About Us/LICENSE.md">
-    <img src="https://img.shields.io/badge/GREMLINGPT%20v1.0.3-darkred?style=for-the-badge&logo=dragon&logoColor=gold" alt="GremlinGPT License"/>
-  </a>
-</div>
-<div align="center">
-  <a
-href="https://github.com/statikfintechllc/AscendAI/blob/master/About Us/WHY_GREMLINGPT.md">
-    <img src="https://img.shields.io/badge/Why-black?style=for-the-badge&logo=dragon&logoColor=gold" alt="Why"/>
-  </a>
-  <a href="https://github.com/statikfintechllc/AscendAI/blob/master/About Us/WHY_GREMLINGPT.md">
-    <img src="https://img.shields.io/badge/GremlinGPT-darkred?style=for-the-badge&logo=dragon&logoColor=gold" alt="GremlinGPT"/>
+  <a href="https://github.com/sponsors/statikfintechllc">
+    <img src="https://raw.githubusercontent.com/statikfintechllc/statikfintechllc/master/badges/git.sponsor.svg">
   </a>
 </div>
 
-  <div align="center">
-  <a href="https://ko-fi.com/statikfintech_llc">
-    <img src="https://img.shields.io/badge/Support-black?style=for-the-badge&logo=dragon&logoColor=gold" alt="Support"/>
-  </a>
-  <a href="https://github.com/statikfintechllc/GodCore/blob/master/LICENSE">
-    <img src="https://img.shields.io/badge/SFTi-darkred?style=for-the-badge&logo=dragon&logoColor=gold" alt="SFTi"/>
-  </a>
+---
+
+<h1 align="center">GremlinGPT Dual License v1.0</h1>
+
+<div align="center">
+  
+Copyright © 2025 StatikFintechLLC and the Ascend-Institute
+
+</div>
 
 ---
 
-<p align="center"><strong>GremlinGPT Dual License v1.0</strong></p>
+<h2 align="center">A. Fair Use License: Free, Consumer Level</h2>
 
-<p align="center">Copyright © 2025 StatikFintechLLC / AscendAI Project</p>
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the “Software”), to use, copy, modify, and distribute the Software for personal, educational, research, or non-commercial purposes only, subject to the following conditions:
 
----
-
-<h2 align="center">A. Fair Use License (Default)</h2>
-
-<p align="center">
-Permission is hereby granted, free of charge, to any person obtaining a copy<br>
-of this software and associated documentation files (the “Software”), to use,<br>
-copy, modify, and distribute the Software for <strong>personal, educational, research,<br>
-or non-commercial purposes only</strong>, subject to the following conditions:
-</p>
-
-<p align="center">
-1. <strong>Commercial use is strictly prohibited</strong> without express written permission.<br>
+1. <strong>Commercial use is strictly prohibited</strong> without express written permission.
 2. This license and attribution notice must be retained in all copies or substantial portions.<br>
 3. The Software is provided "as is", with no warranties.<br>
 4. Derivatives and forks must preserve attribution to GremlinGPT and AscendAI.<br>
@@ -54,32 +30,54 @@ or non-commercial purposes only</strong>, subject to the following conditions:
 
 ---
 
-<h2 align="center">B. Commercial License (Optional Upgrade)</h2>
+<h2 align="center">B. Commercial License: Orginization and Institution</h2>
 
-<p align="center">
-For organizations or individuals seeking to use GremlinGPT for <strong>commercial applications</strong>,<br>
-including SaaS platforms, AI services, enterprise tools, closed-source forks,<br>
-or resale—<strong>a separate paid license is required.</strong>
-</p>
+For organizations or individuals seeking to use GremlinGPT for commercial applications, including SaaS platforms, AI services, enterprise tools, closed-source forks, or resale, a separate paid license is required.
 
-<p align="center">
-<strong>Commercial license grants:</strong><br><br>
+<strong>Commercial license grants:</strong>
 - Rights to use, modify, and integrate GremlinGPT in proprietary projects<br>
 - Access to priority support and license compliance protection<br>
 - Optional private licensing extensions
-</p>
 
-<p align="center">
-<strong>To obtain a commercial license, contact:</strong><br>
-<a href="mailto:ascend.gremlin@gmail.com">ascend.gremlin@gmail.com</a>
-</p>
+
+<strong>To obtain a commercial license, contact</strong>
+- **Email:** [ascend.gremlin@gmail.com](mailto:ascend.gremlin@gmail.com) | [ascend.help@gmail.com](mailto:ascend.help@gmail.com)
+- **Call Us:** [+1 (620) 266-9837](sms:+16202669837)  
+- **Text Us:** [+1 (785) 443-6288](sms:+17854436288)  
+- **DM:**  
+  - a) [LinkedIn: StatikFinTech, LLC](https://www.linkedin.com/in/statikfintech-llc-780804368/)
+  - b) [X: @GremlinsForge](https://twitter.com/GremlinsForge)  
+
+**See Our [Open Funding Proposal](https://github.com/statikfintechllc/Ascend%20Institute/blob/master/About%20Us/OPEN_FUNDING_PROPOSAL.md)**
 
 ---
 
-<h2 align="center">TL;DR</h2>
+> [!CAUTION]
+>
+> You can use this to learn,
+> build,
+> experiment,
+> and remix—freely.
+>
+> You cannot exploit it commercially without a license.
+> If you try to take and sell it, you’re just proving the point of why it was built this way.
 
-<p align="center">
-You can use this to learn, build, experiment, and remix—freely.<br>
-You cannot exploit it commercially without a license.<br>
-If you try to take and sell it, you’re just proving the point of why it was built this way.
-</p>
+<div align="center">
+  <a
+href="https://github.com/statikfintechllc/GremlinGPT/blob/master/LICENSE.md">
+    <img src="https://img.shields.io/badge/FAIR%20USE-black?style=for-the-badge&logo=dragon&logoColor=gold" alt="Fair Use License"/>
+  </a>
+  <a href="https://github.com/statikfintechllc/GremlinGPT/blob/master/LICENSE.md">
+    <img src="https://img.shields.io/badge/GREMLINGPT%20v1.0.3-darkred?style=for-the-badge&logo=dragon&logoColor=gold" alt="GremlinGPT License"/>
+  </a><br>
+  <a
+href="https://github.com/statikfintechllc/Ascend-Institute/blob/master/About Us/WHY_GREMLINGPT.md">
+    <img src="https://img.shields.io/badge/Why-black?style=for-the-badge&logo=dragon&logoColor=gold" alt="Why"/>
+  </a>
+  <a href="https://github.com/statikfintechllc/Ascend-Institute/blob/master/About Us/WHY_GREMLINGPT.md">
+    <img src="https://img.shields.io/badge/GremlinGPT-darkred?style=for-the-badge&logo=dragon&logoColor=gold" alt="GremlinGPT"/>
+  </a>  
+  
+  <br/> [© 2025 StatikFinTech, LLC](https://www.github.com/statikfintechllc/GremlinGPT/blob/master/LICENSE.md)
+
+</div>
