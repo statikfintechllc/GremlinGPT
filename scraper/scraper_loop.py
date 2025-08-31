@@ -10,6 +10,9 @@
 # GremlinGPT v1.0.3 :: Module Integrity Directive
 # Bulletproofed: Never fails on no task, pipeline errors, or module import issues.
 
+# Import scraper environment globals
+from conda_envs.environments.scraper.globals import *
+
 import asyncio
 import time
 from datetime import datetime

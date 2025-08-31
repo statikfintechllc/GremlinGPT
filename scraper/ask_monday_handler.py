@@ -11,6 +11,9 @@
 # This script is a component of the GremlinGPT system, under Alpha expansion.
 #!/usr/bin/env python3
 
+# Import scraper environment globals
+from conda_envs.environments.scraper.globals import *
+
 import os
 import time
 import sys

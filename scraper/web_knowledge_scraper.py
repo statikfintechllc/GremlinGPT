@@ -10,6 +10,9 @@
 # GremlinGPT v1.0.3 :: Module Integrity Directive
 # This script is a component of the GremlinGPT system, under Alpha expansion.
 
+# Import scraper environment globals
+from conda_envs.environments.scraper.globals import *
+
 import os
 import json
 import asyncio
@@ -22,9 +25,22 @@ from utils.logging_config import get_module_logger
 # Initialize scraper-specific logger
 logger = get_module_logger("scraper")
 
-from scraper.dom_navigator import extract_dom_structure
-from memory.vector_store.embedder import embed_text, package_embedding, inject_watermark
-from memory.log_history import log_event
+# Use relative imports within scraper environment
+from .dom_navigator import extract_dom_structure
+
+# For cross-environment communication (memory), use lazy loading
+def lazy_import_memory():
+    """Lazy import memory functionality to prevent circular dependencies"""
+    try:
+        from memory.vector_store.embedder import embed_text, package_embedding, inject_watermark
+        from memory.log_history import log_event
+        return embed_text, package_embedding, inject_watermark, log_event
+    except ImportError as e:
+        logger.warning(f"Memory functions not available: {e}")
+        return None, None, None, None
+
+# Get memory functions lazily
+embed_text, package_embedding, inject_watermark, log_event = lazy_import_memory()
 
 WATERMARK = "source:GremlinGPT"
 ORIGIN = "web_knowledge_scraper"

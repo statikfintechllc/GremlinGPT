@@ -33,6 +33,17 @@ from agent_core.fsm import (
     reset_fsm,
     fsm_inject_task
 )
+
+# Create API blueprint
+api_blueprint = flask.Blueprint('api', __name__)
+
+# Session storage for chat functionality  
+_sessions = {}
+
+# === CHAT ENDPOINTS ===
+@api_blueprint.route("/api/chat", methods=["POST"])
+def api_chat():
+    """Chat endpoint using centralized imports"""
     data = flask.request.get_json()
     user_input = data.get("message", "")
     session_id = data.get("session_id")
