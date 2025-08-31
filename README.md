@@ -37,6 +37,15 @@
   <img  
 	  src="https://img.shields.io/badge/Help-darkred?style=for-the-badge&logo=gmail&logoColor=gold"/>
   </a>
+  <a
+href="https://github.com/statikfintechllc/AscendAI/blob/master/About Us">
+  <img  
+	  src="https://img.shields.io/badge/Why-black?style=for-the-badge&logo=dragon&logoColor=gold" alt="Why"/>
+  </a>
+  <a href="https://github.com/statikfintechllc/Ascend-Institute/blob/master/About Us">
+  <img  
+	  src="https://img.shields.io/badge/SFTi-darkred?style=for-the-badge&logo=dragon&logoColor=gold" alt="GremlinGPT"/>
+  </a>
 </div>
 <div align="center"> 
   <a 
@@ -58,17 +67,6 @@ href="tel:+16202669837">
 	  src="https://img.shields.io/badge/+1%20620%20266%209837-darkred?style=for-the-badge&logo=phone&logoColor=gold" alt="Call +1 620 266 9837"/>
   </a>
 </div>
-<div align="center">
-  <a
-href="https://github.com/statikfintechllc/AscendAI/blob/master/About Us">
-  <img  
-	  src="https://img.shields.io/badge/Why-black?style=for-the-badge&logo=dragon&logoColor=gold" alt="Why"/>
-  </a>
-  <a href="https://github.com/statikfintechllc/Ascend-Institute/blob/master/About Us">
-  <img  
-	  src="https://img.shields.io/badge/SFTi-darkred?style=for-the-badge&logo=dragon&logoColor=gold" alt="GremlinGPT"/>
-  </a>
-
 <div align="center">
   <a href="https://github.com/statikfintechllc">
     <img src="https://img.shields.io/badge/-000000?logo=github&logoColor=white&style=flat-square" alt="GitHub">
