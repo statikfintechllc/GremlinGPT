@@ -58,199 +58,448 @@ All modules now have comprehensive logging and documentation coverage as request
 
 ```
 GremlinGPT/
-├── agent_core/                    # 🤖 Agent Management & FSM Core
-│   ├── agent_profiles.py         # Agent configuration and profile management
-│   ├── agent_profiles.yaml       # Agent profile definitions
-│   ├── error_log.py              # Centralized error logging and tracking
-│   ├── fsm.py                    # Finite State Machine core orchestrator
-│   ├── heuristics.py             # Performance and resource heuristics
-│   ├── README.md                 # Module documentation
-│   └── task_queue.py             # Production task queue system
-├── agents/                       # 🎯 Specialized Agent Implementations
-│   └── planner_agent.py          # Strategic planning and coordination agent
-├── backend/                      # 🌐 Server Infrastructure & APIs
-│   ├── api/                      # API endpoint implementations
-│   │   ├── api_endpoints.py      # Core API route definitions
-│   │   ├── chat_handler.py       # Chat interface API handlers
-│   │   ├── memory_api.py         # Memory system API endpoints
-│   │   ├── planner.py            # Planning API endpoints
-│   │   ├── scraping_api.py       # Web scraping API handlers
-│   │   └── summarizer.py         # Text summarization API
-│   ├── interface/                # UI interface components
-│   │   └── commands.py           # Command interface handlers
-│   ├── utils/                    # Backend utilities
-│   │   └── git_ops.py            # Git operations and version control
-│   ├── globals.py                # Global configuration management
-│   ├── __init__.py               # Package initialization
-│   ├── README.md                 # Module documentation
-│   ├── router.py                 # API route management and verification
-│   ├── scheduler.py              # Task scheduling system
-│   ├── server.py                 # Main Flask application server
-│   └── state_manager.py          # System state persistence
-├── conda_envs/                   # 🐍 Environment Management
-│   ├── create_envs.sh            # Environment creation script
+.
+├── agent_core
+│   ├── agent_profiles.py
+│   ├── agent_profiles.yaml
+│   ├── error_log.py
+│   ├── fsm.py
+│   ├── heuristics.py
+│   ├── __init__.py
+│   ├── README.md
+│   └── task_queue.py
+├── agents
+│   ├── agent_coordinator.py
+│   ├── data_analyst_agent.py
+│   ├── __init__.py
+│   ├── learning_agent.py
+│   ├── planner_agent.py
+│   └── trading_strategist_agent.py
+├── backend
+│   ├── api
+│   │   ├── agent_status.py
+│   │   ├── api_endpoints_broken.py
+│   │   ├── api_endpoints.py
+│   │   ├── chat_handler.py
+│   │   ├── __init__.py
+│   │   ├── memory_api.py
+│   │   ├── planner.py
+│   │   ├── README.md
+│   │   ├── scraping_api.py
+│   │   └── summarizer.py
+│   ├── globals.py
+│   ├── __init__.py
+│   ├── interface
+│   │   ├── commands.py
+│   │   ├── __init__.py
+│   │   └── README.md
+│   ├── README.md
+│   ├── router.py
+│   ├── scheduler.py
+│   ├── server.py
+│   ├── state_manager.py
+│   └── utils
+│       ├── git_ops.py
+│       ├── __init__.py
+│       └── README.md
+├── conda_envs
+│   ├── create_envs.sh
 │   ├── gremlin-dashboard_requirements.txt
-│   ├── gremlin-dashboard.yml     # Dashboard environment definition
+│   ├── gremlin-dashboard.yml
 │   ├── gremlin-memory_requirements.txt
-│   ├── gremlin-memory.yml        # Memory system environment
+│   ├── gremlin-memory.yml
 │   ├── gremlin-nlp_requirements.txt
-│   ├── gremlin-nlp.yml           # NLP engine environment
+│   ├── gremlin-nlp.yml
 │   ├── gremlin-orchestrator_requirements.txt
-│   ├── gremlin-orchestrator.yml  # Main orchestrator environment
+│   ├── gremlin-orchestrator.yml
 │   ├── gremlin-scraper_requirements.txt
-│   └── gremlin-scraper.yml       # Web scraping environment
-├── config/                       # ⚙️ Configuration Files
-│   ├── config.toml               # Main system configuration
-│   └── memory.json               # Memory system configuration
-├── core/                         # ⚡ System Core & Execution Engine
-│   ├── kernel.py                 # Code execution and writing kernel
-│   ├── loop.py                   # Main system loop engine
-│   ├── README.md                 # Module documentation
-│   └── snapshot.py               # System state snapshots
-├── data/                         # 📊 Data Storage & Logging
-│   ├── embeddings/               # Vector embeddings storage
-│   ├── logs/                     # 📝 Organized Logging Structure
-│   │   ├── agents/               # Agent-specific logs
-│   │   ├── applications/         # Application logs (task errors, etc.)
-│   │   ├── archives/             # Archived log files
-│   │   ├── backend/              # Backend service logs
-│   │   ├── core/                 # Core system logs
-│   │   ├── executors/            # Executor logs
-│   │   ├── memory/               # Memory system logs
-│   │   ├── modules/              # Module-specific logs
-│   │   ├── nlp_engine/           # NLP processing logs
-│   │   ├── scraper/              # Web scraping logs
-│   │   ├── self_mutation_watcher/ # Code mutation monitoring logs
-│   │   ├── self_training/        # Training pipeline logs
-│   │   ├── services/             # Service output logs (.out files)
-│   │   ├── system/               # System-wide logs (runtime, bootstrap)
-│   │   ├── tests/                # Test execution logs
-│   │   ├── tools/                # Tools and utilities logs
-│   │   ├── trading_core/         # Trading operations logs
-│   │   ├── utils/                # Utility function logs
-│   │   └── README.md             # Logging structure documentation
-│   ├── nlp_training_sets/        # NLP training data
-│   ├── nltk_data/                # NLTK language model data
-│   ├── prompts/                  # AI prompt templates
-│   └── raw_scrapes/              # Raw scraped data storage
-├── demos/                        # 📸 Demo Screenshots & Examples
-├── dev-experiment/               # 🧪 Experimental Features
-│   ├── broken_scrapers/          # Deprecated scraping tools
-│   ├── memory_hacking/           # Memory system experiments
-│   ├── new_agents/               # Experimental agent implementations
-│   └── your_mutations_here.md    # Mutation development guide
-├── docs/                         # 📚 Documentation
-│   ├── automated_shell.md        # Shell automation documentation
-│   ├── DEPLOYMENT_STATUS.md      # Deployment status and guides
-│   ├── fsm_architecture.md       # FSM architecture documentation
-│   ├── full_structure_tree.md    # This file - complete structure
-│   ├── GREMLINGPT_AUTONOMY_REPORT.md # Autonomy capabilities report
-│   ├── gremlin.service.md        # Systemd service documentation
-│   ├── memory_pipeline.md        # Memory system architecture
-│   ├── ngrok_integration.md      # Ngrok tunneling integration
-│   ├── README.md                 # Main project documentation
-│   ├── REVIEWER'S_GUIDE.md       # Code review guidelines
-│   ├── self_training.md          # Self-training system documentation
-│   ├── system_call_graph.md      # System call flow documentation
-│   ├── system_overview.md        # High-level system overview
-│   ├── trading_signals.md        # Trading signal documentation
-│   ├── VALIDATION_COMPLETE.md    # System validation report
-│   └── WHY_GREMLINGPT.md         # Project motivation and goals
-├── executors/                    # 🔧 Code & Command Execution
-│   ├── python_executor.py        # Python code execution engine
-│   ├── README.md                 # Module documentation
-│   ├── shell_executor.py         # Shell command execution system
-│   └── tool_executor.py          # Tool integration framework
-├── frontend/                     # 🖥️ User Interface & Dashboard
-│   ├── components/               # React-like UI components
-│   ├── Icon_Logo/                # Application icons and branding
-│   ├── app.js                    # Main frontend application
-│   ├── dashboard_*.js            # Dashboard-specific scripts
-│   ├── index.html                # Main HTML interface
-│   ├── manifest.json             # PWA manifest
-│   ├── service-worker.js         # Service worker for offline functionality
-│   └── theme.css                 # Application styling
-├── memory/                       # 🧠 Memory & Knowledge Management
-│   ├── local_index/              # Local knowledge indexing
-│   │   ├── documents/            # Indexed document storage
-│   │   └── scripts/              # Indexing scripts
-│   ├── vector_store/             # Vector embeddings and similarity search
-│   │   ├── chroma/               # ChromaDB vector database
-│   │   ├── faiss/                # FAISS vector index
-│   │   └── embedder.py           # Text-to-vector embedding engine
-│   ├── log_history.py            # Event logging and history management
-│   └── README.md                 # Module documentation
-├── nlp_engine/                   # 🧠 Natural Language Processing
-│   ├── chat_session.py           # Conversational interface management
-│   ├── diff_engine.py            # Text difference analysis
-│   ├── mini_attention.py         # Lightweight attention mechanism
-│   ├── nlp_check.py              # NLP validation and testing
-│   ├── parser.py                 # Natural language parser
-│   ├── pos_tagger.py             # Part-of-speech tagging
-│   ├── README.md                 # Module documentation
-│   ├── semantic_score.py         # Semantic similarity scoring
-│   ├── tokenizer.py              # Text tokenization system
-│   └── transformer_core.py       # Transformer model core
-├── run/                          # 🚀 Runtime & Execution Scripts
-│   ├── checkpoints/              # System state checkpoints
-│   ├── cli.py                    # Command-line interface
-│   ├── module_tracer.py          # Module dependency tracing
-│   ├── ngrok_launcher.py         # Ngrok tunnel launcher
-│   ├── start_all.sh              # System startup script
-│   ├── start_core_headless.sh    # Headless core startup
-│   └── stop_all.sh               # System shutdown script
-├── scraper/                      # 🕷️ Web Scraping & Data Collection
-│   ├── ask_monday_handler.py     # Monday.com integration
-│   ├── dom_navigator.py          # DOM navigation and parsing
-│   ├── page_simulator.py         # Browser automation and simulation
-│   ├── persistance/              # Scraping data persistence
-│   ├── profiles/                 # Browser profiles for scraping
-│   ├── README.md                 # Module documentation
-│   ├── scraper_loop.py           # Main scraping coordination loop
-│   ├── source_router.py          # Source routing and management
-│   ├── stt_scraper.py            # Speech-to-text scraping
-│   ├── tws_scraper.py            # TWS (Trading WorkStation) scraper
-│   └── web_knowledge_scraper.py  # Web knowledge extraction
-├── self_mutation_watcher/        # 👁️ Code Mutation Monitoring
-│   ├── mutation_daemon.py        # Mutation management daemon
-│   ├── README.md                 # Module documentation
-│   └── watcher.py                # Code change monitoring
-├── self_training/                # 🧬 Autonomous Learning System
-│   ├── feedback_loop.py          # Feedback integration system
-│   ├── generate_dataset.py       # Training data generation
-│   ├── mutation_engine.py        # Code mutation and evolution
-│   ├── README.md                 # Module documentation
-│   └── trainer.py                # Model training pipeline
-├── systemd/                      # 🔧 System Service Management
-│   ├── gremlin_auto_boot.sh      # Auto-boot script
-│   ├── gremlin.service           # Systemd service definition
-│   ├── gremlin.service.template  # Service template
-│   └── test-service-config.sh    # Service configuration testing
-├── tests/                        # 🧪 Testing & Validation
-│   ├── test_dashboard.py         # Dashboard functionality tests
-│   ├── test_memory.py            # Memory system tests
-│   ├── test_nlp.py               # NLP engine tests
-│   └── test_scraper.py           # Scraping system tests
-├── tools/                        # 🛠️ Specialized Tools & Models
-│   ├── README.md                 # Module documentation
-│   └── reward_model.py           # Reward system and modeling
-├── trading_core/                 # 💰 Financial Trading System
-│   ├── portfolio_tracker.py      # Portfolio management system
-│   ├── README.md                 # Module documentation
-│   ├── rules_engine.py           # Trading rules and logic
-│   ├── signal_generator.py       # Trading signal generation
-│   ├── stock_scraper.py          # Market data collection
-│   └── tax_estimator.py          # Tax calculation and optimization
-├── utils/                        # 🔧 Core Utilities & Configuration
-│   ├── dash_cli.sh               # Dashboard command-line interface
-│   ├── logging_config.py         # Centralized logging configuration
-│   ├── migrate_logging.py        # Logging migration utilities
-│   ├── nltk_setup.py             # NLTK setup and configuration
-│   └── README.md                 # Module documentation
-├── __init__.py                   # Root package initialization
-├── install.sh                    # System installation script
-├── reboot_recover.sh             # System recovery script
-└── update_logging.py             # Logging configuration updater
+│   └── gremlin-scraper.yml
+├── config
+│   ├── config.toml
+│   └── memory.json
+├── core
+│   ├── globals_orchestrator.py
+│   ├── __init__.py
+│   ├── integration.py
+│   ├── kernel.py
+│   ├── loop.py
+│   ├── orchestrator.py
+│   ├── README.md
+│   └── snapshot.py
+├── data
+│   ├── cache
+│   │   └── api_responses
+│   ├── demos
+│   │   ├── Backend_Successfull_Test_1.png
+│   │   ├── Environment.png
+│   │   ├── IMG_7267.png
+│   │   ├── IMG_C6A6CCEB-DCB1-4166-B349-A7431E0D5657.jpeg
+│   │   ├── NLP_Prebuilt_Temp_Install.png
+│   │   └── Stop_Backend_Environment_Stays_Active.png
+│   ├── embeddings
+│   ├── feedback_triggers
+│   ├── graphs
+│   ├── logs
+│   │   ├── agent_core
+│   │   │   ├── agent_core_agent_profiles.log
+│   │   │   ├── agent_core_error_log.log
+│   │   │   ├── agent_core_fsm.log
+│   │   │   ├── agent_core_heuristics.log
+│   │   │   ├── agent_core.log
+│   │   │   └── agent_core_task_queue.log
+│   │   ├── agents
+│   │   │   ├── agents_coordinator.log
+│   │   │   ├── agents_data_analyst.log
+│   │   │   ├── agents_learning_agent.log
+│   │   │   ├── agents.log
+│   │   │   └── agents_trading_strategist.log
+│   │   ├── agents.out
+│   │   ├── backend
+│   │   │   ├── backend_chat_handler.log
+│   │   │   ├── backend_commands.log
+│   │   │   ├── backend_git_ops.log
+│   │   │   ├── backend_globals.log
+│   │   │   ├── backend.log
+│   │   │   ├── backend_memory_api.log
+│   │   │   ├── backend_planner.log
+│   │   │   ├── backend_router.log
+│   │   │   ├── backend_scheduler.log
+│   │   │   ├── backend_scraping_api.log
+│   │   │   ├── backend_server.log
+│   │   │   ├── backend_state_manager.log
+│   │   │   └── backend_summarizer.log
+│   │   ├── backend.log
+│   │   ├── backend.out
+│   │   ├── backend_restart.out
+│   │   ├── chat_responses
+│   │   ├── core
+│   │   │   ├── core_integration.log
+│   │   │   ├── core_kernel.log
+│   │   │   ├── core.log
+│   │   │   └── core_orchestrator.log
+│   │   ├── dashboard
+│   │   │   └── dashboard.log
+│   │   ├── dashboard.log
+│   │   ├── dash_cli.log
+│   │   ├── executions
+│   │   ├── executors
+│   │   │   ├── executors.log
+│   │   │   ├── executors_python_executor.log
+│   │   │   ├── executors_shell_executor.log
+│   │   │   └── executors_tool_executor.log
+│   │   ├── frontend
+│   │   │   └── frontend.log
+│   │   ├── frontend.out
+│   │   ├── fsm.out
+│   │   ├── gremlin_boot_trace.log
+│   │   ├── health_monitor.log
+│   │   ├── history
+│   │   │   └── gremlin_exec_log.jsonl
+│   │   ├── install.log
+│   │   ├── memory
+│   │   │   ├── memory.log
+│   │   │   └── memory_log_history.log
+│   │   ├── memory.log
+│   │   ├── memory.out
+│   │   ├── ngrok.out
+│   │   ├── nlp
+│   │   │   └── nlp.log
+│   │   ├── nlp_engine
+│   │   │   ├── nlp_engine_diff_engine.log
+│   │   │   ├── nlp_engine.log
+│   │   │   ├── nlp_engine_pos_tagger.log
+│   │   │   └── nlp_engine_semantic_score.log
+│   │   ├── nlp.log
+│   │   ├── nlp.out
+│   │   ├── orchestrator
+│   │   │   └── orchestrator.log
+│   │   ├── orchestrator.log
+│   │   ├── README.md
+│   │   ├── runtime.log
+│   │   ├── scraper
+│   │   │   ├── scraper_ask_monday_handler.log
+│   │   │   ├── scraper.log
+│   │   │   ├── scraper_page_simulator.log
+│   │   │   ├── scraper_source_router.log
+│   │   │   └── scraper_stt_scraper.log
+│   │   ├── scraper.log
+│   │   ├── scraper.out
+│   │   ├── screenshots
+│   │   ├── self_mutation_watcher
+│   │   │   ├── self_mutation_watcher.log
+│   │   │   ├── self_mutation_watcher_mutation_daemon.log
+│   │   │   └── self_mutation_watcher_watcher.log
+│   │   ├── self_training
+│   │   │   ├── self_training_feedback_loop.log
+│   │   │   └── self_training.log
+│   │   ├── services
+│   │   │   ├── backend.out
+│   │   │   ├── frontend.out
+│   │   │   ├── fsm.out
+│   │   │   ├── memory.out
+│   │   │   ├── ngrok.out
+│   │   │   ├── nlp.out
+│   │   │   ├── scraper.out
+│   │   │   └── trainer.out
+│   │   ├── startup_summary.json
+│   │   ├── system
+│   │   │   ├── bootstrap.log
+│   │   │   ├── install.log
+│   │   │   └── runtime.log
+│   │   ├── task_errors.jsonl
+│   │   ├── tests
+│   │   │   ├── tests.log
+│   │   │   ├── tests_test_dashboard.log
+│   │   │   ├── tests_test_memory.log
+│   │   │   ├── tests_test_scraper.log
+│   │   │   └── tests_test_trading_core.log
+│   │   ├── tools
+│   │   │   ├── tools.log
+│   │   │   └── tools_reward_model.log
+│   │   ├── trading_core
+│   │   │   ├── trading_core.log
+│   │   │   ├── trading_core_rules_engine.log
+│   │   │   ├── trading_core_signal_generator.log
+│   │   │   └── trading_core_stock_scraper.log
+│   │   ├── trainer.out
+│   │   └── utils
+│   │       ├── utils_enhanced_dash_cli.log
+│   │       └── utils.log
+│   ├── memory
+│   ├── models
+│   │   └── transformers_cache
+│   ├── nlp_training_sets
+│   │   └── bootstrap.json
+│   ├── nltk_data
+│   ├── prompts
+│   │   └── README.md
+│   ├── raw_scrapes
+│   ├── snapshots
+│   ├── tasks
+│   ├── trading_data
+│   └── web_data
+├── docs
+│   ├── automated_shell.md
+│   ├── ENHANCED_DASHBOARD.md
+│   ├── fsm_architecture.md
+│   ├── full_structure_tree.md
+│   ├── gremlin.service.md
+│   ├── memory_pipeline.md
+│   ├── ngrok_integration.md
+│   ├── OLD_README.md
+│   ├── README.md
+│   ├── REVIEWER'S_GUIDE.md
+│   ├── self_training.md
+│   ├── system_call_graph.md
+│   ├── system_overview.md
+│   ├── trading_signals.md
+│   └── WHY_GREMLINGPT.md
+├── environments
+│   ├── dashboard
+│   │   ├── globals.py
+│   │   ├── __init__.py
+│   │   └── __pycache__
+│   │       ├── globals.cpython-310.pyc
+│   │       ├── globals.cpython-312.pyc
+│   │       ├── globals.cpython-39.pyc
+│   │       ├── __init__.cpython-310.pyc
+│   │       ├── __init__.cpython-312.pyc
+│   │       └── __init__.cpython-39.pyc
+│   ├── __init__.py
+│   ├── memory
+│   │   ├── globals.py
+│   │   ├── __init__.py
+│   │   └── __pycache__
+│   │       ├── globals.cpython-310.pyc
+│   │       ├── globals.cpython-312.pyc
+│   │       ├── globals.cpython-39.pyc
+│   │       ├── __init__.cpython-310.pyc
+│   │       ├── __init__.cpython-312.pyc
+│   │       └── __init__.cpython-39.pyc
+│   ├── nlp
+│   │   ├── globals.py
+│   │   ├── __init__.py
+│   │   └── __pycache__
+│   │       ├── globals.cpython-310.pyc
+│   │       ├── globals.cpython-312.pyc
+│   │       ├── globals.cpython-39.pyc
+│   │       ├── __init__.cpython-310.pyc
+│   │       ├── __init__.cpython-312.pyc
+│   │       └── __init__.cpython-39.pyc
+│   ├── orchestrator
+│   │   ├── globals.py
+│   │   ├── __init__.py
+│   │   └── __pycache__
+│   │       ├── globals.cpython-310.pyc
+│   │       ├── globals.cpython-312.pyc
+│   │       ├── globals.cpython-39.pyc
+│   │       ├── __init__.cpython-310.pyc
+│   │       ├── __init__.cpython-312.pyc
+│   │       └── __init__.cpython-39.pyc
+│   └── scraper
+│       ├── globals.py
+│       ├── __init__.py
+│       └── __pycache__
+│           ├── globals.cpython-310.pyc
+│           ├── globals.cpython-39.pyc
+│           ├── __init__.cpython-310.pyc
+│           └── __init__.cpython-39.pyc
+├── executors
+│   ├── __init__.py
+│   ├── python_executor.py
+│   ├── README.md
+│   ├── shell_executor.py
+│   └── tool_executor.py
+├── fix_dependencies.sh
+├── frontend
+│   ├── astro.config.mjs
+│   ├── main.cjs
+│   ├── package.json
+│   ├── package-lock.json
+│   ├── preload.cjs
+│   ├── public
+│   │   ├── favicon.svg
+│   │   ├── Icon_Logo
+│   │   │   ├── App_Icon_&_Loading_&_Inference_Image.png
+│   │   │   └── Background_Image_For_App.png
+│   │   └── icon.png
+│   ├── README.md
+│   ├── src
+│   │   ├── components
+│   │   │   ├── ChatInterface.astro
+│   │   │   ├── FileTree.astro
+│   │   │   ├── MonacoEditor.astro
+│   │   │   └── Tabs.astro
+│   │   ├── layouts
+│   │   │   └── Layout.astro
+│   │   ├── pages
+│   │   │   ├── api
+│   │   │   │   ├── ai
+│   │   │   │   │   ├── explain.ts
+│   │   │   │   │   └── suggest.ts
+│   │   │   │   ├── cli
+│   │   │   │   │   └── command.ts
+│   │   │   │   ├── config.ts
+│   │   │   │   ├── files
+│   │   │   │   │   └── [...path].ts
+│   │   │   │   └── tree.ts
+│   │   │   └── index.astro
+│   │   └── styles
+│   │       └── global.css
+│   ├── tailwind.config.mjs
+│   └── tsconfig.json
+├── __init__.py
+├── install.script
+├── LICENSE.md
+├── memory
+│   ├── __init__.py
+│   ├── local_index
+│   │   ├── documents/
+│   │   ├── metadata.db
+│   │   └── scripts
+│   ├── log_history.py
+│   ├── README.md
+│   └── vector_store
+│       ├── chroma
+│       │   └── chroma.sqlite3
+│       ├── embedder.py
+│       ├── faiss
+│       │   └── faiss_index.index
+│       └── __init__.py
+├── models
+│   └── learning_models
+├── nlp_engine
+│   ├── chat_session.py
+│   ├── diff_engine.py
+│   ├── __init__.py
+│   ├── learning_models
+│   ├── mini_attention.py
+│   ├── nlp_check.py
+│   ├── parser.py
+│   ├── pos_tagger.py
+│   ├── README.md
+│   ├── semantic_score.py
+│   ├── tokenizer.py
+│   └── transformer_core.py
+├── nohup.out
+├── README.md
+├── reboot_recover.sh
+├── requirements.txt
+├── run
+│   ├── agents.pid
+│   ├── checkpoints
+│   │   ├── code_snapshots
+│   │   ├── snapshots
+│   │   ├── state_snapshot.json
+│   │   ├── task_queue.json
+│   │   └── test_snapshot.json
+│   ├── cli.py
+│   ├── module_tracer.py
+│   ├── ngrok_launcher.py
+│   ├── nohup.out
+│   ├── orchestrator.pid
+│   ├── reboot_recover.sh
+│   ├── simple_backend.py
+│   ├── start_agents.py
+│   ├── start_all.sh
+│   ├── start_core_headless.sh
+│   └── stop_all.sh
+├── scraper
+│   ├── ask_monday_handler.py
+│   ├── dom_navigator.py
+│   ├── __init__.py
+│   ├── orchestrator.py
+│   ├── page_simulator.py
+│   ├── persistance
+│   ├── playwright_handler.py
+│   ├── profiles
+│   │   └── chromium_profile
+│   ├── README.md
+│   ├── scraper_loop.py
+│   ├── source_router.py
+│   ├── stt_scraper.py
+│   ├── tws_scraper.py
+│   └── web_knowledge_scraper.py
+├── self_mutation_watcher
+│   ├── __init__.py
+│   ├── mutation_daemon.py
+│   ├── README.md
+│   └── watcher.py
+├── self_training
+│   ├── feedback_loop.py
+│   ├── generate_dataset.py
+│   ├── __init__.py
+│   ├── mutation_engine.py
+│   ├── README.md
+│   └── trainer.py
+├── systemd
+│   ├── gremlin_auto_boot.sh
+│   ├── gremlin.service
+│   ├── gremlin.service.template
+│   └── test-service-config.sh
+├── tools
+│   ├── browser_controller.py
+│   ├── __init__.py
+│   ├── README.md
+│   └── reward_model.py
+├── trading_core
+│   ├── __init__.py
+│   ├── portfolio_tracker.py
+│   ├── README.md
+│   ├── rules_engine.py
+│   ├── signal_generator.py
+│   ├── stock_scraper.py
+│   └── tax_estimator.py
+└── utils
+    ├── dash_cli.sh
+    ├── enhanced_dash_cli.py
+    ├── enhanced_dash.sh
+    ├── logging_config.py
+    ├── nltk_setup.py
+    ├── README.md
+    └── tws_stt_autologin.sh
+
+103 directories, 414 files
 ```
 
 ## Statistics
