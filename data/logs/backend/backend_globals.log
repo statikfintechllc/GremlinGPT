@@ -34,3 +34,49 @@
 2025-07-27 02:30:28.056 | INFO     | utils.logging_config:setup_module_logger:113 - [LOGGING] Module logger initialized for backend -> /home/runner/work/GremlinGPT/GremlinGPT/data/logs/backend/backend_globals.log
 2025-07-27 02:30:28.158 | INFO     | utils.logging_config:setup_module_logger:113 - [LOGGING] Module logger initialized for backend -> /home/runner/work/GremlinGPT/GremlinGPT/data/logs/backend/backend_globals.log
 2025-07-27 02:30:28.532 | INFO     | utils.logging_config:setup_module_logger:113 - [LOGGING] Module logger initialized for backend -> /home/runner/work/GremlinGPT/GremlinGPT/data/logs/backend/backend_globals.log
+2025-08-30 19:39:02,342 | INFO     | backend.globals:info:78 - [LOGGING] Module logger initialized for backend -> /home/statiksmoke8/builds/GremlinGPT/data/logs/backend/backend_globals.log
+2025-08-30 19:39:02,438 | INFO     | backend.globals:info:78 - [LOGGING] Module logger initialized for backend -> /home/statiksmoke8/builds/GremlinGPT/data/logs/backend/backend_globals.log
+2025-08-30 19:39:02,811 | INFO     | backend.globals:info:78 - [LOGGING] Module logger initialized for backend -> /home/statiksmoke8/builds/GremlinGPT/data/logs/backend/backend_globals.log
+2025-08-30 19:39:02,812 | INFO     | backend.globals:info:78 - [LOGGING] Module logger initialized for backend -> /home/statiksmoke8/builds/GremlinGPT/data/logs/backend/backend_globals.log
+2025-08-30 19:39:02,822 | INFO     | backend.globals:info:78 - [LOGGING] Module logger initialized for backend -> /home/statiksmoke8/builds/GremlinGPT/data/logs/backend/backend_globals.log
+2025-08-30 19:39:02,823 | INFO     | backend.globals:info:78 - [LOGGING] Module logger initialized for backend -> /home/statiksmoke8/builds/GremlinGPT/data/logs/backend/backend_globals.log
+2025-08-30 19:39:03,285 | INFO     | backend.globals:info:78 - [LOGGING] Module logger initialized for backend -> /home/statiksmoke8/builds/GremlinGPT/data/logs/backend/backend_globals.log
+2025-08-30 19:39:03,285 | INFO     | backend.globals:info:78 - [LOGGING] Module logger initialized for backend -> /home/statiksmoke8/builds/GremlinGPT/data/logs/backend/backend_globals.log
+2025-08-30 19:39:04,857 | INFO     | backend.globals:success:82 - SUCCESS: [TRANSFORMER] Loaded model: bert-base-uncased on cuda
+2025-08-30 19:39:04,857 | INFO     | backend.globals:success:82 - SUCCESS: [TRANSFORMER] Loaded model: bert-base-uncased on cuda
+2025-08-30 19:39:04,857 | INFO     | backend.globals:success:82 - SUCCESS: [TRANSFORMER] Loaded model: bert-base-uncased on cuda
+2025-08-30 19:39:04,857 | INFO     | backend.globals:success:82 - SUCCESS: [TRANSFORMER] Loaded model: bert-base-uncased on cuda
+2025-08-30 19:39:05,041 | INFO     | backend.globals:success:82 - SUCCESS: [TRANSFORMER] Loaded model: bert-base-uncased on cuda
+2025-08-30 19:39:05,042 | INFO     | backend.globals:success:82 - SUCCESS: [TRANSFORMER] Loaded model: bert-base-uncased on cuda
+2025-08-30 19:39:05,124 | INFO     | backend.globals:success:82 - SUCCESS: [TOKENIZER] Loaded: bert-base-uncased
+2025-08-30 19:39:05,139 | INFO     | backend.globals:success:82 - SUCCESS: [TOKENIZER] Loaded: bert-base-uncased
+2025-08-30 19:39:05,160 | INFO     | backend.globals:success:82 - SUCCESS: [TOKENIZER] Loaded: bert-base-uncased
+2025-08-30 19:39:05,192 | INFO     | backend.globals:info:78 - [GLOBALS] Centralized import management loaded successfully. 196 items exported.
+2025-08-30 19:39:05,196 | INFO     | backend.globals:success:82 - SUCCESS: [TRANSFORMER] Loaded model: bert-base-uncased on cuda
+2025-08-30 19:39:05,197 | INFO     | backend.globals:success:82 - SUCCESS: [TRANSFORMER] Loaded model: bert-base-uncased on cuda
+2025-08-30 19:39:05,588 | INFO     | backend.globals:success:82 - SUCCESS: [TOKENIZER] Loaded: bert-base-uncased
+2025-08-30 19:39:05,625 | INFO     | backend.globals:success:82 - SUCCESS: [TOKENIZER] Loaded: bert-base-uncased
+2025-08-30 19:39:05,793 | INFO     | backend.globals:success:82 - SUCCESS: [TOKENIZER] Loaded: bert-base-uncased
+2025-08-30 19:39:05,865 | INFO     | backend.globals:success:82 - SUCCESS: [TOKENIZER] Loaded: bert-base-uncased
+2025-08-30 19:39:06,945 | INFO     | backend.globals:info:78 - [GLOBALS] Centralized import management loaded successfully. 196 items exported.
+2025-08-30 19:39:06,945 | INFO     | backend.globals:info:78 - [GLOBALS] Centralized import management loaded successfully. 196 items exported.
+2025-08-30 19:39:06,946 | INFO     | backend.globals:info:78 - [GLOBALS] Centralized import management loaded successfully. 196 items exported.
+2025-08-30 19:39:06,946 | INFO     | backend.globals:info:78 - [GLOBALS] Centralized import management loaded successfully. 196 items exported.
+2025-08-30 19:39:06,946 | INFO     | backend.globals:info:78 - [GLOBALS] Centralized import management loaded successfully. 196 items exported.
+2025-08-30 19:39:06,985 | INFO     | backend.globals:info:78 - [GLOBALS] Centralized import management loaded successfully. 196 items exported.
+2025-08-30 19:39:06,990 | INFO     | backend.globals:info:78 - [GLOBALS] Centralized import management loaded successfully. 196 items exported.
+2025-08-30 19:39:06,993 | INFO     | backend.globals:info:78 - [ROUTER] Verifying and backing up API routes...
+2025-08-30 19:39:06,993 | WARNING  | backend.globals:warning:79 - [SERVER] Could not register additional routes: name 'chat_handler' is not defined
+2025-08-30 19:39:06,994 | INFO     | backend.globals:info:78 - [BACKEND] Starting GremlinGPT backend on 0.0.0.0:8080
+2025-08-30 19:39:06,994 | INFO     | backend.globals:info:78 - [BROADCAST] GremlinGPT backend server online at 0.0.0.0:8080
+2025-08-30 19:39:07,045 | INFO     | backend.globals:success:82 - SUCCESS: [TOKENIZER] Loaded: bert-base-uncased
+2025-08-30 19:39:07,136 | INFO     | backend.globals:success:82 - SUCCESS: [TOKENIZER] Loaded: bert-base-uncased
+2025-08-30 19:39:07,381 | INFO     | backend.globals:success:82 - SUCCESS: [TRANSFORMER] Loaded model: bert-base-uncased on cuda
+2025-08-30 19:41:13,110 | INFO     | backend.globals:info:78 - [LOGGING] Module logger initialized for backend -> /home/statiksmoke8/builds/GremlinGPT/data/logs/backend/backend_globals.log
+2025-08-30 19:41:13,127 | WARNING  | backend.globals:warning:79 - [TOKENIZER] Failed to load bert-base-uncased. Falling back to nltk: 'NoneType' object has no attribute 'from_pretrained'
+2025-08-30 19:41:13,148 | INFO     | backend.globals:info:78 - [GLOBALS] Centralized import management loaded successfully. 196 items exported.
+2025-08-30 19:41:13,150 | INFO     | backend.globals:info:78 - [ROUTER] Verifying and backing up API routes...
+2025-08-30 19:41:13,150 | WARNING  | backend.globals:warning:79 - [SERVER] Could not register additional routes: name 'chat_handler' is not defined
+2025-08-30 19:41:13,151 | INFO     | backend.globals:info:78 - [BACKEND] Starting GremlinGPT backend on 0.0.0.0:8080
+2025-08-30 19:41:13,151 | INFO     | backend.globals:info:78 - [BROADCAST] GremlinGPT backend server online at 0.0.0.0:8080
+2025-08-30 19:41:22,903 | INFO     | backend.globals:info:78 - [BROADCAST] GremlinGPT backend server exited cleanly.

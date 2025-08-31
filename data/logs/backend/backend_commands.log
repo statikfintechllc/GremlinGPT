@@ -110,3 +110,41 @@
 2025-07-27 02:30:39.239 | INFO     | backend.interface.commands:<module>:142 - [EMBEDDER] Loaded model: all-MiniLM-L6-v2
 2025-07-27 02:30:39.259 | INFO     | backend.interface.commands:<module>:288 - [EMBEDDER] Initial disk load complete
 2025-07-27 02:30:39.261 | INFO     | backend.globals:<module>:660 - [GLOBALS] Centralized import management loaded successfully. 196 items exported.
+2025-08-30 19:39:05,119 | INFO     | backend.commands:info:78 - [LOGGING] Module logger initialized for backend -> /home/statiksmoke8/builds/GremlinGPT/data/logs/backend/backend_commands.log
+2025-08-30 19:39:05,210 | INFO     | backend.commands:info:78 - [LOGGING] Module logger initialized for backend -> /home/statiksmoke8/builds/GremlinGPT/data/logs/backend/backend_commands.log
+2025-08-30 19:39:05,336 | INFO     | backend.commands:info:78 - [LOGGING] Module logger initialized for backend -> /home/statiksmoke8/builds/GremlinGPT/data/logs/backend/backend_commands.log
+2025-08-30 19:39:05,466 | ERROR    | backend.commands:error:80 - [COMMANDS] Failed to import from backend.globals: cannot import name 'MEM' from partially initialized module 'backend.globals' (most likely due to a circular import) (/home/statiksmoke8/builds/GremlinGPT/backend/globals.py)
+2025-08-30 19:39:05,466 | ERROR    | backend.commands:error:80 - [COMMANDS] Failed to import from backend.globals: cannot import name 'MEM' from partially initialized module 'backend.globals' (most likely due to a circular import) (/home/statiksmoke8/builds/GremlinGPT/backend/globals.py)
+2025-08-30 19:39:05,572 | ERROR    | backend.commands:error:80 - [COMMANDS] Failed to import from backend.globals: cannot import name 'MEM' from partially initialized module 'backend.globals' (most likely due to a circular import) (/home/statiksmoke8/builds/GremlinGPT/backend/globals.py)
+2025-08-30 19:39:05,594 | INFO     | backend.commands:info:78 - [FAISS] Loaded index from ./memory/vector_store/faiss/faiss_index.index
+2025-08-30 19:39:05,598 | INFO     | backend.commands:info:78 - [FAISS] Loaded index from ./memory/vector_store/faiss/faiss_index.index
+2025-08-30 19:39:05,641 | ERROR    | backend.commands:error:80 - [EMBEDDER] Failed to initialize Chroma client: no such column: collections.topic
+2025-08-30 19:39:05,642 | INFO     | backend.commands:info:78 - [FAISS] Loaded index from ./memory/vector_store/faiss/faiss_index.index
+2025-08-30 19:39:05,653 | INFO     | backend.commands:info:78 - [LOGGING] Module logger initialized for backend -> /home/statiksmoke8/builds/GremlinGPT/data/logs/backend/backend_commands.log
+2025-08-30 19:39:05,666 | INFO     | backend.commands:info:78 - [LOGGING] Module logger initialized for backend -> /home/statiksmoke8/builds/GremlinGPT/data/logs/backend/backend_commands.log
+2025-08-30 19:39:05,806 | ERROR    | backend.commands:error:80 - [COMMANDS] Failed to import from backend.globals: cannot import name 'MEM' from partially initialized module 'backend.globals' (most likely due to a circular import) (/home/statiksmoke8/builds/GremlinGPT/backend/globals.py)
+2025-08-30 19:39:05,806 | ERROR    | backend.commands:error:80 - [COMMANDS] Failed to import from backend.globals: cannot import name 'MEM' from partially initialized module 'backend.globals' (most likely due to a circular import) (/home/statiksmoke8/builds/GremlinGPT/backend/globals.py)
+2025-08-30 19:39:05,854 | INFO     | backend.commands:info:78 - [LOGGING] Module logger initialized for backend -> /home/statiksmoke8/builds/GremlinGPT/data/logs/backend/backend_commands.log
+2025-08-30 19:39:05,854 | ERROR    | backend.commands:error:80 - [EMBEDDER] chromadb import failed: No module named 'chromadb'
+2025-08-30 19:39:05,854 | ERROR    | backend.commands:error:80 - [COMMANDS] Failed to import from backend.globals: cannot import name 'MEM' from partially initialized module 'backend.globals' (most likely due to a circular import) (/home/statiksmoke8/builds/GremlinGPT/backend/globals.py)
+2025-08-30 19:39:05,856 | INFO     | backend.commands:info:78 - [FAISS] Loaded index from ./memory/vector_store/faiss/faiss_index.index
+2025-08-30 19:39:05,910 | INFO     | backend.commands:info:78 - [LOGGING] Module logger initialized for backend -> /home/statiksmoke8/builds/GremlinGPT/data/logs/backend/backend_commands.log
+2025-08-30 19:39:05,910 | ERROR    | backend.commands:error:80 - [EMBEDDER] chromadb import failed: No module named 'chromadb'
+2025-08-30 19:39:05,910 | ERROR    | backend.commands:error:80 - [COMMANDS] Failed to import from backend.globals: cannot import name 'MEM' from partially initialized module 'backend.globals' (most likely due to a circular import) (/home/statiksmoke8/builds/GremlinGPT/backend/globals.py)
+2025-08-30 19:39:05,910 | INFO     | backend.commands:info:78 - [FAISS] Loaded index from ./memory/vector_store/faiss/faiss_index.index
+2025-08-30 19:39:05,920 | INFO     | backend.commands:info:78 - [FAISS] Loaded index from ./memory/vector_store/faiss/faiss_index.index
+2025-08-30 19:39:05,929 | INFO     | backend.commands:info:78 - [FAISS] Loaded index from ./memory/vector_store/faiss/faiss_index.index
+2025-08-30 19:39:06,932 | INFO     | backend.commands:info:78 - [EMBEDDER] Loaded model: all-MiniLM-L6-v2
+2025-08-30 19:39:06,933 | INFO     | backend.commands:info:78 - [EMBEDDER] Loaded model: all-MiniLM-L6-v2
+2025-08-30 19:39:06,933 | INFO     | backend.commands:info:78 - [EMBEDDER] Loaded model: all-MiniLM-L6-v2
+2025-08-30 19:39:06,933 | INFO     | backend.commands:info:78 - [EMBEDDER] Loaded model: all-MiniLM-L6-v2
+2025-08-30 19:39:06,938 | INFO     | backend.commands:info:78 - [EMBEDDER] Loaded model: all-MiniLM-L6-v2
+2025-08-30 19:39:06,944 | INFO     | backend.commands:info:78 - [EMBEDDER] Initial disk load complete
+2025-08-30 19:39:06,944 | INFO     | backend.commands:info:78 - [EMBEDDER] Initial disk load complete
+2025-08-30 19:39:06,944 | INFO     | backend.commands:info:78 - [EMBEDDER] Initial disk load complete
+2025-08-30 19:39:06,944 | INFO     | backend.commands:info:78 - [EMBEDDER] Initial disk load complete
+2025-08-30 19:39:06,945 | INFO     | backend.commands:info:78 - [EMBEDDER] Initial disk load complete
+2025-08-30 19:39:06,978 | INFO     | backend.commands:info:78 - [EMBEDDER] Loaded model: all-MiniLM-L6-v2
+2025-08-30 19:39:06,983 | INFO     | backend.commands:info:78 - [EMBEDDER] Loaded model: all-MiniLM-L6-v2
+2025-08-30 19:39:06,985 | INFO     | backend.commands:info:78 - [EMBEDDER] Initial disk load complete
+2025-08-30 19:39:06,989 | INFO     | backend.commands:info:78 - [EMBEDDER] Initial disk load complete

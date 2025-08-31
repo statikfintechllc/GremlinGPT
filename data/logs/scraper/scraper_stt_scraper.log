@@ -16,3 +16,12 @@
 2025-07-27 02:30:36.661 | INFO     | utils.logging_config:setup_module_logger:113 - [LOGGING] Module logger initialized for scraper -> /home/runner/work/GremlinGPT/GremlinGPT/data/logs/scraper/scraper_stt_scraper.log
 2025-07-27 02:30:37.196 | INFO     | utils.logging_config:setup_module_logger:113 - [LOGGING] Module logger initialized for scraper -> /home/runner/work/GremlinGPT/GremlinGPT/data/logs/scraper/scraper_stt_scraper.log
 2025-07-27 02:30:37.308 | INFO     | utils.logging_config:setup_module_logger:113 - [LOGGING] Module logger initialized for scraper -> /home/runner/work/GremlinGPT/GremlinGPT/data/logs/scraper/scraper_stt_scraper.log
+2025-08-30 19:39:05,081 | INFO     | scraper.stt_scraper:info:78 - [LOGGING] Module logger initialized for scraper -> /home/statiksmoke8/builds/GremlinGPT/data/logs/scraper/scraper_stt_scraper.log
+2025-08-30 19:39:05,130 | INFO     | scraper.stt_scraper:info:78 - [LOGGING] Module logger initialized for scraper -> /home/statiksmoke8/builds/GremlinGPT/data/logs/scraper/scraper_stt_scraper.log
+2025-08-30 19:39:05,186 | INFO     | scraper.stt_scraper:info:78 - [LOGGING] Module logger initialized for scraper -> /home/statiksmoke8/builds/GremlinGPT/data/logs/scraper/scraper_stt_scraper.log
+2025-08-30 19:39:05,194 | INFO     | scraper.stt_scraper:info:78 - [LOGGING] Module logger initialized for scraper -> /home/statiksmoke8/builds/GremlinGPT/data/logs/scraper/scraper_stt_scraper.log
+2025-08-30 19:39:05,630 | INFO     | scraper.stt_scraper:info:78 - [LOGGING] Module logger initialized for scraper -> /home/statiksmoke8/builds/GremlinGPT/data/logs/scraper/scraper_stt_scraper.log
+2025-08-30 19:39:05,655 | INFO     | scraper.stt_scraper:info:78 - [LOGGING] Module logger initialized for scraper -> /home/statiksmoke8/builds/GremlinGPT/data/logs/scraper/scraper_stt_scraper.log
+2025-08-30 19:39:05,831 | INFO     | scraper.stt_scraper:info:78 - [LOGGING] Module logger initialized for scraper -> /home/statiksmoke8/builds/GremlinGPT/data/logs/scraper/scraper_stt_scraper.log
+2025-08-30 19:39:05,896 | INFO     | scraper.stt_scraper:info:78 - [LOGGING] Module logger initialized for scraper -> /home/statiksmoke8/builds/GremlinGPT/data/logs/scraper/scraper_stt_scraper.log
+2025-08-30 19:41:13,131 | INFO     | scraper.stt_scraper:info:78 - [LOGGING] Module logger initialized for scraper -> /home/statiksmoke8/builds/GremlinGPT/data/logs/scraper/scraper_stt_scraper.log

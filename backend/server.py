@@ -85,6 +85,59 @@ def serve_static(filename):
     return send_from_directory("../frontend", filename)
 
 
+# Chat API endpoint
+@app.route('/api/nlp/chat', methods=['POST'])
+def chat_endpoint():
+    try:
+        from flask import request, jsonify
+        import datetime
+        data = request.get_json()
+        message = data.get('message', '')
+        
+        if not message:
+            return jsonify({'error': 'No message provided'}), 400
+        
+        logger.info(f"[CHAT] Received message: {message}")
+        
+        # Simple echo response for now - will be replaced with actual NLP processing
+        response = f"Echo: {message}"
+        
+        # In the future, this will call the NLP engine:
+        # response = nlp_engine.process_message(message)
+        
+        logger.info(f"[CHAT] Sending response: {response}")
+        
+        return jsonify({
+            'response': response,
+            'status': 'success',
+            'timestamp': datetime.datetime.now().isoformat()
+        })
+        
+    except Exception as e:
+        logger.error(f"[CHAT] Error processing message: {e}")
+        return jsonify({
+            'error': 'Internal server error',
+            'message': str(e)
+        }), 500
+
+
+# Health check endpoint
+@app.route('/health')
+def health_check():
+    try:
+        from flask import jsonify
+        return jsonify({
+            'status': 'healthy',
+            'services': {
+                'flask': True,
+                'socketio': HAS_SOCKETIO,
+                'eventlet': HAS_EVENTLET
+            }
+        })
+    except Exception as e:
+        return f"Health check failed: {e}", 500
+
+
 def run_server_forever():
     host = CFG.get("backend", {}).get("host", "0.0.0.0")
     port = CFG.get("backend", {}).get("port", 8080)
