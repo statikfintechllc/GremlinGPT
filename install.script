@@ -69,7 +69,11 @@ ICON_DEST="$HOME/.local/share/icons/gremlingpt.png"
 # Create necessary directories
 DIRS=(
   "data/logs"
-  "run/checkpoints"
+  "models"
+  "models/learning_models"
+  "nlp_engine/learning_models"
+  "run/checkpoints/code_snapshots"
+  "run/checkpoints/snapshots"
   "data/prompts"
   "data/raw_scrapes"
   "data/embeddings"
@@ -78,11 +82,15 @@ DIRS=(
   "memory/vector_store/chroma"
   "memory/local_index/documents"
   "memory/local_index/scripts"
+  "scraper/persistence"
+  "scraper/profiles"
   "scraper/persistence/cookies"
   "scraper/profiles/chromium_profile"
   "frontend/components"
   "tests"
-  "docs"
+  
+  "data/models"
+  "data/models/transformers_cache"
   "data/nltk_data"
 )
 for dir in "${DIRS[@]}"; do
@@ -148,7 +156,7 @@ function pip_install_or_fail {
 # If the download fails, it will print an error message and exit with a non-zero status
 # Usage: download_nltk
 function download_nltk {
-  python3 -m nltk.downloader --dir=$HOME/data/nltk_data punkt averaged_perceptron_tagger wordnet stopwords || \
+  python3 -m nltk.downloader --dir=$HOME/GremlinGPT/data/nltk_data punkt averaged_perceptron_tagger wordnet stopwords || \
   { echo "${RED}[FAIL] NLTK data download${NC}"; exit 1; }
 }
 
