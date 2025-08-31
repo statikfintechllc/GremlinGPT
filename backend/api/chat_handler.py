@@ -10,13 +10,47 @@
 # # GremlinGPT v1.0.3 :: Module Integrity Directive
 # This script is a component of the GremlinGPT system, under Alpha expansion. v5 :: Module Integrity Directive
 
-from flask import request, jsonify, has_request_context
-from backend.interface import commands
-from nlp_engine.tokenizer import tokenize
-from nlp_engine.transformer_core import encode
+# Import orchestrator environment globals for backend
+from conda_envs.environments.orchestrator.globals import *
+
+# For cross-environment communication, use lazy loading
+def lazy_import_flask():
+    """Lazy import flask functionality to prevent circular dependencies"""
+    try:
+        from flask import request, jsonify, has_request_context
+        return request, jsonify, has_request_context
+    except ImportError as e:
+        logger.warning(f"Flask functions not available: {e}")
+        return None, None, None
+
+def lazy_import_nlp():
+    """Lazy import NLP functionality to prevent circular dependencies"""
+    try:
+        from nlp_engine.tokenizer import tokenize
+        from nlp_engine.transformer_core import encode
+        return tokenize, encode
+    except ImportError as e:
+        logger.warning(f"NLP functions not available: {e}")
+        return None, None
+
+def lazy_import_memory():
+    """Lazy import memory functionality to prevent circular dependencies"""
+    try:
+        from memory.vector_store import embedder
+        from memory.log_history import log_event
+        return embedder, log_event
+    except ImportError as e:
+        logger.warning(f"Memory functions not available: {e}")
+        return None, None
+
+# Get cross-environment functions lazily
+request, jsonify, has_request_context = lazy_import_flask()
+tokenize, encode = lazy_import_nlp()
+embedder, log_event = lazy_import_memory()
+
+# Use relative imports within orchestrator environment
 from agent_core.task_queue import enqueue_task
-from memory.vector_store import embedder
-from memory.log_history import log_event
+from backend.interface import commands
 import sys
 from pathlib import Path
 import datetime

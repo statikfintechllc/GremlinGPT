@@ -9,15 +9,28 @@
 
 # GremlinGPT v1.0.3 :: Scraper API & Module Router
 
+# Import orchestrator environment globals for backend
+from conda_envs.environments.orchestrator.globals import *
+
 from utils.logging_config import setup_module_logger
 
 # Initialize module-specific logger
 logger = setup_module_logger("backend", "scraping_api")
 
-# Core scrapers (import ALL actual scripts from scraper/)
-from scraper.scraper_loop import get_dom_html
-from scraper.ask_monday_handler import handle as ask_monday_handle
-from scraper.web_knowledge_scraper import scrape_web_knowledge
+# For cross-environment communication (scraper), use lazy loading
+def lazy_import_scraper():
+    """Lazy import scraper functionality to prevent circular dependencies"""
+    try:
+        from scraper.scraper_loop import get_dom_html
+        from scraper.ask_monday_handler import handle as ask_monday_handle
+        from scraper.web_knowledge_scraper import scrape_web_knowledge
+        return get_dom_html, ask_monday_handle, scrape_web_knowledge
+    except ImportError as e:
+        logger.warning(f"Scraper functions not available: {e}")
+        return None, None, None
+
+# Get scraper functions lazily
+get_dom_html, ask_monday_handle, scrape_web_knowledge = lazy_import_scraper()
 from environments.dashboard import extract_dom_structure, traceback, asyncio
 from scraper.source_router import route_scraping_async
 

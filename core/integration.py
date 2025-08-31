@@ -9,6 +9,9 @@
 
 # GremlinGPT v1.0.3 :: System Integration Module - Unified Architecture Bridge
 
+# Import orchestrator environment globals for core
+from conda_envs.environments.orchestrator.globals import *
+
 import asyncio
 import threading
 from datetime import datetime, timezone

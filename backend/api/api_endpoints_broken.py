@@ -24,7 +24,8 @@ from utils.logging_config import setup_module_logger
 # ...existing code...
 logger = setup_module_logger('backend', 'INFO')
 
-from environments.dashboard import CFG, logger, resolve_path, DATA_DIR, MEM
+# Import orchestrator environment globals for backend API
+from conda_envs.environments.orchestrator.globals import *
 
 from agent_core.fsm import (
     fsm_loop,

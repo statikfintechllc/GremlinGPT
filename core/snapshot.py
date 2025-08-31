@@ -10,6 +10,8 @@
 # GremlinGPT v1.0.3 :: Module Integrity Directive
 # This script is a component of the GremlinGPT system, under Alpha expansion.
 
+# Import orchestrator environment globals for core
+from conda_envs.environments.orchestrator.globals import *
 
 import os
 import hashlib
