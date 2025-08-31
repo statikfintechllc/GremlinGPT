@@ -32,13 +32,24 @@ def lazy_import_memory():
         logger.warning(f"Memory functions not available: {e}")
         return None, None, None
 
+def lazy_import_utils():
+    """Lazy import utils functionality to prevent circular dependencies"""
+    try:
+        from utils.logging_config import setup_module_logger
+        return setup_module_logger
+    except ImportError as e:
+        logger.warning(f"Utils functions not available: {e}")
+        return lambda x, y: logger  # Return default logger
+
 # Get memory functions lazily
 embed_text, package_embedding, inject_watermark = lazy_import_memory()
-
-from utils.logging_config import setup_module_logger
+setup_module_logger = lazy_import_utils()
 
 # Initialize module-specific logger
-logger = setup_module_logger("nlp_engine", "parser")
+try:
+    logger_instance = setup_module_logger("nlp_engine", "parser")
+except:
+    logger_instance = logger  # Use global logger as fallback
 
 WATERMARK = "source:GremlinGPT"
 ORIGIN = "nlp_parser"
@@ -117,24 +128,26 @@ def parse_nlp(text):
         f"Entities: {len(entities)} | Finance Matches: {len(financial_hits)} | "
         f"Code Constructs: {len(code_entities)}"
     )
-    vector = embed_text(summary)
+    
+    if embed_text and package_embedding and inject_watermark:
+        vector = embed_text(summary)
 
-    package_embedding(
-        text=summary,
-        vector=vector,
-        meta={
-            "origin": ORIGIN,
-            "timestamp": datetime.utcnow().isoformat(),
-            "route": route,
-            "tokens": len(tokens),
-            "entities": len(entities),
-            "financial_hits": financial_hits,
-            "code": bool(code_entities),
-            "watermark": WATERMARK,
-        },
-    )
+        package_embedding(
+            text=summary,
+            vector=vector,
+            meta={
+                "origin": ORIGIN,
+                "timestamp": datetime.utcnow().isoformat(),
+                "route": route,
+                "tokens": len(tokens),
+                "entities": len(entities),
+                "financial_hits": financial_hits,
+                "code": bool(code_entities),
+                "watermark": WATERMARK,
+            },
+        )
 
-    inject_watermark(origin=ORIGIN)
+        inject_watermark(origin=ORIGIN)
 
     return {
         "route": route,

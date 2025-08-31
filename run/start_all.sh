@@ -237,6 +237,8 @@ function launch_terminal() {
   elif [ -n "$port" ] && [[ "$cmd" == *"http.server"* ]]; then
     cmd="${cmd/$port}"  # Replace existing port
     cmd="$cmd $port"
+  elif [ -n "$port" ] && [[ "$cmd" == *"nlp_service"* ]]; then
+    cmd="${cmd} $port"
   fi
   
   # Check if we're in a headless environment or GUI environment
@@ -316,7 +318,7 @@ echo "[START] Waiting for memory service to initialize..."
 sleep 5
 
 echo "[START] Phase 2: NLP Environment (language processing)"
-launch_terminal "NLP Service" gremlin-nlp "python nlp_engine/nlp_check.py" "$LOGDIR/nlp.out" "${SERVICE_PORTS[nlp]}"
+launch_terminal "NLP Service" gremlin-nlp "python -m nlp_engine.nlp_service" "$LOGDIR/nlp.out" "${SERVICE_PORTS[nlp]}"
 launch_terminal "Self-Trainer" gremlin-nlp "python -m self_training.trainer" "$LOGDIR/trainer.out" "${SERVICE_PORTS[trainer]}"
 
 echo "[START] Waiting for NLP services to initialize..."

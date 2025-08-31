@@ -521,3 +521,6 @@
 {"timestamp": "2025-08-31T03:40:25.785235", "event_type": "scraper_loop", "task": "tick_start", "status": "ok", "details": {"timestamp": "2025-08-31T03:40:25.785224"}, "meta": {}}
 {"timestamp": "2025-08-31T03:40:35.795231", "event_type": "scraper_loop", "task": "tick_start", "status": "ok", "details": {"timestamp": "2025-08-31T03:40:35.795219"}, "meta": {}}
 {"timestamp": "2025-08-31T03:40:45.805506", "event_type": "scraper_loop", "task": "tick_start", "status": "ok", "details": {"timestamp": "2025-08-31T03:40:45.805493"}, "meta": {}}
+{"timestamp": "2025-08-31T20:56:04.371523", "event_type": "nlp_service", "task": "health_check", "status": "ok", "details": {"status": "degraded", "error": "No module named 'numpy'", "timestamp": "2025-08-31T20:56:04.371510"}, "meta": {}}
+{"timestamp": "2025-08-31T20:56:32.411946", "event_type": "nlp_service", "task": "health_check", "status": "ok", "details": {"status": "healthy", "timestamp": "2025-08-31T20:56:32.411934", "components_tested": ["tokenizer", "transformer", "attention"]}, "meta": {}}
+{"timestamp": "2025-08-31T20:58:35.808526", "event_type": "nlp_service", "task": "health_check", "status": "ok", "details": {"status": "healthy", "timestamp": "2025-08-31T20:58:35.808512", "components_tested": ["tokenizer", "transformer", "attention"]}, "meta": {}}
