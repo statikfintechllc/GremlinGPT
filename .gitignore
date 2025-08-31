@@ -10,6 +10,8 @@ build/
 *.AppImage
 *.tar.gz
 *.zip
+*__pycache__/
+*.pyc
 
 # Node.js dependencies
 node_modules/

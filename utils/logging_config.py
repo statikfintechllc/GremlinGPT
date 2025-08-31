@@ -7,42 +7,83 @@
 # Contact: ascend.gremlin@gmail.com
 # ─────────────────────────────────────────────────────────────
 
-# GremlinGPT v1.0.3 :: Centralized Logging Configuration
+# GremlinGPT v1.0.3 :: Bulletproof Logging Configuration
 
 import os
 import sys
+import logging
 from pathlib import Path
-from loguru import logger
+from datetime import datetime
 
-# Define custom logging level 'log_history'
-logger.level("log_history", no=25, color="<yellow>", icon="📝")
+# Try to import loguru, fallback to standard logging if not available
+try:
+    from loguru import logger as loguru_logger
+    HAS_LOGURU = True
+    # Create a bridge between loguru and standard logging
+    class LoguruHandler(logging.Handler):
+        def emit(self, record):
+            try:
+                level = record.levelname
+                if hasattr(loguru_logger, level.lower()):
+                    getattr(loguru_logger, level.lower())(record.getMessage())
+                else:
+                    loguru_logger.info(record.getMessage())
+            except Exception:
+                pass
+except ImportError:
+    HAS_LOGURU = False
+    loguru_logger = None
 
-# Define custom logging level 'globals'
-logger.level("globals", no=30, color="<blue>", icon="🌐")
+# Create a unified logger that works with or without loguru
+class BulletproofLogger:
+    def __init__(self, name, log_file=None, level="INFO"):
+        self.name = name
+        self.level = getattr(logging, level.upper(), logging.INFO)
+        
+        # Set up standard logging
+        self.logger = logging.getLogger(name)
+        self.logger.setLevel(self.level)
+        
+        # Clear existing handlers to avoid duplicates
+        self.logger.handlers.clear()
+        
+        # Console handler
+        console_handler = logging.StreamHandler(sys.stderr)
+        console_handler.setLevel(self.level)
+        formatter = logging.Formatter(
+            '%(asctime)s | %(levelname)-8s | %(name)s:%(funcName)s:%(lineno)d - %(message)s',
+            datefmt='%H:%M:%S'
+        )
+        console_handler.setFormatter(formatter)
+        self.logger.addHandler(console_handler)
+        
+        # File handler if specified
+        if log_file:
+            try:
+                os.makedirs(os.path.dirname(log_file), exist_ok=True)
+                file_handler = logging.FileHandler(log_file, mode='a')
+                file_handler.setLevel(self.level)
+                file_formatter = logging.Formatter(
+                    '%(asctime)s | %(levelname)-8s | %(name)s:%(funcName)s:%(lineno)d - %(message)s'
+                )
+                file_handler.setFormatter(file_formatter)
+                self.logger.addHandler(file_handler)
+                
+                # Set file permissions
+                os.chmod(log_file, 0o644)
+            except Exception as e:
+                self.logger.warning(f"Could not set up file logging to {log_file}: {e}")
+    
+    def debug(self, msg): self.logger.debug(msg)
+    def info(self, msg): self.logger.info(msg)
+    def warning(self, msg): self.logger.warning(msg)
+    def error(self, msg): self.logger.error(msg)
+    def critical(self, msg): self.logger.critical(msg)
+    def success(self, msg): self.logger.info(f"SUCCESS: {msg}")  # Fallback for loguru success
+    def exception(self, msg): self.logger.exception(msg)
 
-# Define custom logging level 'task_queue'
-logger.level("task_queue", no=20, color="<cyan>", icon="📋")
-
-# Define custom logging level 'state_manager'
-logger.level("state_manager", no=25, color="<magenta>", icon="🗂")
-
-# Define custom logging level 'orchestrator'
-logger.level("orchestrator", no=30, color="<green>", icon="🔄")
-
-# Define custom logging level 'data_analyst'
-logger.level("data_analyst", no=35, color="<yellow>", icon="📊")
-
-# Define custom logging level 'trading_strategist'
-logger.level("trading_strategist", no=40, color="<red>", icon="📈")
-
-# Define custom logging level 'learning_agent'
-logger.level("learning_agent", no=45, color="<blue>", icon="📘")
-
-# Define custom logging level 'coordinator'
-logger.level("coordinator", no=50, color="<magenta>", icon="🤝")
-
-# Define custom logging level 'integration'
-logger.level("integration", no=55, color="<cyan>", icon="🔗")
+# Global logger instance
+logger = BulletproofLogger("gremlin")
 
 # Base logging directory - use project directory instead of home
 project_root = Path(__file__).parent.parent
@@ -58,7 +99,7 @@ def setup_module_logger(module_name, param2="INFO"):
                      or submodule_name (for backward compatibility)
     
     Returns:
-        logger: Configured logger instance
+        BulletproofLogger: Configured logger instance
     """
     # Determine if param2 is a log level or submodule name
     valid_log_levels = ["TRACE", "DEBUG", "INFO", "SUCCESS", "WARNING", "ERROR", "CRITICAL"]
@@ -75,43 +116,24 @@ def setup_module_logger(module_name, param2="INFO"):
     module_log_dir.mkdir(parents=True, exist_ok=True)
     
     # Set proper permissions
-    os.chmod(str(module_log_dir), 0o755)
+    try:
+        os.chmod(str(module_log_dir), 0o755)
+    except Exception:
+        pass
     
     # Configure module-specific log file (include submodule if provided)
     if submodule:
         log_file = module_log_dir / f"{module_name}_{submodule}.log"
+        logger_name = f"{module_name}.{submodule}"
     else:
         log_file = module_log_dir / f"{module_name}.log"
+        logger_name = module_name
     
-    # Remove existing handlers for this module to avoid duplicates
-    logger.remove()
+    # Create bulletproof logger
+    module_logger = BulletproofLogger(logger_name, str(log_file), log_level)
+    module_logger.info(f"[LOGGING] Module logger initialized for {module_name} -> {log_file}")
     
-    # Add module-specific file handler
-    logger.add(
-        str(log_file),
-        rotation="10 MB",
-        retention="30 days",
-        level=log_level,
-        format="{time:YYYY-MM-DD HH:mm:ss.SSS} | {level:<8} | {name}:{function}:{line} - {message}",
-        enqueue=True,
-        backtrace=True,
-        diagnose=True
-    )
-    
-    # Add console handler for development
-    logger.add(
-        sys.stderr,
-        level=log_level,
-        format="<green>{time:HH:mm:ss}</green> | <level>{level:<8}</level> | <cyan>{name}</cyan>:<cyan>{function}</cyan>:<cyan>{line}</cyan> - <level>{message}</level>",
-        colorize=True
-    )
-    
-    # Set file permissions
-    if log_file.exists():
-        os.chmod(str(log_file), 0o644)
-    
-    logger.info(f"[LOGGING] Module logger initialized for {module_name} -> {log_file}")
-    return logger
+    return module_logger
 
 def get_module_logger(module_name, log_level="INFO"):
     """
@@ -122,7 +144,7 @@ def get_module_logger(module_name, log_level="INFO"):
         log_level (str): Logging level
     
     Returns:
-        logger: Configured logger instance
+        BulletproofLogger: Configured logger instance
     """
     return setup_module_logger(module_name, log_level)
 
