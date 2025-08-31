@@ -17,9 +17,9 @@ from utils.logging_config import setup_module_logger
 # Initialize module-specific logger
 logger = setup_module_logger("backend", "scheduler")
 import threading
-from backend.globals import CFG
+from environments.orchestrator import CFG
 
-from backend.globals import CFG, logger, resolve_path, DATA_DIR, MEM
+from environments.orchestrator import CFG, logger, resolve_path, DATA_DIR, MEM
 from backend.api.api_endpoints import trigger_retrain
 from backend.router import enqueue_next
 from backend.router import scan_and_diff

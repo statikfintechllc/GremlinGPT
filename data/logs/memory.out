@@ -1,0 +1,25 @@
+2025-08-30 22:37:58,625 - memory - INFO - [MEMORY] Initialized NetworkX graph database
+2025-08-30 22:37:58,625 - memory - INFO - [MEMORY] Created new FAISS index (dim=384)
+2025-08-30 22:37:58,625 - memory - INFO - [MEMORY] Loaded 10 memory entries from JSON
+2025-08-30 22:37:58,625 - memory - WARNING - [MEMORY] Failed to import MemoryManager from memory.memory_manager: No module named 'memory.memory_manager'
+2025-08-30 22:37:58,625 - memory - WARNING - [MEMORY] Failed to import GraphManager from memory.graph_manager: No module named 'memory.graph_manager'
+2025-08-30 22:37:58,625 - memory - WARNING - [MEMORY] Failed to import VectorStore from memory.vector_store: module 'memory.vector_store' has no attribute 'VectorStore'
+2025-08-30 22:37:58,625 - memory - WARNING - [MEMORY] Failed to import KnowledgeGraph from memory.knowledge_graph: No module named 'memory.knowledge_graph'
+2025-08-30 22:37:58,625 - memory - INFO - [MEMORY] Memory environment globals loaded successfully. 70 items exported.
+2025-08-30 22:37:58,627 - nlp - INFO - [LOGGING] Module logger initialized for nlp -> /home/statiksmoke8/builds/GremlinGPT/data/logs/nlp/nlp.log
+2025-08-30 22:38:00,504 - sentence_transformers.SentenceTransformer - INFO - Use pytorch device_name: cuda:0
+2025-08-30 22:38:00,504 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-08-30 22:38:02,060 - nlp - INFO - [NLP] Loaded embedding model: all-MiniLM-L6-v2
+2025-08-30 22:38:02,060 - nlp - WARNING - [NLP] Failed to import TextProcessor from nlp_engine.text_processor: No module named 'nlp_engine.text_processor'
+2025-08-30 22:38:02,060 - nlp - WARNING - [NLP] Failed to import EmbeddingGenerator from nlp_engine.embedding_generator: No module named 'nlp_engine.embedding_generator'
+2025-08-30 22:38:02,060 - nlp - WARNING - [NLP] Failed to import SentimentAnalyzer from nlp_engine.sentiment_analyzer: No module named 'nlp_engine.sentiment_analyzer'
+2025-08-30 22:38:02,060 - nlp - WARNING - [NLP] Failed to import EntityExtractor from nlp_engine.entity_extractor: No module named 'nlp_engine.entity_extractor'
+2025-08-30 22:38:02,060 - nlp - INFO - [NLP] NLP environment globals loaded successfully. 69 items exported.
+2025-08-30 22:38:02,469 - nlp - INFO - SUCCESS: [TRANSFORMER] Loaded model: bert-base-uncased on cuda
+2025-08-30 22:38:02,475 - chromadb.telemetry.posthog - INFO - Anonymized telemetry enabled. See https://docs.trychroma.com/telemetry for more information.
+2025-08-30 22:38:02,542 - memory - ERROR - [EMBEDDER] Failed to initialize Chroma client: no such column: collections.topic
+2025-08-30 22:38:02,542 - memory - INFO - [FAISS] Loaded index from ./memory/vector_store/faiss/faiss_index.index
+2025-08-30 22:38:02,543 - sentence_transformers.SentenceTransformer - INFO - Use pytorch device_name: cuda:0
+2025-08-30 22:38:02,543 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-08-30 22:38:03,673 - memory - INFO - [EMBEDDER] Loaded model: all-MiniLM-L6-v2
+2025-08-30 22:38:03,681 - memory - INFO - [EMBEDDER] Initial disk load complete

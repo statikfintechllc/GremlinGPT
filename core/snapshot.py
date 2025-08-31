@@ -16,7 +16,7 @@ import hashlib
 import json
 from datetime import datetime
 from pathlib import Path
-from backend.globals import CFG, logger, resolve_path, DATA_DIR, MEM
+from environments.orchestrator import CFG, logger, resolve_path, DATA_DIR, MEM
 
 SNAPSHOT_ROOT = Path("run/checkpoints/snapshots/")
 SNAPSHOT_ROOT.mkdir(parents=True, exist_ok=True)

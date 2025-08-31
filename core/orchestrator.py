@@ -9,7 +9,8 @@
 
 # GremlinGPT v1.0.3 :: Core Orchestrator - Global Intelligence Coordinator
 
-from backend.globals import CFG, logger, resolve_path, DATA_DIR, MEM
+from typing import Any, Optional, List, Dict
+from environments.orchestrator import CFG, logger, resolve_path, DATA_DIR, MEM
 from backend.api.api_endpoints import *
 from utils.logging_config import setup_module_logger
 

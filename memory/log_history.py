@@ -11,7 +11,10 @@
 # This script is a component of the GremlinGPT system, under Alpha expansion.
 
 # Refactored to use centralized imports
-from backend.globals import json, Path, datetime, logger
+import json
+from pathlib import Path
+from datetime import datetime
+from environments.memory import logger
 
 HISTORY_DIR = Path("data/logs/history/")
 HISTORY_FILE = HISTORY_DIR / "gremlin_exec_log.jsonl"

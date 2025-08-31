@@ -11,7 +11,7 @@
 # This script is a component of the GremlinGPT system, under Alpha expansion. v5 :: Module Integrity Directive
 
 
-from backend.globals import CFG, logger, resolve_path, DATA_DIR, MEM
+from environments.dashboard import CFG, logger, resolve_path, DATA_DIR, MEM
 
 
 def graph():

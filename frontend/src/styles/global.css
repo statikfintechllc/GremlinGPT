@@ -138,14 +138,74 @@ body {
 .tab-content {
   width: 100%;
   height: 100%;
+  overflow: hidden;
 }
 
 .tab-content.hidden {
-  display: none;
+  display: none !important;
 }
 
 .tab-content.active {
-  display: block;
+  display: flex !important;
+  flex-direction: column;
+}
+
+/* Editor specific tab content */
+#editor-tab {
+  overflow: hidden;
+}
+
+#editor-tab.active {
+  display: flex !important;
+  flex-direction: row;
+}
+
+/* Editor tabs container styling */
+#editor-tabs {
+  background-color: #1f2937;
+  border-bottom: 1px solid #374151;
+  min-height: 40px;
+  max-height: 40px;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+/* Individual editor tab styling */
+.editor-tab {
+  display: flex;
+  align-items: center;
+  padding: 8px 16px;
+  background-color: #374151;
+  border-right: 1px solid #4b5563;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  min-width: 120px;
+  max-width: 200px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.editor-tab:hover {
+  background-color: #4b5563;
+}
+
+.editor-tab.active {
+  background-color: #6b7280;
+  border-bottom: 2px solid #f87171;
+}
+
+.editor-tab .close-btn {
+  margin-left: 8px;
+  padding: 2px 4px;
+  border-radius: 2px;
+  opacity: 0.6;
+  font-size: 12px;
+}
+
+.editor-tab .close-btn:hover {
+  opacity: 1;
+  background-color: rgba(239, 68, 68, 0.2);
 }
 
 /* Notification Styles */
@@ -311,6 +371,11 @@ body {
 }
 
 /* Monaco Editor Container Styles */
+#monaco-editor {
+  position: relative;
+  overflow: hidden;
+}
+
 #config-editor, #memory-editor {
   border: 1px solid #374151;
   border-radius: 4px;

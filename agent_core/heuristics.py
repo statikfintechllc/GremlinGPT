@@ -24,7 +24,7 @@ sys.path.insert(0, str(project_root))
 from utils.logging_config import setup_module_logger
 
 logger = setup_module_logger('agent_core', 'heuristics')
-from backend.globals import CFG
+from environments.orchestrator import CFG
 
 
 def evaluate_task(task: dict, queue_size: int = 0) -> bool:

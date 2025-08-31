@@ -1,7 +1,7 @@
 {
-  "timestamp": "2025-08-31T00:39:10Z",
+  "timestamp": "2025-08-31T03:38:08Z",
   "validation_result": 1,
-  "service_ports": {"ngrok":"8006""nlp":"8001""memory":"8002""frontend":"8080""trainer":"8005""scraper":"8004""backend":"8000""fsm":"8003"},
-  "health_monitor_pid": 518252,
+  "service_ports": {"ngrok":"8006""nlp":"8001""memory":"8002""frontend":"4421""trainer":"8005""scraper":"8004""backend":"8080""fsm":"8003"},
+  "health_monitor_pid": 1551948,
   "log_directory": "/home/statiksmoke8/builds/GremlinGPT/data/logs"
 }

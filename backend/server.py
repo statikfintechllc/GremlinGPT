@@ -9,6 +9,11 @@
 
 # GremlinGPT v1.0.3 :: Module Integrity Directive
 
+# Add project root to Python path for environment imports
+import sys
+import os
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
 # CRITICAL: Eventlet monkey patching MUST happen before any other imports
 HAS_EVENTLET = False
 HAS_SOCKETIO = False
@@ -43,12 +48,20 @@ if HAS_SOCKETIO:
         socketio = SocketIO(app, cors_allowed_origins="*", async_mode="eventlet")
     else:
         socketio = SocketIO(app, cors_allowed_origins="*")
+
+# Import and register API blueprints
+try:
+    from backend.api.agent_status import agent_status_bp
+    app.register_blueprint(agent_status_bp)
+    print("[SERVER] Agent status API registered")
+except ImportError as e:
+    print(f"[SERVER] Warning: Could not register agent status API: {e}")
     print("[SERVER] SocketIO initialized")
 else:
     socketio = None
     print("[SERVER] Running without SocketIO support")
 
-from backend.globals import CFG, logger, resolve_path, DATA_DIR
+from environments.dashboard import CFG, logger, resolve_path, DATA_DIR
 
 # Import and register API blueprint
 try:
@@ -91,27 +104,69 @@ def chat_endpoint():
     try:
         from flask import request, jsonify
         import datetime
-        data = request.get_json()
-        message = data.get('message', '')
         
-        if not message:
-            return jsonify({'error': 'No message provided'}), 400
-        
-        logger.info(f"[CHAT] Received message: {message}")
-        
-        # Simple echo response for now - will be replaced with actual NLP processing
-        response = f"Echo: {message}"
-        
-        # In the future, this will call the NLP engine:
-        # response = nlp_engine.process_message(message)
-        
-        logger.info(f"[CHAT] Sending response: {response}")
-        
-        return jsonify({
-            'response': response,
-            'status': 'success',
-            'timestamp': datetime.datetime.now().isoformat()
-        })
+        # Import the real chat handler
+        try:
+            from backend.api.chat_handler import chat
+            logger.info("[CHAT] Using integrated GremlinGPT chat handler")
+            
+            # Use the real chat handler
+            result = chat()
+            
+            # Handle different return types from chat handler
+            if isinstance(result, tuple):
+                response_data, status_code = result
+                
+                # Check if response_data is a Flask Response object
+                if hasattr(response_data, 'get_json'):
+                    # It's a Flask Response, extract the JSON
+                    response_data = response_data.get_json()
+                elif hasattr(response_data, 'json'):
+                    # It's already JSON data
+                    response_data = response_data
+                
+                if status_code != 200:
+                    return jsonify(response_data), status_code
+            else:
+                # Single return value, assume it's a Flask Response
+                if hasattr(result, 'get_json'):
+                    return result  # Return the Flask Response directly
+                else:
+                    response_data = result
+                    status_code = 200
+            
+            # Ensure response_data is a dictionary
+            if not isinstance(response_data, dict):
+                response_data = {"response": str(response_data)}
+            
+            # Ensure we have the right format for the frontend
+            if 'response' not in response_data:
+                response_data['response'] = response_data.get('result', 'Processed by GremlinGPT')
+            
+            response_data['timestamp'] = datetime.datetime.now().isoformat()
+            response_data['status'] = 'success'
+            
+            logger.info(f"[CHAT] GremlinGPT processed message successfully")
+            return jsonify(response_data)
+            
+        except ImportError as ie:
+            logger.warning(f"[CHAT] Could not import chat handler: {ie}")
+            # Fallback to echo
+            data = request.get_json()
+            message = data.get('message', '')
+            
+            if not message:
+                return jsonify({'error': 'No message provided'}), 400
+            
+            logger.info(f"[CHAT] Fallback echo for message: {message}")
+            response = f"Echo (core services not running): {message}"
+            
+            return jsonify({
+                'response': response,
+                'status': 'degraded',
+                'note': 'Core GremlinGPT services not active - using fallback mode',
+                'timestamp': datetime.datetime.now().isoformat()
+            })
         
     except Exception as e:
         logger.error(f"[CHAT] Error processing message: {e}")

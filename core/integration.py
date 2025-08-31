@@ -14,7 +14,7 @@ import threading
 from datetime import datetime, timezone
 from typing import Dict, List, Any, Optional
 
-from backend.globals import CFG, logger, resolve_path, DATA_DIR, MEM
+from environments.orchestrator import CFG, logger, resolve_path, DATA_DIR, MEM
 from backend.api.api_endpoints import *
 from core.orchestrator import get_global_orchestrator
 

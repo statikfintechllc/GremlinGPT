@@ -1,0 +1,24 @@
+
+> gremlingpt-frontend@1.0.3 dev
+> astro dev
+
+
+✘ astro v5.12.3 is not yet supported in the Community edition of Console Ninja.
+We are working hard on it for you https://tinyurl.com/3h9mtwra.
+
+Estimated release dates:
+  - Community users: around 22nd September, 2025 (subject to team availability)
+  - PRO users:       priority access is available now
+
+22:37:59 [@astrojs/node] Enabling sessions with filesystem storage
+22:37:59 [types] Generated 0ms
+22:37:59 [content] Syncing content
+22:37:59 [content] Synced content
+22:37:59 [vite] Port 4321 is in use, trying another one...
+
+ astro  v5.12.3 ready in 145 ms
+
+┃ Local    http://localhost:4322/
+┃ Network  use --host to expose
+
+22:37:59 watching for file changes...

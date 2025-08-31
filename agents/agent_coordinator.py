@@ -23,7 +23,7 @@ import logging
 project_root = Path(__file__).parent.parent
 sys.path.insert(0, str(project_root))
 
-from backend.globals import CFG, LOOP
+from environments.orchestrator import CFG, LOOP
 from utils.logging_config import setup_module_logger
 from memory.log_history import log_event
 from memory.vector_store import embedder

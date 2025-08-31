@@ -1,2 +1,10 @@
 2025-07-20 00:56:13.479 | INFO     | utils.logging_config:setup_module_logger:113 - [LOGGING] Module logger initialized for agents -> /home/statiksmoke8/Ascend-Institute/GremlinGPT/data/logs/agents/agents_data_analyst.log
 2025-07-20 01:26:33.620 | INFO     | utils.logging_config:setup_module_logger:113 - [LOGGING] Module logger initialized for agents -> /home/statiksmoke8/Ascend-Institute/GremlinGPT/data/logs/agents/agents_data_analyst.log
+2025-08-30 21:41:32,498 | INFO     | agents.data_analyst:info:78 - [LOGGING] Module logger initialized for agents -> /home/statiksmoke8/builds/GremlinGPT/data/logs/agents/agents_data_analyst.log
+2025-08-30 21:41:32,498 | INFO     | agents.data_analyst:info:78 - [DATA_ANALYST] Initialized agent: data_analyst_20250830_214132
+2025-08-30 21:42:31,291 | INFO     | agents.data_analyst:info:78 - [LOGGING] Module logger initialized for agents -> /home/statiksmoke8/builds/GremlinGPT/data/logs/agents/agents_data_analyst.log
+2025-08-30 21:42:31,291 | INFO     | agents.data_analyst:info:78 - [DATA_ANALYST] Initialized agent: data_analyst_20250830_214231
+2025-08-30 21:43:32,075 | INFO     | agents.data_analyst:info:78 - [LOGGING] Module logger initialized for agents -> /home/statiksmoke8/builds/GremlinGPT/data/logs/agents/agents_data_analyst.log
+2025-08-30 21:43:32,075 | INFO     | agents.data_analyst:info:78 - [DATA_ANALYST] Initialized agent: data_analyst_20250830_214332
+2025-08-30 21:44:11,265 | INFO     | agents.data_analyst:info:78 - [LOGGING] Module logger initialized for agents -> /home/statiksmoke8/builds/GremlinGPT/data/logs/agents/agents_data_analyst.log
+2025-08-30 21:44:11,265 | INFO     | agents.data_analyst:info:78 - [DATA_ANALYST] Initialized agent: data_analyst_20250830_214411

@@ -10,7 +10,7 @@
 # GremlinGPT v1.0.3 :: Module Integrity Directive
 # This script is a component of the GremlinGPT system, under Alpha expansion.
 
-from backend.globals import CFG, logger, resolve_path, DATA_DIR, MEM
+from environments.orchestrator import CFG, logger, resolve_path, DATA_DIR, MEM
 # Directory creation deferred to save_state()
 
 

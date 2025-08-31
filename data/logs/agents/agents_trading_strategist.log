@@ -1,2 +1,10 @@
 2025-07-20 00:56:13.484 | INFO     | utils.logging_config:setup_module_logger:113 - [LOGGING] Module logger initialized for agents -> /home/statiksmoke8/Ascend-Institute/GremlinGPT/data/logs/agents/agents_trading_strategist.log
 2025-07-20 01:26:33.626 | INFO     | utils.logging_config:setup_module_logger:113 - [LOGGING] Module logger initialized for agents -> /home/statiksmoke8/Ascend-Institute/GremlinGPT/data/logs/agents/agents_trading_strategist.log
+2025-08-30 21:41:32,499 | INFO     | agents.trading_strategist:info:78 - [LOGGING] Module logger initialized for agents -> /home/statiksmoke8/builds/GremlinGPT/data/logs/agents/agents_trading_strategist.log
+2025-08-30 21:41:32,500 | INFO     | agents.trading_strategist:info:78 - [TRADING_STRATEGIST] Initialized agent: trading_strategist_20250830_214132
+2025-08-30 21:42:31,294 | INFO     | agents.trading_strategist:info:78 - [LOGGING] Module logger initialized for agents -> /home/statiksmoke8/builds/GremlinGPT/data/logs/agents/agents_trading_strategist.log
+2025-08-30 21:42:31,294 | INFO     | agents.trading_strategist:info:78 - [TRADING_STRATEGIST] Initialized agent: trading_strategist_20250830_214231
+2025-08-30 21:43:32,076 | INFO     | agents.trading_strategist:info:78 - [LOGGING] Module logger initialized for agents -> /home/statiksmoke8/builds/GremlinGPT/data/logs/agents/agents_trading_strategist.log
+2025-08-30 21:43:32,076 | INFO     | agents.trading_strategist:info:78 - [TRADING_STRATEGIST] Initialized agent: trading_strategist_20250830_214332
+2025-08-30 21:44:11,266 | INFO     | agents.trading_strategist:info:78 - [LOGGING] Module logger initialized for agents -> /home/statiksmoke8/builds/GremlinGPT/data/logs/agents/agents_trading_strategist.log
+2025-08-30 21:44:11,266 | INFO     | agents.trading_strategist:info:78 - [TRADING_STRATEGIST] Initialized agent: trading_strategist_20250830_214411

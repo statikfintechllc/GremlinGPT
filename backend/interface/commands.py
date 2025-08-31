@@ -37,7 +37,7 @@ except ImportError as e:
 try:
     import sys
     sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '../../')))
-    from backend.globals import (MEM, VECTOR_STORE_PATH, FAISS_PATH, CHROMA_PATH, 
+    from environments.dashboard import (MEM, VECTOR_STORE_PATH, FAISS_PATH, CHROMA_PATH, 
                                 LOCAL_INDEX_PATH, METADATA_DB_PATH)
     if not isinstance(MEM, dict):
         raise ValueError("MEM is not a dict")

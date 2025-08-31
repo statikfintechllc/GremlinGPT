@@ -19,7 +19,7 @@
 #   - Designed to be used by other modules without manual intervention
 
 # Refactored to use centralized imports
-from backend.globals import os, shutil, datetime, Path, logger
+from environments.orchestrator import os, shutil, datetime, Path, logger
 
 DEFAULT_ARCHIVE_DIR = "docs/"
 

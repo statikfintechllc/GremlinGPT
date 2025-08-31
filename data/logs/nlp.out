@@ -1,4 +1,27 @@
+2025-08-30 22:38:01,245 - sentence_transformers.SentenceTransformer - INFO - Use pytorch device_name: cuda:0
+2025-08-30 22:38:01,245 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-08-30 22:38:02,374 - nlp - INFO - [NLP] Loaded embedding model: all-MiniLM-L6-v2
+2025-08-30 22:38:02,519 - nlp - WARNING - [NLP] Failed to import TextProcessor from nlp_engine.text_processor: No module named 'nlp_engine.text_processor'
+2025-08-30 22:38:02,519 - nlp - WARNING - [NLP] Failed to import EmbeddingGenerator from nlp_engine.embedding_generator: No module named 'nlp_engine.embedding_generator'
+2025-08-30 22:38:02,519 - nlp - WARNING - [NLP] Failed to import SentimentAnalyzer from nlp_engine.sentiment_analyzer: No module named 'nlp_engine.sentiment_analyzer'
+2025-08-30 22:38:02,519 - nlp - WARNING - [NLP] Failed to import EntityExtractor from nlp_engine.entity_extractor: No module named 'nlp_engine.entity_extractor'
+2025-08-30 22:38:02,519 - nlp - INFO - [NLP] NLP environment globals loaded successfully. 69 items exported.
+2025-08-30 22:38:02,521 - memory - INFO - [LOGGING] Module logger initialized for memory -> /home/statiksmoke8/builds/GremlinGPT/data/logs/memory/memory.log
+2025-08-30 22:38:02,523 - memory - INFO - [MEMORY] Initialized NetworkX graph database
+2025-08-30 22:38:02,523 - memory - INFO - [MEMORY] Created new FAISS index (dim=384)
+2025-08-30 22:38:02,523 - memory - INFO - [MEMORY] Loaded 10 memory entries from JSON
+2025-08-30 22:38:02,523 - memory - WARNING - [MEMORY] Failed to import MemoryManager from memory.memory_manager: No module named 'memory.memory_manager'
+2025-08-30 22:38:02,523 - memory - WARNING - [MEMORY] Failed to import GraphManager from memory.graph_manager: No module named 'memory.graph_manager'
+2025-08-30 22:38:02,523 - memory - WARNING - [MEMORY] Failed to import VectorStore from memory.vector_store: module 'memory.vector_store' has no attribute 'VectorStore'
+2025-08-30 22:38:02,523 - memory - WARNING - [MEMORY] Failed to import KnowledgeGraph from memory.knowledge_graph: No module named 'memory.knowledge_graph'
+2025-08-30 22:38:02,523 - memory - INFO - [MEMORY] Memory environment globals loaded successfully. 70 items exported.
+2025-08-30 22:38:02,795 - nlp - INFO - SUCCESS: [TRANSFORMER] Loaded model: bert-base-uncased on cuda
+2025-08-30 22:38:02,803 - chromadb.telemetry.product.posthog - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-08-30 22:38:02,861 - memory - INFO - [FAISS] Loaded index from ./memory/vector_store/faiss/faiss_index.index
+2025-08-30 22:38:02,862 - sentence_transformers.SentenceTransformer - INFO - Use pytorch device_name: cuda:0
+2025-08-30 22:38:02,862 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-08-30 22:38:03,861 - memory - INFO - [EMBEDDER] Loaded model: all-MiniLM-L6-v2
+2025-08-30 22:38:03,870 - memory - INFO - [EMBEDDER] Initial disk load complete
 [NLTK] Found punkt in /home/statiksmoke8/builds/GremlinGPT/data/nltk_data
 [NLTK] Found punkt_tab in /home/statiksmoke8/builds/GremlinGPT/data/nltk_data
-[NLTK] Found punkt in /home/statiksmoke8/builds/GremlinGPT/data/nltk_data
-[NLTK] Found punkt_tab in /home/statiksmoke8/builds/GremlinGPT/data/nltk_data
+2025-08-30 22:38:03,966 - nlp - INFO - SUCCESS: [TOKENIZER] Loaded: bert-base-uncased

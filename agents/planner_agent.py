@@ -14,6 +14,7 @@ from memory.vector_store import embedder
 import logging
 logger = logging.getLogger("GremlinGPT.TaskQueue")
 from backend.utils.git_ops import archive_json_log, auto_commit
+import datetime
 from datetime import datetime
 import random
 import os
@@ -74,7 +75,7 @@ def plan_next_task():
             "type": choice,
             "meta": {
                 "source": AGENT_NAME,
-                "timestamp": datetime.utcnow().isoformat(),
+                "timestamp": datetime.datetime.utcnow().isoformat(),
                 "strategy": reason,
             },
         }

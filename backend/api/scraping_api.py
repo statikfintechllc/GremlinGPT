@@ -18,12 +18,8 @@ logger = setup_module_logger("backend", "scraping_api")
 from scraper.scraper_loop import get_dom_html
 from scraper.ask_monday_handler import handle as ask_monday_handle
 from scraper.web_knowledge_scraper import scrape_web_knowledge
-from backend.globals import extract_dom_structure
+from environments.dashboard import extract_dom_structure, traceback, asyncio
 from scraper.source_router import route_scraping_async
-
-from backend.globals import traceback
-
-from backend.globals import asyncio
 
 async def scrape_url(url, method="auto", extra=None):
     """

@@ -1,4 +1,2 @@
-[NLTK] Found punkt in /home/statiksmoke8/builds/GremlinGPT/data/nltk_data
-[NLTK] Found punkt_tab in /home/statiksmoke8/builds/GremlinGPT/data/nltk_data
-[NLTK] Found punkt in /home/statiksmoke8/builds/GremlinGPT/data/nltk_data
-[NLTK] Found punkt_tab in /home/statiksmoke8/builds/GremlinGPT/data/nltk_data
+2025-08-30 22:37:59,137 - orchestrator - INFO - [ORCHESTRATOR] PID 1549736 written to /home/statiksmoke8/builds/GremlinGPT/run/orchestrator.pid
+2025-08-30 22:37:59,137 - orchestrator - INFO - [ORCHESTRATOR] Orchestrator environment globals loaded successfully. 82 items exported.

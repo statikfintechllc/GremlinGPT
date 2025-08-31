@@ -10,15 +10,12 @@
 # GremlinGPT v1.0.3 :: Module Integrity Directive
 # This script is a component of the GremlinGPT system, under Alpha expansion. v5 :: Module Integrity Directive
 
-from agent_core.task_queue from backend.globals import reprioritize
+from agent_core.task_queue import reprioritize
 from agent_core import task_queue
 from memory.log_history import log_event
-from backend.globals import sys
-from backend.globals import Path
+from environments.dashboard import sys, Path, datetime, flask
 import networkx as nx
-from datetime from backend.globals import datetime
 from scraper import source_router, web_knowledge_scraper
-from backend.globals import flask
 
 
 from utils.logging_config import setup_module_logger

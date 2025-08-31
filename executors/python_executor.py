@@ -14,7 +14,7 @@ import tempfile
 import uuid
 import os
 from pathlib import Path
-from backend.globals import DATA_DIR, logger
+from environments.orchestrator import DATA_DIR, logger
 
 # Use centralized log directory from globals
 EXEC_LOG_DIR = Path(DATA_DIR) / "logs" / "executions"

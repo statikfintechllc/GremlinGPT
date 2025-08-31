@@ -117,4 +117,4 @@ torch/hub/
 # Test coverage
 .coverage
 .nyc_output
-coverage/
+coverage/__pycache__/

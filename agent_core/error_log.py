@@ -8,8 +8,7 @@
 
 # GremlinGPT v1.0.3 :: Module Integrity Directive
 
-from backend.globals import CFG, logger, resolve_path, DATA_DIR, MEM
-from backend.globals import CFG, logger, resolve_path, DATA_DIR, MEM
+from environments.orchestrator import CFG, logger, resolve_path, DATA_DIR, MEM
 log_dir = resolve_path(CFG["paths"].get("logs_dir", "$ROOT/data/logs"))
 ERROR_LOG_FILE = resolve_path(CFG["paths"].get("error_log_file", "data/logs/task_errors.jsonl"))
 

@@ -36,7 +36,7 @@ sys.path.insert(0, str(project_root))
 
 try:
     from utils.logging_config import setup_module_logger
-    from backend.globals import CFG
+    from environments.dashboard import CFG
     logger = setup_module_logger("utils", "enhanced_dash_cli")
 except ImportError:
     import logging

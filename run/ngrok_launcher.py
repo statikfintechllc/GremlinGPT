@@ -15,7 +15,7 @@ run/ngrok_launcher.py
 - State-of-the-art, no placeholders. Full error handling.
 """
 
-from backend.globals import CFG, logger, resolve_path, DATA_DIR, MEM
+from environments.orchestrator import CFG, logger, resolve_path, DATA_DIR, MEM
 
 # ──────────────── CONFIG LOAD ────────────────
 ngrok_cfg = CFG.get("ngrok", {})

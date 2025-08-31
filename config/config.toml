@@ -14,6 +14,19 @@ api_port = 8080
 cors_origins = ["*"]
 session_cookie_name = "gremlin_session"
 
+[backend]
+host = "0.0.0.0"
+port = 8080
+enabled = true
+session_cookie_name = "gremlins_forge"
+cors_origins = ["*"]
+ngrok_enabled = true
+dashboard_enabled = true
+allowed_api_routes = ["chat", "trade", "memory", "scrape", "shell", "mutation"]
+
+[frontend]
+port = 4321
+
 [security]
 SECRET_KEY = "SFTi"
 
@@ -290,16 +303,7 @@ reward_gain = 1.0
 reward_penalty = -1.0
 
 # -------------------------------------------
-# Backend Server / API / Dashboard
-# -------------------------------------------
-[backend]
-enabled = true
-session_cookie_name = "gremlins_forge"
-cors_origins = ["*"]
-ngrok_enabled = true
-dashboard_enabled = true
-allowed_api_routes = ["chat", "trade", "memory", "scrape", "shell", "mutation"]
-
+# Backend Server / API / Dashboard settings merged above
 # -------------------------------------------
 # Dashboard / Frontend / Modules
 # -------------------------------------------

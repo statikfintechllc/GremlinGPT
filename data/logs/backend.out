@@ -1,0 +1,502 @@
+2025-08-30 22:37:59,032 - dashboard - INFO - [DASHBOARD] Dashboard environment globals loaded successfully. 58 items exported.
+[SERVER] Agent status API registered
+[SERVER] Running without SocketIO support
+[SERVER] API endpoints registered
+2025-08-30 22:37:59,039 - orchestrator - INFO - [LOGGING] Module logger initialized for orchestrator -> /home/statiksmoke8/builds/GremlinGPT/data/logs/orchestrator/orchestrator.log
+2025-08-30 22:37:59,042 - orchestrator - INFO - [ORCHESTRATOR] PID 1549647 written to /home/statiksmoke8/builds/GremlinGPT/run/orchestrator.pid
+2025-08-30 22:37:59,042 - orchestrator - INFO - [ORCHESTRATOR] Orchestrator environment globals loaded successfully. 82 items exported.
+2025-08-30 22:37:59,042 - orchestrator - INFO - [ROUTER] Verifying and backing up API routes...
+2025-08-30 22:37:59,064 - faiss.loader - INFO - Loading faiss with AVX512 support.
+2025-08-30 22:37:59,096 - faiss.loader - INFO - Successfully loaded faiss with AVX512 support.
+2025-08-30 22:37:59,098 - faiss - INFO - Failed to load GPU Faiss: name 'GpuIndexIVFFlat' is not defined. Will not load constructor refs for GPU indexes. This is only an error if you're trying to use GPU Faiss.
+2025-08-30 22:37:59,098 - backend.commands - INFO - [LOGGING] Module logger initialized for backend -> /home/statiksmoke8/builds/GremlinGPT/data/logs/backend/backend_commands.log
+2025-08-30 22:37:59,099 - backend.commands - ERROR - [EMBEDDER] chromadb import failed: No module named 'chromadb'
+2025-08-30 22:38:00,385 - numexpr.utils - INFO - Note: NumExpr detected 24 cores but "NUMEXPR_MAX_THREADS" not set, so enforcing safe limit of 16.
+2025-08-30 22:38:00,385 - numexpr.utils - INFO - NumExpr defaulting to 16 threads.
+2025-08-30 22:38:01,160 - backend.commands - ERROR - [COMMANDS] Failed to import from backend.globals: cannot import name 'LOCAL_INDEX_PATH' from 'environments.dashboard' (/home/statiksmoke8/builds/GremlinGPT/environments/dashboard/__init__.py)
+2025-08-30 22:38:01,161 - nlp - INFO - [LOGGING] Module logger initialized for nlp -> /home/statiksmoke8/builds/GremlinGPT/data/logs/nlp/nlp.log
+2025-08-30 22:38:01,593 - sentence_transformers.SentenceTransformer - INFO - Use pytorch device_name: cuda:0
+2025-08-30 22:38:01,593 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-08-30 22:38:02,952 - nlp - INFO - [NLP] Loaded embedding model: all-MiniLM-L6-v2
+2025-08-30 22:38:03,093 - nlp - WARNING - [NLP] Failed to import TextProcessor from nlp_engine.text_processor: No module named 'nlp_engine.text_processor'
+2025-08-30 22:38:03,093 - nlp - WARNING - [NLP] Failed to import EmbeddingGenerator from nlp_engine.embedding_generator: No module named 'nlp_engine.embedding_generator'
+2025-08-30 22:38:03,093 - nlp - WARNING - [NLP] Failed to import SentimentAnalyzer from nlp_engine.sentiment_analyzer: No module named 'nlp_engine.sentiment_analyzer'
+2025-08-30 22:38:03,093 - nlp - WARNING - [NLP] Failed to import EntityExtractor from nlp_engine.entity_extractor: No module named 'nlp_engine.entity_extractor'
+2025-08-30 22:38:03,093 - nlp - INFO - [NLP] NLP environment globals loaded successfully. 69 items exported.
+2025-08-30 22:38:03,501 - nlp - INFO - SUCCESS: [TRANSFORMER] Loaded model: bert-base-uncased on cuda
+2025-08-30 22:38:03,502 - backend.commands - INFO - [FAISS] Loaded index from ./memory/vector_store/faiss/faiss_index.index
+2025-08-30 22:38:03,502 - sentence_transformers.SentenceTransformer - INFO - Use pytorch device_name: cuda:0
+2025-08-30 22:38:03,502 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-08-30 22:38:04,646 - backend.commands - INFO - [EMBEDDER] Loaded model: all-MiniLM-L6-v2
+2025-08-30 22:38:04,655 - backend.commands - INFO - [EMBEDDER] Initial disk load complete
+2025-08-30 22:38:04,656 - memory - INFO - [LOGGING] Module logger initialized for memory -> /home/statiksmoke8/builds/GremlinGPT/data/logs/memory/memory.log
+2025-08-30 22:38:04,659 - memory - INFO - [MEMORY] Initialized NetworkX graph database
+2025-08-30 22:38:04,659 - memory - INFO - [MEMORY] Created new FAISS index (dim=384)
+2025-08-30 22:38:04,659 - memory - INFO - [MEMORY] Loaded 10 memory entries from JSON
+2025-08-30 22:38:04,659 - memory - WARNING - [MEMORY] Failed to import MemoryManager from memory.memory_manager: No module named 'memory.memory_manager'
+2025-08-30 22:38:04,659 - memory - WARNING - [MEMORY] Failed to import GraphManager from memory.graph_manager: No module named 'memory.graph_manager'
+2025-08-30 22:38:04,659 - memory - WARNING - [MEMORY] Failed to import VectorStore from memory.vector_store: module 'memory.vector_store' has no attribute 'VectorStore'
+2025-08-30 22:38:04,659 - memory - WARNING - [MEMORY] Failed to import KnowledgeGraph from memory.knowledge_graph: No module named 'memory.knowledge_graph'
+2025-08-30 22:38:04,659 - memory - INFO - [MEMORY] Memory environment globals loaded successfully. 70 items exported.
+2025-08-30 22:38:04,659 - memory - INFO - [FAISS] Loaded index from ./memory/vector_store/faiss/faiss_index.index
+2025-08-30 22:38:04,660 - sentence_transformers.SentenceTransformer - INFO - Use pytorch device_name: cuda:0
+2025-08-30 22:38:04,660 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-08-30 22:38:05,745 - memory - INFO - [EMBEDDER] Loaded model: all-MiniLM-L6-v2
+2025-08-30 22:38:05,753 - memory - INFO - [EMBEDDER] Initial disk load complete
+[NLTK] Found punkt in /home/statiksmoke8/builds/GremlinGPT/data/nltk_data
+[NLTK] Found punkt_tab in /home/statiksmoke8/builds/GremlinGPT/data/nltk_data
+2025-08-30 22:38:06,005 - nlp - INFO - SUCCESS: [TOKENIZER] Loaded: bert-base-uncased
+2025-08-30 22:38:06,005 - orchestrator - INFO - [TaskQueue] Queue restored from snapshot.
+2025-08-30 22:38:06,006 - backend.scraping_api - INFO - [LOGGING] Module logger initialized for backend -> /home/statiksmoke8/builds/GremlinGPT/data/logs/backend/backend_scraping_api.log
+2025-08-30 22:38:06,021 - scraper - INFO - [LOGGING] Module logger initialized for scraper -> /home/statiksmoke8/builds/GremlinGPT/data/logs/scraper/scraper.log
+2025-08-30 22:38:06,058 - scraper - INFO - [SCRAPER] Initialized requests session with retries
+2025-08-30 22:38:06,058 - scraper - WARNING - [SCRAPER] Failed to import WebScraper from scraper.web_scraper: No module named 'scraper.web_scraper'
+2025-08-30 22:38:06,059 - scraper - WARNING - [SCRAPER] Failed to import TradingDataScraper from scraper.trading_data_scraper: No module named 'scraper.trading_data_scraper'
+2025-08-30 22:38:06,059 - scraper - WARNING - [SCRAPER] Failed to import APIClient from scraper.api_client: No module named 'scraper.api_client'
+2025-08-30 22:38:06,059 - scraper - WARNING - [SCRAPER] Failed to import DataProcessor from scraper.data_processor: No module named 'scraper.data_processor'
+2025-08-30 22:38:06,059 - scraper - INFO - [SCRAPER] Scraper environment globals loaded successfully. 81 items exported.
+2025-08-30 22:38:06,060 - scraper - INFO - [LOGGING] Module logger initialized for scraper -> /home/statiksmoke8/builds/GremlinGPT/data/logs/scraper/scraper.log
+2025-08-30 22:38:06,060 - scraper.page_simulator - INFO - [LOGGING] Module logger initialized for scraper -> /home/statiksmoke8/builds/GremlinGPT/data/logs/scraper/scraper_page_simulator.log
+2025-08-30 22:38:06,125 - scraper.ask_monday_handler - INFO - [LOGGING] Module logger initialized for scraper -> /home/statiksmoke8/builds/GremlinGPT/data/logs/scraper/scraper_ask_monday_handler.log
+2025-08-30 22:38:06,126 - scraper - INFO - [LOGGING] Module logger initialized for scraper -> /home/statiksmoke8/builds/GremlinGPT/data/logs/scraper/scraper.log
+2025-08-30 22:38:06,126 - scraper.source_router - INFO - [LOGGING] Module logger initialized for scraper -> /home/statiksmoke8/builds/GremlinGPT/data/logs/scraper/scraper_source_router.log
+2025-08-30 22:38:06,127 - scraper - INFO - [LOGGING] Module logger initialized for scraper -> /home/statiksmoke8/builds/GremlinGPT/data/logs/scraper/scraper.log
+2025-08-30 22:38:06,127 - scraper.stt_scraper - INFO - [LOGGING] Module logger initialized for scraper -> /home/statiksmoke8/builds/GremlinGPT/data/logs/scraper/scraper_stt_scraper.log
+2025-08-30 22:38:06,127 - backend.planner - INFO - [LOGGING] Module logger initialized for backend -> /home/statiksmoke8/builds/GremlinGPT/data/logs/backend/backend_planner.log
+2025-08-30 22:38:06,127 - orchestrator - INFO - [ROUTER] Found 6 route handlers available
+2025-08-30 22:38:06,128 - orchestrator - INFO - [ROUTER] Verified: /api/chat is already registered (likely via blueprint).
+2025-08-30 22:38:06,128 - orchestrator - INFO - [ROUTER] Verified: /api/memory/graph is already registered (likely via blueprint).
+2025-08-30 22:38:06,128 - orchestrator - INFO - [ROUTER] Verified: /api/scrape is already registered (likely via blueprint).
+2025-08-30 22:38:06,128 - orchestrator - INFO - [ROUTER] Verified: /api/agent/tasks is already registered (likely via blueprint).
+2025-08-30 22:38:06,128 - orchestrator - INFO - [ROUTER] Verified: /api/trading/signals is already registered (likely via blueprint).
+2025-08-30 22:38:06,128 - orchestrator - INFO - SUCCESS: [ROUTER] Route registered as backup: /api/tasks/priority -> set_task_priority
+2025-08-30 22:38:06,128 - dashboard - INFO - [SERVER] Additional routes registered
+2025-08-30 22:38:06,129 - dashboard - INFO - [BACKEND] Starting GremlinGPT backend on 0.0.0.0:8080
+2025-08-30 22:38:06,129 - dashboard - INFO - [BROADCAST] GremlinGPT backend server online at 0.0.0.0:8080
+ * Serving Flask app 'server'
+ * Debug mode: off
+2025-08-30 22:38:06,130 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8080
+ * Running on http://192.168.1.185:8080
+2025-08-30 22:38:06,130 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-08-30 22:38:10,002 - server - ERROR - Exception on /api/system/status [GET]
+Traceback (most recent call last):
+  File "/home/statiksmoke8/builds/GremlinGPT/backend/api/api_endpoints.py", line 313, in api_system_status
+    "last_updated": datetime.now().isoformat()
+AttributeError: module 'datetime' has no attribute 'now'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/statiksmoke8/miniconda3/envs/gremlin-dashboard/lib/python3.10/site-packages/flask/app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/statiksmoke8/miniconda3/envs/gremlin-dashboard/lib/python3.10/site-packages/flask/app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/statiksmoke8/miniconda3/envs/gremlin-dashboard/lib/python3.10/site-packages/flask/app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/statiksmoke8/miniconda3/envs/gremlin-dashboard/lib/python3.10/site-packages/flask/app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/home/statiksmoke8/builds/GremlinGPT/backend/api/api_endpoints.py", line 320, in api_system_status
+    "last_updated": datetime.now().isoformat()
+AttributeError: module 'datetime' has no attribute 'now'
+2025-08-30 22:38:10,003 - werkzeug - INFO - 127.0.0.1 - - [30/Aug/2025 22:38:10] "[35m[1mGET /api/system/status HTTP/1.1[0m" 500 -
+2025-08-30 22:38:15,002 - server - ERROR - Exception on /api/system/status [GET]
+Traceback (most recent call last):
+  File "/home/statiksmoke8/builds/GremlinGPT/backend/api/api_endpoints.py", line 313, in api_system_status
+    "last_updated": datetime.now().isoformat()
+AttributeError: module 'datetime' has no attribute 'now'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/statiksmoke8/miniconda3/envs/gremlin-dashboard/lib/python3.10/site-packages/flask/app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/statiksmoke8/miniconda3/envs/gremlin-dashboard/lib/python3.10/site-packages/flask/app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/statiksmoke8/miniconda3/envs/gremlin-dashboard/lib/python3.10/site-packages/flask/app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/statiksmoke8/miniconda3/envs/gremlin-dashboard/lib/python3.10/site-packages/flask/app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/home/statiksmoke8/builds/GremlinGPT/backend/api/api_endpoints.py", line 320, in api_system_status
+    "last_updated": datetime.now().isoformat()
+AttributeError: module 'datetime' has no attribute 'now'
+2025-08-30 22:38:15,003 - werkzeug - INFO - 127.0.0.1 - - [30/Aug/2025 22:38:15] "[35m[1mGET /api/system/status HTTP/1.1[0m" 500 -
+2025-08-30 22:38:20,002 - server - ERROR - Exception on /api/system/status [GET]
+Traceback (most recent call last):
+  File "/home/statiksmoke8/builds/GremlinGPT/backend/api/api_endpoints.py", line 313, in api_system_status
+    "last_updated": datetime.now().isoformat()
+AttributeError: module 'datetime' has no attribute 'now'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/statiksmoke8/miniconda3/envs/gremlin-dashboard/lib/python3.10/site-packages/flask/app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/statiksmoke8/miniconda3/envs/gremlin-dashboard/lib/python3.10/site-packages/flask/app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/statiksmoke8/miniconda3/envs/gremlin-dashboard/lib/python3.10/site-packages/flask/app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/statiksmoke8/miniconda3/envs/gremlin-dashboard/lib/python3.10/site-packages/flask/app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/home/statiksmoke8/builds/GremlinGPT/backend/api/api_endpoints.py", line 320, in api_system_status
+    "last_updated": datetime.now().isoformat()
+AttributeError: module 'datetime' has no attribute 'now'
+2025-08-30 22:38:20,003 - werkzeug - INFO - 127.0.0.1 - - [30/Aug/2025 22:38:20] "[35m[1mGET /api/system/status HTTP/1.1[0m" 500 -
+2025-08-30 22:38:25,002 - server - ERROR - Exception on /api/system/status [GET]
+Traceback (most recent call last):
+  File "/home/statiksmoke8/builds/GremlinGPT/backend/api/api_endpoints.py", line 313, in api_system_status
+    "last_updated": datetime.now().isoformat()
+AttributeError: module 'datetime' has no attribute 'now'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/statiksmoke8/miniconda3/envs/gremlin-dashboard/lib/python3.10/site-packages/flask/app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/statiksmoke8/miniconda3/envs/gremlin-dashboard/lib/python3.10/site-packages/flask/app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/statiksmoke8/miniconda3/envs/gremlin-dashboard/lib/python3.10/site-packages/flask/app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/statiksmoke8/miniconda3/envs/gremlin-dashboard/lib/python3.10/site-packages/flask/app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/home/statiksmoke8/builds/GremlinGPT/backend/api/api_endpoints.py", line 320, in api_system_status
+    "last_updated": datetime.now().isoformat()
+AttributeError: module 'datetime' has no attribute 'now'
+2025-08-30 22:38:25,002 - werkzeug - INFO - 127.0.0.1 - - [30/Aug/2025 22:38:25] "[35m[1mGET /api/system/status HTTP/1.1[0m" 500 -
+2025-08-30 22:38:30,002 - server - ERROR - Exception on /api/system/status [GET]
+Traceback (most recent call last):
+  File "/home/statiksmoke8/builds/GremlinGPT/backend/api/api_endpoints.py", line 313, in api_system_status
+    "last_updated": datetime.now().isoformat()
+AttributeError: module 'datetime' has no attribute 'now'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/statiksmoke8/miniconda3/envs/gremlin-dashboard/lib/python3.10/site-packages/flask/app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/statiksmoke8/miniconda3/envs/gremlin-dashboard/lib/python3.10/site-packages/flask/app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/statiksmoke8/miniconda3/envs/gremlin-dashboard/lib/python3.10/site-packages/flask/app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/statiksmoke8/miniconda3/envs/gremlin-dashboard/lib/python3.10/site-packages/flask/app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/home/statiksmoke8/builds/GremlinGPT/backend/api/api_endpoints.py", line 320, in api_system_status
+    "last_updated": datetime.now().isoformat()
+AttributeError: module 'datetime' has no attribute 'now'
+2025-08-30 22:38:30,002 - werkzeug - INFO - 127.0.0.1 - - [30/Aug/2025 22:38:30] "[35m[1mGET /api/system/status HTTP/1.1[0m" 500 -
+2025-08-30 22:38:35,002 - server - ERROR - Exception on /api/system/status [GET]
+Traceback (most recent call last):
+  File "/home/statiksmoke8/builds/GremlinGPT/backend/api/api_endpoints.py", line 313, in api_system_status
+    "last_updated": datetime.now().isoformat()
+AttributeError: module 'datetime' has no attribute 'now'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/statiksmoke8/miniconda3/envs/gremlin-dashboard/lib/python3.10/site-packages/flask/app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/statiksmoke8/miniconda3/envs/gremlin-dashboard/lib/python3.10/site-packages/flask/app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/statiksmoke8/miniconda3/envs/gremlin-dashboard/lib/python3.10/site-packages/flask/app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/statiksmoke8/miniconda3/envs/gremlin-dashboard/lib/python3.10/site-packages/flask/app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/home/statiksmoke8/builds/GremlinGPT/backend/api/api_endpoints.py", line 320, in api_system_status
+    "last_updated": datetime.now().isoformat()
+AttributeError: module 'datetime' has no attribute 'now'
+2025-08-30 22:38:35,003 - werkzeug - INFO - 127.0.0.1 - - [30/Aug/2025 22:38:35] "[35m[1mGET /api/system/status HTTP/1.1[0m" 500 -
+2025-08-30 22:38:40,002 - server - ERROR - Exception on /api/system/status [GET]
+Traceback (most recent call last):
+  File "/home/statiksmoke8/builds/GremlinGPT/backend/api/api_endpoints.py", line 313, in api_system_status
+    "last_updated": datetime.now().isoformat()
+AttributeError: module 'datetime' has no attribute 'now'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/statiksmoke8/miniconda3/envs/gremlin-dashboard/lib/python3.10/site-packages/flask/app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/statiksmoke8/miniconda3/envs/gremlin-dashboard/lib/python3.10/site-packages/flask/app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/statiksmoke8/miniconda3/envs/gremlin-dashboard/lib/python3.10/site-packages/flask/app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/statiksmoke8/miniconda3/envs/gremlin-dashboard/lib/python3.10/site-packages/flask/app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/home/statiksmoke8/builds/GremlinGPT/backend/api/api_endpoints.py", line 320, in api_system_status
+    "last_updated": datetime.now().isoformat()
+AttributeError: module 'datetime' has no attribute 'now'
+2025-08-30 22:38:40,003 - werkzeug - INFO - 127.0.0.1 - - [30/Aug/2025 22:38:40] "[35m[1mGET /api/system/status HTTP/1.1[0m" 500 -
+2025-08-30 22:38:45,002 - server - ERROR - Exception on /api/system/status [GET]
+Traceback (most recent call last):
+  File "/home/statiksmoke8/builds/GremlinGPT/backend/api/api_endpoints.py", line 313, in api_system_status
+    "last_updated": datetime.now().isoformat()
+AttributeError: module 'datetime' has no attribute 'now'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/statiksmoke8/miniconda3/envs/gremlin-dashboard/lib/python3.10/site-packages/flask/app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/statiksmoke8/miniconda3/envs/gremlin-dashboard/lib/python3.10/site-packages/flask/app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/statiksmoke8/miniconda3/envs/gremlin-dashboard/lib/python3.10/site-packages/flask/app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/statiksmoke8/miniconda3/envs/gremlin-dashboard/lib/python3.10/site-packages/flask/app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/home/statiksmoke8/builds/GremlinGPT/backend/api/api_endpoints.py", line 320, in api_system_status
+    "last_updated": datetime.now().isoformat()
+AttributeError: module 'datetime' has no attribute 'now'
+2025-08-30 22:38:45,002 - werkzeug - INFO - 127.0.0.1 - - [30/Aug/2025 22:38:45] "[35m[1mGET /api/system/status HTTP/1.1[0m" 500 -
+2025-08-30 22:38:50,002 - server - ERROR - Exception on /api/system/status [GET]
+Traceback (most recent call last):
+  File "/home/statiksmoke8/builds/GremlinGPT/backend/api/api_endpoints.py", line 313, in api_system_status
+    "last_updated": datetime.now().isoformat()
+AttributeError: module 'datetime' has no attribute 'now'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/statiksmoke8/miniconda3/envs/gremlin-dashboard/lib/python3.10/site-packages/flask/app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/statiksmoke8/miniconda3/envs/gremlin-dashboard/lib/python3.10/site-packages/flask/app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/statiksmoke8/miniconda3/envs/gremlin-dashboard/lib/python3.10/site-packages/flask/app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/statiksmoke8/miniconda3/envs/gremlin-dashboard/lib/python3.10/site-packages/flask/app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/home/statiksmoke8/builds/GremlinGPT/backend/api/api_endpoints.py", line 320, in api_system_status
+    "last_updated": datetime.now().isoformat()
+AttributeError: module 'datetime' has no attribute 'now'
+2025-08-30 22:38:50,003 - werkzeug - INFO - 127.0.0.1 - - [30/Aug/2025 22:38:50] "[35m[1mGET /api/system/status HTTP/1.1[0m" 500 -
+2025-08-30 22:38:55,002 - server - ERROR - Exception on /api/system/status [GET]
+Traceback (most recent call last):
+  File "/home/statiksmoke8/builds/GremlinGPT/backend/api/api_endpoints.py", line 313, in api_system_status
+    "last_updated": datetime.now().isoformat()
+AttributeError: module 'datetime' has no attribute 'now'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/statiksmoke8/miniconda3/envs/gremlin-dashboard/lib/python3.10/site-packages/flask/app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/statiksmoke8/miniconda3/envs/gremlin-dashboard/lib/python3.10/site-packages/flask/app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/statiksmoke8/miniconda3/envs/gremlin-dashboard/lib/python3.10/site-packages/flask/app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/statiksmoke8/miniconda3/envs/gremlin-dashboard/lib/python3.10/site-packages/flask/app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/home/statiksmoke8/builds/GremlinGPT/backend/api/api_endpoints.py", line 320, in api_system_status
+    "last_updated": datetime.now().isoformat()
+AttributeError: module 'datetime' has no attribute 'now'
+2025-08-30 22:38:55,003 - werkzeug - INFO - 127.0.0.1 - - [30/Aug/2025 22:38:55] "[35m[1mGET /api/system/status HTTP/1.1[0m" 500 -
+2025-08-30 22:39:00,002 - server - ERROR - Exception on /api/system/status [GET]
+Traceback (most recent call last):
+  File "/home/statiksmoke8/builds/GremlinGPT/backend/api/api_endpoints.py", line 313, in api_system_status
+    "used": f"{disk.used // (1024**3)}GB",
+AttributeError: module 'datetime' has no attribute 'now'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/statiksmoke8/miniconda3/envs/gremlin-dashboard/lib/python3.10/site-packages/flask/app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/statiksmoke8/miniconda3/envs/gremlin-dashboard/lib/python3.10/site-packages/flask/app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/statiksmoke8/miniconda3/envs/gremlin-dashboard/lib/python3.10/site-packages/flask/app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/statiksmoke8/miniconda3/envs/gremlin-dashboard/lib/python3.10/site-packages/flask/app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/home/statiksmoke8/builds/GremlinGPT/backend/api/api_endpoints.py", line 320, in api_system_status
+    "system": "degraded",
+AttributeError: module 'datetime' has no attribute 'now'
+2025-08-30 22:39:00,003 - werkzeug - INFO - 127.0.0.1 - - [30/Aug/2025 22:39:00] "[35m[1mGET /api/system/status HTTP/1.1[0m" 500 -
+2025-08-30 22:39:05,002 - server - ERROR - Exception on /api/system/status [GET]
+Traceback (most recent call last):
+  File "/home/statiksmoke8/builds/GremlinGPT/backend/api/api_endpoints.py", line 313, in api_system_status
+    "used": f"{disk.used // (1024**3)}GB",
+AttributeError: module 'datetime' has no attribute 'now'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/statiksmoke8/miniconda3/envs/gremlin-dashboard/lib/python3.10/site-packages/flask/app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/statiksmoke8/miniconda3/envs/gremlin-dashboard/lib/python3.10/site-packages/flask/app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/statiksmoke8/miniconda3/envs/gremlin-dashboard/lib/python3.10/site-packages/flask/app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/statiksmoke8/miniconda3/envs/gremlin-dashboard/lib/python3.10/site-packages/flask/app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/home/statiksmoke8/builds/GremlinGPT/backend/api/api_endpoints.py", line 320, in api_system_status
+    "system": "degraded",
+AttributeError: module 'datetime' has no attribute 'now'
+2025-08-30 22:39:05,003 - werkzeug - INFO - 127.0.0.1 - - [30/Aug/2025 22:39:05] "[35m[1mGET /api/system/status HTTP/1.1[0m" 500 -
+2025-08-30 22:39:10,002 - server - ERROR - Exception on /api/system/status [GET]
+Traceback (most recent call last):
+  File "/home/statiksmoke8/builds/GremlinGPT/backend/api/api_endpoints.py", line 313, in api_system_status
+    "used": f"{disk.used // (1024**3)}GB",
+AttributeError: module 'datetime' has no attribute 'now'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/statiksmoke8/miniconda3/envs/gremlin-dashboard/lib/python3.10/site-packages/flask/app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/statiksmoke8/miniconda3/envs/gremlin-dashboard/lib/python3.10/site-packages/flask/app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/statiksmoke8/miniconda3/envs/gremlin-dashboard/lib/python3.10/site-packages/flask/app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/statiksmoke8/miniconda3/envs/gremlin-dashboard/lib/python3.10/site-packages/flask/app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/home/statiksmoke8/builds/GremlinGPT/backend/api/api_endpoints.py", line 320, in api_system_status
+    "system": "degraded",
+AttributeError: module 'datetime' has no attribute 'now'
+2025-08-30 22:39:10,003 - werkzeug - INFO - 127.0.0.1 - - [30/Aug/2025 22:39:10] "[35m[1mGET /api/system/status HTTP/1.1[0m" 500 -
+2025-08-30 22:39:15,002 - server - ERROR - Exception on /api/system/status [GET]
+Traceback (most recent call last):
+  File "/home/statiksmoke8/builds/GremlinGPT/backend/api/api_endpoints.py", line 313, in api_system_status
+    "used": f"{disk.used // (1024**3)}GB",
+AttributeError: module 'datetime' has no attribute 'now'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/statiksmoke8/miniconda3/envs/gremlin-dashboard/lib/python3.10/site-packages/flask/app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/statiksmoke8/miniconda3/envs/gremlin-dashboard/lib/python3.10/site-packages/flask/app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/statiksmoke8/miniconda3/envs/gremlin-dashboard/lib/python3.10/site-packages/flask/app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/statiksmoke8/miniconda3/envs/gremlin-dashboard/lib/python3.10/site-packages/flask/app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/home/statiksmoke8/builds/GremlinGPT/backend/api/api_endpoints.py", line 320, in api_system_status
+    "system": "degraded",
+AttributeError: module 'datetime' has no attribute 'now'
+2025-08-30 22:39:15,002 - werkzeug - INFO - 127.0.0.1 - - [30/Aug/2025 22:39:15] "[35m[1mGET /api/system/status HTTP/1.1[0m" 500 -
+2025-08-30 22:39:20,002 - server - ERROR - Exception on /api/system/status [GET]
+Traceback (most recent call last):
+  File "/home/statiksmoke8/builds/GremlinGPT/backend/api/api_endpoints.py", line 313, in api_system_status
+    "used": f"{disk.used // (1024**3)}GB",
+AttributeError: module 'datetime' has no attribute 'now'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/statiksmoke8/miniconda3/envs/gremlin-dashboard/lib/python3.10/site-packages/flask/app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/statiksmoke8/miniconda3/envs/gremlin-dashboard/lib/python3.10/site-packages/flask/app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/statiksmoke8/miniconda3/envs/gremlin-dashboard/lib/python3.10/site-packages/flask/app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/statiksmoke8/miniconda3/envs/gremlin-dashboard/lib/python3.10/site-packages/flask/app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/home/statiksmoke8/builds/GremlinGPT/backend/api/api_endpoints.py", line 320, in api_system_status
+    "system": "degraded",
+AttributeError: module 'datetime' has no attribute 'now'
+2025-08-30 22:39:20,002 - werkzeug - INFO - 127.0.0.1 - - [30/Aug/2025 22:39:20] "[35m[1mGET /api/system/status HTTP/1.1[0m" 500 -
+2025-08-30 22:39:25,002 - server - ERROR - Exception on /api/system/status [GET]
+Traceback (most recent call last):
+  File "/home/statiksmoke8/builds/GremlinGPT/backend/api/api_endpoints.py", line 313, in api_system_status
+    "used": f"{disk.used // (1024**3)}GB",
+AttributeError: module 'datetime' has no attribute 'now'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/statiksmoke8/miniconda3/envs/gremlin-dashboard/lib/python3.10/site-packages/flask/app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/statiksmoke8/miniconda3/envs/gremlin-dashboard/lib/python3.10/site-packages/flask/app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/statiksmoke8/miniconda3/envs/gremlin-dashboard/lib/python3.10/site-packages/flask/app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/statiksmoke8/miniconda3/envs/gremlin-dashboard/lib/python3.10/site-packages/flask/app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/home/statiksmoke8/builds/GremlinGPT/backend/api/api_endpoints.py", line 320, in api_system_status
+    "system": "degraded",
+AttributeError: module 'datetime' has no attribute 'now'
+2025-08-30 22:39:25,002 - werkzeug - INFO - 127.0.0.1 - - [30/Aug/2025 22:39:25] "[35m[1mGET /api/system/status HTTP/1.1[0m" 500 -
+2025-08-30 22:39:30,003 - server - ERROR - Exception on /api/system/status [GET]
+Traceback (most recent call last):
+  File "/home/statiksmoke8/builds/GremlinGPT/backend/api/api_endpoints.py", line 313, in api_system_status
+    "used": f"{disk.used // (1024**3)}GB",
+AttributeError: module 'datetime' has no attribute 'now'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/statiksmoke8/miniconda3/envs/gremlin-dashboard/lib/python3.10/site-packages/flask/app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/statiksmoke8/miniconda3/envs/gremlin-dashboard/lib/python3.10/site-packages/flask/app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/statiksmoke8/miniconda3/envs/gremlin-dashboard/lib/python3.10/site-packages/flask/app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/statiksmoke8/miniconda3/envs/gremlin-dashboard/lib/python3.10/site-packages/flask/app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/home/statiksmoke8/builds/GremlinGPT/backend/api/api_endpoints.py", line 320, in api_system_status
+    "system": "degraded",
+AttributeError: module 'datetime' has no attribute 'now'
+2025-08-30 22:39:30,003 - werkzeug - INFO - 127.0.0.1 - - [30/Aug/2025 22:39:30] "[35m[1mGET /api/system/status HTTP/1.1[0m" 500 -
+2025-08-30 22:39:35,002 - server - ERROR - Exception on /api/system/status [GET]
+Traceback (most recent call last):
+  File "/home/statiksmoke8/builds/GremlinGPT/backend/api/api_endpoints.py", line 313, in api_system_status
+    "used": f"{disk.used // (1024**3)}GB",
+AttributeError: module 'datetime' has no attribute 'now'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/statiksmoke8/miniconda3/envs/gremlin-dashboard/lib/python3.10/site-packages/flask/app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/statiksmoke8/miniconda3/envs/gremlin-dashboard/lib/python3.10/site-packages/flask/app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/statiksmoke8/miniconda3/envs/gremlin-dashboard/lib/python3.10/site-packages/flask/app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/statiksmoke8/miniconda3/envs/gremlin-dashboard/lib/python3.10/site-packages/flask/app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/home/statiksmoke8/builds/GremlinGPT/backend/api/api_endpoints.py", line 320, in api_system_status
+    "system": "degraded",
+AttributeError: module 'datetime' has no attribute 'now'
+2025-08-30 22:39:35,002 - werkzeug - INFO - 127.0.0.1 - - [30/Aug/2025 22:39:35] "[35m[1mGET /api/system/status HTTP/1.1[0m" 500 -
+2025-08-30 22:39:35,958 - server - ERROR - Exception on /api/system/status [GET]
+Traceback (most recent call last):
+  File "/home/statiksmoke8/builds/GremlinGPT/backend/api/api_endpoints.py", line 313, in api_system_status
+    "used": f"{disk.used // (1024**3)}GB",
+AttributeError: module 'datetime' has no attribute 'now'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/statiksmoke8/miniconda3/envs/gremlin-dashboard/lib/python3.10/site-packages/flask/app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/statiksmoke8/miniconda3/envs/gremlin-dashboard/lib/python3.10/site-packages/flask/app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/statiksmoke8/miniconda3/envs/gremlin-dashboard/lib/python3.10/site-packages/flask/app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/statiksmoke8/miniconda3/envs/gremlin-dashboard/lib/python3.10/site-packages/flask/app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/home/statiksmoke8/builds/GremlinGPT/backend/api/api_endpoints.py", line 320, in api_system_status
+    "system": "degraded",
+AttributeError: module 'datetime' has no attribute 'now'
+2025-08-30 22:39:35,958 - werkzeug - INFO - 127.0.0.1 - - [30/Aug/2025 22:39:35] "[35m[1mGET /api/system/status HTTP/1.1[0m" 500 -
+2025-08-30 22:39:40,002 - server - ERROR - Exception on /api/system/status [GET]
+Traceback (most recent call last):
+  File "/home/statiksmoke8/builds/GremlinGPT/backend/api/api_endpoints.py", line 313, in api_system_status
+    "used": f"{disk.used // (1024**3)}GB",
+AttributeError: module 'datetime' has no attribute 'now'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/statiksmoke8/miniconda3/envs/gremlin-dashboard/lib/python3.10/site-packages/flask/app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/statiksmoke8/miniconda3/envs/gremlin-dashboard/lib/python3.10/site-packages/flask/app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/statiksmoke8/miniconda3/envs/gremlin-dashboard/lib/python3.10/site-packages/flask/app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/statiksmoke8/miniconda3/envs/gremlin-dashboard/lib/python3.10/site-packages/flask/app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/home/statiksmoke8/builds/GremlinGPT/backend/api/api_endpoints.py", line 320, in api_system_status
+    "system": "degraded",
+AttributeError: module 'datetime' has no attribute 'now'
+2025-08-30 22:39:40,002 - werkzeug - INFO - 127.0.0.1 - - [30/Aug/2025 22:39:40] "[35m[1mGET /api/system/status HTTP/1.1[0m" 500 -

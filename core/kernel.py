@@ -8,7 +8,7 @@
 
 # GremlinGPT v1.0.3 :: kernel.py
 
-from backend.globals import CFG, logger, resolve_path, DATA_DIR, MEM
+from environments.orchestrator import CFG, logger, resolve_path, DATA_DIR, MEM
 from backend.api.api_endpoints import *
 from backend.router import route_task
 

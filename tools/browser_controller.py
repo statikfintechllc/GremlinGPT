@@ -14,7 +14,7 @@ import sys
 from typing import Dict, Any, List, Optional
 from playwright.async_api import async_playwright, Browser, BrowserContext, Page
 from datetime import datetime
-from backend.globals import CFG, logger
+from environments.orchestrator import CFG, logger
 
 class GremlinPlaywrightController:
     """Browser automation controller for GremlinGPT system management"""

@@ -26,7 +26,7 @@ import re
 project_root = Path(__file__).parent.parent
 sys.path.insert(0, str(project_root))
 
-from backend.globals import CFG, MODELS_DIR, METADATA_DB_PATH
+from environments.orchestrator import CFG, MODELS_DIR, METADATA_DB_PATH
 from utils.logging_config import setup_module_logger
 from memory.log_history import log_event
 from memory.vector_store import embedder

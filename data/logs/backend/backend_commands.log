@@ -148,3 +148,208 @@
 2025-08-30 19:39:06,983 | INFO     | backend.commands:info:78 - [EMBEDDER] Loaded model: all-MiniLM-L6-v2
 2025-08-30 19:39:06,985 | INFO     | backend.commands:info:78 - [EMBEDDER] Initial disk load complete
 2025-08-30 19:39:06,989 | INFO     | backend.commands:info:78 - [EMBEDDER] Initial disk load complete
+2025-08-30 19:55:21,450 | INFO     | backend.commands:info:78 - [LOGGING] Module logger initialized for backend -> /home/statiksmoke8/builds/GremlinGPT/data/logs/backend/backend_commands.log
+2025-08-30 19:55:21,450 | ERROR    | backend.commands:error:80 - [EMBEDDER] chromadb import failed: No module named 'chromadb'
+2025-08-30 19:55:21,450 | ERROR    | backend.commands:error:80 - [COMMANDS] Failed to import from backend.globals: cannot import name 'MEM' from partially initialized module 'backend.globals' (most likely due to a circular import) (/home/statiksmoke8/builds/GremlinGPT/backend/globals.py)
+2025-08-30 19:55:21,450 | INFO     | backend.commands:info:78 - [FAISS] Loaded index from ./memory/vector_store/faiss/faiss_index.index
+2025-08-30 19:55:22,706 | INFO     | backend.commands:info:78 - [EMBEDDER] Loaded model: all-MiniLM-L6-v2
+2025-08-30 19:55:22,714 | INFO     | backend.commands:info:78 - [EMBEDDER] Initial disk load complete
+2025-08-30 19:55:48,415 | INFO     | backend.commands:info:78 - [LOGGING] Module logger initialized for backend -> /home/statiksmoke8/builds/GremlinGPT/data/logs/backend/backend_commands.log
+2025-08-30 19:55:48,416 | ERROR    | backend.commands:error:80 - [EMBEDDER] chromadb import failed: No module named 'chromadb'
+2025-08-30 19:55:48,416 | ERROR    | backend.commands:error:80 - [COMMANDS] Failed to import from backend.globals: cannot import name 'MEM' from partially initialized module 'backend.globals' (most likely due to a circular import) (/home/statiksmoke8/builds/GremlinGPT/backend/globals.py)
+2025-08-30 19:55:48,416 | INFO     | backend.commands:info:78 - [FAISS] Loaded index from ./memory/vector_store/faiss/faiss_index.index
+2025-08-30 19:55:49,335 | INFO     | backend.commands:info:78 - [EMBEDDER] Loaded model: all-MiniLM-L6-v2
+2025-08-30 19:55:49,341 | INFO     | backend.commands:info:78 - [EMBEDDER] Initial disk load complete
+2025-08-30 19:58:38,144 | INFO     | backend.commands:info:78 - [LOGGING] Module logger initialized for backend -> /home/statiksmoke8/builds/GremlinGPT/data/logs/backend/backend_commands.log
+2025-08-30 19:58:38,144 | ERROR    | backend.commands:error:80 - [EMBEDDER] chromadb import failed: No module named 'chromadb'
+2025-08-30 19:58:38,144 | ERROR    | backend.commands:error:80 - [COMMANDS] Failed to import from backend.globals: cannot import name 'MEM' from partially initialized module 'backend.globals' (most likely due to a circular import) (/home/statiksmoke8/builds/GremlinGPT/backend/globals.py)
+2025-08-30 19:58:38,144 | INFO     | backend.commands:info:78 - [FAISS] Loaded index from ./memory/vector_store/faiss/faiss_index.index
+2025-08-30 19:58:39,212 | INFO     | backend.commands:info:78 - [EMBEDDER] Loaded model: all-MiniLM-L6-v2
+2025-08-30 19:58:39,220 | INFO     | backend.commands:info:78 - [EMBEDDER] Initial disk load complete
+2025-08-30 20:00:26,504 | INFO     | backend.commands:info:78 - [LOGGING] Module logger initialized for backend -> /home/statiksmoke8/builds/GremlinGPT/data/logs/backend/backend_commands.log
+2025-08-30 20:00:26,504 | ERROR    | backend.commands:error:80 - [EMBEDDER] chromadb import failed: No module named 'chromadb'
+2025-08-30 20:00:26,504 | ERROR    | backend.commands:error:80 - [COMMANDS] Failed to import from backend.globals: cannot import name 'MEM' from partially initialized module 'backend.globals' (most likely due to a circular import) (/home/statiksmoke8/builds/GremlinGPT/backend/globals.py)
+2025-08-30 20:00:26,504 | INFO     | backend.commands:info:78 - [FAISS] Loaded index from ./memory/vector_store/faiss/faiss_index.index
+2025-08-30 20:00:27,540 | INFO     | backend.commands:info:78 - [EMBEDDER] Loaded model: all-MiniLM-L6-v2
+2025-08-30 20:00:27,546 | INFO     | backend.commands:info:78 - [EMBEDDER] Initial disk load complete
+2025-08-30 20:02:27,988 | INFO     | backend.commands:info:78 - [LOGGING] Module logger initialized for backend -> /home/statiksmoke8/builds/GremlinGPT/data/logs/backend/backend_commands.log
+2025-08-30 20:02:27,993 | INFO     | backend.commands:info:78 - [LOGGING] Module logger initialized for backend -> /home/statiksmoke8/builds/GremlinGPT/data/logs/backend/backend_commands.log
+2025-08-30 20:02:28,120 | INFO     | backend.commands:info:78 - [LOGGING] Module logger initialized for backend -> /home/statiksmoke8/builds/GremlinGPT/data/logs/backend/backend_commands.log
+2025-08-30 20:02:28,165 | INFO     | backend.commands:info:78 - [LOGGING] Module logger initialized for backend -> /home/statiksmoke8/builds/GremlinGPT/data/logs/backend/backend_commands.log
+2025-08-30 20:02:28,183 | ERROR    | backend.commands:error:80 - [COMMANDS] Failed to import from backend.globals: cannot import name 'MEM' from partially initialized module 'backend.globals' (most likely due to a circular import) (/home/statiksmoke8/builds/GremlinGPT/backend/globals.py)
+2025-08-30 20:02:28,226 | ERROR    | backend.commands:error:80 - [COMMANDS] Failed to import from backend.globals: cannot import name 'MEM' from partially initialized module 'backend.globals' (most likely due to a circular import) (/home/statiksmoke8/builds/GremlinGPT/backend/globals.py)
+2025-08-30 20:02:28,246 | ERROR    | backend.commands:error:80 - [EMBEDDER] Failed to initialize Chroma client: no such column: collections.topic
+2025-08-30 20:02:28,246 | INFO     | backend.commands:info:78 - [FAISS] Loaded index from ./memory/vector_store/faiss/faiss_index.index
+2025-08-30 20:02:28,292 | ERROR    | backend.commands:error:80 - [COMMANDS] Failed to import from backend.globals: cannot import name 'MEM' from partially initialized module 'backend.globals' (most likely due to a circular import) (/home/statiksmoke8/builds/GremlinGPT/backend/globals.py)
+2025-08-30 20:02:28,313 | INFO     | backend.commands:info:78 - [FAISS] Loaded index from ./memory/vector_store/faiss/faiss_index.index
+2025-08-30 20:02:28,352 | ERROR    | backend.commands:error:80 - [COMMANDS] Failed to import from backend.globals: cannot import name 'MEM' from partially initialized module 'backend.globals' (most likely due to a circular import) (/home/statiksmoke8/builds/GremlinGPT/backend/globals.py)
+2025-08-30 20:02:28,394 | INFO     | backend.commands:info:78 - [FAISS] Loaded index from ./memory/vector_store/faiss/faiss_index.index
+2025-08-30 20:02:28,432 | INFO     | backend.commands:info:78 - [FAISS] Loaded index from ./memory/vector_store/faiss/faiss_index.index
+2025-08-30 20:02:28,648 | INFO     | backend.commands:info:78 - [LOGGING] Module logger initialized for backend -> /home/statiksmoke8/builds/GremlinGPT/data/logs/backend/backend_commands.log
+2025-08-30 20:02:28,764 | ERROR    | backend.commands:error:80 - [COMMANDS] Failed to import from backend.globals: cannot import name 'MEM' from partially initialized module 'backend.globals' (most likely due to a circular import) (/home/statiksmoke8/builds/GremlinGPT/backend/globals.py)
+2025-08-30 20:02:28,862 | INFO     | backend.commands:info:78 - [FAISS] Loaded index from ./memory/vector_store/faiss/faiss_index.index
+2025-08-30 20:02:29,039 | INFO     | backend.commands:info:78 - [LOGGING] Module logger initialized for backend -> /home/statiksmoke8/builds/GremlinGPT/data/logs/backend/backend_commands.log
+2025-08-30 20:02:29,039 | ERROR    | backend.commands:error:80 - [EMBEDDER] chromadb import failed: No module named 'chromadb'
+2025-08-30 20:02:29,039 | ERROR    | backend.commands:error:80 - [COMMANDS] Failed to import from backend.globals: cannot import name 'MEM' from partially initialized module 'backend.globals' (most likely due to a circular import) (/home/statiksmoke8/builds/GremlinGPT/backend/globals.py)
+2025-08-30 20:02:29,039 | INFO     | backend.commands:info:78 - [FAISS] Loaded index from ./memory/vector_store/faiss/faiss_index.index
+2025-08-30 20:02:29,066 | INFO     | backend.commands:info:78 - [LOGGING] Module logger initialized for backend -> /home/statiksmoke8/builds/GremlinGPT/data/logs/backend/backend_commands.log
+2025-08-30 20:02:29,066 | ERROR    | backend.commands:error:80 - [EMBEDDER] chromadb import failed: No module named 'chromadb'
+2025-08-30 20:02:29,066 | ERROR    | backend.commands:error:80 - [COMMANDS] Failed to import from backend.globals: cannot import name 'MEM' from partially initialized module 'backend.globals' (most likely due to a circular import) (/home/statiksmoke8/builds/GremlinGPT/backend/globals.py)
+2025-08-30 20:02:29,066 | INFO     | backend.commands:info:78 - [FAISS] Loaded index from ./memory/vector_store/faiss/faiss_index.index
+2025-08-30 20:02:29,234 | INFO     | backend.commands:info:78 - [EMBEDDER] Loaded model: all-MiniLM-L6-v2
+2025-08-30 20:02:29,243 | INFO     | backend.commands:info:78 - [EMBEDDER] Initial disk load complete
+2025-08-30 20:02:29,246 | INFO     | backend.commands:info:78 - [EMBEDDER] Loaded model: all-MiniLM-L6-v2
+2025-08-30 20:02:29,255 | INFO     | backend.commands:info:78 - [EMBEDDER] Initial disk load complete
+2025-08-30 20:02:29,395 | INFO     | backend.commands:info:78 - [EMBEDDER] Loaded model: all-MiniLM-L6-v2
+2025-08-30 20:02:29,403 | INFO     | backend.commands:info:78 - [EMBEDDER] Initial disk load complete
+2025-08-30 20:02:29,461 | INFO     | backend.commands:info:78 - [EMBEDDER] Loaded model: all-MiniLM-L6-v2
+2025-08-30 20:02:29,469 | INFO     | backend.commands:info:78 - [EMBEDDER] Initial disk load complete
+2025-08-30 20:02:30,112 | INFO     | backend.commands:info:78 - [EMBEDDER] Loaded model: all-MiniLM-L6-v2
+2025-08-30 20:02:30,117 | INFO     | backend.commands:info:78 - [EMBEDDER] Loaded model: all-MiniLM-L6-v2
+2025-08-30 20:02:30,121 | INFO     | backend.commands:info:78 - [EMBEDDER] Initial disk load complete
+2025-08-30 20:02:30,126 | INFO     | backend.commands:info:78 - [EMBEDDER] Initial disk load complete
+2025-08-30 20:02:30,159 | INFO     | backend.commands:info:78 - [EMBEDDER] Loaded model: all-MiniLM-L6-v2
+2025-08-30 20:02:30,167 | INFO     | backend.commands:info:78 - [EMBEDDER] Initial disk load complete
+2025-08-30 20:09:01,350 | INFO     | backend.commands:info:78 - [LOGGING] Module logger initialized for backend -> /home/statiksmoke8/builds/GremlinGPT/data/logs/backend/backend_commands.log
+2025-08-30 20:09:01,350 | ERROR    | backend.commands:error:80 - [EMBEDDER] chromadb import failed: No module named 'chromadb'
+2025-08-30 20:09:01,350 | ERROR    | backend.commands:error:80 - [COMMANDS] Failed to import from backend.globals: cannot import name 'MEM' from partially initialized module 'backend.globals' (most likely due to a circular import) (/home/statiksmoke8/builds/GremlinGPT/backend/globals.py)
+2025-08-30 20:09:01,350 | INFO     | backend.commands:info:78 - [FAISS] Loaded index from ./memory/vector_store/faiss/faiss_index.index
+2025-08-30 20:09:02,374 | INFO     | backend.commands:info:78 - [EMBEDDER] Loaded model: all-MiniLM-L6-v2
+2025-08-30 20:09:02,381 | INFO     | backend.commands:info:78 - [EMBEDDER] Initial disk load complete
+2025-08-30 20:09:49,380 | INFO     | backend.commands:info:78 - [LOGGING] Module logger initialized for backend -> /home/statiksmoke8/builds/GremlinGPT/data/logs/backend/backend_commands.log
+2025-08-30 20:09:49,380 | ERROR    | backend.commands:error:80 - [EMBEDDER] chromadb import failed: No module named 'chromadb'
+2025-08-30 20:09:49,380 | ERROR    | backend.commands:error:80 - [COMMANDS] Failed to import from backend.globals: cannot import name 'MEM' from partially initialized module 'backend.globals' (most likely due to a circular import) (/home/statiksmoke8/builds/GremlinGPT/backend/globals.py)
+2025-08-30 20:09:49,380 | INFO     | backend.commands:info:78 - [FAISS] Loaded index from ./memory/vector_store/faiss/faiss_index.index
+2025-08-30 20:09:50,392 | INFO     | backend.commands:info:78 - [EMBEDDER] Loaded model: all-MiniLM-L6-v2
+2025-08-30 20:09:50,401 | INFO     | backend.commands:info:78 - [EMBEDDER] Initial disk load complete
+2025-08-30 20:31:17,420 | INFO     | backend.commands:info:78 - [LOGGING] Module logger initialized for backend -> /home/statiksmoke8/builds/GremlinGPT/data/logs/backend/backend_commands.log
+2025-08-30 20:31:17,420 | ERROR    | backend.commands:error:80 - [EMBEDDER] chromadb import failed: No module named 'chromadb'
+2025-08-30 20:31:19,558 | ERROR    | backend.commands:error:80 - [COMMANDS] Failed to import from backend.globals: cannot import name 'MEM' from partially initialized module 'environments.dashboard' (most likely due to a circular import) (/home/statiksmoke8/builds/GremlinGPT/environments/dashboard/__init__.py)
+2025-08-30 20:31:22,897 | INFO     | backend.commands:info:78 - [FAISS] Loaded index from ./memory/vector_store/faiss/faiss_index.index
+2025-08-30 20:31:24,078 | INFO     | backend.commands:info:78 - [EMBEDDER] Loaded model: all-MiniLM-L6-v2
+2025-08-30 20:31:24,086 | INFO     | backend.commands:info:78 - [EMBEDDER] Initial disk load complete
+2025-08-30 21:35:03,755 | INFO     | backend.commands:info:78 - [LOGGING] Module logger initialized for backend -> /home/statiksmoke8/builds/GremlinGPT/data/logs/backend/backend_commands.log
+2025-08-30 21:35:03,755 | ERROR    | backend.commands:error:80 - [EMBEDDER] chromadb import failed: No module named 'chromadb'
+2025-08-30 21:35:05,731 | ERROR    | backend.commands:error:80 - [COMMANDS] Failed to import from backend.globals: cannot import name 'VECTOR_STORE_PATH' from 'environments.dashboard' (/home/statiksmoke8/builds/GremlinGPT/environments/dashboard/__init__.py)
+2025-08-30 21:35:07,878 | INFO     | backend.commands:info:78 - [FAISS] Loaded index from ./memory/vector_store/faiss/faiss_index.index
+2025-08-30 21:35:08,800 | INFO     | backend.commands:info:78 - [EMBEDDER] Loaded model: all-MiniLM-L6-v2
+2025-08-30 21:35:08,806 | INFO     | backend.commands:info:78 - [EMBEDDER] Initial disk load complete
+2025-08-30 21:36:24,507 | INFO     | backend.commands:info:78 - [LOGGING] Module logger initialized for backend -> /home/statiksmoke8/builds/GremlinGPT/data/logs/backend/backend_commands.log
+2025-08-30 21:36:24,507 | ERROR    | backend.commands:error:80 - [EMBEDDER] chromadb import failed: No module named 'chromadb'
+2025-08-30 21:36:26,616 | ERROR    | backend.commands:error:80 - [COMMANDS] Failed to import from backend.globals: cannot import name 'VECTOR_STORE_PATH' from 'environments.dashboard' (/home/statiksmoke8/builds/GremlinGPT/environments/dashboard/__init__.py)
+2025-08-30 21:36:28,870 | INFO     | backend.commands:info:78 - [FAISS] Loaded index from ./memory/vector_store/faiss/faiss_index.index
+2025-08-30 21:36:29,935 | INFO     | backend.commands:info:78 - [EMBEDDER] Loaded model: all-MiniLM-L6-v2
+2025-08-30 21:36:29,942 | INFO     | backend.commands:info:78 - [EMBEDDER] Initial disk load complete
+2025-08-30 21:45:55,956 | INFO     | backend.commands:info:78 - [LOGGING] Module logger initialized for backend -> /home/statiksmoke8/builds/GremlinGPT/data/logs/backend/backend_commands.log
+2025-08-30 21:45:55,956 | ERROR    | backend.commands:error:80 - [EMBEDDER] chromadb import failed: No module named 'chromadb'
+2025-08-30 21:45:58,052 | ERROR    | backend.commands:error:80 - [COMMANDS] Failed to import from backend.globals: cannot import name 'VECTOR_STORE_PATH' from 'environments.dashboard' (/home/statiksmoke8/builds/GremlinGPT/environments/dashboard/__init__.py)
+2025-08-30 21:46:00,603 | INFO     | backend.commands:info:78 - [FAISS] Loaded index from ./memory/vector_store/faiss/faiss_index.index
+2025-08-30 21:46:01,821 | INFO     | backend.commands:info:78 - [EMBEDDER] Loaded model: all-MiniLM-L6-v2
+2025-08-30 21:46:01,829 | INFO     | backend.commands:info:78 - [EMBEDDER] Initial disk load complete
+2025-08-30 21:46:41,815 | INFO     | backend.commands:info:78 - [LOGGING] Module logger initialized for backend -> /home/statiksmoke8/builds/GremlinGPT/data/logs/backend/backend_commands.log
+2025-08-30 21:46:41,815 | ERROR    | backend.commands:error:80 - [EMBEDDER] chromadb import failed: No module named 'chromadb'
+2025-08-30 21:46:43,562 | ERROR    | backend.commands:error:80 - [COMMANDS] Failed to import from backend.globals: cannot import name 'VECTOR_STORE_PATH' from 'environments.dashboard' (/home/statiksmoke8/builds/GremlinGPT/environments/dashboard/__init__.py)
+2025-08-30 21:46:45,716 | INFO     | backend.commands:info:78 - [FAISS] Loaded index from ./memory/vector_store/faiss/faiss_index.index
+2025-08-30 21:46:46,613 | INFO     | backend.commands:info:78 - [EMBEDDER] Loaded model: all-MiniLM-L6-v2
+2025-08-30 21:46:46,621 | INFO     | backend.commands:info:78 - [EMBEDDER] Initial disk load complete
+2025-08-30 21:47:30,843 | INFO     | backend.commands:info:78 - [LOGGING] Module logger initialized for backend -> /home/statiksmoke8/builds/GremlinGPT/data/logs/backend/backend_commands.log
+2025-08-30 21:47:30,843 | ERROR    | backend.commands:error:80 - [EMBEDDER] chromadb import failed: No module named 'chromadb'
+2025-08-30 21:47:32,963 | ERROR    | backend.commands:error:80 - [COMMANDS] Failed to import from backend.globals: cannot import name 'VECTOR_STORE_PATH' from 'environments.dashboard' (/home/statiksmoke8/builds/GremlinGPT/environments/dashboard/__init__.py)
+2025-08-30 21:47:35,075 | INFO     | backend.commands:info:78 - [FAISS] Loaded index from ./memory/vector_store/faiss/faiss_index.index
+2025-08-30 21:47:36,197 | INFO     | backend.commands:info:78 - [EMBEDDER] Loaded model: all-MiniLM-L6-v2
+2025-08-30 21:47:36,204 | INFO     | backend.commands:info:78 - [EMBEDDER] Initial disk load complete
+2025-08-30 21:50:59,340 | INFO     | backend.commands:info:78 - [LOGGING] Module logger initialized for backend -> /home/statiksmoke8/builds/GremlinGPT/data/logs/backend/backend_commands.log
+2025-08-30 21:50:59,340 | ERROR    | backend.commands:error:80 - [EMBEDDER] chromadb import failed: No module named 'chromadb'
+2025-08-30 21:51:01,095 | ERROR    | backend.commands:error:80 - [COMMANDS] Failed to import from backend.globals: cannot import name 'VECTOR_STORE_PATH' from 'environments.dashboard' (/home/statiksmoke8/builds/GremlinGPT/environments/dashboard/__init__.py)
+2025-08-30 21:51:03,331 | INFO     | backend.commands:info:78 - [FAISS] Loaded index from ./memory/vector_store/faiss/faiss_index.index
+2025-08-30 21:51:04,271 | INFO     | backend.commands:info:78 - [EMBEDDER] Loaded model: all-MiniLM-L6-v2
+2025-08-30 21:51:04,279 | INFO     | backend.commands:info:78 - [EMBEDDER] Initial disk load complete
+2025-08-30 21:51:26,022 | INFO     | backend.commands:info:78 - [LOGGING] Module logger initialized for backend -> /home/statiksmoke8/builds/GremlinGPT/data/logs/backend/backend_commands.log
+2025-08-30 21:51:26,022 | ERROR    | backend.commands:error:80 - [EMBEDDER] chromadb import failed: No module named 'chromadb'
+2025-08-30 21:51:28,079 | ERROR    | backend.commands:error:80 - [COMMANDS] Failed to import from backend.globals: cannot import name 'VECTOR_STORE_PATH' from 'environments.dashboard' (/home/statiksmoke8/builds/GremlinGPT/environments/dashboard/__init__.py)
+2025-08-30 21:51:30,241 | INFO     | backend.commands:info:78 - [FAISS] Loaded index from ./memory/vector_store/faiss/faiss_index.index
+2025-08-30 21:51:31,222 | INFO     | backend.commands:info:78 - [EMBEDDER] Loaded model: all-MiniLM-L6-v2
+2025-08-30 21:51:31,232 | INFO     | backend.commands:info:78 - [EMBEDDER] Initial disk load complete
+2025-08-30 21:51:56,935 | INFO     | backend.commands:info:78 - [LOGGING] Module logger initialized for backend -> /home/statiksmoke8/builds/GremlinGPT/data/logs/backend/backend_commands.log
+2025-08-30 21:51:56,935 | ERROR    | backend.commands:error:80 - [EMBEDDER] chromadb import failed: No module named 'chromadb'
+2025-08-30 21:51:58,683 | ERROR    | backend.commands:error:80 - [COMMANDS] Failed to import from backend.globals: cannot import name 'VECTOR_STORE_PATH' from 'environments.dashboard' (/home/statiksmoke8/builds/GremlinGPT/environments/dashboard/__init__.py)
+2025-08-30 21:52:00,724 | INFO     | backend.commands:info:78 - [FAISS] Loaded index from ./memory/vector_store/faiss/faiss_index.index
+2025-08-30 21:52:01,651 | INFO     | backend.commands:info:78 - [EMBEDDER] Loaded model: all-MiniLM-L6-v2
+2025-08-30 21:52:01,657 | INFO     | backend.commands:info:78 - [EMBEDDER] Initial disk load complete
+2025-08-30 21:55:18,889 | INFO     | backend.commands:info:78 - [LOGGING] Module logger initialized for backend -> /home/statiksmoke8/builds/GremlinGPT/data/logs/backend/backend_commands.log
+2025-08-30 21:55:18,889 | ERROR    | backend.commands:error:80 - [EMBEDDER] chromadb import failed: No module named 'chromadb'
+2025-08-30 21:55:20,921 | ERROR    | backend.commands:error:80 - [COMMANDS] Failed to import from backend.globals: cannot import name 'VECTOR_STORE_PATH' from 'environments.dashboard' (/home/statiksmoke8/builds/GremlinGPT/environments/dashboard/__init__.py)
+2025-08-30 21:55:23,152 | INFO     | backend.commands:info:78 - [FAISS] Loaded index from ./memory/vector_store/faiss/faiss_index.index
+2025-08-30 21:55:24,071 | INFO     | backend.commands:info:78 - [EMBEDDER] Loaded model: all-MiniLM-L6-v2
+2025-08-30 21:55:24,077 | INFO     | backend.commands:info:78 - [EMBEDDER] Initial disk load complete
+2025-08-30 21:56:53,663 | INFO     | backend.commands:info:78 - [LOGGING] Module logger initialized for backend -> /home/statiksmoke8/builds/GremlinGPT/data/logs/backend/backend_commands.log
+2025-08-30 21:56:53,663 | ERROR    | backend.commands:error:80 - [EMBEDDER] chromadb import failed: No module named 'chromadb'
+2025-08-30 21:56:55,368 | ERROR    | backend.commands:error:80 - [COMMANDS] Failed to import from backend.globals: cannot import name 'VECTOR_STORE_PATH' from 'environments.dashboard' (/home/statiksmoke8/builds/GremlinGPT/environments/dashboard/__init__.py)
+2025-08-30 21:56:57,499 | INFO     | backend.commands:info:78 - [FAISS] Loaded index from ./memory/vector_store/faiss/faiss_index.index
+2025-08-30 21:56:58,414 | INFO     | backend.commands:info:78 - [EMBEDDER] Loaded model: all-MiniLM-L6-v2
+2025-08-30 21:56:58,422 | INFO     | backend.commands:info:78 - [EMBEDDER] Initial disk load complete
+2025-08-30 21:59:09,642 | INFO     | backend.commands:info:78 - [LOGGING] Module logger initialized for backend -> /home/statiksmoke8/builds/GremlinGPT/data/logs/backend/backend_commands.log
+2025-08-30 21:59:09,642 | ERROR    | backend.commands:error:80 - [EMBEDDER] chromadb import failed: No module named 'chromadb'
+2025-08-30 21:59:11,371 | ERROR    | backend.commands:error:80 - [COMMANDS] Failed to import from backend.globals: cannot import name 'VECTOR_STORE_PATH' from 'environments.dashboard' (/home/statiksmoke8/builds/GremlinGPT/environments/dashboard/__init__.py)
+2025-08-30 21:59:13,617 | INFO     | backend.commands:info:78 - [FAISS] Loaded index from ./memory/vector_store/faiss/faiss_index.index
+2025-08-30 21:59:14,535 | INFO     | backend.commands:info:78 - [EMBEDDER] Loaded model: all-MiniLM-L6-v2
+2025-08-30 21:59:14,543 | INFO     | backend.commands:info:78 - [EMBEDDER] Initial disk load complete
+2025-08-30 21:59:35,185 | INFO     | backend.commands:info:78 - [LOGGING] Module logger initialized for backend -> /home/statiksmoke8/builds/GremlinGPT/data/logs/backend/backend_commands.log
+2025-08-30 21:59:35,185 | ERROR    | backend.commands:error:80 - [EMBEDDER] chromadb import failed: No module named 'chromadb'
+2025-08-30 21:59:36,892 | ERROR    | backend.commands:error:80 - [COMMANDS] Failed to import from backend.globals: cannot import name 'VECTOR_STORE_PATH' from 'environments.dashboard' (/home/statiksmoke8/builds/GremlinGPT/environments/dashboard/__init__.py)
+2025-08-30 21:59:39,061 | INFO     | backend.commands:info:78 - [FAISS] Loaded index from ./memory/vector_store/faiss/faiss_index.index
+2025-08-30 21:59:40,034 | INFO     | backend.commands:info:78 - [EMBEDDER] Loaded model: all-MiniLM-L6-v2
+2025-08-30 21:59:40,042 | INFO     | backend.commands:info:78 - [EMBEDDER] Initial disk load complete
+2025-08-30 22:01:30,947 | INFO     | backend.commands:info:78 - [LOGGING] Module logger initialized for backend -> /home/statiksmoke8/builds/GremlinGPT/data/logs/backend/backend_commands.log
+2025-08-30 22:01:30,947 | ERROR    | backend.commands:error:80 - [EMBEDDER] chromadb import failed: No module named 'chromadb'
+2025-08-30 22:01:33,042 | ERROR    | backend.commands:error:80 - [COMMANDS] Failed to import from backend.globals: cannot import name 'VECTOR_STORE_PATH' from 'environments.dashboard' (/home/statiksmoke8/builds/GremlinGPT/environments/dashboard/__init__.py)
+2025-08-30 22:01:35,375 | INFO     | backend.commands:info:78 - [FAISS] Loaded index from ./memory/vector_store/faiss/faiss_index.index
+2025-08-30 22:01:36,380 | INFO     | backend.commands:info:78 - [EMBEDDER] Loaded model: all-MiniLM-L6-v2
+2025-08-30 22:01:36,387 | INFO     | backend.commands:info:78 - [EMBEDDER] Initial disk load complete
+2025-08-30 22:02:14,359 | INFO     | backend.commands:info:78 - [LOGGING] Module logger initialized for backend -> /home/statiksmoke8/builds/GremlinGPT/data/logs/backend/backend_commands.log
+2025-08-30 22:02:16,303 | ERROR    | backend.commands:error:80 - [COMMANDS] Failed to import from backend.globals: cannot import name 'VECTOR_STORE_PATH' from 'environments.dashboard' (/home/statiksmoke8/builds/GremlinGPT/environments/dashboard/__init__.py)
+2025-08-30 22:02:18,795 | INFO     | backend.commands:info:78 - [FAISS] Loaded index from ./memory/vector_store/faiss/faiss_index.index
+2025-08-30 22:02:19,946 | INFO     | backend.commands:info:78 - [EMBEDDER] Loaded model: all-MiniLM-L6-v2
+2025-08-30 22:02:19,954 | INFO     | backend.commands:info:78 - [EMBEDDER] Initial disk load complete
+2025-08-30 22:04:57,007 | INFO     | backend.commands:info:78 - [LOGGING] Module logger initialized for backend -> /home/statiksmoke8/builds/GremlinGPT/data/logs/backend/backend_commands.log
+2025-08-30 22:04:57,008 | ERROR    | backend.commands:error:80 - [EMBEDDER] chromadb import failed: No module named 'chromadb'
+2025-08-30 22:04:59,077 | ERROR    | backend.commands:error:80 - [COMMANDS] Failed to import from backend.globals: cannot import name 'VECTOR_STORE_PATH' from 'environments.dashboard' (/home/statiksmoke8/builds/GremlinGPT/environments/dashboard/__init__.py)
+2025-08-30 22:05:01,386 | INFO     | backend.commands:info:78 - [FAISS] Loaded index from ./memory/vector_store/faiss/faiss_index.index
+2025-08-30 22:05:02,506 | INFO     | backend.commands:info:78 - [EMBEDDER] Loaded model: all-MiniLM-L6-v2
+2025-08-30 22:05:02,512 | INFO     | backend.commands:info:78 - [EMBEDDER] Initial disk load complete
+2025-08-30 22:06:58,168 | INFO     | backend.commands:info:78 - [LOGGING] Module logger initialized for backend -> /home/statiksmoke8/builds/GremlinGPT/data/logs/backend/backend_commands.log
+2025-08-30 22:06:58,168 | ERROR    | backend.commands:error:80 - [EMBEDDER] chromadb import failed: No module named 'chromadb'
+2025-08-30 22:07:00,022 | ERROR    | backend.commands:error:80 - [COMMANDS] Failed to import from backend.globals: cannot import name 'VECTOR_STORE_PATH' from 'environments.dashboard' (/home/statiksmoke8/builds/GremlinGPT/environments/dashboard/__init__.py)
+2025-08-30 22:07:02,317 | INFO     | backend.commands:info:78 - [FAISS] Loaded index from ./memory/vector_store/faiss/faiss_index.index
+2025-08-30 22:07:03,347 | INFO     | backend.commands:info:78 - [EMBEDDER] Loaded model: all-MiniLM-L6-v2
+2025-08-30 22:07:03,355 | INFO     | backend.commands:info:78 - [EMBEDDER] Initial disk load complete
+2025-08-30 22:13:06,553 | INFO     | backend.commands:info:78 - [LOGGING] Module logger initialized for backend -> /home/statiksmoke8/builds/GremlinGPT/data/logs/backend/backend_commands.log
+2025-08-30 22:13:06,553 | ERROR    | backend.commands:error:80 - [EMBEDDER] chromadb import failed: No module named 'chromadb'
+2025-08-30 22:13:08,320 | ERROR    | backend.commands:error:80 - [COMMANDS] Failed to import from backend.globals: cannot import name 'FAISS_PATH' from 'environments.dashboard' (/home/statiksmoke8/builds/GremlinGPT/environments/dashboard/__init__.py)
+2025-08-30 22:13:10,644 | INFO     | backend.commands:info:78 - [FAISS] Loaded index from ./memory/vector_store/faiss/faiss_index.index
+2025-08-30 22:13:11,754 | INFO     | backend.commands:info:78 - [EMBEDDER] Loaded model: all-MiniLM-L6-v2
+2025-08-30 22:13:11,761 | INFO     | backend.commands:info:78 - [EMBEDDER] Initial disk load complete
+2025-08-30 22:15:16,750 | INFO     | backend.commands:info:78 - [LOGGING] Module logger initialized for backend -> /home/statiksmoke8/builds/GremlinGPT/data/logs/backend/backend_commands.log
+2025-08-30 22:15:16,751 | ERROR    | backend.commands:error:80 - [EMBEDDER] chromadb import failed: No module named 'chromadb'
+2025-08-30 22:15:18,816 | ERROR    | backend.commands:error:80 - [COMMANDS] Failed to import from backend.globals: cannot import name 'FAISS_PATH' from 'environments.dashboard' (/home/statiksmoke8/builds/GremlinGPT/environments/dashboard/__init__.py)
+2025-08-30 22:15:21,326 | INFO     | backend.commands:info:78 - [FAISS] Loaded index from ./memory/vector_store/faiss/faiss_index.index
+2025-08-30 22:15:22,405 | INFO     | backend.commands:info:78 - [EMBEDDER] Loaded model: all-MiniLM-L6-v2
+2025-08-30 22:15:22,412 | INFO     | backend.commands:info:78 - [EMBEDDER] Initial disk load complete
+2025-08-30 22:24:31,224 | INFO     | backend.commands:info:78 - [LOGGING] Module logger initialized for backend -> /home/statiksmoke8/builds/GremlinGPT/data/logs/backend/backend_commands.log
+2025-08-30 22:24:31,224 | ERROR    | backend.commands:error:80 - [EMBEDDER] chromadb import failed: No module named 'chromadb'
+2025-08-30 22:24:32,929 | ERROR    | backend.commands:error:80 - [COMMANDS] Failed to import from backend.globals: cannot import name 'CHROMA_PATH' from 'environments.dashboard' (/home/statiksmoke8/builds/GremlinGPT/environments/dashboard/__init__.py)
+2025-08-30 22:24:35,161 | INFO     | backend.commands:info:78 - [FAISS] Loaded index from ./memory/vector_store/faiss/faiss_index.index
+2025-08-30 22:24:36,137 | INFO     | backend.commands:info:78 - [EMBEDDER] Loaded model: all-MiniLM-L6-v2
+2025-08-30 22:24:36,145 | INFO     | backend.commands:info:78 - [EMBEDDER] Initial disk load complete
+2025-08-30 22:25:51,324 | INFO     | backend.commands:info:78 - [LOGGING] Module logger initialized for backend -> /home/statiksmoke8/builds/GremlinGPT/data/logs/backend/backend_commands.log
+2025-08-30 22:25:51,324 | ERROR    | backend.commands:error:80 - [EMBEDDER] chromadb import failed: No module named 'chromadb'
+2025-08-30 22:25:53,468 | ERROR    | backend.commands:error:80 - [COMMANDS] Failed to import from backend.globals: cannot import name 'LOCAL_INDEX_PATH' from 'environments.dashboard' (/home/statiksmoke8/builds/GremlinGPT/environments/dashboard/__init__.py)
+2025-08-30 22:25:55,731 | INFO     | backend.commands:info:78 - [FAISS] Loaded index from ./memory/vector_store/faiss/faiss_index.index
+2025-08-30 22:25:56,704 | INFO     | backend.commands:info:78 - [EMBEDDER] Loaded model: all-MiniLM-L6-v2
+2025-08-30 22:25:56,711 | INFO     | backend.commands:info:78 - [EMBEDDER] Initial disk load complete
+2025-08-30 22:37:59,098 | INFO     | backend.commands:info:78 - [LOGGING] Module logger initialized for backend -> /home/statiksmoke8/builds/GremlinGPT/data/logs/backend/backend_commands.log
+2025-08-30 22:37:59,099 | ERROR    | backend.commands:error:80 - [EMBEDDER] chromadb import failed: No module named 'chromadb'
+2025-08-30 22:38:01,160 | ERROR    | backend.commands:error:80 - [COMMANDS] Failed to import from backend.globals: cannot import name 'LOCAL_INDEX_PATH' from 'environments.dashboard' (/home/statiksmoke8/builds/GremlinGPT/environments/dashboard/__init__.py)
+2025-08-30 22:38:03,502 | INFO     | backend.commands:info:78 - [FAISS] Loaded index from ./memory/vector_store/faiss/faiss_index.index
+2025-08-30 22:38:04,646 | INFO     | backend.commands:info:78 - [EMBEDDER] Loaded model: all-MiniLM-L6-v2
+2025-08-30 22:38:04,655 | INFO     | backend.commands:info:78 - [EMBEDDER] Initial disk load complete

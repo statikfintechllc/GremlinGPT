@@ -17,7 +17,7 @@ from datetime import datetime
 try:
     from scraper.playwright_handler import get_dom_html
     from scraper.page_simulator import store_scrape_to_memory
-    from backend.globals import CFG, logger
+    from environments.scraper import CFG, logger
     from agent_core.task_queue import fetch_task
     from memory.log_history import log_event
 except Exception as import_err:

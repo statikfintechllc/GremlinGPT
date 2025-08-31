@@ -11,7 +11,7 @@
 # This script is a component of the GremlinGPT system, under Alpha expansion.
 
 from playwright.async_api import async_playwright, TimeoutError
-from backend.globals import CFG, logger
+from environments.scraper import CFG, logger
 from datetime import datetime
 
 ORIGIN = "playwright_handler"

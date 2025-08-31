@@ -29,9 +29,10 @@ mkdir -p "$LOGDIR"
 
 # --- Port Management ---
 # Define unique ports for each service to avoid conflicts
+# Backend uses port from config (8080), frontend uses Astro dev server (4321)
 declare -A SERVICE_PORTS=(
-  ["backend"]="8000"
-  ["frontend"]="8080"
+  ["backend"]="8080"
+  ["frontend"]="4321"
   ["nlp"]="8001"
   ["memory"]="8002"
   ["fsm"]="8003"
@@ -317,7 +318,7 @@ launch_terminal "FSM Agent" gremlin-nlp "python -m agent_core.fsm" "$LOGDIR/fsm.
 launch_terminal "Scraper" gremlin-scraper "python -m scraper.scraper_loop" "$LOGDIR/scraper.out" "${SERVICE_PORTS[scraper]}"
 launch_terminal "Self-Trainer" gremlin-orchestrator "python -m self_training.trainer" "$LOGDIR/trainer.out" "${SERVICE_PORTS[trainer]}"
 launch_terminal "Backend Server" gremlin-dashboard "python -m backend.server" "$LOGDIR/backend.out" "${SERVICE_PORTS[backend]}"
-launch_terminal "Frontend" gremlin-dashboard "python3 -m http.server ${SERVICE_PORTS[frontend]} --directory frontend" "$LOGDIR/frontend.out" "${SERVICE_PORTS[frontend]}"
+launch_terminal "Frontend" gremlin-dashboard "cd frontend && npm run dev" "$LOGDIR/frontend.out" "${SERVICE_PORTS[frontend]}"
 launch_terminal "Ngrok Tunnel" gremlin-dashboard "python run/ngrok_launcher.py" "$LOGDIR/ngrok.out" "${SERVICE_PORTS[ngrok]}"
 
 # --- Wait for services to initialize ---

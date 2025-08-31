@@ -9,7 +9,11 @@
 
 # GremlinGPT v1.0.3 :: Module Integrity Directive
 
-from backend.globals import CFG, logger, resolve_path, DATA_DIR, MEM
+import os
+import json
+import numpy as np
+from environments.orchestrator import CFG, logger, resolve_path, DATA_DIR, MEM
+from watchdog.events import FileSystemEventHandler
 try:
     from nlp_engine.mini_attention import MiniMultiHeadAttention
 except ImportError:

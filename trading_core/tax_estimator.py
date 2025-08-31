@@ -11,7 +11,7 @@
 # This script is a component of the GremlinGPT system, under Alpha expansion.
 
 # Refactored to use centralized imports
-from backend.globals import logger, datetime
+from environments.orchestrator import logger, datetime
 
 DEFAULT_TAX_RATE = 0.15  # Can be made dynamic via config or input
 

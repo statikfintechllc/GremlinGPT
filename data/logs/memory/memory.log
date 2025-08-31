@@ -225,3 +225,97 @@
 2025-07-20 01:46:15.460 | ERROR    | memory.vector_store.embedder:<module>:35 - [EMBEDDER] chromadb import failed: No module named 'chromadb'
 2025-07-20 01:46:26.997 | INFO     | utils.logging_config:setup_module_logger:113 - [LOGGING] Module logger initialized for memory -> /home/statiksmoke8/Ascend-Institute/GremlinGPT/tests/../data/logs/memory/memory.log
 2025-07-20 01:46:26.997 | ERROR    | memory.vector_store.embedder:<module>:35 - [EMBEDDER] chromadb import failed: No module named 'chromadb'
+2025-08-30 22:37:28,822 | INFO     | memory:info:78 - [LOGGING] Module logger initialized for memory -> /home/statiksmoke8/builds/GremlinGPT/data/logs/memory/memory.log
+2025-08-30 22:37:28,823 | INFO     | memory:info:78 - [MEMORY] Loaded 10 memory entries from JSON
+2025-08-30 22:37:28,823 | WARNING  | memory:warning:79 - [MEMORY] Failed to import MemoryManager from memory.memory_manager: No module named 'memory.memory_manager'
+2025-08-30 22:37:28,823 | WARNING  | memory:warning:79 - [MEMORY] Failed to import GraphManager from memory.graph_manager: No module named 'memory.graph_manager'
+2025-08-30 22:37:28,823 | WARNING  | memory:warning:79 - [MEMORY] Failed to import VectorStore from memory.vector_store: module 'memory.vector_store' has no attribute 'VectorStore'
+2025-08-30 22:37:28,823 | WARNING  | memory:warning:79 - [MEMORY] Failed to import KnowledgeGraph from memory.knowledge_graph: No module named 'memory.knowledge_graph'
+2025-08-30 22:37:28,823 | INFO     | memory:info:78 - [MEMORY] Memory environment globals loaded successfully. 70 items exported.
+2025-08-30 22:37:28,827 | ERROR    | memory:error:80 - [FAISS] faiss unavailable; index not initialized
+2025-08-30 22:37:28,827 | ERROR    | memory:error:80 - [EMBEDDER] SentenceTransformer unavailable; using fallback
+2025-08-30 22:37:28,838 | INFO     | memory:info:78 - [EMBEDDER] Initial disk load complete
+2025-08-30 22:37:58,338 | INFO     | memory:info:78 - [LOGGING] Module logger initialized for memory -> /home/statiksmoke8/builds/GremlinGPT/data/logs/memory/memory.log
+2025-08-30 22:37:58,431 | INFO     | memory:info:78 - [LOGGING] Module logger initialized for memory -> /home/statiksmoke8/builds/GremlinGPT/data/logs/memory/memory.log
+2025-08-30 22:37:58,625 | INFO     | memory:info:78 - [MEMORY] Initialized NetworkX graph database
+2025-08-30 22:37:58,625 | INFO     | memory:info:78 - [MEMORY] Created new FAISS index (dim=384)
+2025-08-30 22:37:58,625 | INFO     | memory:info:78 - [MEMORY] Loaded 10 memory entries from JSON
+2025-08-30 22:37:58,625 | WARNING  | memory:warning:79 - [MEMORY] Failed to import MemoryManager from memory.memory_manager: No module named 'memory.memory_manager'
+2025-08-30 22:37:58,625 | WARNING  | memory:warning:79 - [MEMORY] Failed to import GraphManager from memory.graph_manager: No module named 'memory.graph_manager'
+2025-08-30 22:37:58,625 | WARNING  | memory:warning:79 - [MEMORY] Failed to import VectorStore from memory.vector_store: module 'memory.vector_store' has no attribute 'VectorStore'
+2025-08-30 22:37:58,625 | WARNING  | memory:warning:79 - [MEMORY] Failed to import KnowledgeGraph from memory.knowledge_graph: No module named 'memory.knowledge_graph'
+2025-08-30 22:37:58,625 | INFO     | memory:info:78 - [MEMORY] Memory environment globals loaded successfully. 70 items exported.
+2025-08-30 22:37:58,671 | INFO     | memory:info:78 - [LOGGING] Module logger initialized for memory -> /home/statiksmoke8/builds/GremlinGPT/data/logs/memory/memory.log
+2025-08-30 22:37:58,730 | INFO     | memory:info:78 - [MEMORY] Initialized NetworkX graph database
+2025-08-30 22:37:58,730 | INFO     | memory:info:78 - [MEMORY] Loaded 10 memory entries from JSON
+2025-08-30 22:37:58,731 | WARNING  | memory:warning:79 - [MEMORY] Failed to import MemoryManager from memory.memory_manager: No module named 'memory.memory_manager'
+2025-08-30 22:37:58,731 | WARNING  | memory:warning:79 - [MEMORY] Failed to import GraphManager from memory.graph_manager: No module named 'memory.graph_manager'
+2025-08-30 22:37:58,731 | WARNING  | memory:warning:79 - [MEMORY] Failed to import VectorStore from memory.vector_store: module 'memory.vector_store' has no attribute 'VectorStore'
+2025-08-30 22:37:58,731 | WARNING  | memory:warning:79 - [MEMORY] Failed to import KnowledgeGraph from memory.knowledge_graph: No module named 'memory.knowledge_graph'
+2025-08-30 22:37:58,731 | INFO     | memory:info:78 - [MEMORY] Memory environment globals loaded successfully. 70 items exported.
+2025-08-30 22:37:58,731 | INFO     | memory:info:78 - [MEMORY] Initialized NetworkX graph database
+2025-08-30 22:37:58,731 | INFO     | memory:info:78 - [MEMORY] Created new FAISS index (dim=384)
+2025-08-30 22:37:58,731 | INFO     | memory:info:78 - [MEMORY] Loaded 10 memory entries from JSON
+2025-08-30 22:37:58,731 | WARNING  | memory:warning:79 - [MEMORY] Failed to import MemoryManager from memory.memory_manager: No module named 'memory.memory_manager'
+2025-08-30 22:37:58,731 | WARNING  | memory:warning:79 - [MEMORY] Failed to import GraphManager from memory.graph_manager: No module named 'memory.graph_manager'
+2025-08-30 22:37:58,731 | WARNING  | memory:warning:79 - [MEMORY] Failed to import VectorStore from memory.vector_store: module 'memory.vector_store' has no attribute 'VectorStore'
+2025-08-30 22:37:58,731 | WARNING  | memory:warning:79 - [MEMORY] Failed to import KnowledgeGraph from memory.knowledge_graph: No module named 'memory.knowledge_graph'
+2025-08-30 22:37:58,731 | INFO     | memory:info:78 - [MEMORY] Memory environment globals loaded successfully. 70 items exported.
+2025-08-30 22:37:58,877 | INFO     | memory:info:78 - [LOGGING] Module logger initialized for memory -> /home/statiksmoke8/builds/GremlinGPT/data/logs/memory/memory.log
+2025-08-30 22:37:58,935 | INFO     | memory:info:78 - [LOGGING] Module logger initialized for memory -> /home/statiksmoke8/builds/GremlinGPT/data/logs/memory/memory.log
+2025-08-30 22:37:59,203 | INFO     | memory:info:78 - [MEMORY] Initialized NetworkX graph database
+2025-08-30 22:37:59,203 | INFO     | memory:info:78 - [MEMORY] Created new FAISS index (dim=384)
+2025-08-30 22:37:59,203 | INFO     | memory:info:78 - [MEMORY] Loaded 10 memory entries from JSON
+2025-08-30 22:37:59,203 | WARNING  | memory:warning:79 - [MEMORY] Failed to import MemoryManager from memory.memory_manager: No module named 'memory.memory_manager'
+2025-08-30 22:37:59,203 | WARNING  | memory:warning:79 - [MEMORY] Failed to import GraphManager from memory.graph_manager: No module named 'memory.graph_manager'
+2025-08-30 22:37:59,203 | WARNING  | memory:warning:79 - [MEMORY] Failed to import VectorStore from memory.vector_store: module 'memory.vector_store' has no attribute 'VectorStore'
+2025-08-30 22:37:59,203 | WARNING  | memory:warning:79 - [MEMORY] Failed to import KnowledgeGraph from memory.knowledge_graph: No module named 'memory.knowledge_graph'
+2025-08-30 22:37:59,203 | INFO     | memory:info:78 - [MEMORY] Memory environment globals loaded successfully. 70 items exported.
+2025-08-30 22:37:59,307 | INFO     | memory:info:78 - [MEMORY] Initialized NetworkX graph database
+2025-08-30 22:37:59,307 | INFO     | memory:info:78 - [MEMORY] Created new FAISS index (dim=384)
+2025-08-30 22:37:59,307 | INFO     | memory:info:78 - [MEMORY] Loaded 10 memory entries from JSON
+2025-08-30 22:37:59,307 | WARNING  | memory:warning:79 - [MEMORY] Failed to import MemoryManager from memory.memory_manager: No module named 'memory.memory_manager'
+2025-08-30 22:37:59,307 | WARNING  | memory:warning:79 - [MEMORY] Failed to import GraphManager from memory.graph_manager: No module named 'memory.graph_manager'
+2025-08-30 22:37:59,307 | WARNING  | memory:warning:79 - [MEMORY] Failed to import VectorStore from memory.vector_store: module 'memory.vector_store' has no attribute 'VectorStore'
+2025-08-30 22:37:59,307 | WARNING  | memory:warning:79 - [MEMORY] Failed to import KnowledgeGraph from memory.knowledge_graph: No module named 'memory.knowledge_graph'
+2025-08-30 22:37:59,307 | INFO     | memory:info:78 - [MEMORY] Memory environment globals loaded successfully. 70 items exported.
+2025-08-30 22:38:02,521 | INFO     | memory:info:78 - [LOGGING] Module logger initialized for memory -> /home/statiksmoke8/builds/GremlinGPT/data/logs/memory/memory.log
+2025-08-30 22:38:02,523 | INFO     | memory:info:78 - [MEMORY] Initialized NetworkX graph database
+2025-08-30 22:38:02,523 | INFO     | memory:info:78 - [MEMORY] Created new FAISS index (dim=384)
+2025-08-30 22:38:02,523 | INFO     | memory:info:78 - [MEMORY] Loaded 10 memory entries from JSON
+2025-08-30 22:38:02,523 | WARNING  | memory:warning:79 - [MEMORY] Failed to import MemoryManager from memory.memory_manager: No module named 'memory.memory_manager'
+2025-08-30 22:38:02,523 | WARNING  | memory:warning:79 - [MEMORY] Failed to import GraphManager from memory.graph_manager: No module named 'memory.graph_manager'
+2025-08-30 22:38:02,523 | WARNING  | memory:warning:79 - [MEMORY] Failed to import VectorStore from memory.vector_store: module 'memory.vector_store' has no attribute 'VectorStore'
+2025-08-30 22:38:02,523 | WARNING  | memory:warning:79 - [MEMORY] Failed to import KnowledgeGraph from memory.knowledge_graph: No module named 'memory.knowledge_graph'
+2025-08-30 22:38:02,523 | INFO     | memory:info:78 - [MEMORY] Memory environment globals loaded successfully. 70 items exported.
+2025-08-30 22:38:02,542 | ERROR    | memory:error:80 - [EMBEDDER] Failed to initialize Chroma client: no such column: collections.topic
+2025-08-30 22:38:02,542 | INFO     | memory:info:78 - [FAISS] Loaded index from ./memory/vector_store/faiss/faiss_index.index
+2025-08-30 22:38:02,571 | ERROR    | memory:error:80 - [FAISS] faiss unavailable; index not initialized
+2025-08-30 22:38:02,861 | INFO     | memory:info:78 - [FAISS] Loaded index from ./memory/vector_store/faiss/faiss_index.index
+2025-08-30 22:38:02,942 | INFO     | memory:info:78 - [FAISS] Loaded index from ./memory/vector_store/faiss/faiss_index.index
+2025-08-30 22:38:03,107 | INFO     | memory:info:78 - [FAISS] Loaded index from ./memory/vector_store/faiss/faiss_index.index
+2025-08-30 22:38:03,516 | INFO     | memory:info:78 - [FAISS] Loaded index from ./memory/vector_store/faiss/faiss_index.index
+2025-08-30 22:38:03,673 | INFO     | memory:info:78 - [EMBEDDER] Loaded model: all-MiniLM-L6-v2
+2025-08-30 22:38:03,681 | INFO     | memory:info:78 - [EMBEDDER] Initial disk load complete
+2025-08-30 22:38:03,742 | INFO     | memory:info:78 - [EMBEDDER] Loaded model: all-MiniLM-L6-v2
+2025-08-30 22:38:03,751 | INFO     | memory:info:78 - [EMBEDDER] Initial disk load complete
+2025-08-30 22:38:03,851 | INFO     | memory:info:78 - [EMBEDDER] Loaded model: all-MiniLM-L6-v2
+2025-08-30 22:38:03,860 | INFO     | memory:info:78 - [EMBEDDER] Initial disk load complete
+2025-08-30 22:38:03,861 | INFO     | memory:info:78 - [EMBEDDER] Loaded model: all-MiniLM-L6-v2
+2025-08-30 22:38:03,870 | INFO     | memory:info:78 - [EMBEDDER] Initial disk load complete
+2025-08-30 22:38:04,062 | INFO     | memory:info:78 - [EMBEDDER] Loaded model: all-MiniLM-L6-v2
+2025-08-30 22:38:04,070 | INFO     | memory:info:78 - [EMBEDDER] Initial disk load complete
+2025-08-30 22:38:04,515 | INFO     | memory:info:78 - [EMBEDDER] Loaded model: all-MiniLM-L6-v2
+2025-08-30 22:38:04,524 | INFO     | memory:info:78 - [EMBEDDER] Initial disk load complete
+2025-08-30 22:38:04,656 | INFO     | memory:info:78 - [LOGGING] Module logger initialized for memory -> /home/statiksmoke8/builds/GremlinGPT/data/logs/memory/memory.log
+2025-08-30 22:38:04,659 | INFO     | memory:info:78 - [MEMORY] Initialized NetworkX graph database
+2025-08-30 22:38:04,659 | INFO     | memory:info:78 - [MEMORY] Created new FAISS index (dim=384)
+2025-08-30 22:38:04,659 | INFO     | memory:info:78 - [MEMORY] Loaded 10 memory entries from JSON
+2025-08-30 22:38:04,659 | WARNING  | memory:warning:79 - [MEMORY] Failed to import MemoryManager from memory.memory_manager: No module named 'memory.memory_manager'
+2025-08-30 22:38:04,659 | WARNING  | memory:warning:79 - [MEMORY] Failed to import GraphManager from memory.graph_manager: No module named 'memory.graph_manager'
+2025-08-30 22:38:04,659 | WARNING  | memory:warning:79 - [MEMORY] Failed to import VectorStore from memory.vector_store: module 'memory.vector_store' has no attribute 'VectorStore'
+2025-08-30 22:38:04,659 | WARNING  | memory:warning:79 - [MEMORY] Failed to import KnowledgeGraph from memory.knowledge_graph: No module named 'memory.knowledge_graph'
+2025-08-30 22:38:04,659 | INFO     | memory:info:78 - [MEMORY] Memory environment globals loaded successfully. 70 items exported.
+2025-08-30 22:38:04,659 | INFO     | memory:info:78 - [FAISS] Loaded index from ./memory/vector_store/faiss/faiss_index.index
+2025-08-30 22:38:05,745 | INFO     | memory:info:78 - [EMBEDDER] Loaded model: all-MiniLM-L6-v2
+2025-08-30 22:38:05,753 | INFO     | memory:info:78 - [EMBEDDER] Initial disk load complete

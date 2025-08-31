@@ -1,7 +1,7 @@
 # backend/api/summarizer.py
 # Refactored to use centralized imports from backend.globals
 
-from backend.globals import logger
+from environments.dashboard import logger
 
 def summarize_text(text):
     """Stub summarizer: returns the first 128 characters with ellipsis if too long."""

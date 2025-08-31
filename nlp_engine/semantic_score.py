@@ -19,7 +19,7 @@ from utils.logging_config import setup_module_logger
 
 # Initialize module-specific logger
 logger = setup_module_logger("nlp_engine", "semantic_score")
-from backend.globals import CFG
+from environments.nlp import CFG
 from sentence_transformers import SentenceTransformer, util
 from utils.nltk_setup import setup_nltk_data
 import nltk
@@ -93,7 +93,7 @@ def _get_model(lang_code):
     if model_name not in _model_cache:
         try:
             logger.info(f"[{ENGINE_NAME}] Loading model: {model_name}")
-            from backend.globals import CFG
+            from environments.nlp import CFG
 
             device = CFG.get("nlp", {}).get("device", "auto")
             if device == "auto":

@@ -2,3 +2,6 @@
 2025-07-20 01:46:04.396 | INFO     | utils.logging_config:setup_module_logger:113 - [LOGGING] Module logger initialized for scraper -> /home/statiksmoke8/Ascend-Institute/GremlinGPT/tests/../data/logs/scraper/scraper_source_router.log
 2025-07-20 01:46:19.481 | INFO     | utils.logging_config:setup_module_logger:113 - [LOGGING] Module logger initialized for scraper -> /home/statiksmoke8/Ascend-Institute/GremlinGPT/tests/../data/logs/scraper/scraper_source_router.log
 2025-07-20 01:46:30.945 | INFO     | utils.logging_config:setup_module_logger:113 - [LOGGING] Module logger initialized for scraper -> /home/statiksmoke8/Ascend-Institute/GremlinGPT/tests/../data/logs/scraper/scraper_source_router.log
+2025-08-30 22:24:37,438 | INFO     | scraper.source_router:info:78 - [LOGGING] Module logger initialized for scraper -> /home/statiksmoke8/builds/GremlinGPT/data/logs/scraper/scraper_source_router.log
+2025-08-30 22:25:58,045 | INFO     | scraper.source_router:info:78 - [LOGGING] Module logger initialized for scraper -> /home/statiksmoke8/builds/GremlinGPT/data/logs/scraper/scraper_source_router.log
+2025-08-30 22:38:06,126 | INFO     | scraper.source_router:info:78 - [LOGGING] Module logger initialized for scraper -> /home/statiksmoke8/builds/GremlinGPT/data/logs/scraper/scraper_source_router.log

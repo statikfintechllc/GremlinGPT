@@ -13,7 +13,7 @@
 from transformers import AutoModel, AutoTokenizer
 import torch
 import numpy as np
-from backend.globals import CFG, logger
+from environments.nlp import CFG, logger
 
 # ─────────────────────────────────────────────
 # Config Load
@@ -35,6 +35,57 @@ except Exception as e:
     logger.error(f"[TRANSFORMER] Failed to load model '{MODEL_NAME}': {e}")
     tokenizer = None
     model = None
+
+
+# ─────────────────────────────────────────────
+class TransformerCore:
+    """Core transformer model class for GremlinGPT NLP processing."""
+    
+    def __init__(self):
+        self.tokenizer = tokenizer
+        self.model = model
+        self.device = DEVICE
+        
+    def forward(self, tokens):
+        """Forward pass for compatibility with nlp_check."""
+        if isinstance(tokens, list):
+            text = " ".join(tokens)
+        else:
+            text = str(tokens)
+        return self.encode(text)
+        
+    def process(self, tokens):
+        """Process tokens (alias for forward)."""
+        return self.forward(tokens)
+        
+    def encode(self, text):
+        """
+        Encodes input text using the configured transformer model.
+        Returns a float32 numpy vector.
+        """
+        if not self.tokenizer or not self.model:
+            logger.warning("[TRANSFORMER] Model not initialized. Returning zeros.")
+            return np.zeros(EMBEDDING_DIM, dtype=np.float32)
+
+        try:
+            inputs = self.tokenizer(
+                text,
+                return_tensors="pt",
+                truncation=True,
+                padding=True,
+                max_length=512,
+            )
+            # Move inputs to same device as model
+            inputs = {k: v.to(self.device) for k, v in inputs.items()}
+            with torch.no_grad():
+                outputs = self.model(**inputs)
+
+            vector = outputs.last_hidden_state.mean(dim=1).squeeze()
+            return vector.cpu().numpy().astype(np.float32)
+
+        except Exception as e:
+            logger.error(f"[TRANSFORMER] Encoding failed: {e}")
+            return np.zeros(EMBEDDING_DIM, dtype=np.float32)
 
 
 # ─────────────────────────────────────────────

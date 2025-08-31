@@ -11,11 +11,16 @@
 # Self-improving tokenizer for GremlinGPT.
 # This script is a component of the GremlinGPT system, under Alpha expansion.
 
-# Refactored to use centralized imports from backend.globals
-from backend.globals import (
-    re, transformers, CFG, logger, datetime, nltk, 
-    embed_text, package_embedding, inject_watermark
+# Refactored to use centralized imports from NLP environment
+from environments.nlp import (
+    re, transformers, CFG, logger, datetime, nltk
 )
+
+# Import custom functions separately to avoid circular imports
+try:
+    from memory.vector_store.embedder import embed_text, package_embedding, inject_watermark
+except ImportError:
+    embed_text = package_embedding = inject_watermark = None
 
 # Local project imports that can't be centralized
 try:

@@ -1,2 +1,49 @@
-[NLTK] Found punkt in /home/statiksmoke8/builds/GremlinGPT/data/nltk_data
-[NLTK] Found punkt_tab in /home/statiksmoke8/builds/GremlinGPT/data/nltk_data
+2025-08-30 22:37:58,650 - orchestrator - INFO - [ORCHESTRATOR] PID 1549568 written to /home/statiksmoke8/builds/GremlinGPT/run/orchestrator.pid
+2025-08-30 22:37:58,650 - orchestrator - INFO - [ORCHESTRATOR] Orchestrator environment globals loaded successfully. 82 items exported.
+2025-08-30 22:37:58,651 - orchestrator - INFO - [TaskQueue] Queue restored from snapshot.
+2025-08-30 22:37:58,673 - scraper - INFO - [LOGGING] Module logger initialized for scraper -> /home/statiksmoke8/builds/GremlinGPT/data/logs/scraper/scraper.log
+2025-08-30 22:37:58,848 - numexpr.utils - INFO - Note: NumExpr detected 24 cores but "NUMEXPR_MAX_THREADS" not set, so enforcing safe limit of 16.
+2025-08-30 22:37:58,848 - numexpr.utils - INFO - NumExpr defaulting to 16 threads.
+2025-08-30 22:37:58,931 - scraper - INFO - [SCRAPER] Initialized requests session with retries
+2025-08-30 22:37:58,931 - scraper - WARNING - [SCRAPER] Failed to import WebScraper from scraper.web_scraper: No module named 'scraper.web_scraper'
+2025-08-30 22:37:58,931 - scraper - WARNING - [SCRAPER] Failed to import TradingDataScraper from scraper.trading_data_scraper: No module named 'scraper.trading_data_scraper'
+2025-08-30 22:37:58,931 - scraper - WARNING - [SCRAPER] Failed to import APIClient from scraper.api_client: No module named 'scraper.api_client'
+2025-08-30 22:37:58,931 - scraper - WARNING - [SCRAPER] Failed to import DataProcessor from scraper.data_processor: No module named 'scraper.data_processor'
+2025-08-30 22:37:58,931 - scraper - INFO - [SCRAPER] Scraper environment globals loaded successfully. 81 items exported.
+2025-08-30 22:37:58,931 - scraper - INFO - [LOGGING] Module logger initialized for scraper -> /home/statiksmoke8/builds/GremlinGPT/data/logs/scraper/scraper.log
+2025-08-30 22:37:58,935 - memory - INFO - [LOGGING] Module logger initialized for memory -> /home/statiksmoke8/builds/GremlinGPT/data/logs/memory/memory.log
+2025-08-30 22:37:58,970 - faiss.loader - INFO - Loading faiss with AVX512 support.
+2025-08-30 22:37:58,978 - faiss.loader - INFO - Successfully loaded faiss with AVX512 support.
+2025-08-30 22:37:58,980 - faiss - INFO - Failed to load GPU Faiss: name 'GpuIndexIVFFlat' is not defined. Will not load constructor refs for GPU indexes. This is only an error if you're trying to use GPU Faiss.
+2025-08-30 22:37:59,203 - memory - INFO - [MEMORY] Initialized NetworkX graph database
+2025-08-30 22:37:59,203 - memory - INFO - [MEMORY] Created new FAISS index (dim=384)
+2025-08-30 22:37:59,203 - memory - INFO - [MEMORY] Loaded 10 memory entries from JSON
+2025-08-30 22:37:59,203 - memory - WARNING - [MEMORY] Failed to import MemoryManager from memory.memory_manager: No module named 'memory.memory_manager'
+2025-08-30 22:37:59,203 - memory - WARNING - [MEMORY] Failed to import GraphManager from memory.graph_manager: No module named 'memory.graph_manager'
+2025-08-30 22:37:59,203 - memory - WARNING - [MEMORY] Failed to import VectorStore from memory.vector_store: module 'memory.vector_store' has no attribute 'VectorStore'
+2025-08-30 22:37:59,203 - memory - WARNING - [MEMORY] Failed to import KnowledgeGraph from memory.knowledge_graph: No module named 'memory.knowledge_graph'
+2025-08-30 22:37:59,203 - memory - INFO - [MEMORY] Memory environment globals loaded successfully. 70 items exported.
+2025-08-30 22:37:59,204 - nlp - INFO - [LOGGING] Module logger initialized for nlp -> /home/statiksmoke8/builds/GremlinGPT/data/logs/nlp/nlp.log
+2025-08-30 22:38:01,367 - datasets - INFO - PyTorch version 2.7.1 available.
+2025-08-30 22:38:01,424 - sentence_transformers.SentenceTransformer - INFO - Use pytorch device_name: cuda:0
+2025-08-30 22:38:01,424 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-08-30 22:38:02,451 - nlp - INFO - [NLP] Loaded embedding model: all-MiniLM-L6-v2
+2025-08-30 22:38:02,590 - nlp - WARNING - [NLP] Failed to import TextProcessor from nlp_engine.text_processor: No module named 'nlp_engine.text_processor'
+2025-08-30 22:38:02,590 - nlp - WARNING - [NLP] Failed to import EmbeddingGenerator from nlp_engine.embedding_generator: No module named 'nlp_engine.embedding_generator'
+2025-08-30 22:38:02,590 - nlp - WARNING - [NLP] Failed to import SentimentAnalyzer from nlp_engine.sentiment_analyzer: No module named 'nlp_engine.sentiment_analyzer'
+2025-08-30 22:38:02,590 - nlp - WARNING - [NLP] Failed to import EntityExtractor from nlp_engine.entity_extractor: No module named 'nlp_engine.entity_extractor'
+2025-08-30 22:38:02,590 - nlp - INFO - [NLP] NLP environment globals loaded successfully. 69 items exported.
+2025-08-30 22:38:02,863 - nlp - INFO - SUCCESS: [TRANSFORMER] Loaded model: bert-base-uncased on cuda
+2025-08-30 22:38:02,871 - chromadb.telemetry.product.posthog - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-08-30 22:38:02,942 - memory - INFO - [FAISS] Loaded index from ./memory/vector_store/faiss/faiss_index.index
+2025-08-30 22:38:02,943 - sentence_transformers.SentenceTransformer - INFO - Use pytorch device_name: cuda:0
+2025-08-30 22:38:02,944 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-08-30 22:38:03,851 - memory - INFO - [EMBEDDER] Loaded model: all-MiniLM-L6-v2
+2025-08-30 22:38:03,860 - memory - INFO - [EMBEDDER] Initial disk load complete
+2025-08-30 22:38:03,861 - scraper.page_simulator - INFO - [LOGGING] Module logger initialized for scraper -> /home/statiksmoke8/builds/GremlinGPT/data/logs/scraper/scraper_page_simulator.log
+2025-08-30 22:38:03,878 - scraper.ask_monday_handler - INFO - [LOGGING] Module logger initialized for scraper -> /home/statiksmoke8/builds/GremlinGPT/data/logs/scraper/scraper_ask_monday_handler.log
+2025-08-30 22:38:03,879 - trading_core.rules_engine - INFO - [LOGGING] Module logger initialized for trading_core -> /home/statiksmoke8/builds/GremlinGPT/data/logs/trading_core/trading_core_rules_engine.log
+2025-08-30 22:38:03,880 - trading_core.stock_scraper - INFO - [LOGGING] Module logger initialized for trading_core -> /home/statiksmoke8/builds/GremlinGPT/data/logs/trading_core/trading_core_stock_scraper.log
+2025-08-30 22:38:03,880 - trading_core.signal_generator - INFO - [LOGGING] Module logger initialized for trading_core -> /home/statiksmoke8/builds/GremlinGPT/data/logs/trading_core/trading_core_signal_generator.log
+2025-08-30 22:38:03,881 - executors.shell_executor - INFO - [LOGGING] Module logger initialized for executors -> /home/statiksmoke8/builds/GremlinGPT/data/logs/executors/executors_shell_executor.log
+2025-08-30 22:38:03,882 - tools.reward_model - INFO - [LOGGING] Module logger initialized for tools -> /home/statiksmoke8/builds/GremlinGPT/data/logs/tools/tools_reward_model.log

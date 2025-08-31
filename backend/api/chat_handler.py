@@ -19,14 +19,15 @@ from memory.vector_store import embedder
 from memory.log_history import log_event
 import sys
 from pathlib import Path
-from datetime import datetime
+import datetime
+import os
 
 # Add project root to path for imports
 project_root = Path(__file__).parent.parent.parent
 sys.path.insert(0, str(project_root))
 
 
-from backend.globals import logger
+from environments.dashboard import logger
 
 
 def chat(user_input=None):
@@ -37,7 +38,6 @@ def chat(user_input=None):
         user_input = user_input.strip()
     else:
         logger.warning("[CHAT] No input provided to chat()")
-        # Always return dict outside Flask for CLI
         return {"error": "No input provided"}, 400
 
     if not user_input:
@@ -48,37 +48,92 @@ def chat(user_input=None):
         else:
             return resp, 400
 
-    tokens = tokenize(user_input)
-    vector = encode(user_input)
-    task = commands.parse_command(user_input)
-    result = commands.execute_command(task)
+    try:
+        # Check if agents are running by looking for the PID file
+        import os
+        agent_pid_file = project_root / "run" / "agents.pid"
+        
+        if agent_pid_file.exists():
+            with open(agent_pid_file, 'r') as f:
+                agent_pid = f.read().strip()
+            
+            # Check if the process is actually running
+            try:
+                os.kill(int(agent_pid), 0)  # Signal 0 checks if process exists
+                agent_status = "active"
+                logger.info(f"[CHAT] Agents are running (PID: {agent_pid})")
+            except (OSError, ValueError):
+                agent_status = "inactive"
+                logger.warning(f"[CHAT] Agent PID file exists but process not running")
+        else:
+            agent_status = "inactive"
+            logger.warning(f"[CHAT] No agent PID file found")
 
-    embedder.package_embedding(
-        text=user_input,
-        vector=vector,
-        meta={
-            "origin": "chat_handler",
-            "type": task.get("type", "unknown"),
-            "timestamp": datetime.utcnow().isoformat(),
-            "user_input": user_input,
-            "watermark": "source:GremlinGPT",
-        }
-    )
-    log_event("chat", "parsed", {"input": user_input, "task_type": task.get("type", "unknown")})
+        # Process with available systems
+        tokens = tokenize(user_input)
+        vector = encode(user_input)
+        task = commands.parse_command(user_input)
+        result = commands.execute_command(task)
 
-    log_event("chat", "parsed", {"input": user_input, "task_type": task["type"]})
-
-    if task["type"] == "unknown":
-        logger.warning(
-            f"[CHAT] Fallback NLP task for unrecognized command: {user_input}"
+        # Log the interaction
+        embedder.package_embedding(
+            text=user_input,
+            vector=vector,
+            meta={
+                "origin": "chat_handler",
+                "type": task.get("type", "unknown"),
+                "timestamp": datetime.datetime.utcnow().isoformat(),
+                "user_input": user_input,
+                "agent_status": agent_status,
+                "watermark": "source:GremlinGPT",
+            }
         )
-        enqueue_task({"type": "nlp", "text": user_input})
+        log_event("chat", "processed", {
+            "input": user_input, 
+            "task_type": task.get("type", "unknown"),
+            "agent_status": agent_status
+        })
 
-    response = {
-        "response": f"Command interpreted as: {task['type']}",
-        "tokens": tokens,
-        "result": result,
-    }
-    # Return Flask response if inside a request, else dict for CLI
-    # Return Flask response if inside a request, else tuple (dict, 200) for CLI
+        # If agents are active, provide enhanced response
+        if agent_status == "active":
+            # Enqueue task for agent processing
+            if task["type"] == "unknown":
+                enqueue_task({"type": "nlp", "text": user_input})
+            else:
+                enqueue_task(task)
+            
+            response = {
+                "response": f"GremlinGPT agents processed your message. Command interpreted as: {task['type']}",
+                "tokens": tokens,
+                "result": result,
+                "status": "active",
+                "agent_status": "running",
+                "timestamp": datetime.datetime.utcnow().isoformat()
+            }
+        else:
+            # Fallback processing
+            if task["type"] == "unknown":
+                logger.warning(f"[CHAT] Fallback processing for: {user_input}")
+            
+            response = {
+                "response": f"Processed with limited services. Command interpreted as: {task['type']}",
+                "tokens": tokens,
+                "result": result,
+                "status": "degraded",
+                "note": "Core agent services not fully active",
+                "timestamp": datetime.datetime.utcnow().isoformat()
+            }
+
+    except Exception as e:
+        logger.error(f"[CHAT] Error processing message: {e}")
+        import traceback
+        logger.error(traceback.format_exc())
+        
+        response = {
+            "response": f"Error processing message: {str(e)}",
+            "status": "error",
+            "timestamp": datetime.datetime.utcnow().isoformat()
+        }
+
+    # Return Flask response if inside a request, else tuple for CLI
     return (jsonify(response), 200) if has_request_context() else (response, 200)

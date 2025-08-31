@@ -10,10 +10,13 @@
 # GremlinGPT v1.0.3 :: Memory Embedder & Vector Store Core
 
 import os
-from backend.globals import CFG, logger, resolve_path, DATA_DIR, MEM
+import uuid
+import json
+from environments.memory import CFG, logger, resolve_path, DATA_DIR, MEM, chromadb, HAS_CHROMADB, faiss, HAS_FAISS
+from environments.nlp import sentence_transformers, SentenceTransformer, HAS_SENTENCE_TRANSFORMERS
 
 try:
-    from backend.globals import MEM, CFG
+    from environments.memory import MEM, CFG
     dashboard_selected_backend = CFG.get('memory', {}).get('dashboard_selected_backend', 'faiss')
 except Exception as e:
     logger.error(f"[EMBEDDER] MEM/CFG import or type-check failed: {e}")
@@ -68,7 +71,7 @@ for path in (FAISS_DIR, CHROMA_DIR, LOCAL_INDEX_PATH):
         logger.error(f"[EMBEDDER] Failed to create directory {path}: {e}")
 
 # --- Chroma Client Setup ---
-if chromadb:
+if HAS_CHROMADB and chromadb:
     try:
         chroma_client = chromadb.PersistentClient(path=CHROMA_DIR)
         collection = chroma_client.get_or_create_collection(name="gremlin_memory")

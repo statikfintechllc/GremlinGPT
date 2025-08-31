@@ -24,7 +24,7 @@ from utils.logging_config import setup_module_logger
 # ...existing code...
 logger = setup_module_logger('backend', 'INFO')
 
-from backend.globals import CFG, logger, resolve_path, DATA_DIR, MEM
+from environments.dashboard import CFG, logger, resolve_path, DATA_DIR, MEM
 
 from agent_core.fsm import (
     fsm_loop,
@@ -396,7 +396,7 @@ def api_system_backend_select():
         
         # Also update globals if function exists
         try:
-            from backend.globals import set_dashboard_backend
+            from environments.dashboard import set_dashboard_backend
             set_dashboard_backend(backend)
         except Exception as e:
             print(f"Failed to update globals backend: {e}")

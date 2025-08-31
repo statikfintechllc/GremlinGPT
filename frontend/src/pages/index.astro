@@ -161,7 +161,7 @@ import Layout from '../layouts/Layout.astro';
       </div>
 
       <!-- Source Editor Tab -->
-      <div id="editor-tab" class="tab-content hidden w-full flex">
+      <div id="editor-tab" class="tab-content hidden w-full flex h-full">
         <!-- File Tree Sidebar -->
         <aside class="w-80 bg-gray-800 border-r border-gray-700 flex flex-col">
           <div class="p-4 border-b border-gray-700">
@@ -194,12 +194,12 @@ import Layout from '../layouts/Layout.astro';
         </aside>
 
         <!-- Monaco Editor Area -->
-        <div class="flex-1 flex flex-col">
-          <div class="border-b border-gray-700">
-            <div id="editor-tabs" class="flex bg-gray-800"></div>
+        <div class="flex-1 flex flex-col h-full">
+          <div class="border-b border-gray-700 min-h-0">
+            <div id="editor-tabs" class="flex bg-gray-800 min-h-[40px] items-center"></div>
           </div>
-          <div class="flex-1">
-            <div id="monaco-editor" class="h-full"></div>
+          <div class="flex-1 min-h-0">
+            <div id="monaco-editor" class="h-full w-full"></div>
           </div>
         </div>
       </div>
@@ -416,6 +416,20 @@ import Layout from '../layouts/Layout.astro';
           if (targetTab) {
             targetTab.classList.remove('hidden');
             targetTab.classList.add('active');
+            
+            // Special handling for editor tab to ensure proper layout
+            if (tabName === 'editor') {
+              setTimeout(() => {
+                // Force Monaco editor to resize when tab becomes visible
+                if (window.monacoEditor) {
+                  window.monacoEditor.layout();
+                }
+                // Load file tree if not already loaded
+                if (!window.fileTreeLoaded) {
+                  loadFileTree();
+                }
+              }, 100);
+            }
           }
 
           // Load tab content when switching
@@ -1007,6 +1021,9 @@ Please check if the backend server is running on localhost:8080
           readOnly: false,
         });
 
+        // Store global reference for resizing
+        window.monacoEditor = window.monacoEditorInstance;
+
         // Handle file opening from file tree
         window.addEventListener('openFile', (event) => {
           const filePath = event.detail.path;
@@ -1127,20 +1144,25 @@ Please check if the backend server is running on localhost:8080
         // Create new tab
         tab = document.createElement('div');
         tab.id = tabId;
-        tab.className = 'tab px-4 py-2 bg-gray-700 text-sm cursor-pointer border-r border-gray-600 flex items-center space-x-2';
+        tab.className = 'editor-tab flex items-center space-x-2 text-sm text-gray-200';
         tab.innerHTML = `
           <span class="truncate">${fileName}</span>
           <span class="modified-indicator text-yellow-400 ${isModified ? '' : 'hidden'}">●</span>
-          <button class="close-tab hover:text-red-400 ml-2">×</button>
+          <button class="close-btn hover:text-red-400">×</button>
         `;
         
         tab.addEventListener('click', () => {
+          // Remove active class from all tabs
+          tabsContainer.querySelectorAll('.editor-tab').forEach(t => t.classList.remove('active'));
+          // Add active class to this tab
+          tab.classList.add('active');
+          // Load file in editor
           if (filePath !== window.currentEditingFile) {
             openFileInMonaco(filePath);
           }
         });
         
-        tab.querySelector('.close-tab').addEventListener('click', (e) => {
+        tab.querySelector('.close-btn').addEventListener('click', (e) => {
           e.stopPropagation();
           closeTab(filePath, tab);
         });

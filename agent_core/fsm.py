@@ -15,11 +15,11 @@ from rich.console import Console
 from datetime import datetime
 
 from agent_core.task_queue import TaskQueue, reprioritize, promote_old_tasks
-from agent_core.tool_executor import execute_tool
+from executors.tool_executor import execute_tool
 from agent_core.heuristics import evaluate_task
 from agent_core.error_log import log_error
 from agents.planner_agent import enqueue_next
-from backend import globals as G
+from environments import orchestrator as G
 from backend.utils.git_ops import archive_json_log, auto_commit
 from memory.vector_store.embedder import inject_watermark
 from memory.log_history import log_event
