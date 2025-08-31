@@ -58,7 +58,6 @@ All modules now have comprehensive logging and documentation coverage as request
 
 ```
 GremlinGPT/
-.
 ├── agent_core
 │   ├── agent_profiles.py
 │   ├── agent_profiles.yaml
@@ -87,7 +86,6 @@ GremlinGPT/
 │   │   ├── README.md
 │   │   ├── scraping_api.py
 │   │   └── summarizer.py
-│   ├── globals.py
 │   ├── __init__.py
 │   ├── interface
 │   │   ├── commands.py
@@ -350,7 +348,6 @@ GremlinGPT/
 │   ├── README.md
 │   ├── shell_executor.py
 │   └── tool_executor.py
-├── fix_dependencies.sh
 ├── frontend
 │   ├── astro.config.mjs
 │   ├── main.cjs
@@ -396,7 +393,7 @@ GremlinGPT/
 │   ├── local_index
 │   │   ├── documents/
 │   │   ├── metadata.db
-│   │   └── scripts
+│   │   └── scripts/
 │   ├── log_history.py
 │   ├── README.md
 │   └── vector_store
@@ -499,7 +496,7 @@ GremlinGPT/
     ├── README.md
     └── tws_stt_autologin.sh
 
-103 directories, 414 files
+103 directories, 337 files
 ```
 
 ## Statistics
