@@ -56,7 +56,7 @@ This document provides a comprehensive view of the GremlinGPT project structure,
 
 All modules now have comprehensive logging and documentation coverage as requested.
 
-```
+```txt
 GremlinGPT/
 ├── agent_core
 │   ├── agent_profiles.py
@@ -99,9 +99,59 @@ GremlinGPT/
 │   └── utils
 │       ├── git_ops.py
 │       ├── __init__.py
-│       └── README.md
+│       └── README.md`
 ├── conda_envs
 │   ├── create_envs.sh
+│   ├── environments
+│   │   ├── dashboard
+│   │   │   ├── globals.py
+│   │   │   ├── __init__.py
+│   │   │   └── __pycache__
+│   │   │       ├── globals.cpython-310.pyc
+│   │   │       ├── globals.cpython-312.pyc
+│   │   │       ├── globals.cpython-39.pyc
+│   │   │       ├── __init__.cpython-310.pyc
+│   │   │       ├── __init__.cpython-312.pyc
+│   │   │       └── __init__.cpython-39.pyc
+│   │   ├── __init__.py
+│   │   ├── memory
+│   │   │   ├── globals.py
+│   │   │   ├── __init__.py
+│   │   │   └── __pycache__
+│   │   │       ├── globals.cpython-310.pyc
+│   │   │       ├── globals.cpython-312.pyc
+│   │   │       ├── globals.cpython-39.pyc
+│   │   │       ├── __init__.cpython-310.pyc
+│   │   │       ├── __init__.cpython-312.pyc
+│   │   │       └── __init__.cpython-39.pyc
+│   │   ├── nlp
+│   │   │   ├── globals.py
+│   │   │   ├── __init__.py
+│   │   │   └── __pycache__
+│   │   │       ├── globals.cpython-310.pyc
+│   │   │       ├── globals.cpython-312.pyc
+│   │   │       ├── globals.cpython-39.pyc
+│   │   │       ├── __init__.cpython-310.pyc
+│   │   │       ├── __init__.cpython-312.pyc
+│   │   │       └── __init__.cpython-39.pyc
+│   │   ├── orchestrator
+│   │   │   ├── globals.py
+│   │   │   ├── __init__.py
+│   │   │   └── __pycache__
+│   │   │       ├── globals.cpython-310.pyc
+│   │   │       ├── globals.cpython-312.pyc
+│   │   │       ├── globals.cpython-39.pyc
+│   │   │       ├── __init__.cpython-310.pyc
+│   │   │       ├── __init__.cpython-312.pyc
+│   │   │       └── __init__.cpython-39.pyc
+│   │   └── scraper
+│   │       ├── globals.py
+│   │       ├── __init__.py
+│   │       └── __pycache__
+│   │           ├── globals.cpython-310.pyc
+│   │           ├── globals.cpython-39.pyc
+│   │           ├── __init__.cpython-310.pyc
+│   │           └── __init__.cpython-39.pyc
 │   ├── gremlin-dashboard_requirements.txt
 │   ├── gremlin-dashboard.yml
 │   ├── gremlin-memory_requirements.txt
@@ -292,56 +342,6 @@ GremlinGPT/
 │   ├── system_overview.md
 │   ├── trading_signals.md
 │   └── WHY_GREMLINGPT.md
-├── environments
-│   ├── dashboard
-│   │   ├── globals.py
-│   │   ├── __init__.py
-│   │   └── __pycache__
-│   │       ├── globals.cpython-310.pyc
-│   │       ├── globals.cpython-312.pyc
-│   │       ├── globals.cpython-39.pyc
-│   │       ├── __init__.cpython-310.pyc
-│   │       ├── __init__.cpython-312.pyc
-│   │       └── __init__.cpython-39.pyc
-│   ├── __init__.py
-│   ├── memory
-│   │   ├── globals.py
-│   │   ├── __init__.py
-│   │   └── __pycache__
-│   │       ├── globals.cpython-310.pyc
-│   │       ├── globals.cpython-312.pyc
-│   │       ├── globals.cpython-39.pyc
-│   │       ├── __init__.cpython-310.pyc
-│   │       ├── __init__.cpython-312.pyc
-│   │       └── __init__.cpython-39.pyc
-│   ├── nlp
-│   │   ├── globals.py
-│   │   ├── __init__.py
-│   │   └── __pycache__
-│   │       ├── globals.cpython-310.pyc
-│   │       ├── globals.cpython-312.pyc
-│   │       ├── globals.cpython-39.pyc
-│   │       ├── __init__.cpython-310.pyc
-│   │       ├── __init__.cpython-312.pyc
-│   │       └── __init__.cpython-39.pyc
-│   ├── orchestrator
-│   │   ├── globals.py
-│   │   ├── __init__.py
-│   │   └── __pycache__
-│   │       ├── globals.cpython-310.pyc
-│   │       ├── globals.cpython-312.pyc
-│   │       ├── globals.cpython-39.pyc
-│   │       ├── __init__.cpython-310.pyc
-│   │       ├── __init__.cpython-312.pyc
-│   │       └── __init__.cpython-39.pyc
-│   └── scraper
-│       ├── globals.py
-│       ├── __init__.py
-│       └── __pycache__
-│           ├── globals.cpython-310.pyc
-│           ├── globals.cpython-39.pyc
-│           ├── __init__.cpython-310.pyc
-│           └── __init__.cpython-39.pyc
 ├── executors
 │   ├── __init__.py
 │   ├── python_executor.py
@@ -447,7 +447,6 @@ GremlinGPT/
 │   ├── __init__.py
 │   ├── orchestrator.py
 │   ├── page_simulator.py
-│   ├── persistance
 │   ├── playwright_handler.py
 │   ├── profiles
 │   │   └── chromium_profile
@@ -496,7 +495,7 @@ GremlinGPT/
     ├── README.md
     └── tws_stt_autologin.sh
 
-103 directories, 337 files
+102 directories, 337 files
 ```
 
 ## Statistics
