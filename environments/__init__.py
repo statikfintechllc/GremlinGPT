@@ -41,23 +41,23 @@ def lazy_import(module_name):
 # Environment module getters with lazy loading
 def get_dashboard():
     """Get dashboard environment globals"""
-    return lazy_import('environments.dashboard.globals')
+    return lazy_import('conda_envs.environments.dashboard.globals')
 
 def get_memory():
     """Get memory environment globals"""
-    return lazy_import('environments.memory.globals')
+    return lazy_import('conda_envs.environments.memory.globals')
 
 def get_nlp():
     """Get NLP environment globals"""
-    return lazy_import('environments.nlp.globals')
+    return lazy_import('conda_envs.environments.nlp.globals')
 
 def get_orchestrator():
     """Get orchestrator environment globals"""
-    return lazy_import('environments.orchestrator.globals')
+    return lazy_import('conda_envs.environments.orchestrator.globals')
 
 def get_scraper():
     """Get scraper environment globals"""
-    return lazy_import('environments.scraper.globals')
+    return lazy_import('conda_envs.environments.scraper.globals')
 
 # Environment health check
 def check_environment_health():
@@ -71,12 +71,54 @@ def check_environment_health():
     }
     
     health_status = {}
+    all_healthy = True
+    
     for env_name, env_module in environments.items():
-        health_status[env_name] = env_module is not None
+        if env_module is None:
+            health_status[env_name] = False
+            all_healthy = False
+        else:
+            # Try to call environment-specific health check if available
+            try:
+                if hasattr(env_module, 'check_environment_health'):
+                    health_status[env_name] = env_module.check_environment_health()
+                else:
+                    health_status[env_name] = True
+            except Exception as e:
+                print(f"Health check failed for {env_name}: {e}")
+                health_status[env_name] = False
+                all_healthy = False
+    
+    return {
+        'all_healthy': all_healthy,
+        'environment_status': health_status,
+        'summary': f"{'✅ All environments healthy' if all_healthy else '❌ Some environments have issues'}"
+    }
+
+def wait_for_environment_ready(env_name, timeout=30):
+    """Wait for a specific environment to be ready"""
+    import time
+    start_time = time.time()
+    
+    while time.time() - start_time < timeout:
+        env_func = {
+            'dashboard': get_dashboard,
+            'memory': get_memory,
+            'nlp': get_nlp,
+            'orchestrator': get_orchestrator,
+            'scraper': get_scraper
+        }.get(env_name)
         
-    return health_status
+        if env_func and env_func() is not None:
+            print(f"Environment {env_name} is ready")
+            return True
+            
+        time.sleep(1)
+    
+    print(f"Timeout waiting for environment {env_name}")
+    return False
 
 __all__ = [
     'get_dashboard', 'get_memory', 'get_nlp', 'get_orchestrator', 'get_scraper',
-    'check_environment_health', 'lazy_import'
+    'check_environment_health', 'wait_for_environment_ready', 'lazy_import'
 ]

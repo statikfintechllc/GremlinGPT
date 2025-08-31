@@ -319,3 +319,15 @@
 2025-08-30 22:38:04,659 | INFO     | memory:info:78 - [FAISS] Loaded index from ./memory/vector_store/faiss/faiss_index.index
 2025-08-30 22:38:05,745 | INFO     | memory:info:78 - [EMBEDDER] Loaded model: all-MiniLM-L6-v2
 2025-08-30 22:38:05,753 | INFO     | memory:info:78 - [EMBEDDER] Initial disk load complete
+2025-08-31 19:01:27,145 | INFO     | memory:info:78 - [LOGGING] Module logger initialized for memory -> /home/runner/work/GremlinGPT/GremlinGPT/data/logs/memory/memory.log
+2025-08-31 19:01:27,147 | WARNING  | memory:warning:79 - [MEMORY] Failed to import MemoryManager from memory.memory_manager: No module named 'memory.memory_manager'
+2025-08-31 19:01:27,147 | WARNING  | memory:warning:79 - [MEMORY] Failed to import GraphManager from memory.graph_manager: No module named 'memory.graph_manager'
+2025-08-31 19:01:27,148 | WARNING  | memory:warning:79 - [MEMORY] Failed to import VectorStore from memory.vector_store: module 'memory.vector_store' has no attribute 'VectorStore'
+2025-08-31 19:01:27,148 | WARNING  | memory:warning:79 - [MEMORY] Failed to import KnowledgeGraph from memory.knowledge_graph: No module named 'memory.knowledge_graph'
+2025-08-31 19:01:27,148 | INFO     | memory:info:78 - [MEMORY] Memory environment globals loaded successfully. 70 items exported.
+2025-08-31 19:01:46,338 | INFO     | memory:info:78 - [LOGGING] Module logger initialized for memory -> /home/runner/work/GremlinGPT/GremlinGPT/data/logs/memory/memory.log
+2025-08-31 19:01:46,339 | WARNING  | memory:warning:79 - [MEMORY] Failed to import MemoryManager from memory.memory_manager: No module named 'memory.memory_manager'
+2025-08-31 19:01:46,339 | WARNING  | memory:warning:79 - [MEMORY] Failed to import GraphManager from memory.graph_manager: No module named 'memory.graph_manager'
+2025-08-31 19:01:46,339 | WARNING  | memory:warning:79 - [MEMORY] Failed to import VectorStore from memory.vector_store: module 'memory.vector_store' has no attribute 'VectorStore'
+2025-08-31 19:01:46,339 | WARNING  | memory:warning:79 - [MEMORY] Failed to import KnowledgeGraph from memory.knowledge_graph: No module named 'memory.knowledge_graph'
+2025-08-31 19:01:46,339 | INFO     | memory:info:78 - [MEMORY] Memory environment globals loaded successfully. 70 items exported.
