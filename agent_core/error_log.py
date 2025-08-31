@@ -8,6 +8,10 @@
 
 # GremlinGPT v1.0.3 :: Module Integrity Directive
 
+# Import orchestrator environment globals for agent core
+from conda_envs.environments.orchestrator.globals import *
+
+
 from environments.orchestrator import CFG, logger, resolve_path, DATA_DIR, MEM
 log_dir = resolve_path(CFG["paths"].get("logs_dir", "$ROOT/data/logs"))
 ERROR_LOG_FILE = resolve_path(CFG["paths"].get("error_log_file", "data/logs/task_errors.jsonl"))

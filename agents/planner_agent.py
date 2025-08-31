@@ -8,6 +8,10 @@
 
 # GremlinGPT v1.0.3 :: agents/planner_agent.py
 
+# Import orchestrator environment globals for agents
+from conda_envs.environments.orchestrator.globals import *
+
+
 from agent_core.task_queue import enqueue_task, reprioritize, dump
 from tools.reward_model import top_rewarded_tasks
 from memory.vector_store import embedder

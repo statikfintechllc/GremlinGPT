@@ -9,6 +9,9 @@
 
 # GremlinGPT v1.0.3 :: Specialized Agent - Data Analysis & Anomaly Detection
 
+# Import orchestrator environment globals for agents
+from conda_envs.environments.orchestrator.globals import *
+
 import asyncio
 import numpy as np
 import pandas as pd

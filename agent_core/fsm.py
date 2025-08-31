@@ -9,6 +9,9 @@
 
 # GremlinGPT v1.0.3 :: FSM Core & Module Integrity Directive
 
+# Import orchestrator environment globals for agent core
+from conda_envs.environments.orchestrator.globals import *
+
 import time
 import schedule
 from rich.console import Console
