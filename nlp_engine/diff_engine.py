@@ -10,6 +10,9 @@
 # GremlinGPT v1.0.3 :: Module Integrity Directive
 # This script is a component of the GremlinGPT system, under Alpha expansion.
 
+# Import NLP environment globals
+from conda_envs.environments.nlp.globals import *
+
 from difflib import unified_diff
 import numpy as np
 from typing import Dict

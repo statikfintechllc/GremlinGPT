@@ -13,14 +13,48 @@
 # Self-improving chat session manager for GremlinGPT.
 # Handles dialog state, memory, feedback, and learning integration.
 
+# Import NLP environment globals
+from conda_envs.environments.nlp.globals import *
 
 from datetime import datetime, timezone
-from memory.vector_store.embedder import embed_text, package_embedding, inject_watermark
-from memory.log_history import log_event
-from nlp_engine.tokenizer import tokenize
-from nlp_engine.semantic_score import reasoned_similarity
-from agent_core.fsm import inject_task
-from backend.api.chat_handler import chat as backend_chat
+
+# For cross-environment communication, use lazy loading
+def lazy_import_memory():
+    """Lazy import memory functionality to prevent circular dependencies"""
+    try:
+        from memory.vector_store.embedder import embed_text, package_embedding, inject_watermark
+        from memory.log_history import log_event
+        return embed_text, package_embedding, inject_watermark, log_event
+    except ImportError as e:
+        logger.warning(f"Memory functions not available: {e}")
+        return None, None, None, None
+
+def lazy_import_orchestrator():
+    """Lazy import orchestrator functionality to prevent circular dependencies"""
+    try:
+        from agent_core.fsm import inject_task
+        return inject_task
+    except ImportError as e:
+        logger.warning(f"Orchestrator functions not available: {e}")
+        return None
+
+def lazy_import_backend():
+    """Lazy import backend functionality to prevent circular dependencies"""
+    try:
+        from backend.api.chat_handler import chat as backend_chat
+        return backend_chat
+    except ImportError as e:
+        logger.warning(f"Backend functions not available: {e}")
+        return None
+
+# Get cross-environment functions lazily
+embed_text, package_embedding, inject_watermark, log_event = lazy_import_memory()
+inject_task = lazy_import_orchestrator()
+backend_chat = lazy_import_backend()
+
+# Use relative imports within NLP environment
+from .tokenizer import tokenize
+from .semantic_score import reasoned_similarity
 
 __all__ = ["ChatSession"]
 

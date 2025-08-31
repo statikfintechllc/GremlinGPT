@@ -11,12 +11,30 @@
 # GremlinGPT v1.0.3 :: Module Integrity Directive
 # This script is a component of the GremlinGPT system, under Alpha expansion.
 
+# Import NLP environment globals
+from conda_envs.environments.nlp.globals import *
+
 import spacy
 import ast
 from datetime import datetime
-from nlp_engine.tokenizer import tokenize
-from nlp_engine.pos_tagger import get_pos_tags
-from memory.vector_store.embedder import embed_text, package_embedding, inject_watermark
+
+# Use relative imports within NLP environment
+from .tokenizer import tokenize
+from .pos_tagger import get_pos_tags
+
+# For cross-environment communication (memory), use lazy loading
+def lazy_import_memory():
+    """Lazy import memory functionality to prevent circular dependencies"""
+    try:
+        from memory.vector_store.embedder import embed_text, package_embedding, inject_watermark
+        return embed_text, package_embedding, inject_watermark
+    except ImportError as e:
+        logger.warning(f"Memory functions not available: {e}")
+        return None, None, None
+
+# Get memory functions lazily
+embed_text, package_embedding, inject_watermark = lazy_import_memory()
+
 from utils.logging_config import setup_module_logger
 
 # Initialize module-specific logger

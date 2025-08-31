@@ -7,6 +7,9 @@
 
 # !/usr/bin/env python3
 
+# Import NLP environment globals for self-training
+from conda_envs.environments.nlp.globals import *
+
 # GremlinGPT v1.0.3 :: Module Integrity Directive
 # This script is a component of the GremlinGPT system, under Alpha expansion.
 # It must:
