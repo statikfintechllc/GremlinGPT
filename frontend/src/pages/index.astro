@@ -604,27 +604,41 @@ Use the tabs above to access:
 
     async function getSystemStatus() {
       try {
-        // Mock system status for now - will be replaced with real API calls
+        const response = await fetch('http://localhost:8080/api/system/status');
+        const data = await response.json();
+        
+        if (!response.ok) {
+          throw new Error(`API Error: ${response.status}`);
+        }
+        
+        const serviceCount = Object.keys(data.services || {}).length;
+        const runningCount = Object.values(data.services || {}).filter(s => s.status === 'running').length;
+        
         return `
 System Status Report:
 ════════════════════
-🟢 System: Online
-🟡 Services: 3/5 Running
-🟢 Memory: 2.1GB / 8GB
-🟢 Disk: 45GB free
+🟢 System: ${data.system}
+${runningCount > 0 ? '�' : '🔴'} Services: ${runningCount}/${serviceCount} Running
+🟢 Memory: ${data.memory?.used}/${data.memory?.total} (${data.memory?.percent}%)
+🟢 Disk: ${data.disk?.free} free (${data.disk?.percent}% used)
 🟢 Network: Connected
 
 Core Services:
-• FSM Agent: Running ✓
-• Memory Service: Running ✓  
-• NLP Engine: Running ✓
-• Trading Core: Stopped ✗
-• Scraper: Stopped ✗
+${Object.entries(data.services || {}).map(([name, info]) => 
+  `• ${name}: ${info.status === 'running' ? 'Running ✓' : 'Stopped ✗'} ${info.pid ? `(PID: ${info.pid})` : ''}`
+).join('\n')}
 
-Last Updated: ${new Date().toLocaleString()}
+Last Updated: ${new Date(data.last_updated).toLocaleString()}
 `;
       } catch (error) {
-        return `Error getting system status: ${error.message}\n`;
+        return `
+System Status Report:
+════════════════════
+🔴 System: API Connection Failed
+🔴 Error: ${error.message}
+
+Please check if the backend server is running on localhost:8080
+`;
       }
     }
 
@@ -681,29 +695,68 @@ Use the Settings tab for interactive configuration editing.
     }
 
     async function getAgentStatus() {
-      return `
+      try {
+        const response = await fetch('http://localhost:8080/api/agents/status');
+        const data = await response.json();
+        
+        if (!response.ok) {
+          throw new Error(`API Error: ${response.status}`);
+        }
+        
+        return `
 Active AI Agents:
 ════════════════
-🤖 FSM Agent: Active - State: IDLE
-🤖 Trading Agent: Inactive 
-🤖 Scraper Agent: Inactive
-🤖 NLP Agent: Active - Processing: 0 tasks
+🤖 FSM Agent: ${data.agents?.fsm_agent?.status || 'Unknown'} - State: ${data.agents?.fsm_agent?.state || 'Unknown'}
+🤖 Trading Agent: ${data.agents?.trading_agent?.status || 'Unknown'} 
+🤖 Scraper Agent: ${data.agents?.scraper_agent?.status || 'Unknown'}
+🤖 NLP Agent: ${data.agents?.nlp_agent?.status || 'Unknown'} - Model: ${data.agents?.nlp_agent?.model || 'Unknown'}
+
+Total Active Agents: ${data.total_active || 0}
+
+Last Updated: ${new Date(data.last_updated).toLocaleString()}
 
 Use the Agents tab for detailed agent management.
 `;
+      } catch (error) {
+        return `
+Active AI Agents:
+════════════════
+🔴 Error: ${error.message}
+
+Please check if the backend server is running on localhost:8080
+`;
+      }
     }
 
     async function getMemoryStatus() {
-      return `
+      try {
+        const response = await fetch('http://localhost:8080/api/memory/status');
+        const data = await response.json();
+        
+        if (!response.ok) {
+          throw new Error(`API Error: ${response.status}`);
+        }
+        
+        return `
 Memory System Status:
 ═══════════════════
-📊 Vector Store: 1,234 embeddings
-📊 Knowledge Base: 567 documents  
-📊 Training Data: 89 datasets
-📊 Cache: 45MB used
+📊 Vector Store: ${data.vector_store || 'Unknown'}
+📊 Embeddings: ${data.embeddings || 0} vectors
+📊 Knowledge Base: ${data.documents || 0} documents  
+📊 Training Data: ${data.training_data || 0} datasets
+📊 Cache: ${data.cache_size || '0MB'} used
 
 Use the Memory tab for detailed memory management.
 `;
+      } catch (error) {
+        return `
+Memory System Status:
+═══════════════════
+🔴 Error: ${error.message}
+
+Please check if the backend server is running on localhost:8080
+`;
+      }
     }
 
     // Chat functionality
@@ -811,33 +864,69 @@ Use the Memory tab for detailed memory management.
       }
     }
 
-    function updateSystemStatus() {
-      // Update header status indicator
-      const statusIndicator = document.getElementById('system-status');
-      const statusText = document.getElementById('status-text');
-      
-      // Mock status - will be replaced with real checks
-      statusIndicator.className = 'w-2 h-2 bg-green-500 rounded-full';
-      statusText.textContent = 'System Online';
-      
-      // Update footer
-      document.getElementById('last-update').textContent = `Last Update: ${new Date().toLocaleTimeString()}`;
+    async function updateSystemStatus() {
+      try {
+        // Get real system status from API
+        const response = await fetch('http://localhost:8080/api/system/status');
+        const data = await response.json();
+        
+        // Update header status indicator
+        const statusIndicator = document.getElementById('system-status');
+        const statusText = document.getElementById('status-text');
+        
+        if (data.system === 'online') {
+          statusIndicator.className = 'w-2 h-2 bg-green-500 rounded-full';
+          statusText.textContent = 'System Online';
+        } else {
+          statusIndicator.className = 'w-2 h-2 bg-red-500 rounded-full';
+          statusText.textContent = 'System Degraded';
+        }
+        
+        // Update footer
+        document.getElementById('last-update').textContent = `Last Update: ${new Date().toLocaleTimeString()}`;
+      } catch (error) {
+        // Update UI to show error state
+        const statusIndicator = document.getElementById('system-status');
+        const statusText = document.getElementById('status-text');
+        
+        statusIndicator.className = 'w-2 h-2 bg-red-500 rounded-full';
+        statusText.textContent = 'API Error';
+        
+        console.error('Failed to update system status:', error);
+      }
     }
 
-    function loadMemoryStatus() {
-      // Load memory system status
-      document.getElementById('vector-store-status').textContent = '1,234 embeddings loaded';
-      document.getElementById('embeddings-status').textContent = '567 documents indexed';
-      document.getElementById('training-status').textContent = '89 training datasets';
-      document.getElementById('knowledge-status').textContent = 'Knowledge base active';
+    async function loadMemoryStatus() {
+      try {
+        const response = await fetch('http://localhost:8080/api/memory/status');
+        const data = await response.json();
+        
+        // Update memory status elements
+        document.getElementById('vector-store-status').textContent = `${data.embeddings || 0} embeddings loaded`;
+        document.getElementById('embeddings-status').textContent = `${data.documents || 0} documents indexed`;
+        document.getElementById('training-status').textContent = `${data.training_data || 0} training datasets`;
+        document.getElementById('knowledge-status').textContent = `Vector store: ${data.vector_store || 'unknown'}`;
+      } catch (error) {
+        console.error('Failed to load memory status:', error);
+        document.getElementById('vector-store-status').textContent = 'Error loading memory status';
+      }
     }
 
-    function loadAgentStatus() {
-      // Load agent status
-      document.getElementById('fsm-agent-status').textContent = 'Status: Active, State: IDLE';
-      document.getElementById('trading-agent-status').textContent = 'Status: Inactive';
-      document.getElementById('scraper-agent-status').textContent = 'Status: Inactive';
-      document.getElementById('nlp-agent-status').textContent = 'Status: Active, Tasks: 0';
+    async function loadAgentStatus() {
+      try {
+        const response = await fetch('http://localhost:8080/api/agents/status');
+        const data = await response.json();
+        
+        // Update agent status elements
+        const agents = data.agents || {};
+        document.getElementById('fsm-agent-status').textContent = `Status: ${agents.fsm_agent?.status || 'Unknown'}, State: ${agents.fsm_agent?.state || 'Unknown'}`;
+        document.getElementById('trading-agent-status').textContent = `Status: ${agents.trading_agent?.status || 'Unknown'}`;
+        document.getElementById('scraper-agent-status').textContent = `Status: ${agents.scraper_agent?.status || 'Unknown'}`;
+        document.getElementById('nlp-agent-status').textContent = `Status: ${agents.nlp_agent?.status || 'Unknown'}, Model: ${agents.nlp_agent?.model || 'Unknown'}`;
+      } catch (error) {
+        console.error('Failed to load agent status:', error);
+        document.getElementById('fsm-agent-status').textContent = 'Error loading agent status';
+      }
     }
 
     function loadMonacoEditor() {
