@@ -112,9 +112,9 @@ tail -f data/logs/*.log
 
 > [!IMPORTANT]
 >
-> GremlinGPT is a Recursive, Self-Referential Autonomous Cognitive System (R‑SRACS)
+> GremlinGPT is a Recursive, Self-Referential Autonomous Cognitive System (RS-RACS)
 >
-> Deployable as a Decentralized Autonomous Intelligence Node (DAIN) with multi-agent Emergent Network properties (EMAN) and a Meta-Synthetic Persona Engine (MSPE) interface.
+> Deployable as a Decentralized Autonomous Intelligence Node (DAIN) with multi-agent Emergent Network properties (EMAN) and a Meta-Synthetic Persona Engine (MSPE) interface.(In-Progress)
 
 <div align="center">
   <a href="https://github.com/statikfintechllc/AscendAI/blob/master/GremlinGPT">
