@@ -46,26 +46,6 @@ href="tel:+16202669837">
   </a>
 </div>
 <div align="center">
-  <a href="https://github.com/statikfintechllc">
-    <img src="https://img.shields.io/badge/-000000?logo=github&logoColor=white&style=flat-square" alt="GitHub">
-  </a>
-  <a href="https://www.linkedin.com/in/daniel-morris-780804368">
-    <img src="https://img.shields.io/badge/In-e11d48?logo=linkedin&logoColor=white&style=flat-square" alt="LinkedIn">
-  </a>
-  <a href="mailto:ascend.gremlin@gmail.com">
-    <img src="https://img.shields.io/badge/-D14836?logo=gmail&logoColor=white&style=flat-square" alt="Email">
-  </a>
-  <a href="https://www.youtube.com/@Gremlins_Forge">
-    <img src="https://img.shields.io/badge/-FF0000?logo=youtube&logoColor=white&style=flat-square" alt="YouTube">
-  </a>
-  <a href="https://x.com/GremlinsForge">
-    <img src="https://img.shields.io/badge/-000000?logo=x&logoColor=white&style=flat-square" alt="X">
-  </a>
-  <a href="https://medium.com/@ascend.gremlin">
-    <img src="https://img.shields.io/badge/-000000?logo=medium&logoColor=white&style=flat-square" alt="Medium">
-  </a>
-</div>
-<div align="center">
   <a href="https://github.com/sponsors/statikfintechllc">
     <img src="https://raw.githubusercontent.com/statikfintechllc/statikfintechllc/master/badges/g.h.svg">
   </a><br>
@@ -102,7 +82,7 @@ href="https://github.com/statikfintechllc/GremlinGPT">
 
 ### Quick Start with Enhanced Installer
 
-**🚀 One-Line Installation (Recommended)**
+**🚀 *One-Line* Installation (Recommended)**
 
 ```bash
 # Install with wget
@@ -113,16 +93,16 @@ wget -qO- https://raw.githubusercontent.com/statikfintechllc/GremlinGPT/master/i
 curl -fsSL https://raw.githubusercontent.com/statikfintechllc/GremlinGPT/master/install.script | bash
 ```
 
-**Manual Quick Commands:**
+**Manual *Quick* Commands:**
 ```bash
 # Clone
 git clone https://github.com/statikfintechllc/GremlinGPT.git
 
 # Complete installation and launch
-./install.sh && cd frontend && npm run electron
+./install.script && cd frontend && npm run electron
 
 # Check system status
-python3 utils/enhanced_dash_cli.py --status
+cd .. && python3 utils/enhanced_dash_cli.py --status
 
 # View logs
 tail -f data/logs/*.log
@@ -177,48 +157,18 @@ href="https://github.com/statikfintechllc/AscendAI/blob/master/GremlinGPT/docs/G
 >
 > If you can read the repo and feel it watching you back, you're already in. 
 
-<div align="center">
-
-<a href="https://ko-fi.com/statikfintech_llc">
-  <img  
-	  src="https://img.shields.io/badge/Sponsor%20SFTi%20on%20KoFi-darkred?style=for-the-badge&logo=dragon&logoColor=gold" alt="Support"/>
-  </a>
-  <a href="https://patreon.com/StatikFinTech_LLC?utm_medium=unknown&utm_source=join_link&utm_campaign=creatorshare_creator&utm_content=copyLink">
-  <img  
-	  src="https://img.shields.io/badge/Sponsor%20SFTi%20on%20Patreon-black?style=for-the-badge&logo=dragon&logoColor=gold" alt="SFTi"/>
-  </a>
-</div>
-<div align="center"> 
-
-[![Sponsor 💪 statikfintechllc](https://img.shields.io/badge/Sponsor%20SFTi%20on%20GitHub-darkred?logo=github&style=for-the-badge)](https://github.com/sponsors/statikfintechllc)
-
-</div>
-
 ---
 
-## Founder's Log & Manifesto
+### Founder's Log & Manifesto
 
 > I built an AI system that builds itself.  
 > Not in a lab.  
 > Not at a venture-backed startup.  
 > Not on fiber internet with a dev team holding my hand...
 
-Read the [FOUNDER_LOG.md](https://github.com/statikfintechllc/Ascend%20Institute/blob/master/About%20Us/FOUNDER_LOG.md) and the [FOUNDER_STATEMENT.md](https://github.com/statikfintechllc/Ascend%20Institute/blob/master/About%20Us/FOUNDER_STATEMENT.md) for the full journey and philosophy.
-
----
-
-## Installation
-
-1. **Clone the repository:**
-   ```bash
-   git clone https://github.com/statikfintechllc/GremlinGPT.git
-   cd GremlinGPT
-   ```
-
-2. **Run the installation script:**
-   ```bash
-   ./install.sh
-   ```
+**To see the *Full Initial Journey* and philosophy, Read these**:
+- [FOUNDER_LOG.md](https://github.com/statikfintechllc/Ascend%20Institute/blob/master/About%20Us/FOUNDER_LOG.md)
+- [FOUNDER_STATEMENT.md](https://github.com/statikfintechllc/Ascend%20Institute/blob/master/About%20Us/FOUNDER_STATEMENT.md)
 
 <div align="center">
   <a
@@ -229,6 +179,21 @@ href="https://github.com/statikfintechllc/Ascend-Institute/blob/master/About Us"
     <img  	  src="https://img.shields.io/badge/SFTi-darkred?style=for-the-badge&logo=dragon&logoColor=gold" alt="GremlinGPT"/>
   </a>
 </div>
+
+---
+
+## Installation
+
+1. **Clone the repository:**
+```bash
+git clone https://github.com/statikfintechllc/GremlinGPT.git
+cd GremlinGPT
+```
+
+2. **Run the installation script:**
+```bash
+./install.sh
+```
 
 ## Running GremlinGPT
 
@@ -348,10 +313,21 @@ cd frontend
 npm run electron-dev
 ```
 
-<div align="center"> 
-
-[![Sponsor 💪 statikfintechllc](https://img.shields.io/badge/Sponsor%20%F0%9F%92%AA%20statikfintechllc-darkred?logo=github&style=for-the-badge)](https://github.com/sponsors/statikfintechllc)
-
+<div align="center">
+  <a href="https://github.com/sponsors/statikfintechllc">
+    <img src="https://raw.githubusercontent.com/statikfintechllc/statikfintechllc/master/badges/L.W.badge.svg" alt="Like my work?" />
+  </a>
+</div>
+<div align="center">
+<a href="https://github.com/sponsors/statikfintechllc">
+  <img src="https://raw.githubusercontent.com/statikfintechllc/statikfintechllc/master/badges/git.sponsor.svg">
+</a><br>
+<a href="https://ko-fi.com/statikfintech_llc">
+  <img src="https://raw.githubusercontent.com/statikfintechllc/statikfintechllc/master/badges/kofi.sponsor.svg">
+</a><br>
+<a href="https://patreon.com/StatikFinTech_LLC">
+  <img src="https://raw.githubusercontent.com/statikfintechllc/statikfintechllc/master/badges/patreon.sponsor.svg">
+</a>
 </div>
 
 <h1 align="center">Ascend Institute's GremlinGPT Traffic</h1>
@@ -400,4 +376,22 @@ Commercial Use Requires License
 
 [© 2025 StatikFinTech, LLC](https://github.com/statikfintechllc/GremlinGPT/blob/master/LICENSE.md)
 
+  <a href="https://github.com/statikfintechllc">
+    <img src="https://img.shields.io/badge/-000000?logo=github&logoColor=white&style=flat-square" alt="GitHub">
+  </a>
+  <a href="https://www.linkedin.com/in/daniel-morris-780804368">
+    <img src="https://img.shields.io/badge/In-e11d48?logo=linkedin&logoColor=white&style=flat-square" alt="LinkedIn">
+  </a>
+  <a href="mailto:ascend.gremlin@gmail.com">
+    <img src="https://img.shields.io/badge/-D14836?logo=gmail&logoColor=white&style=flat-square" alt="Email">
+  </a>
+  <a href="https://www.youtube.com/@Gremlins_Forge">
+    <img src="https://img.shields.io/badge/-FF0000?logo=youtube&logoColor=white&style=flat-square" alt="YouTube">
+  </a>
+  <a href="https://x.com/GremlinsForge">
+    <img src="https://img.shields.io/badge/-000000?logo=x&logoColor=white&style=flat-square" alt="X">
+  </a>
+  <a href="https://medium.com/@ascend.gremlin">
+    <img src="https://img.shields.io/badge/-000000?logo=medium&logoColor=white&style=flat-square" alt="Medium">
+  </a>
 </div>
