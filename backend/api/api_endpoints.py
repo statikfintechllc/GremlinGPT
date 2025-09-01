@@ -20,8 +20,6 @@ project_root = Path(__file__).parent.parent.parent
 sys.path.insert(0, str(project_root))
 
 from utils.logging_config import setup_module_logger
-
-# ...existing code...
 logger = setup_module_logger('backend', 'INFO')
 
 # Import orchestrator environment globals for backend API
