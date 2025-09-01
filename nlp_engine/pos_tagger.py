@@ -13,20 +13,19 @@
 # Import NLP environment globals
 from conda_envs.environments.nlp.globals import *
 
-import os
-import nltk
-from nltk import pos_tag, word_tokenize
-from datetime import datetime
+# Import shared lazy loading utilities
+from .lazy_utils import get_memory_functions, conditional_execute
 
-# For cross-environment communication, use lazy loading
-def lazy_import_memory():
-    """Lazy import memory functionality to prevent circular dependencies"""
-    try:
-        from memory.vector_store.embedder import embed_text, package_embedding, inject_watermark
-        return embed_text, package_embedding, inject_watermark
-    except ImportError as e:
-        logger.warning(f"Memory functions not available: {e}")
-        return None, None, None
+import os
+try:
+    import nltk
+    from nltk import pos_tag, word_tokenize
+    HAS_NLTK = True
+except ImportError:
+    HAS_NLTK = False
+    nltk = pos_tag = word_tokenize = None
+    
+from datetime import datetime
 
 def lazy_import_utils():
     """Lazy import utils functionality to prevent circular dependencies"""
@@ -39,7 +38,8 @@ def lazy_import_utils():
         return lambda x, y: logger, lambda: os.path.expanduser("~/nltk_data")
 
 # Get functions lazily
-embed_text, package_embedding, inject_watermark = lazy_import_memory()
+# Get memory functions using shared utility
+embed_text, package_embedding, inject_watermark = get_memory_functions()
 setup_module_logger, setup_nltk_data = lazy_import_utils()
 
 # Initialize module-specific logger
@@ -56,15 +56,18 @@ WATERMARK = "source:GremlinGPT"
 ORIGIN = "pos_tagger"
 
 # Ensure nltk resources are prepped and paths registered
-nltk_path = setup_nltk_data()
+if HAS_NLTK:
+    nltk_path = setup_nltk_data()
 
-# Download POS tagger to project directory only
-try:
-    nltk.data.find("taggers/averaged_perceptron_tagger")
-    print(f"[NLTK] Found POS tagger in {nltk_path}")
-except LookupError:
-    print(f"[NLTK] Downloading POS tagger to {nltk_path}")
-    nltk.download("averaged_perceptron_tagger", download_dir=nltk_path, quiet=True)
+    # Download POS tagger to project directory only
+    try:
+        nltk.data.find("taggers/averaged_perceptron_tagger")
+        print(f"[NLTK] Found POS tagger in {nltk_path}")
+    except LookupError:
+        print(f"[NLTK] Downloading POS tagger to {nltk_path}")
+        nltk.download("averaged_perceptron_tagger", download_dir=nltk_path, quiet=True)
+else:
+    print("[NLTK] NLTK not available, using fallback POS tagging")
 
 # ─────────────────────────────────────────────────────────────
 # POS Tagging
@@ -75,15 +78,36 @@ def get_pos_tags(text):
     Performs part-of-speech tagging on input text.
     Logs metadata and embeds summary in vector memory.
     """
+    if not HAS_NLTK:
+        logger.warning("NLTK not available, returning basic POS tags")
+        # Simple fallback POS tagging
+        tokens = text.split()
+        tags = []
+        for token in tokens:
+            if token.isalpha():
+                if token.endswith('ing'):
+                    tags.append((token, 'VERB'))
+                elif token.endswith('ed'):
+                    tags.append((token, 'VERB'))
+                elif token.endswith('ly'):
+                    tags.append((token, 'ADV'))
+                else:
+                    tags.append((token, 'NOUN'))
+            elif token.isdigit():
+                tags.append((token, 'NUM'))
+            else:
+                tags.append((token, 'PUNCT'))
+        return tags
+    
     try:
         tokens = word_tokenize(text)
         tags = pos_tag(tokens)
 
         summary = f"POS tagging: {len(tokens)} tokens | Example: {tags[:3]}"
         
-        if embed_text and package_embedding and inject_watermark:
+        # Use utility function for conditional execution with memory functions
+        def store_embedding():
             vector = embed_text(summary)
-
             package_embedding(
                 text=summary,
                 vector=vector,
@@ -94,8 +118,12 @@ def get_pos_tags(text):
                     "watermark": WATERMARK,
                 },
             )
-
             inject_watermark(origin=ORIGIN)
+        
+        conditional_execute(
+            (embed_text, package_embedding, inject_watermark),
+            store_embedding
+        )
         
         return tags
 

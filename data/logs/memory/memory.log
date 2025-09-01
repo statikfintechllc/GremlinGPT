@@ -376,3 +376,21 @@
 2025-08-31 20:58:35,756 | ERROR    | memory:error:80 - [FAISS] faiss unavailable; index not initialized
 2025-08-31 20:58:35,756 | ERROR    | memory:error:80 - [EMBEDDER] SentenceTransformer unavailable; using fallback
 2025-08-31 20:58:35,782 | INFO     | memory:info:78 - [EMBEDDER] Initial disk load complete
+2025-09-01 03:36:02,389 | INFO     | memory:info:78 - [LOGGING] Module logger initialized for memory -> /home/runner/work/GremlinGPT/GremlinGPT/data/logs/memory/memory.log
+2025-09-01 03:36:02,391 | WARNING  | memory:warning:79 - [MEMORY] Failed to import MemoryManager from memory.memory_manager: No module named 'memory.memory_manager'
+2025-09-01 03:36:02,391 | WARNING  | memory:warning:79 - [MEMORY] Failed to import GraphManager from memory.graph_manager: No module named 'memory.graph_manager'
+2025-09-01 03:36:02,391 | WARNING  | memory:warning:79 - [MEMORY] Failed to import VectorStore from memory.vector_store: module 'memory.vector_store' has no attribute 'VectorStore'
+2025-09-01 03:36:02,391 | WARNING  | memory:warning:79 - [MEMORY] Failed to import KnowledgeGraph from memory.knowledge_graph: No module named 'memory.knowledge_graph'
+2025-09-01 03:36:02,391 | INFO     | memory:info:78 - [MEMORY] Memory environment globals loaded successfully. 70 items exported.
+2025-09-01 03:36:02,393 | ERROR    | memory:error:80 - [FAISS] faiss unavailable; index not initialized
+2025-09-01 03:36:02,393 | ERROR    | memory:error:80 - [EMBEDDER] SentenceTransformer unavailable; using fallback
+2025-09-01 03:36:02,412 | INFO     | memory:info:78 - [EMBEDDER] Initial disk load complete
+2025-09-01 03:36:56,533 | INFO     | memory:info:78 - [LOGGING] Module logger initialized for memory -> /home/runner/work/GremlinGPT/GremlinGPT/data/logs/memory/memory.log
+2025-09-01 03:36:56,534 | WARNING  | memory:warning:79 - [MEMORY] Failed to import MemoryManager from memory.memory_manager: No module named 'memory.memory_manager'
+2025-09-01 03:36:56,534 | WARNING  | memory:warning:79 - [MEMORY] Failed to import GraphManager from memory.graph_manager: No module named 'memory.graph_manager'
+2025-09-01 03:36:56,534 | WARNING  | memory:warning:79 - [MEMORY] Failed to import VectorStore from memory.vector_store: module 'memory.vector_store' has no attribute 'VectorStore'
+2025-09-01 03:36:56,535 | WARNING  | memory:warning:79 - [MEMORY] Failed to import KnowledgeGraph from memory.knowledge_graph: No module named 'memory.knowledge_graph'
+2025-09-01 03:36:56,535 | INFO     | memory:info:78 - [MEMORY] Memory environment globals loaded successfully. 70 items exported.
+2025-09-01 03:36:56,535 | ERROR    | memory:error:80 - [FAISS] faiss unavailable; index not initialized
+2025-09-01 03:36:56,535 | ERROR    | memory:error:80 - [EMBEDDER] SentenceTransformer unavailable; using fallback
+2025-09-01 03:36:56,555 | INFO     | memory:info:78 - [EMBEDDER] Initial disk load complete
