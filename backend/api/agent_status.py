@@ -3,8 +3,21 @@
 # Agent Status API - Backend endpoint for checking agent status
 # Provides agent connectivity information for frontend dashboard
 
-from environments.dashboard import Flask, json, os, Path, logger, datetime
-from flask import Blueprint, jsonify, request
+# Import orchestrator environment globals for backend
+from conda_envs.environments.orchestrator.globals import *
+
+# For cross-environment communication, use lazy loading
+def lazy_import_flask():
+    """Lazy import flask functionality to prevent circular dependencies"""
+    try:
+        from flask import Blueprint, jsonify, request
+        return Blueprint, jsonify, request
+    except ImportError as e:
+        logger.warning(f"Flask functions not available: {e}")
+        return None, None, None
+
+# Get cross-environment functions lazily
+Blueprint, jsonify, request = lazy_import_flask()
 
 # Try to import psutil if available
 try:
@@ -14,8 +27,11 @@ except ImportError:
     psutil = None
     HAS_PSUTIL = False
 
-# Create Flask Blueprint
-agent_status_bp = Blueprint('agent_status', __name__)
+# Create Flask Blueprint if available
+if Blueprint:
+    agent_status_bp = Blueprint('agent_status', __name__)
+else:
+    agent_status_bp = None
 
 def get_agent_status():
     """Get current status of all agents"""

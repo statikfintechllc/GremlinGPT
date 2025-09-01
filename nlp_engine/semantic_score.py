@@ -11,6 +11,9 @@
 # Self-improving semantic similarity engine for GremlinGPT.
 # This script is a component of the GremlinGPT system, under Alpha expansion.
 
+# Import NLP environment globals
+from conda_envs.environments.nlp.globals import *
+
 import re
 import numpy as np
 import langdetect

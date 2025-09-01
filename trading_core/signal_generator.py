@@ -10,9 +10,18 @@
 # GremlinGPT v1.0.3 :: Module Integrity Directive
 # This script is a component of the GremlinGPT system, under Alpha expansion.
 
-from trading_core.rules_engine import apply_signal_rules
-from trading_core.stock_scraper import get_live_penny_stocks
-from memory.vector_store.embedder import (
+# Import scraper environment globals for trading core
+from conda_envs.environments.scraper.globals import *
+
+# Use relative imports within trading_core
+from .rules_engine import apply_signal_rules
+from .stock_scraper import get_live_penny_stocks
+
+# For cross-environment communication (memory), use lazy loading
+def lazy_import_memory():
+    """Lazy import memory functionality to prevent circular dependencies"""
+    try:
+        from memory.vector_store.embedder import (
     package_embedding,
     embed_text,
     inject_watermark,

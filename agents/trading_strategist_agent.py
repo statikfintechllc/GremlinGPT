@@ -7,6 +7,10 @@
 # Contact: ascend.gremlin@gmail.com
 # ─────────────────────────────────────────────────────────────
 
+
+# Import orchestrator environment globals for agents
+from conda_envs.environments.orchestrator.globals import *
+
 # GremlinGPT v1.0.3 :: Specialized Agent - Trading Strategy & Risk Management
 
 import asyncio

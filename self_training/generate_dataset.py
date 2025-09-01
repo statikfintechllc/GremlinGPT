@@ -7,6 +7,9 @@
 # Contact: ascend.gremlin@gmail.com
 # ─────────────────────────────────────────────────────────────
 
+# Import NLP environment globals for self-training
+from conda_envs.environments.nlp.globals import *
+
 """
 GremlinGPT v1.0.3 :: Dataset Generation Heart Module
 This module provides the main dataset generation function for self-training, FSM, and trainer.

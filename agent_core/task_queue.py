@@ -8,6 +8,10 @@
 
 # GremlinGPT v1.0.3 :: agent_core/task_queue.py
 
+# Import orchestrator environment globals for agent core
+from conda_envs.environments.orchestrator.globals import *
+
+
 import json
 import uuid
 from collections import deque, defaultdict

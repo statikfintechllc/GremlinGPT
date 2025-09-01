@@ -10,12 +10,47 @@
 # GremlinGPT v1.0.3 :: Module Integrity Directive
 # This script is a component of the GremlinGPT system, under Alpha expansion. v5 :: Module Integrity Directive
 
+# Import orchestrator environment globals for backend
+from conda_envs.environments.orchestrator.globals import *
+
+# Use relative imports within orchestrator environment
 from agent_core.task_queue import reprioritize
 from agent_core import task_queue
-from memory.log_history import log_event
-from environments.dashboard import sys, Path, datetime, flask
+
+# For cross-environment communication, use lazy loading
+def lazy_import_memory():
+    """Lazy import memory functionality to prevent circular dependencies"""
+    try:
+        from memory.log_history import log_event
+        return log_event
+    except ImportError as e:
+        logger.warning(f"Memory functions not available: {e}")
+        return None
+
+def lazy_import_dashboard():
+    """Lazy import dashboard functionality to prevent circular dependencies"""
+    try:
+        from environments.dashboard import sys, Path, datetime, flask
+        return sys, Path, datetime, flask
+    except ImportError as e:
+        logger.warning(f"Dashboard functions not available: {e}")
+        return None, None, None, None
+
+def lazy_import_scraper():
+    """Lazy import scraper functionality to prevent circular dependencies"""
+    try:
+        from scraper import source_router, web_knowledge_scraper
+        return source_router, web_knowledge_scraper
+    except ImportError as e:
+        logger.warning(f"Scraper functions not available: {e}")
+        return None, None
+
+# Get cross-environment functions lazily
+log_event = lazy_import_memory()
+sys, Path, datetime, flask = lazy_import_dashboard()
+source_router, web_knowledge_scraper = lazy_import_scraper()
+
 import networkx as nx
-from scraper import source_router, web_knowledge_scraper
 
 
 from utils.logging_config import setup_module_logger

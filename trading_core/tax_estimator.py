@@ -7,6 +7,10 @@
 # Contact: ascend.gremlin@gmail.com
 # ─────────────────────────────────────────────────────────────
 
+
+# Import scraper environment globals for trading core
+from conda_envs.environments.scraper.globals import *
+
 # GremlinGPT v1.0.3 :: Module Integrity Directive
 # This script is a component of the GremlinGPT system, under Alpha expansion.
 

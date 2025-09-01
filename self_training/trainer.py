@@ -9,10 +9,26 @@
 
 # GremlinGPT v1.0.3 :: Module Integrity Directive
 
+# Import NLP environment globals for self-training
+from conda_envs.environments.nlp.globals import *
+
 import os
 import json
 import numpy as np
-from environments.orchestrator import CFG, logger, resolve_path, DATA_DIR, MEM
+
+# For cross-environment communication, use lazy loading
+def lazy_import_orchestrator():
+    """Lazy import orchestrator functionality to prevent circular dependencies"""
+    try:
+        from environments.orchestrator import CFG, logger, resolve_path, DATA_DIR, MEM
+        return CFG, logger, resolve_path, DATA_DIR, MEM
+    except ImportError as e:
+        logger.warning(f"Orchestrator functions not available: {e}")
+        return None, None, None, None, None
+
+# Get orchestrator functions lazily
+CFG_orch, logger_orch, resolve_path, DATA_DIR, MEM = lazy_import_orchestrator()
+
 from watchdog.events import FileSystemEventHandler
 try:
     from nlp_engine.mini_attention import MiniMultiHeadAttention

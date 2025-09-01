@@ -464,6 +464,9 @@ __all__ = [
     # State management functions
     'save_state', 'load_state',
     
+    # Environment health checks
+    'check_environment_health', 'get_required_modules', 'check_dependencies',
+    
     # Utilities
     'logger', 'resolve_path', 'get_system_info', 'get_orchestrator_status',
     'safe_import_function', 'safe_import_class',
@@ -472,6 +475,45 @@ __all__ = [
     'HAS_ASYNC', 'HAS_CELERY', 'HAS_RQ', 'HAS_PSUTIL', 'HAS_TRANSITIONS',
     'HAS_ZMQ', 'HAS_PROMETHEUS', 'HAS_TOML'
 ]
+
+# ========================================================================================
+# ENVIRONMENT HEALTH CHECK FUNCTIONS
+# ========================================================================================
+
+def get_required_modules():
+    """Get list of required modules for orchestrator environment"""
+    return [
+        'asyncio', 'threading', 'multiprocessing', 'subprocess', 'signal', 'queue',
+        'concurrent.futures', 'psutil', 'transitions', 'zmq', 'prometheus_client'
+    ]
+
+def check_dependencies():
+    """Check if all required dependencies are available"""
+    import importlib
+    required = get_required_modules()
+    available = {}
+    
+    for module in required:
+        try:
+            importlib.import_module(module)
+            available[module] = True
+        except ImportError:
+            available[module] = False
+            logger.warning(f"Missing dependency: {module}")
+    
+    return available
+
+def check_environment_health():
+    """Verify orchestrator environment dependencies are loaded"""
+    dependencies = check_dependencies()
+    failed = [mod for mod, status in dependencies.items() if not status]
+    
+    if failed:
+        logger.error(f"Orchestrator environment health check failed. Missing: {failed}")
+        return False
+    else:
+        logger.info("Orchestrator environment health check passed")
+        return True
 
 # Write PID file on import
 write_pid_file()

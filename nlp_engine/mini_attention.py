@@ -9,11 +9,35 @@
 
 # GremlinGPT v1.0.3 :: FSM Core & Module Integrity Directive
 
+# Import NLP environment globals
+from conda_envs.environments.nlp.globals import *
+
 import numpy as np
 from datetime import datetime
-from memory.vector_store.embedder import package_embedding, embed_text
-from memory.log_history import log_event
-from self_training.feedback_loop import inject_feedback
+
+# For cross-environment communication, use lazy loading
+def lazy_import_memory():
+    """Lazy import memory functionality to prevent circular dependencies"""
+    try:
+        from memory.vector_store.embedder import package_embedding, embed_text
+        from memory.log_history import log_event
+        return package_embedding, embed_text, log_event
+    except ImportError as e:
+        logger.warning(f"Memory functions not available: {e}")
+        return None, None, None
+
+def lazy_import_training():
+    """Lazy import training functionality to prevent circular dependencies"""
+    try:
+        from self_training.feedback_loop import inject_feedback
+        return inject_feedback
+    except ImportError as e:
+        logger.warning(f"Training functions not available: {e}")
+        return None
+
+# Get cross-environment functions lazily
+package_embedding, embed_text, log_event = lazy_import_memory()
+inject_feedback = lazy_import_training()
 
 WATERMARK = "source:GremlinGPT"
 MODULE = "mini_attention"

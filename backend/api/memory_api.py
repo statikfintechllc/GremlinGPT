@@ -10,8 +10,8 @@
 # GremlinGPT v5 :: Module Integrity Directive
 # This script is a component of the GremlinGPT system, under Alpha expansion. v5 :: Module Integrity Directive
 
-
-from environments.dashboard import CFG, logger, resolve_path, DATA_DIR, MEM
+# Import orchestrator environment globals for backend
+from conda_envs.environments.orchestrator.globals import *
 
 
 def graph():

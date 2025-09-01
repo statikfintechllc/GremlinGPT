@@ -237,6 +237,9 @@ function launch_terminal() {
   elif [ -n "$port" ] && [[ "$cmd" == *"http.server"* ]]; then
     cmd="${cmd/$port}"  # Replace existing port
     cmd="$cmd $port"
+    cmd="${cmd} --port $port"
+  elif [ -n "$port" ] && [[ "$cmd" == *"nlp_service"* ]]; then
+    cmd="${cmd} --port $port"
   fi
   
   # Check if we're in a headless environment or GUI environment
@@ -308,16 +311,35 @@ echo "Boot ID: $(uuidgen) | Source: GremlinGPT | Time: $(date -u)" | tee -a "$LO
 # --- Pre-launch Setup ---
 check_port_conflicts
 
-echo "[START] Launching GremlinGPT subsystems in separate terminals..."
-
-# Launch services with assigned ports
-launch_terminal "Core Loop" gremlin-orchestrator "python core/loop.py" "$LOGDIR/runtime.log"
-launch_terminal "NLP Service" gremlin-nlp "python nlp_engine/nlp_check.py" "$LOGDIR/nlp.out" "${SERVICE_PORTS[nlp]}"
+echo "[START] Launching GremlinGPT subsystems in dependency order..."
+echo "[START] Phase 1: Memory Environment (foundational data layer)"
 launch_terminal "Memory Service" gremlin-memory "python memory/vector_store/embedder.py" "$LOGDIR/memory.out" "${SERVICE_PORTS[memory]}"
-launch_terminal "FSM Agent" gremlin-nlp "python -m agent_core.fsm" "$LOGDIR/fsm.out" "${SERVICE_PORTS[fsm]}"
+
+echo "[START] Waiting for memory service to initialize..."
+sleep 5
+
+echo "[START] Phase 2: NLP Environment (language processing)"
+launch_terminal "NLP Service" gremlin-nlp "python -m nlp_engine.nlp_service" "$LOGDIR/nlp.out" "${SERVICE_PORTS[nlp]}"
+launch_terminal "Self-Trainer" gremlin-nlp "python -m self_training.trainer" "$LOGDIR/trainer.out" "${SERVICE_PORTS[trainer]}"
+
+echo "[START] Waiting for NLP services to initialize..."
+sleep 5
+
+echo "[START] Phase 3: Scraper Environment (data collection)"
 launch_terminal "Scraper" gremlin-scraper "python -m scraper.scraper_loop" "$LOGDIR/scraper.out" "${SERVICE_PORTS[scraper]}"
-launch_terminal "Self-Trainer" gremlin-orchestrator "python -m self_training.trainer" "$LOGDIR/trainer.out" "${SERVICE_PORTS[trainer]}"
-launch_terminal "Backend Server" gremlin-dashboard "python -m backend.server" "$LOGDIR/backend.out" "${SERVICE_PORTS[backend]}"
+
+echo "[START] Waiting for scraper to initialize..."
+sleep 3
+
+echo "[START] Phase 4: Orchestrator Environment (coordination & agents)"
+launch_terminal "Core Loop" gremlin-orchestrator "python core/loop.py" "$LOGDIR/runtime.log"
+launch_terminal "FSM Agent" gremlin-orchestrator "python -m agent_core.fsm" "$LOGDIR/fsm.out" "${SERVICE_PORTS[fsm]}"
+launch_terminal "Backend Server" gremlin-orchestrator "python -m backend.server" "$LOGDIR/backend.out" "${SERVICE_PORTS[backend]}"
+
+echo "[START] Waiting for orchestrator services to initialize..."
+sleep 5
+
+echo "[START] Phase 5: Dashboard Environment (UI & visualization)"
 launch_terminal "Frontend" gremlin-dashboard "cd frontend && npm run dev" "$LOGDIR/frontend.out" "${SERVICE_PORTS[frontend]}"
 launch_terminal "Ngrok Tunnel" gremlin-dashboard "python run/ngrok_launcher.py" "$LOGDIR/ngrok.out" "${SERVICE_PORTS[ngrok]}"
 

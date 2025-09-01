@@ -406,3 +406,24 @@
 2025-08-30 22:38:06,126 | INFO     | scraper.source_router:info:78 - [LOGGING] Module logger initialized for scraper -> /home/statiksmoke8/builds/GremlinGPT/data/logs/scraper/scraper_source_router.log
 2025-08-30 22:38:06,127 | INFO     | scraper:info:78 - [LOGGING] Module logger initialized for scraper -> /home/statiksmoke8/builds/GremlinGPT/data/logs/scraper/scraper.log
 2025-08-30 22:38:06,127 | INFO     | scraper.stt_scraper:info:78 - [LOGGING] Module logger initialized for scraper -> /home/statiksmoke8/builds/GremlinGPT/data/logs/scraper/scraper_stt_scraper.log
+2025-08-31 18:47:18,752 | INFO     | scraper:info:78 - [LOGGING] Module logger initialized for scraper -> /home/runner/work/GremlinGPT/GremlinGPT/data/logs/scraper/scraper.log
+2025-08-31 18:47:18,797 | INFO     | scraper:info:78 - [SCRAPER] Initialized requests session with retries
+2025-08-31 18:47:18,798 | WARNING  | scraper:warning:79 - [SCRAPER] Failed to import WebScraper from scraper.web_scraper: No module named 'scraper.web_scraper'
+2025-08-31 18:47:18,798 | WARNING  | scraper:warning:79 - [SCRAPER] Failed to import TradingDataScraper from scraper.trading_data_scraper: No module named 'scraper.trading_data_scraper'
+2025-08-31 18:47:18,798 | WARNING  | scraper:warning:79 - [SCRAPER] Failed to import APIClient from scraper.api_client: No module named 'scraper.api_client'
+2025-08-31 18:47:18,798 | WARNING  | scraper:warning:79 - [SCRAPER] Failed to import DataProcessor from scraper.data_processor: No module named 'scraper.data_processor'
+2025-08-31 18:47:18,798 | INFO     | scraper:info:78 - [SCRAPER] Scraper environment globals loaded successfully. 81 items exported.
+2025-08-31 19:01:27,158 | INFO     | scraper:info:78 - [LOGGING] Module logger initialized for scraper -> /home/runner/work/GremlinGPT/GremlinGPT/data/logs/scraper/scraper.log
+2025-08-31 19:01:27,159 | INFO     | scraper:info:78 - [SCRAPER] Initialized requests session with retries
+2025-08-31 19:01:27,160 | WARNING  | scraper:warning:79 - [SCRAPER] Failed to import WebScraper from scraper.web_scraper: No module named 'scraper.web_scraper'
+2025-08-31 19:01:27,160 | WARNING  | scraper:warning:79 - [SCRAPER] Failed to import TradingDataScraper from scraper.trading_data_scraper: No module named 'scraper.trading_data_scraper'
+2025-08-31 19:01:27,160 | WARNING  | scraper:warning:79 - [SCRAPER] Failed to import APIClient from scraper.api_client: No module named 'scraper.api_client'
+2025-08-31 19:01:27,160 | WARNING  | scraper:warning:79 - [SCRAPER] Failed to import DataProcessor from scraper.data_processor: No module named 'scraper.data_processor'
+2025-08-31 19:01:27,160 | INFO     | scraper:info:78 - [SCRAPER] Scraper environment globals loaded successfully. 81 items exported.
+2025-08-31 19:01:46,347 | INFO     | scraper:info:78 - [LOGGING] Module logger initialized for scraper -> /home/runner/work/GremlinGPT/GremlinGPT/data/logs/scraper/scraper.log
+2025-08-31 19:01:46,349 | INFO     | scraper:info:78 - [SCRAPER] Initialized requests session with retries
+2025-08-31 19:01:46,349 | WARNING  | scraper:warning:79 - [SCRAPER] Failed to import WebScraper from scraper.web_scraper: No module named 'scraper.web_scraper'
+2025-08-31 19:01:46,349 | WARNING  | scraper:warning:79 - [SCRAPER] Failed to import TradingDataScraper from scraper.trading_data_scraper: No module named 'scraper.trading_data_scraper'
+2025-08-31 19:01:46,349 | WARNING  | scraper:warning:79 - [SCRAPER] Failed to import APIClient from scraper.api_client: No module named 'scraper.api_client'
+2025-08-31 19:01:46,350 | WARNING  | scraper:warning:79 - [SCRAPER] Failed to import DataProcessor from scraper.data_processor: No module named 'scraper.data_processor'
+2025-08-31 19:01:46,350 | INFO     | scraper:info:78 - [SCRAPER] Scraper environment globals loaded successfully. 81 items exported.

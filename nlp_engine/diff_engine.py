@@ -10,16 +10,42 @@
 # GremlinGPT v1.0.3 :: Module Integrity Directive
 # This script is a component of the GremlinGPT system, under Alpha expansion.
 
+# Import NLP environment globals
+from conda_envs.environments.nlp.globals import *
+
 from difflib import unified_diff
 import numpy as np
 from typing import Dict
-from utils.logging_config import setup_module_logger
+
+# For cross-environment communication, use lazy loading
+def lazy_import_utils():
+    """Lazy import utils functionality to prevent circular dependencies"""
+    try:
+        from utils.logging_config import setup_module_logger
+        return setup_module_logger
+    except ImportError as e:
+        logger.warning(f"Utils functions not available: {e}")
+        return lambda x, y: logger
+
+def lazy_import_nlp():
+    """Lazy import NLP functionality to prevent circular dependencies"""
+    try:
+        from nlp_engine.semantic_score import semantic_similarity
+        from nlp_engine.transformer_core import encode
+        return semantic_similarity, encode
+    except ImportError as e:
+        logger.warning(f"NLP functions not available: {e}")
+        return lambda x, y: 0.0, lambda x: np.zeros(384)
+
+# Get functions lazily
+setup_module_logger = lazy_import_utils()
+semantic_similarity, encode_func = lazy_import_nlp()
 
 # Initialize module-specific logger
-logger = setup_module_logger("nlp_engine", "diff_engine")
-
-from nlp_engine.semantic_score import semantic_similarity
-from nlp_engine.transformer_core import encode
+try:
+    logger_instance = setup_module_logger("nlp_engine", "diff_engine")
+except:
+    logger_instance = logger  # Use global logger as fallback
 
 ENGINE_NAME = "diff_engine"
 
@@ -55,8 +81,8 @@ def diff_texts(old: str, new: str, debug: bool = False) -> Dict:
     if old or new:
         sem_score = semantic_similarity(old, new)
         try:
-            vec_old = encode(old)
-            vec_new = encode(new)
+            vec_old = encode_func(old)
+            vec_new = encode_func(new)
             if vec_old.shape != vec_new.shape:
                 if debug:
                     logger.warning(f"[{ENGINE_NAME}] Embedding shapes differ: {vec_old.shape} vs {vec_new.shape}")

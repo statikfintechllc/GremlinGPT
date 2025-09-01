@@ -7,6 +7,10 @@
 # Contact: ascend.gremlin@gmail.com
 # ─────────────────────────────────────────────────────────────
 
+
+# Import orchestrator environment globals for agent core
+from conda_envs.environments.orchestrator.globals import *
+
 # GremlinGPT v1.0.3 :: Module Integrity Directive
 
 import psutil
