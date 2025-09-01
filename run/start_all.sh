@@ -237,8 +237,7 @@ function launch_terminal() {
   elif [ -n "$port" ] && [[ "$cmd" == *"http.server"* ]]; then
     cmd="${cmd/$port}"  # Replace existing port
     cmd="$cmd $port"
-  elif [ -n "$port" ] && [[ "$cmd" == *"nlp_service"* ]]; then
-    cmd="${cmd} $port"
+    cmd="${cmd} --port $port"
   fi
   
   # Check if we're in a headless environment or GUI environment
