@@ -80,6 +80,15 @@ href="https://github.com/statikfintechllc/GremlinGPT">
 
 ---
 
+> [!Important]
+> 
+> I am still a Full-Time Auto-Mechanic.
+> Progress on debugging GremlinGPT will resume after I advance my personal knowledge deeper into Computer Science.
+>
+> Check out my other builds and Projects from school ideas, FinTech Builds, and Proof-of-Concepts.
+>
+> All Housed [Here](https://statikfintechllc.github.io/Ascend-Institute/)
+
 ### Quick Start with Enhanced Installer
 
 **🚀 *One-Line* Installation (Recommended)**
