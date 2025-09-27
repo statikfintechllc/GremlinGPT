@@ -53,4 +53,7 @@ def graph():
     except Exception as e:
         logger.error(f"[MEMORY_API] Unexpected error: {e}")
         log_event("memory_api", "graph_error", {"error": str(e)}, status="failure")
-        return jsonify({"error": "An unexpected error occurred", "details": str(e)}), 500
+        return (
+            jsonify({"error": "An unexpected error occurred", "details": str(e)}),
+            500,
+        )

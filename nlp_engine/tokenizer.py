@@ -18,11 +18,17 @@ from conda_envs.environments.nlp.globals import *
 def lazy_import_memory():
     """Lazy import memory functionality to prevent circular dependencies"""
     try:
-        from memory.vector_store.embedder import embed_text, package_embedding, inject_watermark
+        from memory.vector_store.embedder import (
+            embed_text,
+            package_embedding,
+            inject_watermark,
+        )
+
         return embed_text, package_embedding, inject_watermark
     except ImportError as e:
         logger.warning(f"Memory functions not available: {e}")
         return None, None, None
+
 
 # Get memory functions lazily
 embed_text, package_embedding, inject_watermark = lazy_import_memory()
@@ -30,6 +36,7 @@ embed_text, package_embedding, inject_watermark = lazy_import_memory()
 # Local project imports that can't be centralized
 try:
     from utils.nltk_setup import setup_nltk_data
+
     NLTK_DATA_DIR = setup_nltk_data()
 except ImportError:
     NLTK_DATA_DIR = None
@@ -71,30 +78,31 @@ def tokenize(text, max_length=512, add_special_tokens=True):
     """
     if not text or not isinstance(text, str):
         return []
-    
+
     text = clean_text(text)
-    
+
     if tokenizer:
         try:
             # Use HuggingFace tokenizer
             result = tokenizer.encode(
-                text, 
-                max_length=max_length, 
+                text,
+                max_length=max_length,
                 truncation=True,
-                add_special_tokens=add_special_tokens
+                add_special_tokens=add_special_tokens,
             )
             return result
         except Exception as e:
             logger.warning(f"[TOKENIZER] HF tokenization failed: {e}")
-    
+
     # Fallback to NLTK
     if nltk:
         try:
             from nltk.tokenize import word_tokenize
+
             return word_tokenize(text)
         except Exception as e:
             logger.warning(f"[TOKENIZER] NLTK tokenization failed: {e}")
-    
+
     # Ultimate fallback: simple split
     return text.split()
 
@@ -103,18 +111,19 @@ class Tokenizer:
     """
     Tokenizer class for compatibility with nlp_check.py
     """
+
     def __init__(self, model_name=None):
         self.model_name = model_name or MODEL
         self.tokenizer = tokenizer  # Use the global tokenizer
-    
+
     def tokenize(self, text, max_length=512, add_special_tokens=True):
         """Tokenize text using the configured tokenizer"""
         return tokenize(text, max_length, add_special_tokens)
-    
+
     def encode(self, text, **kwargs):
         """Encode text to token IDs"""
         return self.tokenize(text, **kwargs)
-    
+
     def decode(self, token_ids, **kwargs):
         """Decode token IDs back to text"""
         if self.tokenizer:
@@ -122,7 +131,7 @@ class Tokenizer:
                 return self.tokenizer.decode(token_ids, **kwargs)
             except Exception as e:
                 logger.warning(f"[TOKENIZER] Decode failed: {e}")
-        
+
         # Fallback: just return the token IDs as string
         return " ".join(map(str, token_ids))
 

@@ -26,6 +26,7 @@ try:
     from nlp_engine.transformer_core import encode
 except ImportError:
     import numpy as np
+
     def encode(text):
         return np.zeros(384, dtype="float32")
 
@@ -68,12 +69,7 @@ def run_shell_command(cmd: str) -> str:
         return f"[DENIED] Command not found: {base_cmd}"
 
     try:
-        result = subprocess.run(
-            parsed,
-            capture_output=True,
-            text=True,
-            timeout=10
-        )
+        result = subprocess.run(parsed, capture_output=True, text=True, timeout=10)
 
         output = result.stdout.strip() or result.stderr.strip() or "[NO OUTPUT]"
 
@@ -88,11 +84,12 @@ def run_shell_command(cmd: str) -> str:
         package_embedding(f"{cmd}\n{output}", vector, meta=meta)
 
         with open(LOG_PATH, "a") as log:
-            log.write(json.dumps({
-                "timestamp": meta["timestamp"],
-                "command": cmd,
-                "output": output
-            }) + "\n")
+            log.write(
+                json.dumps(
+                    {"timestamp": meta["timestamp"], "command": cmd, "output": output}
+                )
+                + "\n"
+            )
 
         logger.info(f"[SHELL] Executed: {cmd}")
         return output

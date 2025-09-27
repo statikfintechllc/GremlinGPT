@@ -27,7 +27,7 @@ sys.path.insert(0, str(project_root))
 
 from utils.logging_config import setup_module_logger
 
-logger = setup_module_logger('agent_core', 'heuristics')
+logger = setup_module_logger("agent_core", "heuristics")
 from environments.orchestrator import CFG
 
 
@@ -71,16 +71,18 @@ def evaluate_task(task: dict, queue_size: int = 0) -> bool:
 
     cpu_count = psutil.cpu_count()
     system_pass = (
-        cpu < cpu_thresh and
-        mem < mem_thresh and
-        disk < disk_thresh and
-        (cpu_count is not None and load < cpu_count)
+        cpu < cpu_thresh
+        and mem < mem_thresh
+        and disk < disk_thresh
+        and (cpu_count is not None and load < cpu_count)
     )
 
     # Queue overload: if queue is large, reduce rejection chance
     queue_pressure_bonus = math.tanh(queue_size / 10) * 0.1  # Max +10% chance
 
-    decision = system_pass and (entropy + queue_pressure_bonus) > (rng_floor + entropy_buffer)
+    decision = system_pass and (entropy + queue_pressure_bonus) > (
+        rng_floor + entropy_buffer
+    )
 
     logger.debug(
         f"[HEURISTICS] Task={task_type} | CPU={cpu} | MEM={mem} | DISK={disk} | "

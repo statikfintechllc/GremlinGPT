@@ -26,20 +26,28 @@ from .pos_tagger import get_pos_tags
 def lazy_import_memory():
     """Lazy import memory functionality to prevent circular dependencies"""
     try:
-        from memory.vector_store.embedder import embed_text, package_embedding, inject_watermark
+        from memory.vector_store.embedder import (
+            embed_text,
+            package_embedding,
+            inject_watermark,
+        )
+
         return embed_text, package_embedding, inject_watermark
     except ImportError as e:
         logger.warning(f"Memory functions not available: {e}")
         return None, None, None
 
+
 def lazy_import_utils():
     """Lazy import utils functionality to prevent circular dependencies"""
     try:
         from utils.logging_config import setup_module_logger
+
         return setup_module_logger
     except ImportError as e:
         logger.warning(f"Utils functions not available: {e}")
         return lambda x, y: logger  # Return default logger
+
 
 # Get memory functions lazily
 embed_text, package_embedding, inject_watermark = lazy_import_memory()
@@ -128,7 +136,7 @@ def parse_nlp(text):
         f"Entities: {len(entities)} | Finance Matches: {len(financial_hits)} | "
         f"Code Constructs: {len(code_entities)}"
     )
-    
+
     if embed_text and package_embedding and inject_watermark:
         vector = embed_text(summary)
 

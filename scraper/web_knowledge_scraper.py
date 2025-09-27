@@ -32,12 +32,18 @@ from .dom_navigator import extract_dom_structure
 def lazy_import_memory():
     """Lazy import memory functionality to prevent circular dependencies"""
     try:
-        from memory.vector_store.embedder import embed_text, package_embedding, inject_watermark
+        from memory.vector_store.embedder import (
+            embed_text,
+            package_embedding,
+            inject_watermark,
+        )
         from memory.log_history import log_event
+
         return embed_text, package_embedding, inject_watermark, log_event
     except ImportError as e:
         logger.warning(f"Memory functions not available: {e}")
         return None, None, None, None
+
 
 # Get memory functions lazily
 embed_text, package_embedding, inject_watermark, log_event = lazy_import_memory()

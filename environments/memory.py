@@ -15,9 +15,10 @@ if str(_conda_envs_path) not in sys.path:
 # Import all memory globals
 try:
     from conda_envs.environments.memory.globals import *
+
     memory_available = True
 except ImportError as e:
     print(f"Warning: Could not import memory globals: {e}")
     memory_available = False
 
-__all__ = ['memory_available']
+__all__ = ["memory_available"]

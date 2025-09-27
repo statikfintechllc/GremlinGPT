@@ -22,20 +22,24 @@ def lazy_import_utils():
     """Lazy import utils functionality to prevent circular dependencies"""
     try:
         from utils.logging_config import setup_module_logger
+
         return setup_module_logger
     except ImportError as e:
         logger.warning(f"Utils functions not available: {e}")
         return lambda x, y: logger
+
 
 def lazy_import_nlp():
     """Lazy import NLP functionality to prevent circular dependencies"""
     try:
         from nlp_engine.semantic_score import semantic_similarity
         from nlp_engine.transformer_core import encode
+
         return semantic_similarity, encode
     except ImportError as e:
         logger.warning(f"NLP functions not available: {e}")
         return lambda x, y: 0.0, lambda x: np.zeros(384)
+
 
 # Get functions lazily
 setup_module_logger = lazy_import_utils()
@@ -85,7 +89,9 @@ def diff_texts(old: str, new: str, debug: bool = False) -> Dict:
             vec_new = encode_func(new)
             if vec_old.shape != vec_new.shape:
                 if debug:
-                    logger.warning(f"[{ENGINE_NAME}] Embedding shapes differ: {vec_old.shape} vs {vec_new.shape}")
+                    logger.warning(
+                        f"[{ENGINE_NAME}] Embedding shapes differ: {vec_old.shape} vs {vec_new.shape}"
+                    )
             delta = float(np.linalg.norm(vec_old - vec_new))
         except Exception as e:
             delta = 0.0

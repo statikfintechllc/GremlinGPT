@@ -21,19 +21,23 @@ def lazy_import_memory():
     try:
         from memory.vector_store.embedder import package_embedding, embed_text
         from memory.log_history import log_event
+
         return package_embedding, embed_text, log_event
     except ImportError as e:
         logger.warning(f"Memory functions not available: {e}")
         return None, None, None
 
+
 def lazy_import_training():
     """Lazy import training functionality to prevent circular dependencies"""
     try:
         from self_training.feedback_loop import inject_feedback
+
         return inject_feedback
     except ImportError as e:
         logger.warning(f"Training functions not available: {e}")
         return None
+
 
 # Get cross-environment functions lazily
 package_embedding, embed_text, log_event = lazy_import_memory()
@@ -50,7 +54,9 @@ class MiniMultiHeadAttention:
     Now supports dropout, bias, per-head extraction, and attention visualization stub.
     """
 
-    def __init__(self, embed_dim, num_heads=4, scale=True, seed=None, dropout=0.0, use_bias=True):
+    def __init__(
+        self, embed_dim, num_heads=4, scale=True, seed=None, dropout=0.0, use_bias=True
+    ):
         assert embed_dim % num_heads == 0, "embed_dim must be divisible by num_heads"
         self.embed_dim = embed_dim
         self.num_heads = num_heads
@@ -124,7 +130,12 @@ class MiniMultiHeadAttention:
             Q = X @ self.W_q[h]
             K = X @ self.W_k[h]
             V = X @ self.W_v[h]
-            if self.use_bias and self.b_q is not None and self.b_k is not None and self.b_v is not None:
+            if (
+                self.use_bias
+                and self.b_q is not None
+                and self.b_k is not None
+                and self.b_v is not None
+            ):
                 Q = Q + self.b_q[h]
                 K = K + self.b_k[h]
                 V = V + self.b_v[h]
@@ -184,7 +195,10 @@ class MiniMultiHeadAttention:
             attn_weights: (num_heads, seq_len, seq_len)
             tokens: list of str or None
         """
-        print("[MiniAttention] Visualization stub: attention weights shape:", attn_weights.shape)
+        print(
+            "[MiniAttention] Visualization stub: attention weights shape:",
+            attn_weights.shape,
+        )
         if tokens is not None:
             print("Tokens:", tokens)
         # Visualization logic would go here (e.g., matplotlib, seaborn)
@@ -249,7 +263,9 @@ if __name__ == "__main__":
     np.random.seed(42)
     dummy_input = np.random.rand(8, 64)  # 8 tokens, 64-dimensional embeddings
 
-    attention = MiniMultiHeadAttention(embed_dim=64, num_heads=4, scale=True, seed=42, dropout=0.1, use_bias=True)
+    attention = MiniMultiHeadAttention(
+        embed_dim=64, num_heads=4, scale=True, seed=42, dropout=0.1, use_bias=True
+    )
 
     # Example: causal mask (lower triangle: allow attending to current and previous tokens)
     causal_mask = np.tril(np.ones((8, 8))).astype(bool)

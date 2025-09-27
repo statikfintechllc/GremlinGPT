@@ -15,9 +15,10 @@ if str(_conda_envs_path) not in sys.path:
 # Import all scraper globals
 try:
     from conda_envs.environments.scraper.globals import *
+
     scraper_available = True
 except ImportError as e:
     print(f"Warning: Could not import scraper globals: {e}")
     scraper_available = False
 
-__all__ = ['scraper_available']
+__all__ = ["scraper_available"]

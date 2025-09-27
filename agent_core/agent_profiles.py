@@ -23,13 +23,14 @@ sys.path.insert(0, str(project_root))
 
 from utils.logging_config import setup_module_logger
 
-logger = setup_module_logger('agent_core', 'agent_profiles')
+logger = setup_module_logger("agent_core", "agent_profiles")
 
 # The agent profiles YAML path can be set via the AGENT_PROFILE_PATH environment variable.
 # If not set, defaults to "agent_core/agent_profiles.yaml".
 AGENT_PROFILE_PATH = os.path.abspath(
     os.environ.get("AGENT_PROFILE_PATH", "agent_core/agent_profiles.yaml")
 )
+
 
 def load_agent_profiles(profile_path=None):
     """
@@ -47,12 +48,15 @@ def load_agent_profiles(profile_path=None):
         for agent_name, profile in agents.items():
             tools = profile.get("tools", [])
             if not isinstance(tools, (list, set)):
-                logger.warning(f"[AGENT_PROFILE] Agent '{agent_name}' has invalid 'tools' field. Setting to empty list.")
+                logger.warning(
+                    f"[AGENT_PROFILE] Agent '{agent_name}' has invalid 'tools' field. Setting to empty list."
+                )
                 profile["tools"] = []
         return agents, profiles
     except Exception as e:
         logger.error(f"[AGENT_PROFILE] Failed to load profiles: {e}")
         return {}, {}
+
 
 def reload_agent_profiles():
     """
@@ -61,6 +65,7 @@ def reload_agent_profiles():
     global AGENTS, PROFILES
     AGENTS, PROFILES = load_agent_profiles()
     logger.info("[AGENT_PROFILE] Agent profiles reloaded from YAML file.")
+
 
 AGENTS, PROFILES = load_agent_profiles()
 
@@ -77,6 +82,7 @@ def get_profile_names():
     Returns a list of all profile names defined in the profiles.
     """
     return list(PROFILES.keys())
+
 
 def get_agent_role(task_type):
     """
@@ -193,7 +199,7 @@ def get_agent_profile_supporting_task(task_type):
     return None
 
 
-def get_agent_name_supporting_task(task_type):   
+def get_agent_name_supporting_task(task_type):
     """
     Returns the agent name that supports a given task type.
     If no agent supports the task, returns None.
@@ -223,7 +229,7 @@ def get_agent_profile_by_role(role):
     return None
 
 
-def get_agent_profile_by_capability(capability):    
+def get_agent_profile_by_capability(capability):
     """
     Returns the agent profile that has a specific capability.
     If no agent has the capability, returns None.
@@ -231,7 +237,7 @@ def get_agent_profile_by_capability(capability):
     for agent_name, profile in AGENTS.items():
         if capability in profile.get("capabilities", []):
             return profile
-    return None 
+    return None
 
 
 def get_agent_profile_by_isolation(isolation):
@@ -302,12 +308,14 @@ def get_agent_profile_by_toolset(toolset):
 
 def get_agent_profile_by_capability_set(capability_set):
     """
-    Returns the agent profile that has a specific set of capabilities.  
+    Returns the agent profile that has a specific set of capabilities.
     If no agent has the capability set, returns None.
     """
     for agent_name, profile in AGENTS.items():
         capabilities = profile.get("capabilities")
-        if isinstance(capabilities, (list, set)) and set(capabilities) == set(capability_set):
+        if isinstance(capabilities, (list, set)) and set(capabilities) == set(
+            capability_set
+        ):
             return profile
     return None
 
@@ -335,7 +343,7 @@ def get_agent_profile_by_priority_level(priority_level):
 
 
 def get_agent_profile_by_description_text(description_text):
-    """ 
+    """
     Returns the agent profile that has a specific description text.
     If no agent has the description text, returns None.
     """
@@ -354,6 +362,7 @@ def get_agent_profile_by_icon_url(icon_url):
         if "icon" in profile and profile["icon"] == icon_url:
             return profile
     return None
+
 
 def agent_supports_task(agent_name, task_type):
     """

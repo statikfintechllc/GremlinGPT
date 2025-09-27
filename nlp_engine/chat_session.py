@@ -22,30 +22,40 @@ from datetime import datetime, timezone
 def lazy_import_memory():
     """Lazy import memory functionality to prevent circular dependencies"""
     try:
-        from memory.vector_store.embedder import embed_text, package_embedding, inject_watermark
+        from memory.vector_store.embedder import (
+            embed_text,
+            package_embedding,
+            inject_watermark,
+        )
         from memory.log_history import log_event
+
         return embed_text, package_embedding, inject_watermark, log_event
     except ImportError as e:
         logger.warning(f"Memory functions not available: {e}")
         return None, None, None, None
 
+
 def lazy_import_orchestrator():
     """Lazy import orchestrator functionality to prevent circular dependencies"""
     try:
         from agent_core.fsm import inject_task
+
         return inject_task
     except ImportError as e:
         logger.warning(f"Orchestrator functions not available: {e}")
         return None
 
+
 def lazy_import_backend():
     """Lazy import backend functionality to prevent circular dependencies"""
     try:
         from backend.api.chat_handler import chat as backend_chat
+
         return backend_chat
     except ImportError as e:
         logger.warning(f"Backend functions not available: {e}")
         return None
+
 
 # Get cross-environment functions lazily
 embed_text, package_embedding, inject_watermark, log_event = lazy_import_memory()
@@ -70,7 +80,6 @@ class ChatSession:
         - "feedback": any feedback provided by the user
     """
 
-
     def __init__(self, user_id=None):
         self.user_id = user_id or "anon"
         self.history = []  # List of (user, bot, meta)
@@ -78,7 +87,6 @@ class ChatSession:
         safe_created = self.created.replace(":", "-")
         self.session_id = f"chat_{self.user_id}_{safe_created}"
         self.memory_trace = []
-
 
     def process_input(self, user_input, context=None, feedback=None):
         # Tokenize and embed
@@ -123,19 +131,25 @@ class ChatSession:
             sim = reasoned_similarity(prev_user, user_input)
             explanation = sim.get("explanation")
         # Store in history
-        self.history.append((user_input, bot_response, {"explanation": explanation, "feedback": feedback}))
+        self.history.append(
+            (
+                user_input,
+                bot_response,
+                {"explanation": explanation, "feedback": feedback},
+            )
+        )
         # Optionally inject feedback for learning
         if feedback:
             inject_task({"type": "feedback", "input": user_input, "feedback": feedback})
         return {
             "response": bot_response,
-# For API/CLI usage
+            # For API/CLI usage
             "session_id": self.session_id,
         }
 
-
     def get_history(self):
         return self.history
+
 
 # For API/CLI usage
 __all__ = ["ChatSession"]

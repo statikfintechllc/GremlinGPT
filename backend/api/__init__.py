@@ -7,6 +7,7 @@ from conda_envs.environments.orchestrator.globals import *
 def lazy_import(module_name):
     """Lazy import to prevent circular dependencies"""
     import importlib
+
     try:
         return importlib.import_module(module_name)
     except ImportError as e:

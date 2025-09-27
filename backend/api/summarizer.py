@@ -4,6 +4,7 @@
 # Import orchestrator environment globals for backend
 from conda_envs.environments.orchestrator.globals import *
 
+
 def summarize_text(text):
     """Stub summarizer: returns the first 128 characters with ellipsis if too long."""
     if not isinstance(text, str):

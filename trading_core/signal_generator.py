@@ -17,20 +17,25 @@ from conda_envs.environments.scraper.globals import *
 from .rules_engine import apply_signal_rules
 from .stock_scraper import get_live_penny_stocks
 
+# Logging / datetime
+from utils.logging_config import setup_module_logger
+from datetime import datetime
+
 # For cross-environment communication (memory), use lazy loading
 def lazy_import_memory():
     """Lazy import memory functionality to prevent circular dependencies"""
     try:
         from memory.vector_store.embedder import (
-    package_embedding,
-    embed_text,
-    inject_watermark,
-)
-from utils.logging_config import setup_module_logger
+            package_embedding,
+            embed_text,
+            inject_watermark,
+        )
+    except ImportError:
+        raise
+
 
 # Initialize module-specific logger
 logger = setup_module_logger("trading_core", "signal_generator")
-from datetime import datetime
 
 WATERMARK = "source:GremlinGPT"
 ORIGIN = "signal_generator"

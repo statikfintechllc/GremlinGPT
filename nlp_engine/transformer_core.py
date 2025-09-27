@@ -40,12 +40,12 @@ except Exception as e:
 # ─────────────────────────────────────────────
 class TransformerCore:
     """Core transformer model class for GremlinGPT NLP processing."""
-    
+
     def __init__(self):
         self.tokenizer = tokenizer
         self.model = model
         self.device = DEVICE
-        
+
     def forward(self, tokens):
         """Forward pass for compatibility with nlp_check."""
         if isinstance(tokens, list):
@@ -53,11 +53,11 @@ class TransformerCore:
         else:
             text = str(tokens)
         return self.encode(text)
-        
+
     def process(self, tokens):
         """Process tokens (alias for forward)."""
         return self.forward(tokens)
-        
+
     def encode(self, text):
         """
         Encodes input text using the configured transformer model.

@@ -17,7 +17,10 @@ import uuid
 from collections import deque, defaultdict
 from datetime import datetime
 from environments.orchestrator import CFG, logger, resolve_path, DATA_DIR
-QUEUE_FILE = resolve_path(CFG["paths"].get("task_queue_file", "$ROOT/run/checkpoints/task_queue.json"))
+
+QUEUE_FILE = resolve_path(
+    CFG["paths"].get("task_queue_file", "$ROOT/run/checkpoints/task_queue.json")
+)
 ESCALATION_THRESHOLD_SEC = 120
 
 
@@ -164,9 +167,7 @@ class TaskQueue:
                 data = json.load(f)
                 for level in self.task_queue:
                     self.task_queue[level].clear()
-                    self.task_queue[level].extend(
-                        data.get("queue", {}).get(level, [])
-                    )
+                    self.task_queue[level].extend(data.get("queue", {}).get(level, []))
                 self.task_status.update(data.get("status", {}))
                 self.task_meta = defaultdict(dict, data.get("meta", {}))
             logger.info("[TaskQueue] Queue restored from snapshot.")
@@ -195,6 +196,7 @@ class TaskQueue:
             logger.debug("[TaskQueue] get_next() → None")
         return task
 
+
 # --- Legacy function API for FSM compatibility ---
 # --- Legacy function API for FSM compatibility ---
 """
@@ -221,6 +223,7 @@ Usage:
 # Singleton instance for static functions
 
 _task_queue = TaskQueue()
+
 
 def enqueue_task(task):
     return _task_queue.enqueue_task(task)

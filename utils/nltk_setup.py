@@ -14,6 +14,7 @@
 import os
 import nltk
 
+
 def setup_nltk_data():
     """
     Ensures that the required NLTK data (such as 'punkt') is available by checking
@@ -26,23 +27,23 @@ def setup_nltk_data():
     base_dir = os.path.abspath(
         os.path.join(os.path.dirname(__file__), "..", "data", "nltk_data")
     )
-    
+
     # Ensure the directory exists
     os.makedirs(base_dir, exist_ok=True)
-    
+
     # Clear default NLTK data paths and set only our project directory
     nltk.data.path.clear()
     nltk.data.path.append(base_dir)
-    
+
     # Set NLTK_DATA environment variable to prevent downloads to $HOME
-    os.environ['NLTK_DATA'] = base_dir
+    os.environ["NLTK_DATA"] = base_dir
 
     # Download required NLTK resources
     required_resources = [
         ("tokenizers/punkt", "punkt"),
-        ("tokenizers/punkt_tab", "punkt_tab")
+        ("tokenizers/punkt_tab", "punkt_tab"),
     ]
-    
+
     for resource_path, resource_name in required_resources:
         try:
             nltk.data.find(resource_path)

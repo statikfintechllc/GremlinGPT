@@ -149,4 +149,6 @@ if __name__ == "__main__":
         if snap and not verify_snapshot(src, snap):
             rollback(src, snap)
     else:
-        logger.error("[SNAPSHOT] Snapshot creation failed; skipping verification/rollback.")
+        logger.error(
+            "[SNAPSHOT] Snapshot creation failed; skipping verification/rollback."
+        )

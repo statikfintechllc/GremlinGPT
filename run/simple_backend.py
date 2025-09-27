@@ -20,17 +20,22 @@ app = Flask(__name__)
 # Register the agent status blueprint
 app.register_blueprint(agent_status_bp)
 
-@app.route('/health')
+
+@app.route("/health")
 def health():
     return jsonify({"status": "healthy", "message": "Backend API server running"})
 
-@app.route('/')
+
+@app.route("/")
 def root():
-    return jsonify({
-        "service": "GremlinGPT Backend API",
-        "endpoints": ["/health", "/api/agents/status"],
-        "status": "online"
-    })
+    return jsonify(
+        {
+            "service": "GremlinGPT Backend API",
+            "endpoints": ["/health", "/api/agents/status"],
+            "status": "online",
+        }
+    )
+
 
 if __name__ == "__main__":
     port = int(sys.argv[1]) if len(sys.argv) > 1 else 8090

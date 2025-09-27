@@ -30,12 +30,12 @@ import os
 
 NLTK_DATA_DIR = setup_nltk_data()
 
-#NLTK_DATA_DIR = os.path.abspath(
+# NLTK_DATA_DIR = os.path.abspath(
 #    os.path.join(os.path.dirname(__file__), "../data/nltk_data")
-#)
-#os.makedirs(NLTK_DATA_DIR, exist_ok=True)
-#nltk.data.path.clear()
-#nltk.data.path.append(NLTK_DATA_DIR)
+# )
+# os.makedirs(NLTK_DATA_DIR, exist_ok=True)
+# nltk.data.path.clear()
+# nltk.data.path.append(NLTK_DATA_DIR)
 
 
 def execute_tool(task):

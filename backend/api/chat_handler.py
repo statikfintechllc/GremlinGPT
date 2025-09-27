@@ -18,30 +18,36 @@ def lazy_import_flask():
     """Lazy import flask functionality to prevent circular dependencies"""
     try:
         from flask import request, jsonify, has_request_context
+
         return request, jsonify, has_request_context
     except ImportError as e:
         logger.warning(f"Flask functions not available: {e}")
         return None, None, None
+
 
 def lazy_import_nlp():
     """Lazy import NLP functionality to prevent circular dependencies"""
     try:
         from nlp_engine.tokenizer import tokenize
         from nlp_engine.transformer_core import encode
+
         return tokenize, encode
     except ImportError as e:
         logger.warning(f"NLP functions not available: {e}")
         return None, None
+
 
 def lazy_import_memory():
     """Lazy import memory functionality to prevent circular dependencies"""
     try:
         from memory.vector_store import embedder
         from memory.log_history import log_event
+
         return embedder, log_event
     except ImportError as e:
         logger.warning(f"Memory functions not available: {e}")
         return None, None
+
 
 # Get cross-environment functions lazily
 request, jsonify, has_request_context = lazy_import_flask()
@@ -85,12 +91,13 @@ def chat(user_input=None):
     try:
         # Check if agents are running by looking for the PID file
         import os
+
         agent_pid_file = project_root / "run" / "agents.pid"
-        
+
         if agent_pid_file.exists():
-            with open(agent_pid_file, 'r') as f:
+            with open(agent_pid_file, "r") as f:
                 agent_pid = f.read().strip()
-            
+
             # Check if the process is actually running
             try:
                 os.kill(int(agent_pid), 0)  # Signal 0 checks if process exists
@@ -120,13 +127,17 @@ def chat(user_input=None):
                 "user_input": user_input,
                 "agent_status": agent_status,
                 "watermark": "source:GremlinGPT",
-            }
+            },
         )
-        log_event("chat", "processed", {
-            "input": user_input, 
-            "task_type": task.get("type", "unknown"),
-            "agent_status": agent_status
-        })
+        log_event(
+            "chat",
+            "processed",
+            {
+                "input": user_input,
+                "task_type": task.get("type", "unknown"),
+                "agent_status": agent_status,
+            },
+        )
 
         # If agents are active, provide enhanced response
         if agent_status == "active":
@@ -135,38 +146,39 @@ def chat(user_input=None):
                 enqueue_task({"type": "nlp", "text": user_input})
             else:
                 enqueue_task(task)
-            
+
             response = {
                 "response": f"GremlinGPT agents processed your message. Command interpreted as: {task['type']}",
                 "tokens": tokens,
                 "result": result,
                 "status": "active",
                 "agent_status": "running",
-                "timestamp": datetime.datetime.utcnow().isoformat()
+                "timestamp": datetime.datetime.utcnow().isoformat(),
             }
         else:
             # Fallback processing
             if task["type"] == "unknown":
                 logger.warning(f"[CHAT] Fallback processing for: {user_input}")
-            
+
             response = {
                 "response": f"Processed with limited services. Command interpreted as: {task['type']}",
                 "tokens": tokens,
                 "result": result,
                 "status": "degraded",
                 "note": "Core agent services not fully active",
-                "timestamp": datetime.datetime.utcnow().isoformat()
+                "timestamp": datetime.datetime.utcnow().isoformat(),
             }
 
     except Exception as e:
         logger.error(f"[CHAT] Error processing message: {e}")
         import traceback
+
         logger.error(traceback.format_exc())
-        
+
         response = {
             "response": f"Error processing message: {str(e)}",
             "status": "error",
-            "timestamp": datetime.datetime.utcnow().isoformat()
+            "timestamp": datetime.datetime.utcnow().isoformat(),
         }
 
     # Return Flask response if inside a request, else tuple for CLI

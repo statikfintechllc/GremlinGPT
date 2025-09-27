@@ -36,9 +36,19 @@ except ImportError as e:
 
 try:
     import sys
-    sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '../../')))
-    from environments.dashboard import (MEM, VECTOR_STORE_PATH, FAISS_PATH, CHROMA_PATH, 
-                                LOCAL_INDEX_PATH, METADATA_DB_PATH)
+
+    sys.path.insert(
+        0, os.path.abspath(os.path.join(os.path.dirname(__file__), "../../"))
+    )
+    from environments.dashboard import (
+        MEM,
+        VECTOR_STORE_PATH,
+        FAISS_PATH,
+        CHROMA_PATH,
+        LOCAL_INDEX_PATH,
+        METADATA_DB_PATH,
+    )
+
     if not isinstance(MEM, dict):
         raise ValueError("MEM is not a dict")
 except Exception as e:
@@ -57,7 +67,8 @@ except ImportError as e:
     logger.error(f"[COMMANDS] encode import failed: {e}")
     # fallback to a dummy encoder
     def encode(text):
-        return np.zeros( MEM.get("embedding",{}).get("dimension",384), dtype="float32" )
+        return np.zeros(MEM.get("embedding", {}).get("dimension", 384), dtype="float32")
+
 
 # --- Configuration-driven Paths (loaded from backend.globals) ---
 """
@@ -71,10 +82,10 @@ CHROMA_DIR = CHROMA_PATH
 
 # Use storage configuration from MEM for backend compatibility
 storage_conf = MEM.get("storage", {})
-USE_FAISS   = storage_conf.get("use_faiss", True)
-USE_CHROMA  = storage_conf.get("use_chroma", False)
+USE_FAISS = storage_conf.get("use_faiss", True)
+USE_CHROMA = storage_conf.get("use_chroma", False)
 EMBED_MODEL = MEM.get("embedding", {}).get("model", "all-MiniLM-L6-v2")
-DIMENSION   = MEM.get("embedding", {}).get("dimension", 384)
+DIMENSION = MEM.get("embedding", {}).get("dimension", 384)
 
 # --- Ensure directories exist (and log failures) ---
 for path in (FAISS_DIR, CHROMA_DIR, LOCAL_INDEX_PATH):
@@ -94,6 +105,7 @@ if chromadb:
 else:
     collection = None
 
+
 def add_to_chroma(text, emb_id, vector, meta):
     if not collection:
         logger.warning(f"[CHROMA] Skipping add; collection not available")
@@ -103,11 +115,12 @@ def add_to_chroma(text, emb_id, vector, meta):
             documents=[text],
             embeddings=[vector.tolist()],
             metadatas=[meta],
-            ids=[emb_id]
+            ids=[emb_id],
         )
         logger.info(f"[CHROMA] Added {emb_id}")
     except Exception as e:
         logger.error(f"[CHROMA] Add failed for {emb_id}: {e}")
+
 
 # --- FAISS Index Setup ---
 FAISS_INDEX_PATH = os.path.join(FAISS_DIR, "faiss_index.index")
@@ -122,6 +135,7 @@ except Exception as e:
     logger.error(f"[FAISS] Failed to load or init index: {e}")
     faiss_index = None
 
+
 def add_to_faiss(vector, emb_id):
     if not faiss_index:
         logger.warning(f"[FAISS] Skipping add; index not available")
@@ -133,6 +147,7 @@ def add_to_faiss(vector, emb_id):
         logger.info(f"[FAISS] Added {emb_id}")
     except Exception as e:
         logger.error(f"[FAISS] Add failed for {emb_id}: {e}")
+
 
 # --- Model Loading (Resilient) ---
 model = None
@@ -160,6 +175,7 @@ def embed_text(text):
     except Exception as e:
         logger.error(f"[EMBEDDER] Embedding failed: {e}")
         return np.zeros(DIMENSION, dtype="float32")
+
 
 def package_embedding(text, vector, meta):
     # generate unique ID
@@ -199,11 +215,13 @@ def package_embedding(text, vector, meta):
 
     return embedding
 
+
 def inject_watermark(origin="unknown"):
     text = f"Watermark from {origin} @ {datetime.utcnow().isoformat()}"
     vector = encode(text)
     meta = {"origin": origin, "timestamp": datetime.utcnow().isoformat()}
     return package_embedding(text, vector, meta)
+
 
 def archive_plan(vector_path="data/nlp_training_sets/auto_generated.jsonl"):
     if not os.path.exists(vector_path):
@@ -219,6 +237,7 @@ def archive_plan(vector_path="data/nlp_training_sets/auto_generated.jsonl"):
         logger.error(f"[EMBEDDER] Archive failed: {e}")
         return None
 
+
 def auto_commit(file_path):
     if not file_path or not os.path.exists(file_path):
         logger.warning(f"[EMBEDDER] auto_commit: invalid path {file_path}")
@@ -230,15 +249,18 @@ def auto_commit(file_path):
     except Exception as e:
         logger.error(f"[EMBEDDER] Git commit failed: {e}")
 
+
 def get_all_embeddings(limit=50):
     if not memory_vectors:
         _load_from_disk()
     return list(memory_vectors.values())[:limit]
 
+
 def get_embedding_by_id(emb_id):
     if emb_id not in memory_vectors:
         _load_from_disk()
     return memory_vectors.get(emb_id)
+
 
 def _write_to_disk(embedding):
     try:
@@ -247,6 +269,7 @@ def _write_to_disk(embedding):
             json.dump(embedding, f, indent=2)
     except Exception as e:
         logger.error(f"[EMBEDDER] Failed to write {embedding['id']} to disk: {e}")
+
 
 def _load_from_disk():
     if not os.path.isdir(LOCAL_INDEX_PATH):
@@ -263,24 +286,29 @@ def _load_from_disk():
         except Exception as e:
             logger.warning(f"[EMBEDDER] Failed to load {fname}: {e}")
 
+
 def get_memory_graph():
     if not memory_vectors:
         _load_from_disk()
     nodes, edges = [], []
     for emb in memory_vectors.values():
-        nodes.append({
-            "id": emb["id"],
-            "label": emb["meta"].get("label", emb["text"][:24] + "..."),
-            "group": emb["tags"].get("source", "system"),
-        })
+        nodes.append(
+            {
+                "id": emb["id"],
+                "label": emb["meta"].get("label", emb["text"][:24] + "..."),
+                "group": emb["tags"].get("source", "system"),
+            }
+        )
         if "source_id" in emb["meta"]:
             edges.append({"from": emb["meta"]["source_id"], "to": emb["id"]})
     return {"nodes": nodes, "edges": edges}
+
 
 def repair_index():
     memory_vectors.clear()
     _load_from_disk()
     logger.info("[EMBEDDER] Index repaired")
+
 
 # --- Initial Load ---
 try:
@@ -288,6 +316,7 @@ try:
     logger.info("[EMBEDDER] Initial disk load complete")
 except Exception as e:
     logger.error(f"[EMBEDDER] Initial load failed: {e}")
+
 
 def parse_command(cmd_text):
     """
@@ -300,6 +329,7 @@ def parse_command(cmd_text):
     parts = cmd_text.strip().split()
     cmd_type = parts[0].lower() if parts else "unknown"
     return {"type": cmd_type, "raw": cmd_text}
+
 
 def execute_command(task):
     """

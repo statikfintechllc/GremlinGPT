@@ -20,6 +20,7 @@ from utils.logging_config import setup_module_logger
 logger = setup_module_logger("tools", "reward_model")
 from nlp_engine.semantic_score import semantic_similarity
 from nlp_engine.diff_engine import diff_texts
+
 # Lazy import to avoid circular dependency
 # from agent_core.fsm import inject_task  # For feedback loop
 
@@ -69,7 +70,9 @@ def evaluate_result(task_type, output_text, reference_text=None):
     }
 
 
-def evaluate_with_diff(task_type, output_text, reference_text=None, debug=False, feedback_loop=True):
+def evaluate_with_diff(
+    task_type, output_text, reference_text=None, debug=False, feedback_loop=True
+):
     """
     Evaluate result with diff analysis:
     - Computes reward/confidence as before
@@ -94,19 +97,26 @@ def evaluate_with_diff(task_type, output_text, reference_text=None, debug=False,
         # Feedback loop: inject feedback for self-training
         if feedback_loop:
             try:
-                from agent_core.fsm import inject_task  # Lazy import to avoid circular dependency
-                inject_task({
-                    "type": "reward_feedback",
-                    "task": task_type,
-                    "output": output_text,
-                    "reference": reference_text,
-                    "reward": base["reward"],
-                    "semantic_score": diff_info["semantic_score"],
-                    "embedding_delta": diff_info["embedding_delta"],
-                    "timestamp": base["timestamp"],
-                })
+                from agent_core.fsm import (
+                    inject_task,
+                )  # Lazy import to avoid circular dependency
+
+                inject_task(
+                    {
+                        "type": "reward_feedback",
+                        "task": task_type,
+                        "output": output_text,
+                        "reference": reference_text,
+                        "reward": base["reward"],
+                        "semantic_score": diff_info["semantic_score"],
+                        "embedding_delta": diff_info["embedding_delta"],
+                        "timestamp": base["timestamp"],
+                    }
+                )
             except ImportError:
-                logger.warning("[REWARD] Cannot import inject_task - feedback loop disabled")
+                logger.warning(
+                    "[REWARD] Cannot import inject_task - feedback loop disabled"
+                )
     return base
 
 
@@ -114,7 +124,14 @@ def log_reward(record):
     try:
         with open(REWARD_LOG, "a") as f:
             f.write(json.dumps(record) + "\n")
-        logger.info(f"[REWARD] Logged: {record['task']} [{record['reason']}]" + (f" | Δ={record.get('embedding_delta', None)}" if 'embedding_delta' in record else ""))
+        logger.info(
+            f"[REWARD] Logged: {record['task']} [{record['reason']}]"
+            + (
+                f" | Δ={record.get('embedding_delta', None)}"
+                if "embedding_delta" in record
+                else ""
+            )
+        )
     except Exception as e:
         logger.error(f"[REWARD] Failed to log reward: {e}")
 

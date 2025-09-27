@@ -27,15 +27,19 @@ import threading
 import signal
 import traceback
 
+
 def get_loop():
     global _LOOP
     with _LOOP_LOCK:
         return _LOOP
 
+
 def set_loop(loop_obj):
     global _LOOP
     with _LOOP_LOCK:
         _LOOP = loop_obj
+
+
 from self_training.trainer import trigger_retrain
 from agents.planner_agent import enqueue_next
 from self_mutation_watcher.watcher import scan_and_diff
@@ -44,7 +48,9 @@ from self_mutation_watcher.watcher import scan_and_diff
 def start_scheduler():
     LOOP = get_loop()
     if not isinstance(LOOP, dict):
-        logger.error("[SCHEDULER] LOOP is not defined or not a dict. Scheduler will not start.")
+        logger.error(
+            "[SCHEDULER] LOOP is not defined or not a dict. Scheduler will not start."
+        )
         return
     retrain_interval = LOOP.get("self_train_interval_min", 15)
     plan_interval = LOOP.get("planner_interval_sec", 10)
@@ -53,11 +59,14 @@ def start_scheduler():
     logger.info("[SCHEDULER] Initializing GremlinGPT scheduler...")
 
     import signal
+
     running = True
 
     def shutdown_handler(signum, frame):
         nonlocal running
-        logger.warning(f"[SCHEDULER] Received signal {signum} — shutting down gracefully.")
+        logger.warning(
+            f"[SCHEDULER] Received signal {signum} — shutting down gracefully."
+        )
         running = False
 
     signal.signal(signal.SIGINT, shutdown_handler)
@@ -82,6 +91,9 @@ def start_scheduler():
             break
         except Exception as e:
             import traceback
-            logger.error(f"[SCHEDULER] Scheduler encountered error: {e}\n{traceback.format_exc()}")
+
+            logger.error(
+                f"[SCHEDULER] Scheduler encountered error: {e}\n{traceback.format_exc()}"
+            )
             time.sleep(3)
     logger.info("[SCHEDULER] Scheduler stopped.")

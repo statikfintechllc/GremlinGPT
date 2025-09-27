@@ -15,9 +15,10 @@ if str(_conda_envs_path) not in sys.path:
 # Import all orchestrator globals
 try:
     from conda_envs.environments.orchestrator.globals import *
+
     orchestrator_available = True
 except ImportError as e:
     print(f"Warning: Could not import orchestrator globals: {e}")
     orchestrator_available = False
 
-__all__ = ['orchestrator_available']
+__all__ = ["orchestrator_available"]

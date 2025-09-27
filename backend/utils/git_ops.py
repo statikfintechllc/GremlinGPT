@@ -67,6 +67,7 @@ def archive_json_log(source_path: str, prefix: str = "log") -> str:
         logger.error(f"[git_ops] Archive failed: {e}")
         return ""
 
+
 # Auto-commit changes, staging the specified file and committing with a default message.
 # This function is designed to be used by other modules without manual intervention.
 # It stages the specified file in the current Git repository and commits it with a default message.

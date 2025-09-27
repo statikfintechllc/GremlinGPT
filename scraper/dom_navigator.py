@@ -44,10 +44,12 @@ def extract_dom_structure(html):
 
     # Extract anchor href links
     from bs4 import Tag
+
     links = [a.get("href") for a in soup.find_all("a", href=True) if isinstance(a, Tag)]
 
     # Count tag types (structure profiling)
     from bs4 import Tag
+
     tag_counts = Counter(tag.name for tag in soup.find_all() if isinstance(tag, Tag))
 
     # Extract key semantic sections

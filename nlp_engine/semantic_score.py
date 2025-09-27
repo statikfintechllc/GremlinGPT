@@ -40,14 +40,14 @@ WATERMARK = "source:GremlinGPT"
 ORIGIN = "semantic_score"
 
 # Ensure punkt is available
-#NLTK_PATHS = ["/usr/local/share/nltk_data", ".data/nltk_data"]
-#for path in NLTK_PATHS:
+# NLTK_PATHS = ["/usr/local/share/nltk_data", ".data/nltk_data"]
+# for path in NLTK_PATHS:
 #    nltk.data.path.append(path)
 
-#try:
+# try:
 #    nltk.data.find("tokenizers/punkt")
-#except LookupError:
-    # Try downloading to a writable directory
+# except LookupError:
+# Try downloading to a writable directory
 #    for path in NLTK_PATHS:
 #        try:
 #            nltk.download("punkt", download_dir=path)
@@ -246,14 +246,18 @@ def reasoned_similarity(
             sim_avg = (np.mean(max_per_a) + np.mean(max_per_b)) / 2.0
             sim_clamped = float(np.clip(sim_avg, 0.0, 1.0))
             result["score"] = sim_clamped
-            result["explanation"] = f"Sentence-level similarity: {sim_clamped:.4f} (lang: {lang})"
+            result[
+                "explanation"
+            ] = f"Sentence-level similarity: {sim_clamped:.4f} (lang: {lang})"
         else:
             emb_a = model.encode(text_a, convert_to_tensor=True)
             emb_b = model.encode(text_b, convert_to_tensor=True)
             sim = util.cos_sim(emb_a, emb_b).item()
             sim_clamped = max(0.0, min(1.0, float(sim)))
             result["score"] = sim_clamped
-            result["explanation"] = f"Whole-text similarity: {sim_clamped:.4f} (lang: {lang})"
+            result[
+                "explanation"
+            ] = f"Whole-text similarity: {sim_clamped:.4f} (lang: {lang})"
         # Optionally augment with web search
         if web_augment:
             try:

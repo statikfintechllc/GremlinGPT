@@ -15,9 +15,10 @@ if str(_conda_envs_path) not in sys.path:
 # Import all dashboard globals
 try:
     from conda_envs.environments.dashboard.globals import *
+
     dashboard_available = True
 except ImportError as e:
     print(f"Warning: Could not import dashboard globals: {e}")
     dashboard_available = False
 
-__all__ = ['dashboard_available']
+__all__ = ["dashboard_available"]

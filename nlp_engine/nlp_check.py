@@ -22,13 +22,14 @@ NLP_OUT_LOG = "$HOME/data/logs/nlp.out"
 
 def log_nlp_out(message):
     import os
+
     timestamp = datetime.now().isoformat()
-    
+
     # Resolve $HOME properly
     log_path = NLP_OUT_LOG.replace("$HOME", os.path.expanduser("~"))
     # Also try current working directory path
     alt_log_path = os.path.join(os.getcwd(), "data/logs/nlp.out")
-    
+
     for path in [log_path, alt_log_path]:
         try:
             os.makedirs(os.path.dirname(path), exist_ok=True)
@@ -37,7 +38,7 @@ def log_nlp_out(message):
             return  # Success, exit function
         except Exception as e:
             continue  # Try next path
-    
+
     # If all paths fail, just print to stderr
     print(f"[NLP_CHECK] Could not write to any log path: {message}", file=sys.stderr)
 
@@ -49,11 +50,12 @@ except ImportError as e:
     err_msg = f"[NLP_CHECK] ImportError: {e}"
     print(err_msg, file=sys.stderr)
     log_nlp_out(err_msg)
-    
+
     # Try alternative imports
     try:
         import sys
         import os
+
         sys.path.append(os.path.dirname(__file__))
         from tokenizer import Tokenizer
         from transformer_core import TransformerCore
@@ -61,13 +63,15 @@ except ImportError as e:
         err_msg2 = f"[NLP_CHECK] Alternative import failed: {e2}"
         print(err_msg2, file=sys.stderr)
         log_nlp_out(err_msg2)
-        
+
         # Create mock classes to prevent total failure
         class Tokenizer:
-            def tokenize(self, text): return text.split()
-        
+            def tokenize(self, text):
+                return text.split()
+
         class TransformerCore:
-            def process(self, tokens): return tokens
+            def process(self, tokens):
+                return tokens
 
 
 def nlp_internal_check():

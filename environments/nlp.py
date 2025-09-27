@@ -15,9 +15,10 @@ if str(_conda_envs_path) not in sys.path:
 # Import all nlp globals
 try:
     from conda_envs.environments.nlp.globals import *
+
     nlp_available = True
 except ImportError as e:
     print(f"Warning: Could not import nlp globals: {e}")
     nlp_available = False
 
-__all__ = ['nlp_available']
+__all__ = ["nlp_available"]

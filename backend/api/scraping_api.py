@@ -24,15 +24,18 @@ def lazy_import_scraper():
         from scraper.scraper_loop import get_dom_html
         from scraper.ask_monday_handler import handle as ask_monday_handle
         from scraper.web_knowledge_scraper import scrape_web_knowledge
+
         return get_dom_html, ask_monday_handle, scrape_web_knowledge
     except ImportError as e:
         logger.warning(f"Scraper functions not available: {e}")
         return None, None, None
 
+
 # Get scraper functions lazily
 get_dom_html, ask_monday_handle, scrape_web_knowledge = lazy_import_scraper()
 from environments.dashboard import extract_dom_structure, traceback, asyncio
 from scraper.source_router import route_scraping_async
+
 
 async def scrape_url(url, method="auto", extra=None):
     """
@@ -82,11 +85,18 @@ async def scrape_url(url, method="auto", extra=None):
                 if isinstance(result, dict) and result.get("content"):
                     return {"scrape_result": result}
                 else:
-                    logger.error(f"[SCRAPER_API] route_scraping_async returned no content: {result}")
+                    logger.error(
+                        f"[SCRAPER_API] route_scraping_async returned no content: {result}"
+                    )
                     return {"error": "All scraping methods failed."}
             except Exception as e:
-                logger.error(f"[SCRAPER_API] route_scraping_async failed: {e}\n{traceback.format_exc()}")
-                return {"error": "All scraping methods failed.", "trace": traceback.format_exc()}
+                logger.error(
+                    f"[SCRAPER_API] route_scraping_async failed: {e}\n{traceback.format_exc()}"
+                )
+                return {
+                    "error": "All scraping methods failed.",
+                    "trace": traceback.format_exc(),
+                }
         else:
             return {"error": f"Unknown scrape method: {method}"}
         return {"scrape_result": result}

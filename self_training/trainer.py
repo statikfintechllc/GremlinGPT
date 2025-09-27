@@ -21,15 +21,18 @@ def lazy_import_orchestrator():
     """Lazy import orchestrator functionality to prevent circular dependencies"""
     try:
         from environments.orchestrator import CFG, logger, resolve_path, DATA_DIR, MEM
+
         return CFG, logger, resolve_path, DATA_DIR, MEM
     except ImportError as e:
         logger.warning(f"Orchestrator functions not available: {e}")
         return None, None, None, None, None
 
+
 # Get orchestrator functions lazily
 CFG_orch, logger_orch, resolve_path, DATA_DIR, MEM = lazy_import_orchestrator()
 
 from watchdog.events import FileSystemEventHandler
+
 try:
     from nlp_engine.mini_attention import MiniMultiHeadAttention
 except ImportError:
@@ -37,6 +40,7 @@ except ImportError:
     class MiniMultiHeadAttention:
         def __init__(self, embed_dim=64, num_heads=4):
             pass
+
 
 LOG_DIR = CFG["paths"].get("data_dir", "data/") + "logs/"
 OUTPUT_PATH = (
