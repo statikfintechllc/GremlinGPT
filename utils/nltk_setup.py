@@ -135,6 +135,7 @@ def validate_nltk_installation():
         ("taggers/averaged_perceptron_tagger", "averaged_perceptron_tagger"),
         ("corpora/wordnet", "wordnet"),
         ("corpora/stopwords", "stopwords"),
+        ("corpora/omw-1.4", "omw-1.4"),
     ]
     
     for resource_path, resource_name in resources:

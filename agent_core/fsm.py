@@ -29,7 +29,7 @@ from memory.log_history import log_event
 from self_mutation_watcher.watcher import scan_and_diff
 from self_mutation_watcher.mutation_daemon import run_daemon
 from agent_core.agent_profiles import resolve_agent_role
-from self_training.generate_datasets import generate_datasets
+from self_training.generate_dataset import generate_datasets
 from kernel import apply_patch  # 🧠 Kernel hook for patchable execution
 
 # Setup NLTK using centralized setup

@@ -13,7 +13,6 @@ Validates that all dependencies and services are ready to launch
 """
 
 import sys
-import os
 from pathlib import Path
 
 # Add project root to path
@@ -71,7 +70,7 @@ def check_environments():
     results = {}
     for env_name, env_module in environments.items():
         try:
-            module = __import__(env_module, fromlist=['*'])
+            __import__(env_module, fromlist=['*'])
             print(f"✓ {env_name}: OK")
             results[env_name] = True
         except Exception as e:
