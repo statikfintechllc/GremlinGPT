@@ -5,18 +5,18 @@ channels:
 dependencies:
   - python=3.9
   - pip
-  - numpy
+  - numpy=1.24.3
   - scipy
-  - pandas
+  - pandas=2.0.3
   - scikit-learn
   - spacy
   - nltk
   - sentence-transformers
   - transformers
   - tqdm
-  - loguru
-  - psutil           # for all agent/core usage
-  - rich             # recommended for colored logging
+  - loguru=0.7.0
+  - psutil=5.9.5       # for all agent/core usage
+  - rich=13.5.2        # recommended for colored logging
   - pip:
       - torch
       - faiss-cpu

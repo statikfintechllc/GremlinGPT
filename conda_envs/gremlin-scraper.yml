@@ -7,21 +7,21 @@ dependencies:
   - pip
   - beautifulsoup4
   - lxml
-  - aiohttp
-  - requests
+  - aiohttp=3.8.5
+  - requests=2.31.0
   - tqdm
-  - rich
-  - numpy
+  - rich=13.5.2
+  - numpy=1.24.3
   - flask-socketio
   - pillow
   - pytesseract
   - pyautogui
   - pyperclip
   - platformdirs
-  - psutil
+  - psutil=5.9.5
+  - loguru=0.7.0
   - pip:
     - playwright
-    - loguru
     - undetected-chromedriver
     - websockets
     - typing_extensions~=4.13.2

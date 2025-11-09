@@ -8,24 +8,22 @@ dependencies:
   - flask-socketio
   - dash
   - plotly
-  - aiohttp
+  - aiohttp=3.8.5
   - eventlet
-  - loguru
+  - loguru=0.7.0
   - uvicorn
   - jinja2
-  - psutil             # process stats, always safe
-  - rich               # for color logging
-  - pandas             # dashboard data ops
+  - psutil=5.9.5       # process stats, always safe
+  - rich=13.5.2        # for color logging
+  - pandas=2.0.3       # dashboard data ops
   - platformdirs       # safer log/tmp/cache paths
   - pip:
       - waitress
-      - requests
+      - requests==2.31.0
       - websockets
       - toml
       - qrcode[pil]
-      - backend
       - pyngrok
-      - qrcode
       - pygments       # color logs
       - pytest         # testing
       - networkx       # task/graph if dashboard needs it
