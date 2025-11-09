@@ -1,17 +1,24 @@
-torch
-transformers
-sentence-transformers
+# Vector store and embedding dependencies - pinned for compatibility
+torch==2.0.1
+faiss-cpu==1.7.3
+tokenizers==0.20.3
+transformers==4.46.0
+sentence-transformers==2.2.2
+chromadb==0.4.13
+# ML and data processing
 scikit-learn
 numpy
 scipy
 pandas
 tqdm
 bert-score
-schedule
 huggingface-hub
-backend
+# NLP
 nltk
 spacy
-toml
 langdetect
+# Utilities
+backend
+schedule
+toml
 flask

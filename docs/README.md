@@ -280,6 +280,12 @@ GremlinGPT uses a carefully pinned dependency stack to ensure compatibility acro
 | **torch** | 2.0.1+cpu | CPU-only PyTorch (see note below) |
 | **tokenizers** | 0.20.3 | Critical: Required for ChromaDB/transformers compatibility |
 
+> **Note:**  
+> The `requirements.txt` file uses flexible version constraints (e.g., `faiss-cpu>=1.7.4`, `chromadb>=0.4.0`, `tokenizers>=0.13.0`) to allow pip users to install compatible newer versions.  
+> However, the provided conda environments pin strict versions (see table above) to ensure full reproducibility and compatibility.  
+> This means that installing via pip and conda may result in different dependency versions.  
+> If you require strict reproducibility, use the conda environment files. For development or experimentation, pip installation may be sufficient.
+
 ### CPU-Only PyTorch Rationale
 
 **Why CPU-only?**
@@ -288,7 +294,7 @@ GremlinGPT uses a carefully pinned dependency stack to ensure compatibility acro
 - Suitable for inference workloads where response time is acceptable
 - Simplifies deployment on standard VMs, containers, and development machines
 
-**GPU Variance:**
+**GPU Variant:**
 If you need GPU acceleration for faster inference or training:
 1. Replace `torch==2.0.1+cpu` with `torch==2.0.1+cu118` (for CUDA 11.8) or appropriate CUDA version
 2. Replace `faiss-cpu==1.7.3` with `faiss-gpu==1.7.3`
@@ -296,7 +302,7 @@ If you need GPU acceleration for faster inference or training:
 4. Note: GPU builds are significantly larger (~2-4GB vs ~100MB for CPU)
 
 **Tokenizers Version Critical:**
-The `tokenizers==0.20.3` pin is essential. Newer versions (≥0.21) are incompatible with ChromaDB 0.4.13, while older versions (≤0.13.1) are incompatible with transformers 4.46.0. This creates a narrow compatibility window that must be maintained.
+The `tokenizers==0.20.3` pin is essential. Only this version is fully compatible with both `transformers==4.46.0` and `chromadb==0.4.13`. Newer versions (≥0.21) are incompatible with ChromaDB 0.4.13, while older versions (≤0.13.1) are incompatible with transformers 4.46.0. Do not use other versions, even if allowed by `requirements.txt`, unless you have verified compatibility for your use case.
 
 **Installation Order:**
 For manual pip installations, use this order to avoid dependency conflicts:

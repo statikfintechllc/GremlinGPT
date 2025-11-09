@@ -28,5 +28,5 @@ dependencies:
     - pyngrok
     - toml
     - qrcode
-    - chromadb
+    - chromadb==0.4.13  # Pinned for consistency with memory/nlp environments
 
