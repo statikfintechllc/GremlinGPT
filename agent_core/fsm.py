@@ -31,15 +31,16 @@ from self_mutation_watcher.mutation_daemon import run_daemon
 from agent_core.agent_profiles import resolve_agent_role
 from self_training.generate_dataset import generate_datasets
 from kernel import apply_patch  # 🧠 Kernel hook for patchable execution
-import nltk
-import os
 
-NLTK_DATA_DIR = os.path.abspath(
-    os.path.join(os.path.dirname(__file__), "../data/nltk_data")
-)
-os.makedirs(NLTK_DATA_DIR, exist_ok=True)
-nltk.data.path.clear()
-nltk.data.path.append(NLTK_DATA_DIR)
+# Setup NLTK using centralized setup
+try:
+    from utils.nltk_setup import get_nltk_data_path
+    NLTK_DATA_DIR = get_nltk_data_path()
+    if NLTK_DATA_DIR:
+        logger.info(f"[FSM] NLTK data path configured: {NLTK_DATA_DIR}")
+except Exception as e:
+    logger.warning(f"[FSM] NLTK setup failed: {e}, continuing without NLTK")
+    NLTK_DATA_DIR = None
 
 FSM_STATE = "IDLE"
 console = Console()

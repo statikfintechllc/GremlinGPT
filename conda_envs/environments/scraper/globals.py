@@ -168,6 +168,7 @@ DATA_DIR = BASE_DIR / "data"
 SCRAPES_DIR = DATA_DIR / "raw_scrapes"
 CACHE_DIR = DATA_DIR / "cache"
 LOG_FILE = DATA_DIR / "logs" / "scraper.log"
+NLTK_DATA_DIR = DATA_DIR / "nltk_data"
 
 # Scraper-specific data directories
 TRADING_DATA_DIR = DATA_DIR / "trading_data"
@@ -175,8 +176,20 @@ WEB_DATA_DIR = DATA_DIR / "web_data"
 API_CACHE_DIR = CACHE_DIR / "api_responses"
 
 # Ensure directories exist
-for directory in [SCRAPES_DIR, CACHE_DIR, TRADING_DATA_DIR, WEB_DATA_DIR, API_CACHE_DIR, DATA_DIR / "logs"]:
+for directory in [SCRAPES_DIR, CACHE_DIR, TRADING_DATA_DIR, WEB_DATA_DIR, API_CACHE_DIR, DATA_DIR / "logs", NLTK_DATA_DIR]:
     os.makedirs(directory, exist_ok=True)
+
+# Setup NLTK data path if NLTK is available
+try:
+    import nltk
+    nltk_data_path = str(NLTK_DATA_DIR)
+    if nltk_data_path not in nltk.data.path:
+        nltk.data.path.append(nltk_data_path)
+    os.environ["NLTK_DATA"] = nltk_data_path
+    HAS_NLTK = True
+except ImportError:
+    HAS_NLTK = False
+    nltk = None
 
 # ========================================================================================
 # CONFIGURATION LOADING

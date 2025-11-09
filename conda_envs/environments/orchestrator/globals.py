@@ -128,14 +128,27 @@ TASKS_DIR = DATA_DIR / "tasks"
 SNAPSHOTS_DIR = DATA_DIR / "snapshots"
 PID_DIR = BASE_DIR / "run"
 LOG_FILE = LOGS_DIR / "orchestrator.log"
+NLTK_DATA_DIR = DATA_DIR / "nltk_data"
 
 # System files
 PID_FILE = PID_DIR / "orchestrator.pid"
 STATE_FILE = DATA_DIR / "orchestrator_state.json"
 
 # Ensure directories exist
-for directory in [LOGS_DIR, TASKS_DIR, SNAPSHOTS_DIR, PID_DIR]:
+for directory in [LOGS_DIR, TASKS_DIR, SNAPSHOTS_DIR, PID_DIR, NLTK_DATA_DIR]:
     os.makedirs(directory, exist_ok=True)
+
+# Setup NLTK data path if NLTK is available
+try:
+    import nltk
+    nltk_data_path = str(NLTK_DATA_DIR)
+    if nltk_data_path not in nltk.data.path:
+        nltk.data.path.append(nltk_data_path)
+    os.environ["NLTK_DATA"] = nltk_data_path
+    HAS_NLTK = True
+except ImportError:
+    HAS_NLTK = False
+    nltk = None
 
 # ========================================================================================
 # CONFIGURATION LOADING
