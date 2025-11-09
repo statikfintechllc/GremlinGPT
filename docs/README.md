@@ -265,6 +265,52 @@ sequenceDiagram
 
 ---
 
+## Package Compatibility & Dependencies
+
+### Vector Store and ML Model Stack
+
+GremlinGPT uses a carefully pinned dependency stack to ensure compatibility across all environments. The following versions are standardized across both `gremlin-memory` and `gremlin-nlp` conda environments:
+
+| Package | Version | Notes |
+|---------|---------|-------|
+| **chromadb** | 0.4.13 | Vector database for embeddings |
+| **faiss-cpu** | 1.7.3 | CPU-only FAISS for similarity search |
+| **sentence-transformers** | 2.2.2 | Sentence embedding models |
+| **transformers** | 4.46.0 | Hugging Face transformers library |
+| **torch** | 2.0.1+cpu | CPU-only PyTorch (see note below) |
+| **tokenizers** | 0.20.3 | Critical: Required for ChromaDB/transformers compatibility |
+
+### CPU-Only PyTorch Rationale
+
+**Why CPU-only?**
+- GremlinGPT is designed for local, accessible deployment without requiring expensive GPU hardware
+- CPU-only builds are lighter weight and have fewer system dependencies
+- Suitable for inference workloads where response time is acceptable
+- Simplifies deployment on standard VMs, containers, and development machines
+
+**GPU Variance:**
+If you need GPU acceleration for faster inference or training:
+1. Replace `torch==2.0.1+cpu` with `torch==2.0.1+cu118` (for CUDA 11.8) or appropriate CUDA version
+2. Replace `faiss-cpu==1.7.3` with `faiss-gpu==1.7.3`
+3. Ensure CUDA toolkit and drivers are properly installed on your system
+4. Note: GPU builds are significantly larger (~2-4GB vs ~100MB for CPU)
+
+**Tokenizers Version Critical:**
+The `tokenizers==0.20.3` pin is essential. Newer versions (≥0.21) are incompatible with ChromaDB 0.4.13, while older versions (≤0.13.1) are incompatible with transformers 4.46.0. This creates a narrow compatibility window that must be maintained.
+
+**Installation Order:**
+For manual pip installations, use this order to avoid dependency conflicts:
+```bash
+pip install torch==2.0.1+cpu --index-url https://download.pytorch.org/whl/cpu
+pip install faiss-cpu==1.7.3
+pip install tokenizers==0.20.3
+pip install transformers==4.46.0
+pip install sentence-transformers==2.2.2
+pip install chromadb==0.4.13
+```
+
+---
+
 ## Installation
 
 **1. Clone the repo**

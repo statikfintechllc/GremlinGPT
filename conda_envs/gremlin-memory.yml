@@ -7,14 +7,19 @@ dependencies:
   - pip
   - numpy=1.24.3
   - pandas=2.0.3
-  - faiss-cpu
   - sqlite
   - psutil=5.9.5
   - loguru=0.7.0
   - rich=13.5.2
   - pip:
+      # Vector store and embedding dependencies - pinned for compatibility
+      - torch==2.0.1+cpu --index-url https://download.pytorch.org/whl/cpu
+      - faiss-cpu==1.7.3
+      - tokenizers==0.20.3
+      - transformers==4.46.0
+      - sentence-transformers==2.2.2
       - chromadb==0.4.13
-      - sentence-transformers
+      # Other dependencies
       - toml
       - pygments
       - pytest
