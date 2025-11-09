@@ -204,20 +204,58 @@ function validate_startup() {
 }
 
 # --- NLTK Bootstrap: Always under repo, not home! ---
+echo "[NLTK] Initializing NLTK data for GremlinGPT..."
 python3 - <<'EOF'
-import os, nltk
-nltk_data_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), "data/nltk_data"))
-os.makedirs(nltk_data_dir, exist_ok=True)
-nltk.data.path.append(nltk_data_dir)
-for pkg, path in [
-    ("punkt", "tokenizers/punkt"),
-    ("averaged_perceptron_tagger", "taggers/averaged_perceptron_tagger"),
-    ("wordnet", "corpora/wordnet"),
-    ("stopwords", "corpora/stopwords"),
-]:
-    try: nltk.data.find(path)
-    except LookupError: nltk.download(pkg, download_dir=nltk_data_dir)
+import os
+import sys
+
+# Add project root to path
+project_root = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
+sys.path.insert(0, project_root)
+
+# Try to use our enhanced NLTK setup
+try:
+    from utils.nltk_setup import setup_nltk_data
+    nltk_data_dir = setup_nltk_data()
+    if nltk_data_dir:
+        print(f"[NLTK] ✓ Initialized NLTK data at: {nltk_data_dir}")
+    else:
+        print("[NLTK] ⚠ NLTK not available, services will run in degraded mode")
+except Exception as e:
+    print(f"[NLTK] ✗ Setup failed: {e}")
+    # Fallback to basic setup
+    try:
+        import nltk
+        nltk_data_dir = os.path.abspath(os.path.join(project_root, "data/nltk_data"))
+        os.makedirs(nltk_data_dir, exist_ok=True)
+        nltk.data.path.clear()
+        nltk.data.path.append(nltk_data_dir)
+        os.environ["NLTK_DATA"] = nltk_data_dir
+        
+        for pkg, path in [
+            ("punkt", "tokenizers/punkt"),
+            ("punkt_tab", "tokenizers/punkt_tab"),
+            ("averaged_perceptron_tagger", "taggers/averaged_perceptron_tagger"),
+            ("wordnet", "corpora/wordnet"),
+            ("stopwords", "corpora/stopwords"),
+        ]:
+            try:
+                nltk.data.find(path)
+                print(f"[NLTK] ✓ Found {pkg}")
+            except LookupError:
+                print(f"[NLTK] → Downloading {pkg}...")
+                nltk.download(pkg, download_dir=nltk_data_dir, quiet=False)
+        print(f"[NLTK] ✓ Fallback setup complete: {nltk_data_dir}")
+    except Exception as e2:
+        print(f"[NLTK] ✗ Fallback also failed: {e2}")
+        print("[NLTK] Services will run without NLTK support")
 EOF
+
+if [ $? -eq 0 ]; then
+  echo "[NLTK] NLTK bootstrap completed successfully"
+else
+  echo "[NLTK] NLTK bootstrap completed with warnings (services may run in degraded mode)"
+fi
 
 # --- Terminal detection ---
 TERM_EMU=$(command -v gnome-terminal || command -v xterm)
