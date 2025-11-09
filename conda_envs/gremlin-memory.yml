@@ -5,13 +5,13 @@ channels:
 dependencies:
   - python=3.9
   - pip
-  - numpy
-  - pandas
+  - numpy=1.24.3
+  - pandas=2.0.3
   - faiss-cpu
   - sqlite
-  - psutil
-  - loguru
-  - rich
+  - psutil=5.9.5
+  - loguru=0.7.0
+  - rich=13.5.2
   - pip:
       - chromadb==0.4.13
       - sentence-transformers

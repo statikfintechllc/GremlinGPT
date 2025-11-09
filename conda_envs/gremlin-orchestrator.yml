@@ -5,12 +5,12 @@ channels:
 dependencies:
   - python=3.9
   - pip
-  - numpy            # REQUIRED for embedder.py and watcher.py
+  - numpy=1.24.3       # REQUIRED for embedder.py and watcher.py
   - pyyaml
-  - loguru
+  - loguru=0.7.0
   - click
-  - rich
-  - psutil
+  - rich=13.5.2
+  - psutil=5.9.5
   - schedule
   - jsonschema
   - pip:
