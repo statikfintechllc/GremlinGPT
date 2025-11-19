@@ -351,7 +351,7 @@ class TradingStrategistAgent:
         if len(prices) >= 20:
             returns = [(prices[i] / prices[i - 1] - 1) for i in range(1, len(prices))]
             indicators["volatility"] = statistics.stdev(returns[-20:]) * (
-                252 ** 0.5
+                252**0.5
             )  # Annualized volatility
 
         return indicators
@@ -774,9 +774,9 @@ class TradingStrategistAgent:
             optimization_result["recommended_changes"] = recommendations
 
             # Calculate optimization score
-            optimization_result[
-                "optimization_score"
-            ] = self._calculate_optimization_score(current_positions, recommendations)
+            optimization_result["optimization_score"] = (
+                self._calculate_optimization_score(current_positions, recommendations)
+            )
 
             logger.info(
                 f"[TRADING_STRATEGIST] Portfolio optimization complete. Score: {optimization_result['optimization_score']:.2f}"

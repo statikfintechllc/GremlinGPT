@@ -47,6 +47,7 @@ except ImportError:
     logger = logging.getLogger("enhanced_dash_cli")
     CFG = {}
 
+
 # Terminal color codes
 class Colors:
     RED = "\033[91m"
@@ -238,7 +239,9 @@ class EnhancedDashboardCLI:
             if unified.get("available"):
                 print(f"🧠 Unified System: {Colors.colorize('Active', Colors.GREEN)}")
             else:
-                print(f"🧠 Unified System: {Colors.colorize('Inactive', Colors.YELLOW)}")
+                print(
+                    f"🧠 Unified System: {Colors.colorize('Inactive', Colors.YELLOW)}"
+                )
         else:
             print(Colors.colorize(f"❌ Error: {status['error']}", Colors.RED))
 
@@ -681,7 +684,9 @@ class EnhancedDashboardCLI:
 
             # Show recent lines
             recent_lines = lines[-50:] if len(lines) > 50 else lines
-            print(Colors.colorize("📄 Recent Log Entries (last 50 lines):", Colors.CYAN))
+            print(
+                Colors.colorize("📄 Recent Log Entries (last 50 lines):", Colors.CYAN)
+            )
             print("-" * 80)
 
             for line in recent_lines:

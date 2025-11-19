@@ -3,6 +3,7 @@
 # Import NLP environment globals for self-training
 from conda_envs.environments.nlp.globals import *
 
+
 # Add lazy loading pattern for self-training components
 def lazy_import(module_name):
     """Lazy import to prevent circular dependencies"""

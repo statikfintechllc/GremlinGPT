@@ -86,6 +86,7 @@ except Exception as e:
     logger.warning(f"[SERVER] Could not register additional routes: {e}")
     # Continue without additional routes - API endpoints are already registered
 
+
 # Broadcast function for system status
 def broadcast_status(msg):
     try:

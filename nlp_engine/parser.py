@@ -22,6 +22,7 @@ from datetime import datetime
 from .tokenizer import tokenize
 from .pos_tagger import get_pos_tags
 
+
 # For cross-environment communication (memory), use lazy loading
 def lazy_import_memory():
     """Lazy import memory functionality to prevent circular dependencies"""

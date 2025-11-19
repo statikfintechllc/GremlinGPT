@@ -42,6 +42,7 @@ try:
     HAS_NUMPY = True
 except ImportError:
     HAS_NUMPY = False
+
     # Create mock numpy for fallback
     class MockNumpy:
         def array(self, data, dtype=None):
@@ -341,7 +342,7 @@ except ImportError as e:
 
             if HAS_NUMPY:
                 # Create deterministic but varied encoding based on text
-                hash_val = hash(text) % (2 ** 31)
+                hash_val = hash(text) % (2**31)
                 np.random.seed(hash_val % 10000)  # Consistent but varied
                 vector = np.random.normal(0, 0.1, 384).astype(np.float32)
 
@@ -354,7 +355,7 @@ except ImportError as e:
                 # Simple fallback without numpy
                 import random
 
-                hash_val = hash(text) % (2 ** 31)
+                hash_val = hash(text) % (2**31)
                 random.seed(hash_val % 10000)
                 vector = [random.gauss(0, 0.1) for _ in range(384)]
                 vector[0] = min(len(text) / 1000, 1.0)
@@ -685,9 +686,9 @@ class NLPService:
                     "request_count": self.request_count,
                     "components": {
                         "tokenizer": "available" if self.tokenizer else "unavailable",
-                        "transformer": "available"
-                        if self.transformer
-                        else "unavailable",
+                        "transformer": (
+                            "available" if self.transformer else "unavailable"
+                        ),
                         "attention": "available" if self.attention else "unavailable",
                     },
                     "timestamp": datetime.now().isoformat(),
@@ -730,9 +731,11 @@ class NLPService:
 
                 return jsonify(
                     {
-                        "vector": vector.tolist()
-                        if HAS_NUMPY and hasattr(vector, "tolist")
-                        else vector,
+                        "vector": (
+                            vector.tolist()
+                            if HAS_NUMPY and hasattr(vector, "tolist")
+                            else vector
+                        ),
                         "dimension": len(vector),
                         "original_text": text,
                     }
@@ -941,28 +944,36 @@ class NLPService:
 
                 return jsonify(
                     {
-                        "output": output.tolist()
-                        if HAS_NUMPY and hasattr(output, "tolist")
-                        else output,
-                        "attention_weights": weights.tolist()
-                        if HAS_NUMPY and hasattr(weights, "tolist")
-                        else weights,
-                        "input_shape": input_tensor.shape
-                        if HAS_NUMPY and hasattr(input_tensor, "shape")
-                        else [
-                            len(input_tensor),
-                            len(input_tensor[0]) if input_tensor else 0,
-                        ],
-                        "output_shape": output.shape
-                        if HAS_NUMPY and hasattr(output, "shape")
-                        else [
-                            len(output),
-                            len(output[0])
-                            if output and isinstance(output[0], list)
-                            else len(output)
-                            if output
-                            else 0,
-                        ],
+                        "output": (
+                            output.tolist()
+                            if HAS_NUMPY and hasattr(output, "tolist")
+                            else output
+                        ),
+                        "attention_weights": (
+                            weights.tolist()
+                            if HAS_NUMPY and hasattr(weights, "tolist")
+                            else weights
+                        ),
+                        "input_shape": (
+                            input_tensor.shape
+                            if HAS_NUMPY and hasattr(input_tensor, "shape")
+                            else [
+                                len(input_tensor),
+                                len(input_tensor[0]) if input_tensor else 0,
+                            ]
+                        ),
+                        "output_shape": (
+                            output.shape
+                            if HAS_NUMPY and hasattr(output, "shape")
+                            else [
+                                len(output),
+                                (
+                                    len(output[0])
+                                    if output and isinstance(output[0], list)
+                                    else len(output) if output else 0
+                                ),
+                            ]
+                        ),
                         "original_text": text,
                     }
                 )
@@ -1035,9 +1046,11 @@ class NLPService:
                         results.append(
                             {
                                 "index": i,
-                                "vector": vector.tolist()
-                                if HAS_NUMPY and hasattr(vector, "tolist")
-                                else vector,
+                                "vector": (
+                                    vector.tolist()
+                                    if HAS_NUMPY and hasattr(vector, "tolist")
+                                    else vector
+                                ),
                                 "dimension": len(vector),
                                 "original_text": text,
                             }
@@ -1099,9 +1112,11 @@ class NLPService:
                     try:
                         vector = encode(text)
                         analysis["encoding"] = {
-                            "vector": vector.tolist()
-                            if HAS_NUMPY and hasattr(vector, "tolist")
-                            else vector,
+                            "vector": (
+                                vector.tolist()
+                                if HAS_NUMPY and hasattr(vector, "tolist")
+                                else vector
+                            ),
                             "dimension": len(vector),
                         }
                     except Exception as e:
@@ -1132,9 +1147,11 @@ class NLPService:
                     {
                         "session_id": session_id,
                         "user_id": getattr(session, "user_id", "unknown"),
-                        "history": session.get_history()
-                        if hasattr(session, "get_history")
-                        else [],
+                        "history": (
+                            session.get_history()
+                            if hasattr(session, "get_history")
+                            else []
+                        ),
                         "created": "unknown",  # Add timestamp tracking in future
                     }
                 )
@@ -1174,9 +1191,11 @@ class NLPService:
                         {
                             "session_id": session_id,
                             "user_id": getattr(session, "user_id", "unknown"),
-                            "history_length": len(session.get_history())
-                            if hasattr(session, "get_history")
-                            else 0,
+                            "history_length": (
+                                len(session.get_history())
+                                if hasattr(session, "get_history")
+                                else 0
+                            ),
                         }
                     )
 
@@ -1253,26 +1272,34 @@ class NLPService:
                     "components": {
                         "tokenizer": {
                             "status": "available" if self.tokenizer else "unavailable",
-                            "type": type(self.tokenizer).__name__
-                            if self.tokenizer
-                            else None,
+                            "type": (
+                                type(self.tokenizer).__name__
+                                if self.tokenizer
+                                else None
+                            ),
                         },
                         "transformer": {
-                            "status": "available"
-                            if self.transformer
-                            else "unavailable",
-                            "device": getattr(self.transformer, "device", "unknown")
-                            if self.transformer
-                            else None,
+                            "status": (
+                                "available" if self.transformer else "unavailable"
+                            ),
+                            "device": (
+                                getattr(self.transformer, "device", "unknown")
+                                if self.transformer
+                                else None
+                            ),
                         },
                         "attention": {
                             "status": "available" if self.attention else "unavailable",
-                            "heads": getattr(self.attention, "num_heads", "unknown")
-                            if self.attention
-                            else None,
-                            "embed_dim": getattr(self.attention, "embed_dim", "unknown")
-                            if self.attention
-                            else None,
+                            "heads": (
+                                getattr(self.attention, "num_heads", "unknown")
+                                if self.attention
+                                else None
+                            ),
+                            "embed_dim": (
+                                getattr(self.attention, "embed_dim", "unknown")
+                                if self.attention
+                                else None
+                            ),
                         },
                     },
                     "endpoints": [

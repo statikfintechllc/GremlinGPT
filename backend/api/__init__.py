@@ -3,6 +3,7 @@
 # Import orchestrator environment globals for backend
 from conda_envs.environments.orchestrator.globals import *
 
+
 # Add lazy loading pattern for backend API components
 def lazy_import(module_name):
     """Lazy import to prevent circular dependencies"""

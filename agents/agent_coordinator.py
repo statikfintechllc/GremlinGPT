@@ -442,9 +442,9 @@ class AgentCoordinator:
                         {
                             "module": module,
                             "opportunity": insight,
-                            "priority": "high"
-                            if "critical" in insight.lower()
-                            else "medium",
+                            "priority": (
+                                "high" if "critical" in insight.lower() else "medium"
+                            ),
                         }
                     )
 
@@ -1103,9 +1103,9 @@ class AgentCoordinator:
             ),
             "improvement_opportunities": len(opportunities),
             "strategic_initiatives": len(recommendations),
-            "implementation_complexity": "high"
-            if len(recommendations) > 5
-            else "medium",
+            "implementation_complexity": (
+                "high" if len(recommendations) > 5 else "medium"
+            ),
         }
 
         # Key priorities

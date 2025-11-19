@@ -14,6 +14,7 @@
 # Refactored to use centralized imports from NLP environment
 from conda_envs.environments.nlp.globals import *
 
+
 # For cross-environment communication (memory), use lazy loading
 def lazy_import_memory():
     """Lazy import memory functionality to prevent circular dependencies"""

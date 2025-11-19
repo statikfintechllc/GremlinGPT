@@ -21,6 +21,7 @@ from .stock_scraper import get_live_penny_stocks
 from utils.logging_config import setup_module_logger
 from datetime import datetime
 
+
 # For cross-environment communication (memory), use lazy loading
 def lazy_import_memory():
     """Lazy import memory functionality to prevent circular dependencies"""

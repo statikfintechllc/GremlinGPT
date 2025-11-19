@@ -28,6 +28,7 @@ logger = get_module_logger("scraper")
 # Use relative imports within scraper environment
 from .dom_navigator import extract_dom_structure
 
+
 # For cross-environment communication (memory), use lazy loading
 def lazy_import_memory():
     """Lazy import memory functionality to prevent circular dependencies"""

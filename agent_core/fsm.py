@@ -35,6 +35,7 @@ from kernel import apply_patch  # 🧠 Kernel hook for patchable execution
 # Setup NLTK using centralized setup
 try:
     from utils.nltk_setup import get_nltk_data_path
+
     NLTK_DATA_DIR = get_nltk_data_path()
     if NLTK_DATA_DIR:
         logger.info(f"[FSM] NLTK data path configured: {NLTK_DATA_DIR}")

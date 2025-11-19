@@ -3,6 +3,7 @@
 # Import scraper environment globals for trading core
 from conda_envs.environments.scraper.globals import *
 
+
 # Add lazy loading pattern for trading core components
 def lazy_import(module_name):
     """Lazy import to prevent circular dependencies"""

@@ -15,6 +15,7 @@ from conda_envs.environments.nlp.globals import *
 import numpy as np
 from datetime import datetime
 
+
 # For cross-environment communication, use lazy loading
 def lazy_import_memory():
     """Lazy import memory functionality to prevent circular dependencies"""

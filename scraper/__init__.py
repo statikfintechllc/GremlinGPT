@@ -3,6 +3,7 @@
 # Import scraper environment globals
 from conda_envs.environments.scraper.globals import *
 
+
 # Add lazy loading pattern for scraper components
 def lazy_import(module_name):
     """Lazy import to prevent circular dependencies"""

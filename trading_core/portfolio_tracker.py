@@ -275,12 +275,14 @@ def calculate_risk_metrics(current_prices: dict):
         for sym, d in portfolio.items()
     )
     exposures = {
-        sym: (current_prices.get(sym, d["price"]) * d["shares"]) / total_value
-        if total_value
-        else 0
+        sym: (
+            (current_prices.get(sym, d["price"]) * d["shares"]) / total_value
+            if total_value
+            else 0
+        )
         for sym, d in portfolio.items()
     }
-    diversification = 1 - sum(v ** 2 for v in exposures.values())  # Herfindahl index
+    diversification = 1 - sum(v**2 for v in exposures.values())  # Herfindahl index
     returns = []
     for sym, d in portfolio.items():
         entry = d["price"]

@@ -17,6 +17,7 @@ import sys
 # Try to import NLTK, but don't fail if it's not available
 try:
     import nltk
+
     HAS_NLTK = True
 except ImportError:
     HAS_NLTK = False
@@ -35,7 +36,7 @@ def setup_nltk_data():
     if not HAS_NLTK:
         print("[NLTK] NLTK module not available. Install with: pip install nltk")
         return None
-    
+
     base_dir = os.path.abspath(
         os.path.join(os.path.dirname(__file__), "..", "data", "nltk_data")
     )
@@ -45,13 +46,14 @@ def setup_nltk_data():
         os.makedirs(base_dir, exist_ok=True)
         # Verify write permissions
         test_file = os.path.join(base_dir, ".test_write")
-        with open(test_file, 'w') as f:
+        with open(test_file, "w") as f:
             f.write("test")
         os.remove(test_file)
     except Exception as e:
         print(f"[NLTK] Warning: Cannot write to {base_dir}: {e}")
         # Fall back to user's NLTK data directory if project dir not writable
         import tempfile
+
         base_dir = os.path.join(tempfile.gettempdir(), "gremlin_nltk_data")
         os.makedirs(base_dir, exist_ok=True)
         print(f"[NLTK] Using fallback directory: {base_dir}")
@@ -107,7 +109,7 @@ def setup_nltk_data():
 def validate_nltk_installation():
     """
     Validates that NLTK is properly installed and all required resources are available.
-    
+
     Returns:
         dict: Status information about NLTK installation
     """
@@ -116,18 +118,18 @@ def validate_nltk_installation():
         "nltk_version": None,
         "data_path": None,
         "resources_available": {},
-        "all_resources_ready": False
+        "all_resources_ready": False,
     }
-    
+
     if not HAS_NLTK:
         return status
-    
+
     status["nltk_version"] = nltk.__version__
-    
+
     # Setup NLTK data first
     data_path = setup_nltk_data()
     status["data_path"] = data_path
-    
+
     # Check each resource
     resources = [
         ("tokenizers/punkt", "punkt"),
@@ -137,34 +139,34 @@ def validate_nltk_installation():
         ("corpora/stopwords", "stopwords"),
         ("corpora/omw-1.4", "omw-1.4"),
     ]
-    
+
     for resource_path, resource_name in resources:
         try:
             nltk.data.find(resource_path)
             status["resources_available"][resource_name] = True
         except LookupError:
             status["resources_available"][resource_name] = False
-    
+
     status["all_resources_ready"] = all(status["resources_available"].values())
-    
+
     return status
 
 
 def get_nltk_data_path():
     """
     Returns the NLTK data path for use by other modules.
-    
+
     Returns:
         str: Path to NLTK data directory
     """
     if not HAS_NLTK:
         return None
-    
+
     # Check if already set up
     nltk_data_env = os.environ.get("NLTK_DATA")
     if nltk_data_env and os.path.exists(nltk_data_env):
         return nltk_data_env
-    
+
     # Otherwise, set it up
     return setup_nltk_data()
 
@@ -182,14 +184,14 @@ if __name__ == "__main__":
     print("=" * 60)
     print("NLTK Setup and Validation Tool")
     print("=" * 60)
-    
+
     if not HAS_NLTK:
         print("\n[ERROR] NLTK is not installed!")
         print("Install it with: pip install nltk")
         sys.exit(1)
-    
+
     status = validate_nltk_installation()
-    
+
     print("\nValidation Results:")
     print(f"  NLTK Version: {status['nltk_version']}")
     print(f"  Data Path: {status['data_path']}")
@@ -197,10 +199,12 @@ if __name__ == "__main__":
     for resource, available in status["resources_available"].items():
         symbol = "✓" if available else "✗"
         print(f"    {symbol} {resource}")
-    
+
     if status["all_resources_ready"]:
         print("\n✓ All NLTK resources are ready!")
         sys.exit(0)
     else:
-        print("\n✗ Some NLTK resources are missing. Run setup_nltk_data() to download them.")
+        print(
+            "\n✗ Some NLTK resources are missing. Run setup_nltk_data() to download them."
+        )
         sys.exit(1)

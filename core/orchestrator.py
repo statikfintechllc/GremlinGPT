@@ -280,11 +280,11 @@ class GlobalOrchestrator:
                 "active_modules": active_modules,
                 "total_modules": len(self.module_registry),
                 "total_errors": total_errors,
-                "status": "HEALTHY"
-                if health_score > 0.8
-                else "DEGRADED"
-                if health_score > 0.5
-                else "CRITICAL",
+                "status": (
+                    "HEALTHY"
+                    if health_score > 0.8
+                    else "DEGRADED" if health_score > 0.5 else "CRITICAL"
+                ),
             }
 
     def get_performance_summary(self) -> Dict[str, Any]:

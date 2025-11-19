@@ -65,6 +65,7 @@ try:
     from nlp_engine.transformer_core import encode
 except ImportError as e:
     logger.error(f"[COMMANDS] encode import failed: {e}")
+
     # fallback to a dummy encoder
     def encode(text):
         return np.zeros(MEM.get("embedding", {}).get("dimension", 384), dtype="float32")
@@ -162,6 +163,7 @@ else:
     logger.error("[EMBEDDER] SentenceTransformer unavailable; using fallback")
 
 memory_vectors = {}
+
 
 # --- Core Embedding Functions ---
 def embed_text(text):

@@ -40,6 +40,7 @@ api_blueprint = flask.Blueprint("api", __name__)
 # Session storage for chat functionality
 _sessions = {}
 
+
 # === CHAT ENDPOINTS ===
 @api_blueprint.route("/api/chat", methods=["POST"])
 def api_chat():
@@ -180,6 +181,7 @@ def api_dashboard_reward_feed():
 
 
 # --- Tools / Utilities ---
+
 
 # Example: Math Tool
 @api_blueprint.route("/api/tools/math/eval", methods=["POST"])

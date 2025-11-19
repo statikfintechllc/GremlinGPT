@@ -246,18 +246,18 @@ def reasoned_similarity(
             sim_avg = (np.mean(max_per_a) + np.mean(max_per_b)) / 2.0
             sim_clamped = float(np.clip(sim_avg, 0.0, 1.0))
             result["score"] = sim_clamped
-            result[
-                "explanation"
-            ] = f"Sentence-level similarity: {sim_clamped:.4f} (lang: {lang})"
+            result["explanation"] = (
+                f"Sentence-level similarity: {sim_clamped:.4f} (lang: {lang})"
+            )
         else:
             emb_a = model.encode(text_a, convert_to_tensor=True)
             emb_b = model.encode(text_b, convert_to_tensor=True)
             sim = util.cos_sim(emb_a, emb_b).item()
             sim_clamped = max(0.0, min(1.0, float(sim)))
             result["score"] = sim_clamped
-            result[
-                "explanation"
-            ] = f"Whole-text similarity: {sim_clamped:.4f} (lang: {lang})"
+            result["explanation"] = (
+                f"Whole-text similarity: {sim_clamped:.4f} (lang: {lang})"
+            )
         # Optionally augment with web search
         if web_augment:
             try:

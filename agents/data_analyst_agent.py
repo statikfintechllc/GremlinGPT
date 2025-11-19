@@ -451,13 +451,16 @@ class DataAnalystAgent:
             # Volatility analysis
             if len(values) > 1:
                 feature_patterns["volatility"] = {
-                    "coefficient_of_variation": statistics.stdev(values)
-                    / statistics.mean(values)
-                    if statistics.mean(values) != 0
-                    else 0,
-                    "stability": "high"
-                    if statistics.stdev(values) / statistics.mean(values) < 0.1
-                    else "low",
+                    "coefficient_of_variation": (
+                        statistics.stdev(values) / statistics.mean(values)
+                        if statistics.mean(values) != 0
+                        else 0
+                    ),
+                    "stability": (
+                        "high"
+                        if statistics.stdev(values) / statistics.mean(values) < 0.1
+                        else "low"
+                    ),
                 }
 
             patterns[feature_name] = feature_patterns

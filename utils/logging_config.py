@@ -20,6 +20,7 @@ try:
     from loguru import logger as loguru_logger
 
     HAS_LOGURU = True
+
     # Create a bridge between loguru and standard logging
     class LoguruHandler(logging.Handler):
         def emit(self, record):
@@ -32,10 +33,10 @@ try:
             except Exception:
                 pass
 
-
 except ImportError:
     HAS_LOGURU = False
     loguru_logger = None
+
 
 # Create a unified logger that works with or without loguru
 class BulletproofLogger:

@@ -17,6 +17,7 @@ from conda_envs.environments.orchestrator.globals import *
 from agent_core.task_queue import reprioritize
 from agent_core import task_queue
 
+
 # For cross-environment communication, use lazy loading
 def lazy_import_memory():
     """Lazy import memory functionality to prevent circular dependencies"""

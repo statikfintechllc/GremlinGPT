@@ -182,9 +182,11 @@ class LearningAgent:
                             opportunity = {
                                 "metric": metric_name,
                                 "change": change_percent,
-                                "type": "improvement"
-                                if change_percent > 0
-                                else "degradation",
+                                "type": (
+                                    "improvement"
+                                    if change_percent > 0
+                                    else "degradation"
+                                ),
                                 "recommended_action": self._suggest_improvement_action(
                                     metric_name, change_percent, perf_metric
                                 ),
@@ -264,7 +266,7 @@ class LearningAgent:
         if y_variance == 0:
             confidence = 0.5
         else:
-            r_squared = (numerator ** 2) / (denominator * y_variance)
+            r_squared = (numerator**2) / (denominator * y_variance)
             confidence = min(1.0, r_squared)
 
         # Determine trend direction
@@ -759,9 +761,9 @@ class LearningAgent:
             if analysis_type == "correlation":
                 correlations = await self._discover_correlations(data_sources)
                 discovery_result["correlations"] = correlations
-                discovery_result[
-                    "patterns_found"
-                ] = self._extract_patterns_from_correlations(correlations)
+                discovery_result["patterns_found"] = (
+                    self._extract_patterns_from_correlations(correlations)
+                )
 
             elif analysis_type == "temporal":
                 temporal_patterns = await self._discover_temporal_patterns(data_sources)
@@ -823,12 +825,12 @@ class LearningAgent:
                         if not np.isnan(correlation) and abs(correlation) > 0.5:
                             correlations[f"{metric1} vs {metric2}"] = {
                                 "correlation": correlation,
-                                "strength": "strong"
-                                if abs(correlation) > 0.8
-                                else "moderate",
-                                "direction": "positive"
-                                if correlation > 0
-                                else "negative",
+                                "strength": (
+                                    "strong" if abs(correlation) > 0.8 else "moderate"
+                                ),
+                                "direction": (
+                                    "positive" if correlation > 0 else "negative"
+                                ),
                             }
                     except:
                         continue
@@ -847,9 +849,9 @@ class LearningAgent:
                     "type": "correlation",
                     "description": f"Strong {corr_data['direction']} correlation between {corr_name}",
                     "confidence": abs(corr_data["correlation"]),
-                    "actionability": "high"
-                    if abs(corr_data["correlation"]) > 0.8
-                    else "medium",
+                    "actionability": (
+                        "high" if abs(corr_data["correlation"]) > 0.8 else "medium"
+                    ),
                     "recommendation": self._generate_correlation_recommendation(
                         corr_name, corr_data
                     ),

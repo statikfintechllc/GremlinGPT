@@ -17,6 +17,7 @@ from utils.logging_config import setup_module_logger
 # Initialize module-specific logger
 logger = setup_module_logger("backend", "scraping_api")
 
+
 # For cross-environment communication (scraper), use lazy loading
 def lazy_import_scraper():
     """Lazy import scraper functionality to prevent circular dependencies"""

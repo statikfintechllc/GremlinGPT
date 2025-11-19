@@ -159,10 +159,10 @@ def add_to_faiss(vector, emb_id):
                     int(emb_id)
                     if isinstance(emb_id, int)
                     or (isinstance(emb_id, str) and emb_id.isdigit())
-                    else abs(hash(emb_id)) % (2 ** 63)
+                    else abs(hash(emb_id)) % (2**63)
                 )
             except Exception:
-                emb_id_int = abs(hash(str(emb_id))) % (2 ** 63)
+                emb_id_int = abs(hash(str(emb_id))) % (2**63)
             try:
                 # Ensure vec is 2D (n, d)
                 vec_2d = np.array(vector, dtype="float32").reshape(1, -1)
@@ -309,6 +309,7 @@ else:
     logger.error("[EMBEDDER] SentenceTransformer unavailable; using fallback")
 
 memory_vectors = {}
+
 
 # --- Core Embedding Functions ---
 def embed_text(text):
