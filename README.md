@@ -1,15 +1,5 @@
-<link rel="stylesheet" type="text/css" href="custom.css">
 <div align="center">
-  <img  	  src="https://raw.githubusercontent.com/KDK-Grim/WorkFlowRepo-Mirror/master/docs/ticker-bot/ticker.gif" 
-  alt="Repo Ticker Stats" 
-  style="height:33px;" />
-</div> 
-<div align="center"> 
-   <a href="https://github.com/statikfintechllc/WorkFlowRepo.git">
-    <img src="https://img.shields.io/badge/Click%20to%20Install%20Single-Repo%20Traffic%20Workflows-darkred?labelColor=black" alt="GremlinGPT Alpha"/>
-  </a>
-   <a href="https://github.com/KDK-Grim/WorkFlowRepo-Mirror">
-    <img src="https://img.shields.io/badge/Click%20to%20Install-Advance%20Mirror%20Workflow-darkred?labelColor=black" alt="GremlinGPT Alpha"/>
+    <img src="https://raw.githubusercontent.com/statikfintechllc/statikfintechllc/master/badges/G.I.badge.svg" alt="The Institute's GremlinGPT" />
   </a>
 </div>
 <div align="center"> 
@@ -338,20 +328,6 @@ npm run electron-dev
   <img src="https://raw.githubusercontent.com/statikfintechllc/statikfintechllc/master/badges/patreon.sponsor.svg">
 </a>
 </div>
-
-<h1 align="center">Ascend Institute's GremlinGPT Traffic</h1>
-<div align="center">
-  <a href="https://raw.githubusercontent.com/statikfintechllc/WorkFlowRepo/master/docs/graph/traffic_graph.png">
-  <img src="https://raw.githubusercontent.com/KDK-Grim/WorkFlowRepo-Mirror/master/docs/graph/traffic_graph.png" alt="Traffic Graph" />
-  </a>
-</div>
-  
-<div align="center">
-  <em>
-Reset: After 7:00pm CST on First 2 Clones
-  </em>
-</div>
-
 <div align="center">
   <a
 href="https://github.com/statikfintechllc/AscendDocs_of_GovSeverance/blob/master/Docs">
