@@ -6,9 +6,11 @@ Test script to demonstrate GremlinGPT CLI functionality
 
 import sys
 import time
+from pathlib import Path
 
-# Add parent directory to path
-sys.path.insert(0, '/home/runner/work/GremlinGPT/GremlinGPT')
+# Add parent directory to path dynamically
+BASE_DIR = Path(__file__).parent.absolute()
+sys.path.insert(0, str(BASE_DIR))
 
 from main import GremlinGPT
 

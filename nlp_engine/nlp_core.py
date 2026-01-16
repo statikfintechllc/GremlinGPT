@@ -161,8 +161,6 @@ class NLPCore:
         self.embedder = CustomEmbedder()
         
         logger.info("✓ Custom NLP core initialized (no external dependencies)")
-        
-        logger.info("✓ Custom NLP core initialized (no external dependencies)")
     
     def tokenize(self, text: str, max_length: int = 512) -> List[str]:
         """
