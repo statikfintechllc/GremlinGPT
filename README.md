@@ -238,17 +238,20 @@ Once in the CLI:
 
 ## System Requirements
 
-- **Python 3.8+** (no conda required)
+- **Python 3.8+** (no external ML libraries required)
 - **4GB+ RAM** recommended
 - **Linux/macOS/Windows** with Python support
 
 **Core Dependencies:**
-- PyTorch 2.0+
-- Transformers 4.30+
-- Sentence-Transformers 2.2+
-- Flask 2.3+
+- Flask 2.3+ (for API server)
+- Standard Python libraries only
 
-All dependencies install via pip - no conda needed.
+**Custom Implementations:**
+- Custom tokenizer (no HuggingFace needed)
+- Custom embedding generator (no PyTorch needed)
+- Custom NLP parser (no transformers needed)
+
+The system is truly autonomous with no external AI dependencies.
 
 ## Quick Start Guide
 
@@ -287,10 +290,10 @@ GremlinGPT is now a unified system with a single entry point (`main.py`):
 
 **Key Improvements:**
 - Single entry point eliminates confusion
-- Real NLP with transformers (fails fast if dependencies missing)
+- Custom NLP implementation (no external AI dependencies)
 - No conda complexity
 - No fallback degradation modes
-- Clear error messages
+- Truly autonomous system
 
 ## Ports and Services
 
@@ -347,12 +350,11 @@ href="https://github.com/statikfintechllc/AscendDocs_of_GovSeverance/blob/master
 
 **Common Issues:**
 
-1. **"Failed to load NLP models":** Run `pip install -r requirements-core.txt` to install dependencies
-2. **"PyTorch not installed":** Install with `pip install torch>=2.0.0`
-3. **"Permission errors":** Make sure you have write access to the `data/` directory
-4. **System hangs:** The first run downloads transformer models (~400MB), be patient
+1. **"Module not found":** Run `pip install -r requirements-core.txt` to install minimal dependencies
+2. **"Permission errors":** Make sure you have write access to the `data/` directory
+3. **System starts slowly:** First initialization creates vocabulary - be patient
 
-**The system fails fast with clear error messages.** No more silent fallback modes.
+**The system uses custom implementations and has NO external AI dependencies.**
 
 **Getting Help:**
 - Check logs: `tail -f data/logs/main.log`
