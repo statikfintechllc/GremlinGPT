@@ -312,32 +312,6 @@ cd frontend
 npm run electron-dev
 ```
 
-<div align="center">
-  <a href="https://github.com/sponsors/statikfintechllc">
-    <img src="https://raw.githubusercontent.com/statikfintechllc/statikfintechllc/master/badges/L.W.badge.svg" alt="Like my work?" />
-  </a>
-</div>
-<div align="center">
-<a href="https://github.com/sponsors/statikfintechllc">
-  <img src="https://raw.githubusercontent.com/statikfintechllc/statikfintechllc/master/badges/git.sponsor.svg">
-</a><br>
-<a href="https://ko-fi.com/statikfintech_llc">
-  <img src="https://raw.githubusercontent.com/statikfintechllc/statikfintechllc/master/badges/kofi.sponsor.svg">
-</a><br>
-<a href="https://patreon.com/StatikFinTech_LLC">
-  <img src="https://raw.githubusercontent.com/statikfintechllc/statikfintechllc/master/badges/patreon.sponsor.svg">
-</a>
-</div>
-<div align="center">
-  <a
-href="https://github.com/statikfintechllc/AscendDocs_of_GovSeverance/blob/master/Docs">
-    <img src="https://img.shields.io/badge/Learn-black?style=for-the-badge&logo=dragon&logoColor=gold" alt="Why"/>
-  </a>
-  <a href="https://github.com/statikfintechllc/AscendDocs_of_GovSeverance/blob/master/Docs">
-    <img src="https://img.shields.io/badge/Why-darkred?style=for-the-badge&logo=dragon&logoColor=gold" alt="GremlinGPT"/>
-  </a>
-</div>
-
 ## Troubleshooting
 
 **Common Issues:**
@@ -352,12 +326,29 @@ href="https://github.com/statikfintechllc/AscendDocs_of_GovSeverance/blob/master
 - Check logs in `data/logs/` directory
 - View system status with `status` command
 
-## License
+<div align="center">
+  <a
+href="https://github.com/statikfintechllc/AscendDocs_of_GovSeverance/blob/master/Docs">
+    <img src="https://img.shields.io/badge/Learn-black?style=for-the-badge&logo=dragon&logoColor=gold" alt="Why"/>
+  </a>
+  <a href="https://github.com/statikfintechllc/AscendDocs_of_GovSeverance/blob/master/Docs">
+    <img src="https://img.shields.io/badge/Why-darkred?style=for-the-badge&logo=dragon&logoColor=gold" alt="GremlinGPT"/>
+  </a>
 
-GremlinGPT Dual License v1.0 - Fair Use Only  
-Commercial Use Requires License  
-
-<div align="center"
+  <a href="https://github.com/sponsors/statikfintechllc">
+    <img src="https://raw.githubusercontent.com/statikfintechllc/statikfintechllc/master/badges/L.W.badge.svg" alt="Like my work?" />
+  </a>
+</div>
+<div align="center">
+<a href="https://github.com/sponsors/statikfintechllc">
+  <img src="https://raw.githubusercontent.com/statikfintechllc/statikfintechllc/master/badges/git.sponsor.svg">
+</a><br>
+<a href="https://ko-fi.com/statikfintech_llc">
+  <img src="https://raw.githubusercontent.com/statikfintechllc/statikfintechllc/master/badges/kofi.sponsor.svg">
+</a><br>
+<a href="https://patreon.com/StatikFinTech_LLC">
+  <img src="https://raw.githubusercontent.com/statikfintechllc/statikfintechllc/master/badges/patreon.sponsor.svg">
+</a>
 
 [© 2025 StatikFinTech, LLC](https://github.com/statikfintechllc/GremlinGPT/blob/master/LICENSE.md)
 
