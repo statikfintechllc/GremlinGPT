@@ -79,33 +79,29 @@ href="https://github.com/statikfintechllc/GremlinGPT">
 >
 > All Housed [Here](https://statikfintechllc.github.io/Ascend-Institute/)
 
-### Quick Start with Enhanced Installer
+### Quick Start (Simplified Single Entry Point)
 
-**🚀 *One-Line* Installation (Recommended)**
+**🚀 *Quick Start Commands:***
 
 ```bash
-# Install with wget
-wget -qO- https://raw.githubusercontent.com/statikfintechllc/GremlinGPT/master/install.script | bash
-```
-```bash
-# Or with curl
-curl -fsSL https://raw.githubusercontent.com/statikfintechllc/GremlinGPT/master/install.script | bash
-```
-
-**Manual *Quick* Commands:**
-```bash
-# Clone
+# Clone the repository
 git clone https://github.com/statikfintechllc/GremlinGPT.git
+cd GremlinGPT
 
-# Complete installation and launch
-./install.script && cd frontend && npm run electron
+# Install core dependencies (no conda required)
+pip install -r requirements-core.txt
+
+# Start the full system
+python3 main.py
+
+# Or start CLI only
+python3 main.py --cli-only
 
 # Check system status
-cd .. && python3 utils/enhanced_dash_cli.py --status
-
-# View logs
-tail -f data/logs/*.log
+python3 main.py --status
 ```
+
+**That's it!** No multiple entry points, no conda environments, just one command.
 
 ---
 
@@ -183,148 +179,161 @@ href="https://github.com/statikfintechllc/Ascend-Institute/blob/master/About Us"
 
 ## Installation
 
-1. **Clone the repository:**
+**Simple Installation (No Conda):**
+
 ```bash
+# 1. Clone the repository
 git clone https://github.com/statikfintechllc/GremlinGPT.git
 cd GremlinGPT
+
+# 2. Install core dependencies
+pip install -r requirements-core.txt
+
+# 3. Run the system
+python3 main.py
 ```
 
-2. **Run the installation script:**
-```bash
-./install.sh
-```
+**That's it!** The system now has a single entry point with no conda complexity.
 
 ## Running GremlinGPT
 
-### Option 1: Enhanced Electron Dashboard (Recommended)
-Launch the complete GremlinGPT experience with tabbed interface:
+**Single Command Startup:**
 
 ```bash
-cd frontend
-npm run electron
+python3 main.py
 ```
 
-The Enhanced Dashboard provides:
-- 🎛️ **CLI Dashboard** - Interactive command line interface
-- 🧠 **Memory Systems** - Vector stores and embeddings management  
-- 🤖 **Agents** - AI agent monitoring and control
-- 📝 **Source Editor** - Monaco-based code editor with file tree
-- ⚙️ **Settings** - System configuration management
+This single command:
+- Initializes the NLP engine with real transformers (no fallback)
+- Starts the core orchestrator and FSM
+- Initializes memory systems
+- Starts the agent coordinator
+- Launches the backend API on port 8080
+- Opens an interactive CLI
 
-### Option 2: Command Line Interface
-Launch the traditional CLI interface:
+**CLI-Only Mode:**
 
 ```bash
-python3 utils/enhanced_dash_cli.py
+python3 main.py --cli-only
 ```
 
-### Option 3: System Services Only
-Start all backend services without the GUI:
+**Check System Status:**
 
 ```bash
-./run/start_all.sh
+python3 main.py --status
 ```
 
-## System Requirements
+### Available CLI Commands
 
-- **Python 3.8+** with conda environment support
-- **Node.js 16+** (for Electron dashboard)
-- **4GB+ RAM** recommended
-- **Linux/macOS** (Windows support via WSL)
-
-## Quick Start Guide
-
-1. **Install:** `./install.sh`
-2. **Launch:** `cd frontend && npm run electron`
-3. **Access the Enhanced CLI Dashboard** (default landing page)
-4. **Start the system** using the CLI command: `start`
-5. **Monitor status** with: `status`
-
-## Available Commands
-
-In the Enhanced CLI Dashboard:
+Once in the CLI:
 
 | Command | Description |
 |---------|-------------|
-| `start` | Start all GremlinGPT services |
-| `stop` | Stop all services |
-| `restart` | Restart the system |
+| `start` | Start system components |
+| `stop` | Stop system components |
 | `status` | Show detailed system status |
-| `logs` | View recent system logs |
-| `agents` | List active AI agents |
-| `memory` | Show memory system status |
-| `config` | Display configuration |
+| `chat` | Chat with GremlinGPT |
 | `help` | Show available commands |
-| `clear` | Clear terminal |
+| `exit` | Exit CLI |
+
+## System Requirements
+
+- **Python 3.8+** (no external ML libraries required)
+- **4GB+ RAM** recommended
+- **Linux/macOS/Windows** with Python support
+
+**Core Dependencies:**
+- Flask 2.3+ (for API server)
+- Standard Python libraries only
+
+**Custom Implementations:**
+- Custom tokenizer (no HuggingFace needed)
+- Custom embedding generator (no PyTorch needed)
+- Custom NLP parser (no transformers needed)
+
+The system is truly autonomous with no external AI dependencies.
+
+## Quick Start Guide
+
+1. **Install:** `pip install -r requirements-core.txt`
+2. **Launch:** `python3 main.py`
+3. **Use the CLI** to interact with GremlinGPT
+4. **Type commands** like `status`, `help`, or chat naturally
+
+**Single Entry Point:** Everything starts from `main.py` - no confusion, no multiple paths.
+
+## Available Commands
+
+In the CLI:
+
+| Command | Description |
+|---------|-------------|
+| `start` | Start system components |
+| `stop` | Stop system components |
+| `status` | Show detailed system status |
+| `chat <message>` | Chat with GremlinGPT |
+| `help` | Show available commands |
+| `exit` | Exit CLI |
+
+The NLP engine understands natural language, so you can also just type commands naturally.
 
 ## System Architecture
 
-GremlinGPT runs as a distributed system with multiple specialized components:
+GremlinGPT is now a unified system with a single entry point (`main.py`):
 
-- **Core Loop** - Main orchestration engine
-- **FSM Agent** - Finite state machine for decision making
-- **NLP Service** - Natural language processing
-- **Memory Service** - Vector embeddings and knowledge storage
-- **Scraper Agent** - Web data collection
-- **Self-Trainer** - Continuous learning system
-- **Backend API** - REST API services
-- **Enhanced Dashboard** - Electron-based GUI
+- **NLP Core** - Real transformer models (no fallback degradation)
+- **Core Orchestrator** - Main system coordination
+- **Memory Manager** - Knowledge storage and retrieval
+- **Agent Coordinator** - Multi-agent management
+- **Backend API** - REST API on port 8080
+- **CLI Interface** - Interactive command line
+
+**Key Improvements:**
+- Single entry point eliminates confusion
+- Custom NLP implementation (no external AI dependencies)
+- No conda complexity
+- No fallback degradation modes
+- Truly autonomous system
 
 ## Ports and Services
 
-Default port allocation (automatically managed):
+The unified system uses:
 
 | Service | Port | Purpose |
 |---------|------|---------|
-| Backend API | 8000 | REST API endpoints |
-| Frontend | 8080 | Web interface |
-| NLP Service | 8001 | Language processing |
-| Memory Service | 8002 | Vector storage |
-| FSM Agent | 8003 | State management |
-| Scraper | 8004 | Data collection |
-| Trainer | 8005 | Learning system |
+| Backend API | 8080 | REST API endpoints |
+| CLI | stdout | Interactive terminal |
+
+**Simplified:** No more 8+ services on different ports. Everything runs in one coordinated process.
 
 ## Stopping the System
 
-**From Enhanced CLI Dashboard:**
-```
-stop
-```
+Simply press `Ctrl+C` in the terminal or type `exit` in the CLI.
 
-**From command line:**
-```bash
-./run/stop_all.sh
-```
+The system will gracefully shut down all components.
 
 ## Logs and Monitoring
 
-- **System logs:** `data/logs/`
-- **Health monitoring:** Automatic with `start_all.sh`
-- **Real-time status:** Available in Enhanced Dashboard
-- **Startup summary:** `data/logs/startup_summary.json`
+- **System logs:** `data/logs/main.log`
+- **Check status:** `python3 main.py --status`
+- **View logs:** `tail -f data/logs/main.log`
 
-## Development Mode
-
-For development with hot reload:
-
-```bash
-cd frontend
-npm run electron-dev
-```
+Simple, unified logging in one place.
 
 ## Troubleshooting
 
 **Common Issues:**
 
-1. **Port conflicts:** The system automatically detects and resolves port conflicts
-2. **Conda environment errors:** Ensure conda is properly installed and initialized
-3. **Permission errors:** Make sure install.sh is executable: `chmod +x install.sh`
-4. **Memory issues:** Increase system RAM or reduce concurrent processes
+1. **"Module not found":** Run `pip install -r requirements-core.txt` to install minimal dependencies
+2. **"Permission errors":** Make sure you have write access to the `data/` directory
+3. **System starts slowly:** First initialization creates vocabulary - be patient
+
+**The system uses custom implementations and has NO external AI dependencies.**
 
 **Getting Help:**
-- Use `help` command in the Enhanced CLI Dashboard
-- Check logs in `data/logs/` directory
-- View system status with `status` command
+- Check logs: `tail -f data/logs/main.log`
+- Check status: `python3 main.py --status`
+- Use `help` command in the CLI
 
 <div align="center">
   <a
