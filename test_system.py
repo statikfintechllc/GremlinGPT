@@ -16,6 +16,7 @@ from main import GremlinGPT
 
 def test_cli_commands():
     """Test various CLI commands"""
+    failures = []
     
     print("\n" + "=" * 60)
     print("GremlinGPT CLI Test")
@@ -50,6 +51,8 @@ def test_cli_commands():
         intent = result['intent']
         status = "✓" if intent == expected_intent else "✗"
         print(f"{status} '{command}' -> intent: {intent} (expected: {expected_intent})")
+        if intent != expected_intent:
+            failures.append(f"intent mismatch for '{command}': got {intent}, expected {expected_intent}")
     print()
     
     print("3. Testing tokenization:")
@@ -65,6 +68,8 @@ def test_cli_commands():
     embedding = nlp.get_embeddings("test text")
     print(f"Embedding dimension: {len(embedding)}")
     print(f"First 5 values: {embedding[:5]}")
+    if len(embedding) != 384:
+        failures.append(f"embedding dimension mismatch: got {len(embedding)}, expected 384")
     print()
     
     print("5. Testing similarity:")
@@ -78,6 +83,8 @@ def test_cli_commands():
     for text1, text2 in pairs:
         sim = nlp.get_similarity(text1, text2)
         print(f"Similarity('{text1}', '{text2}'): {sim:.3f}")
+        if not (0.0 <= sim <= 1.0):
+            failures.append(f"invalid similarity range for ('{text1}', '{text2}'): {sim}")
     print()
     
     print("6. Testing POS tagging:")
@@ -93,6 +100,16 @@ def test_cli_commands():
     health = nlp.health_check()
     print(f"Health status: {health}")
     print()
+    if not health.get("healthy", False):
+        failures.append("health check reported unhealthy status")
+
+    if failures:
+        print("=" * 60)
+        print("✗ Test failures:")
+        for failure in failures:
+            print(f"  - {failure}")
+        print("=" * 60)
+        return False
     
     print("=" * 60)
     print("✓ All tests passed! System is functional.")

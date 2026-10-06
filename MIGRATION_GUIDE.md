@@ -11,10 +11,10 @@
 - **Silent failures**: System appeared healthy but produced garbage results
 
 ### ✅ AFTER (Current - Restored State)
-- **1 entry point**: `main.py` - that's it!
+- **Primary startup path**: `main.py` for unified runtime startup
 - **Custom NLP**: Built-in tokenizer, embedder, and parser
-- **No external AI deps**: No PyTorch, no Transformers, no conda
-- **Truly autonomous**: Works with just Python standard library + Flask
+- **No external AI model deps**: No PyTorch or Transformers required by `nlp_core.py`
+- **Truly autonomous NLP core**: Works without model downloads
 - **Clear operation**: System works correctly or fails with clear errors
 
 ---
@@ -139,7 +139,7 @@ These files still exist but are **no longer recommended**:
 - ❌ `nlp_engine/nlp_service.py` - Old fallback-mode NLP
 - ❌ `frontend/*` - Electron UI (optional, not core system)
 
-**Use `main.py` instead** - single, clean entry point.
+**Use `main.py` instead** as the primary, unified startup path.
 
 ---
 
@@ -160,7 +160,7 @@ These files still exist but are **no longer recommended**:
 - ❌ torch>=2.0.0
 - ❌ transformers>=4.30.0
 - ❌ sentence-transformers>=2.2.0
-- ❌ All conda environment files
+- ⚠️ Conda environment files and conda-backed modules still exist in the repository for legacy paths
 
 ### Kept Dependencies
 - ✓ flask (for API server)

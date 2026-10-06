@@ -79,7 +79,7 @@ href="https://github.com/statikfintechllc/GremlinGPT">
 >
 > All Housed [Here](https://statikfintechllc.github.io/Ascend-Institute/)
 
-### Quick Start (Simplified Single Entry Point)
+### Quick Start (Simplified Primary Entry Point)
 
 **🚀 *Quick Start Commands:***
 
@@ -193,7 +193,7 @@ pip install -r requirements-core.txt
 python3 main.py
 ```
 
-**That's it!** The system now has a single entry point with no conda complexity.
+**That's it!** The system now has a primary startup path (`main.py`) with no conda complexity.
 
 ## Running GremlinGPT
 
@@ -203,8 +203,8 @@ python3 main.py
 python3 main.py
 ```
 
-This single command:
-- Initializes the NLP engine with real transformers (no fallback)
+This command:
+- Initializes the custom NLP core (no transformer fallback)
 - Starts the core orchestrator and FSM
 - Initializes memory systems
 - Starts the agent coordinator
@@ -238,13 +238,14 @@ Once in the CLI:
 
 ## System Requirements
 
-- **Python 3.8+** (no external ML libraries required)
+- **Python 3.8+**
 - **4GB+ RAM** recommended
 - **Linux/macOS/Windows** with Python support
 
 **Core Dependencies:**
 - Flask 2.3+ (for API server)
-- Standard Python libraries only
+- Flask-SocketIO and Eventlet (backend websocket/async support)
+- Loguru, PyYAML, psutil, and other project modules in `requirements-core.txt`
 
 **Custom Implementations:**
 - Custom tokenizer (no HuggingFace needed)
@@ -260,7 +261,7 @@ The system is truly autonomous with no external AI dependencies.
 3. **Use the CLI** to interact with GremlinGPT
 4. **Type commands** like `status`, `help`, or chat naturally
 
-**Single Entry Point:** Everything starts from `main.py` - no confusion, no multiple paths.
+**Primary Entry Point:** Start with `main.py` for the unified runtime path.
 
 ## Available Commands
 
@@ -279,9 +280,9 @@ The NLP engine understands natural language, so you can also just type commands 
 
 ## System Architecture
 
-GremlinGPT is now a unified system with a single entry point (`main.py`):
+GremlinGPT is now a unified system with `main.py` as the primary startup path:
 
-- **NLP Core** - Real transformer models (no fallback degradation)
+- **NLP Core** - Custom tokenizer/embedder/parser implementation
 - **Core Orchestrator** - Main system coordination
 - **Memory Manager** - Knowledge storage and retrieval
 - **Agent Coordinator** - Multi-agent management

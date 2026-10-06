@@ -4,8 +4,8 @@
 GremlinGPT v1.0.3 - Main Entry Point
 Autonomous, Self-Referential Cognitive System
 
-This is the SINGLE entry point for the entire GremlinGPT system.
-All components are initialized and managed from here.
+This is the primary entry point for the GremlinGPT runtime.
+Core components are initialized and managed from here.
 
 Usage:
     python3 main.py              # Start full system
@@ -17,6 +17,7 @@ import sys
 import os
 import argparse
 import logging
+import asyncio
 from pathlib import Path
 
 # Set up base paths
@@ -43,12 +44,14 @@ class GremlinGPT:
         self.data_dir = BASE_DIR / 'data'
         self.log_dir = self.data_dir / 'logs'
         self.components = {}
+        self.backend_server = None
+        self.backend_thread = None
         
         # Ensure directories exist
         self.log_dir.mkdir(parents=True, exist_ok=True)
         
     def initialize_nlp(self):
-        """Initialize NLP engine with proper transformers (no fallback)"""
+        """Initialize custom NLP core (no external model dependencies)."""
         logger.info("Initializing NLP engine...")
         
         try:
@@ -69,9 +72,9 @@ class GremlinGPT:
         logger.info("Initializing core orchestrator...")
         
         try:
-            from core.orchestrator import Orchestrator
+            from core.orchestrator import initialize_orchestrator
             
-            self.components['orchestrator'] = Orchestrator()
+            self.components['orchestrator'] = initialize_orchestrator()
             logger.info("✓ Core orchestrator initialized")
             return True
             
@@ -84,9 +87,9 @@ class GremlinGPT:
         logger.info("Initializing memory systems...")
         
         try:
-            from memory.memory_manager import MemoryManager
+            from memory import log_history
             
-            self.components['memory'] = MemoryManager()
+            self.components['memory'] = log_history
             logger.info("✓ Memory systems initialized")
             return True
             
@@ -102,12 +105,40 @@ class GremlinGPT:
             from agents.agent_coordinator import AgentCoordinator
             
             self.components['agents'] = AgentCoordinator()
+            self._run_async(self.components['agents'].initialize_agents())
             logger.info("✓ Agents initialized")
             return True
             
         except Exception as e:
             logger.error(f"✗ Failed to initialize agents: {e}")
             return False
+
+    def _run_async(self, coroutine):
+        """Run async coroutine from sync code."""
+        try:
+            loop = asyncio.get_running_loop()
+            future = asyncio.run_coroutine_threadsafe(coroutine, loop)
+            return future.result()
+        except RuntimeError:
+            return asyncio.run(coroutine)
+
+    def start_components(self):
+        """Start managed components."""
+        orchestrator = self.components.get('orchestrator')
+        if orchestrator is not None and not getattr(orchestrator, 'running', False):
+            self._run_async(orchestrator.start())
+        return True
+
+    def stop_components(self):
+        """Stop managed components."""
+        orchestrator = self.components.get('orchestrator')
+        if orchestrator is not None and getattr(orchestrator, 'running', False):
+            self._run_async(orchestrator.stop())
+
+        agents = self.components.get('agents')
+        if agents is not None and hasattr(agents, 'thread_pool'):
+            agents.thread_pool.shutdown(wait=True)
+        return True
     
     def start_cli(self):
         """Start CLI interface"""
@@ -134,6 +165,7 @@ class GremlinGPT:
                 
                 if user_input.lower() in ('exit', 'quit'):
                     logger.info("Exiting CLI...")
+                    self.shutdown()
                     break
                 
                 # Parse command using NLP
@@ -148,11 +180,11 @@ class GremlinGPT:
                     elif intent == 'status':
                         self.show_status()
                     elif intent == 'start':
-                        print("🤖 Starting system components...")
-                        # TODO: Implement component starting
+                        self.start_components()
+                        print("🤖 System components started.")
                     elif intent == 'stop':
-                        print("🤖 Stopping system components...")
-                        # TODO: Implement component stopping
+                        self.stop_components()
+                        print("🤖 System components stopped.")
                     else:
                         # Treat as chat message
                         print(f"🤖 GremlinGPT: Processing: {user_input}")
@@ -162,9 +194,11 @@ class GremlinGPT:
                     
             except KeyboardInterrupt:
                 print("\n\nKeyboard interrupt detected. Exiting...")
+                self.shutdown()
                 break
             except EOFError:
                 print("\n\nEOF detected. Exiting...")
+                self.shutdown()
                 break
             except Exception as e:
                 logger.error(f"Error in CLI: {e}")
@@ -175,21 +209,32 @@ class GremlinGPT:
         logger.info("Starting backend API server...")
         
         try:
-            from backend.server import create_app
-            
-            app = create_app(self.components)
-            # Backend will run in separate thread
             import threading
-            backend_thread = threading.Thread(
-                target=lambda: app.run(host='0.0.0.0', port=8080),
-                daemon=True
-            )
-            backend_thread.start()
+            from werkzeug.serving import make_server
+            from backend.server import app
+            
+            self.backend_server = make_server('127.0.0.1', 8080, app)
+            self.backend_thread = threading.Thread(target=self.backend_server.serve_forever, daemon=True)
+            self.backend_thread.start()
             logger.info("✓ Backend server started on port 8080")
             
         except Exception as e:
             logger.error(f"✗ Failed to start backend: {e}")
             raise
+
+    def stop_backend(self):
+        """Stop backend API server."""
+        if self.backend_server is not None:
+            self.backend_server.shutdown()
+            self.backend_server = None
+        if self.backend_thread is not None:
+            self.backend_thread.join(timeout=5)
+            self.backend_thread = None
+
+    def shutdown(self):
+        """Gracefully shut down all initialized components."""
+        self.stop_backend()
+        self.stop_components()
     
     def run_full_system(self):
         """Start all system components"""
@@ -210,7 +255,8 @@ class GremlinGPT:
         if not self.initialize_agents():
             sys.exit(1)
         
-        # Start services
+        # Start managed runtime components and services
+        self.start_components()
         self.start_backend()
         
         logger.info("=" * 60)
@@ -229,11 +275,11 @@ class GremlinGPT:
         
         # Check if components are running
         status = {
-            'NLP Engine': 'Unknown',
-            'Core Orchestrator': 'Unknown',
-            'Memory Systems': 'Unknown',
-            'Agents': 'Unknown',
-            'Backend API': 'Unknown'
+            'NLP Engine': 'Ready' if 'nlp' in self.components else 'Not initialized',
+            'Core Orchestrator': 'Running' if getattr(self.components.get('orchestrator'), 'running', False) else ('Ready' if 'orchestrator' in self.components else 'Not initialized'),
+            'Memory Systems': 'Ready' if 'memory' in self.components else 'Not initialized',
+            'Agents': 'Ready' if getattr(self.components.get('agents'), 'agents', None) else ('Not initialized' if 'agents' not in self.components else 'Degraded'),
+            'Backend API': 'Running' if self.backend_thread is not None and self.backend_thread.is_alive() else 'Stopped'
         }
         
         # Try to ping each component

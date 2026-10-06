@@ -12,6 +12,7 @@ Built for autonomous operation.
 import logging
 import re
 import math
+import hashlib
 from pathlib import Path
 from typing import List, Dict, Any, Optional
 from collections import Counter
@@ -35,13 +36,15 @@ class CustomTokenizer:
         self.reverse_vocab = {v: k for k, v in self.vocab.items()}
         self.vocab_size = len(self.vocab)
     
-    def tokenize(self, text: str) -> List[str]:
+    def tokenize(self, text: str, preserve_case: bool = False) -> List[str]:
         """Tokenize text into words and subwords"""
         if not text:
             return []
         
         # Clean text
-        text = text.lower().strip()
+        text = text.strip()
+        if not preserve_case:
+            text = text.lower()
         
         # Split on whitespace and punctuation
         tokens = re.findall(r'\b\w+\b|[^\w\s]', text)
@@ -82,14 +85,27 @@ class CustomEmbedder:
     def __init__(self, dimension: int = 384):
         self.dimension = dimension
         self.word_vectors = {}
+        self.semantic_groups = {
+            "hello": {"hello", "hi", "hey", "greetings"},
+            "start": {"start", "begin", "launch", "run", "boot", "init"},
+            "stop": {"stop", "halt", "terminate", "end", "shutdown", "kill"},
+        }
+    
+    def _normalize_word(self, word: str) -> str:
+        word = word.lower()
+        for canonical, variants in self.semantic_groups.items():
+            if word in variants:
+                return canonical
+        return word
     
     def _hash_word(self, word: str) -> List[float]:
         """Generate deterministic embedding from word using hashing"""
         # Use multiple hash functions to create embedding
         vector = []
         for i in range(self.dimension):
-            # Simple hash-based pseudo-random generation
-            hash_val = hash((word, i)) % 1000000
+            digest = hashlib.sha256(f"{word}:{i}".encode("utf-8")).digest()
+            hash_val = int.from_bytes(digest[:8], byteorder="big", signed=False)
+            hash_val %= 1000000
             # Normalize to [-1, 1]
             val = (hash_val / 500000.0) - 1.0
             vector.append(val)
@@ -107,7 +123,7 @@ class CustomEmbedder:
             return [0.0] * self.dimension
         
         # Tokenize
-        words = text.lower().split()
+        words = [self._normalize_word(word) for word in text.lower().split()]
         
         if not words:
             return [0.0] * self.dimension
@@ -232,13 +248,14 @@ class NLPCore:
         Returns:
             Parsed command structure
         """
-        text = text.strip().lower()
+        text = text.strip()
+        normalized_text = text.lower()
         
         # Basic command parsing
         result = {
             'original': text,
             'tokens': self.tokenize(text),
-            'intent': self._extract_intent(text),
+            'intent': self._extract_intent(normalized_text),
             'entities': self._extract_entities(text)
         }
         
@@ -246,21 +263,22 @@ class NLPCore:
     
     def _extract_intent(self, text: str) -> str:
         """Extract command intent"""
-        text_lower = text.lower()
+        tokens = self.tokenize(text)
+        token_set = set(tokens)
         
         # Intent keywords mapping
         intent_patterns = {
             'start': ['start', 'begin', 'launch', 'run', 'boot', 'init'],
             'stop': ['stop', 'halt', 'terminate', 'end', 'shutdown', 'kill'],
             'status': ['status', 'health', 'check', 'info', 'state'],
-            'help': ['help', 'assist', 'guide', 'how', 'what', 'explain'],
+            'help': ['help', 'assist', 'guide', 'explain'],
             'restart': ['restart', 'reboot', 'reload'],
             'config': ['config', 'configure', 'settings', 'setup'],
         }
         
         # Check for intent patterns
         for intent, keywords in intent_patterns.items():
-            if any(keyword in text_lower for keyword in keywords):
+            if any(keyword in token_set for keyword in keywords):
                 return intent
         
         # Default to chat/query
@@ -268,7 +286,7 @@ class NLPCore:
     
     def _extract_entities(self, text: str) -> List[str]:
         """Extract entities from text"""
-        tokens = self.tokenizer.tokenize(text)
+        tokens = self.tokenizer.tokenize(text, preserve_case=True)
         
         # Simple entity extraction - capitalized words, quoted strings, etc.
         entities = []
